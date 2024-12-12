@@ -18625,6 +18625,29 @@ function viewRoute(ref) {
         }
     }
 
+    if (noteRoutes[0].includes(routeNoI)) {
+        displayNote(buildMessage(noteRoutes[1][noteRoutes[0].indexOf(routeNoI)]));
+    }
+
+}
+
+let routeNote = getId('routeNote');
+let noteMSG = getId('noteMSG');
+
+function displayNote(msg) {
+    routeNote.classList.remove('hide');
+    noteMSG.innerHTML = msg;
+}
+function buildMessage(indication) {
+    let msg;
+    if (indication == "TNS")
+        msg = "This route has been terminated by TGSRTC long ago. We are not sure if this service is running or not.";
+    else if (indication == "TS")
+        msg = "This route has been terminated by TGSRTC long ago. This bus route is not in service right now";
+    else
+        msg = "We are working on this part of our app. We will get back to you soon. Please try again later";
+
+    return msg;
 }
 
 function setRouteHeader(routeNoI) {
