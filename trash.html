@@ -1,0 +1,185 @@
+<ul class="routeStopsListOutputScreen hide">
+
+    <li class="source">
+        <div class="graphic centerCol">
+            <span class="circle centerCol">1</span>
+        </div>
+        <div class="text">
+            <h3>SECUNDERABAD</h3>
+            <p>Blue Sea Hotel</p>
+        </div>
+    </li>
+    <li class="line">
+    </li>
+
+    <li>
+        <div class="graphic centerCol">
+            <span class="circle centerCol">2</span>
+        </div>
+        <div class="text">
+            <h3>ALUGADDA BHAVI</h3>
+            <p>Secunderabad</p>
+        </div>
+    </li>
+    <li class="line">
+    </li>
+
+    <li>
+        <div class="graphic centerCol">
+            <span class="circle centerCol">3</span>
+        </div>
+        <div class="text">
+            <h3>METTUGUDA</h3>
+            <p>Metro Station</p>
+        </div>
+    </li>
+    <li class="line">
+    </li>
+
+    <li>
+        <div class="graphic centerCol">
+            <span class="circle centerCol">4</span>
+        </div>
+        <div class="text">
+            <h3>TARNAKA</h3>
+            <p>Ganesh Temple</p>
+        </div>
+    </li>
+    <li class="line">
+    </li>
+
+    <li class="destination">
+        <div class="graphic centerCol">
+            <span class="circle centerCol">5</span>
+        </div>
+        <div class="text">
+            <h3>LALAPET</h3>
+            <p>Shanthi Nagar Road</p>
+        </div>
+    </li>
+</ul>
+
+<script>
+    // --> VIKRAMPURI - HANUMAN TEMPLE (--> <--)
+    altRouteSetter(4, getStops(KTGD_LGRH, 'AUTO NAGAR', 'SUSHMA THEATER'), getStops(MNBD_SRPT, 'VIKRAMPURI', 'HANUMAN TEMPLE'), ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "290U, 290UF", "Go to Gurudwarda Bus Stop by walk.", "22, 22D, 23B, 23T, 24B, 25A, 25S, 211M, 212, 568"]);
+
+    altRouteSetter(4, getStops(MNBD_SRPT, 'VIKRAMPURI', 'HANUMAN TEMPLE'), getStops(LGRH_KTGD, 'SUSHMA THEATER', 'AUTO NAGAR'), ["SEWD_S", "JBS", "ROUTE NO. 90 STOP", "", "22, 22D, 23B, 23T, 24B, 25A, 25S, 211M, 212, 568", "Walk to the JBS Bus stop where buses like Route No. 90L,290 Stops.", "290U, 290UF"]);
+
+    // --> TIRUMALAGIRI - LAL BAZAR (--> <--)
+    altRouteSetter(4, getStops(KTGD_LGRH, 'AUTO NAGAR', 'SUSHMA THEATER'), getStops(MNBD_SRPT, 'TIRUMALAGIRI', 'LAL BAZAR'), ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "290U, 290UF", "Go to Gurudwarda Bus Stop by walk.", "22, 22D, 23T, 24B, 25A, 25S, 211M, 212, 568"]);
+
+    altRouteSetter(4, getStops(MNBD_SRPT, 'TIRUMALAGIRI', 'LAL BAZAR'), getStops(LGRH_KTGD, 'SUSHMA THEATER', 'AUTO NAGAR'), ["SEWD_S", "JBS", "ROUTE NO. 90 STOP", "", "22, 22D, 23T, 24B, 25A, 25S, 211M, 212, 568", "Walk to the JBS Bus stop where buses like Route No. 90L,290 Stops.", "290U, 290UF"]);
+
+    // --> LOTHKUNTA (--> <--)
+    altRouteSetter(4, getStops(KTGD_LGRH, 'AUTO NAGAR', 'SUSHMA THEATER'), ['LOTHKUNTA'], ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "290U, 290UF", "Go to Gurudwarda Bus Stop by walk.", "22, 22D, 25A, 25S, 211M, 212, 568"]);
+
+    altRouteSetter(4, ['LOTHKUNTA'], getStops(LGRH_KTGD, 'SUSHMA THEATER', 'AUTO NAGAR'), ["SEWD_S", "JBS", "ROUTE NO. 90 STOP", "", "22, 22D, 25A, 25S, 211M, 212, 568", "Walk to the JBS Bus stop where buses like Route No. 90L,290 Stops.", "290U, 290UF"]);
+
+    // --> ALWAL (--> <--)
+    altRouteSetter(4, getStops(KTGD_LGRH, 'AUTO NAGAR', 'SUSHMA THEATER'), ['ALWAL'], ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "290U, 290UF", "Go to Gurudwarda Bus Stop by walk.", "22, 22D, 25A, 25S, 212, 568"]);
+
+    altRouteSetter(4, ['ALWAL'], getStops(LGRH_KTGD, 'SUSHMA THEATER', 'AUTO NAGAR'), ["SEWD_S", "JBS", "ROUTE NO. 90 STOP", "", "22, 22D, 25A, 25S, 212, 568", "Walk to the JBS Bus stop where buses like Route No. 90L,290 Stops.", "290U, 290UF"]);
+
+    // --> ALWAL RYTHU BAZAR - LAKADAWALA (--> <--)
+    altRouteSetter(4, getStops(KTGD_LGRH, 'AUTO NAGAR', 'SUSHMA THEATER'), getStops(MNBD_SRPT, 'ALWAL RYTHU BAZAR', 'LAKADAWALA'), ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "290U, 290UF", "Go to Gurudwarda Bus Stop by walk.", "22, 22D, 211B, 211DY, 212, 568"]);
+
+    altRouteSetter(4, getStops(MNBD_SRPT, 'ALWAL RYTHU BAZAR', 'LAKADAWALA'), getStops(LGRH_KTGD, 'SUSHMA THEATER', 'AUTO NAGAR'), ["SEWD_S", "JBS", "ROUTE NO. 90 STOP", "", "22, 22D, 211B, 211DY, 212, 568", "Walk to the JBS Bus stop where buses like Route No. 90L,290 Stops.", "290U, 290UF"]);
+
+    // --> BOLLARUM - RISALA BAZAR (--> <--)
+    altRouteSetter(4, getStops(KTGD_LGRH, 'AUTO NAGAR', 'SUSHMA THEATER'), getStops(MNBD_SRPT, 'BOLLARUM', 'RISALA BAZAR'), ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "290U, 290UF", "Go to Gurudwarda Bus Stop by walk.", "22, 22D, 211B, 211DY"]);
+
+    altRouteSetter(4, getStops(MNBD_SRPT, 'BOLLARUM', 'RISALA BAZAR'), getStops(LGRH_KTGD, 'SUSHMA THEATER', 'AUTO NAGAR'), ["SEWD_S", "JBS", "ROUTE NO. 90 STOP", "", "22, 22D, 211B, 211DY", "Walk to the JBS Bus stop where buses like Route No. 90L,290 Stops.", "290U, 290UF"]);
+
+    // --> KOWKOOR X ROADS (--> <--)
+    altRouteSetter(4, getStops(KTGD_LGRH, 'AUTO NAGAR', 'SUSHMA THEATER'), ['KOWKOOR X ROADS'], ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "290U, 290UF", "Go to Gurudwarda Bus Stop by walk.", "22, 22D, 211B, 211DY, 212, 568"]);
+
+    altRouteSetter(4, ['KOWKOOR X ROADS'], getStops(LGRH_KTGD, 'SUSHMA THEATER', 'AUTO NAGAR'), ["SEWD_S", "JBS", "ROUTE NO. 90 STOP", "", "22, 22D, 211B, 211DY, 212, 568", "Walk to the JBS Bus stop where buses like Route No. 90L,290 Stops.", "290U, 290UF"]);
+
+    // --> HAKIMPET (--> <--)
+    altRouteSetter(4, getStops(KTGD_LGRH, 'AUTO NAGAR', 'SUSHMA THEATER'), ['HAKIMPET'], ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "290U, 290UF", "Go to Gurudwarda Bus Stop by walk.", "22, 211, 211DY, 212, 568"]);
+
+    altRouteSetter(4, ['HAKIMPET'], getStops(LGRH_KTGD, 'SUSHMA THEATER', 'AUTO NAGAR'), ["SEWD_S", "JBS", "ROUTE NO. 90 STOP", "", "22, 211, 211DY, 212, 568", "Walk to the JBS Bus stop where buses like Route No. 90L,290 Stops.", "290U, 290UF"]);
+
+    // --> THUMKUNTA (--> <--)
+    altRouteSetter(4, getStops(KTGD_LGRH, 'AUTO NAGAR', 'SUSHMA THEATER'), ['THUMKUNTA'], ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "290U, 290UF", "Go to Gurudwarda Bus Stop by walk.", "211, 211DY, 212, 568"]);
+
+    altRouteSetter(4, ['THUMKUNTA'], getStops(LGRH_KTGD, 'SUSHMA THEATER', 'AUTO NAGAR'), ["SEWD_S", "JBS", "ROUTE NO. 90 STOP", "", "211, 211DY, 212, 568", "Walk to the JBS Bus stop where buses like Route No. 90L,290 Stops.", "290U, 290UF"]);
+
+    // --> THUMKUNTA AUTO STAND (--> <--)
+    altRouteSetter(4, getStops(KTGD_LGRH, 'AUTO NAGAR', 'SUSHMA THEATER'), ['THUMKUNTA AUTO STAND'], ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "290U, 290UF", "Go to Gurudwarda Bus Stop by walk.", "211B, 212, 568"]);
+
+    altRouteSetter(4, ['THUMKUNTA AUTO STAND'], getStops(LGRH_KTGD, 'SUSHMA THEATER', 'AUTO NAGAR'), ["SEWD_S", "JBS", "ROUTE NO. 90 STOP", "", "211B, 212, 568", "Walk to the JBS Bus stop where buses like Route No. 90L,290 Stops.", "290U, 290UF"]);
+
+    // --> DONGALAMYSAMMA X ROADS (--> <--)
+    altRouteSetter(4, getStops(KTGD_LGRH, 'AUTO NAGAR', 'SUSHMA THEATER'), ['DONGALAMYSAMMA X ROADS'], ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "290U, 290UF", "Go to Gurudwarda Bus Stop by walk.", "211B, 212, 568"]);
+
+    altRouteSetter(4, ['DONGALAMYSAMMA X ROADS'], getStops(LGRH_KTGD, 'SUSHMA THEATER', 'AUTO NAGAR'), ["SEWD_S", "JBS", "ROUTE NO. 90 STOP", "", "211B, 212, 568", "Walk to the JBS Bus stop where buses like Route No. 90L,290 Stops.", "290U, 290UF"]);
+
+    // --> SHAH MEER DARGAH - SHAMIRPET (--> <--)
+    altRouteSetter(4, getStops(KTGD_LGRH, 'AUTO NAGAR', 'SUSHMA THEATER'), getStops(MNBD_SRPT, 'SHAH MEER DARGAH', 'SHAMIRPET'), ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "290U, 290UF", "Go to Gurudwarda Bus Stop by walk.", "211B, 568"]);
+
+    altRouteSetter(4, getStops(MNBD_SRPT, 'SHAH MEER DARGAH', 'SHAMIRPET'), getStops(LGRH_KTGD, 'SUSHMA THEATER', 'AUTO NAGAR'), ["SEWD_S", "JBS", "ROUTE NO. 90 STOP", "", "211B, 568", "Walk to the JBS Bus stop where buses like Route No. 90L,290 Stops.", "290U, 290UF"]);
+
+    // --> MB DARGAH ROAD (--> <--)
+    altRouteSetter(4, getStops(KTGD_LGRH, 'AUTO NAGAR', 'SUSHMA THEATER'), [SHD[10], SHD[14], SHD[612]], ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "290U, 290UF", "Go to Gurudwarda Bus Stop by walk.", "22D"]);
+
+    altRouteSetter(4, [SHD[10], SHD[14], SHD[612]], getStops(LGRH_KTGD, 'SUSHMA THEATER', 'AUTO NAGAR'), ["SEWD_S", "JBS", "ROUTE NO. 90 STOP", "", "22D", "Walk to the JBS Bus stop where buses like Route No. 90L,290 Stops.", "290U, 290UF"]);
+
+    // --> KOWKOOR (--> <--)
+    altRouteSetter(4, getStops(KTGD_LGRH, 'AUTO NAGAR', 'SUSHMA THEATER'), ['KOWKOOR'], ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "290U, 290UF", "Go to Gurudwarda Bus Stop by walk.", "22D, 22K"]);
+
+    altRouteSetter(4, ['KOWKOOR'], getStops(LGRH_KTGD, 'SUSHMA THEATER', 'AUTO NAGAR'), ["SEWD_S", "JBS", "ROUTE NO. 90 STOP", "", "22D, 22K", "Walk to the JBS Bus stop where buses like Route No. 90L,290 Stops.", "290U, 290UF"]);
+
+    // --> RAJIV GRUHAKALPA - KOWKOOR (--> <--)
+    altRouteSetter(4, getStops(KTGD_LGRH, 'AUTO NAGAR', 'SUSHMA THEATER'), [SHD[134], SHD[169]], ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "290U, 290UF", "Go to Gurudwarda Bus Stop by walk.", "22K"]);
+
+    altRouteSetter(4, [SHD[134], SHD[169]], getStops(LGRH_KTGD, 'SUSHMA THEATER', 'AUTO NAGAR'), ["SEWD_S", "JBS", "ROUTE NO. 90 STOP", "", "22K", "Walk to the JBS Bus stop where buses like Route No. 90L,290 Stops.", "290U, 290UF"]);
+
+    // --> ALWAL POLICE STATION - IG STATUE (--> <--)
+    altRouteSetter(4, getStops(KTGD_LGRH, 'AUTO NAGAR', 'SUSHMA THEATER'), getStops(GTKS_KPHB, 'ALWAL POLICE STATION', 'IG STATUE'), ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "290U, 290UF", "Go to Gurudwarda Bus Stop by walk.", "25A, 25M, 25S, 25S/229"]);
+
+    altRouteSetter(4, getStops(GTKS_KPHB, 'ALWAL POLICE STATION', 'IG STATUE'), getStops(LGRH_KTGD, 'SUSHMA THEATER', 'AUTO NAGAR'), ["SEWD_S", "JBS", "ROUTE NO. 90 STOP", "", "25A, 25M, 25S, 25S/229", "Walk to the JBS Bus stop where buses like Route No. 90L,290 Stops.", "290U, 290UF"]);
+
+    // --> FATHER BALAYA NAGAR - DR. NARAYANA COLLEGE (--> <--)
+    altRouteSetter(4, getStops(KTGD_LGRH, 'AUTO NAGAR', 'SUSHMA THEATER'), getStops(GTKS_KPHB, 'FATHER BALAYA NAGAR', 'DR. NARAYANA COLLEGE'), ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "290U, 290UF", "Go to Gurudwarda Bus Stop by walk.", "1/25S, 1/25S/229, 25S, 25S/229"]);
+
+    altRouteSetter(4, getStops(GTKS_KPHB, 'FATHER BALAYA NAGAR', 'DR. NARAYANA COLLEGE'), getStops(LGRH_KTGD, 'SUSHMA THEATER', 'AUTO NAGAR'), ["SEWD_S", "JBS", "ROUTE NO. 90 STOP", "", "1/25S, 1/25S/229, 25S, 25S/229", "Walk to the JBS Bus stop where buses like Route No. 90L,290 Stops.", "290U, 290UF"]);
+
+    // --> LOYALA ACADEMY (--> <--)
+    altRouteSetter(4, getStops(KTGD_LGRH, 'AUTO NAGAR', 'SUSHMA THEATER'), ['LOYALA ACADEMY'], ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "290U, 290UF", "Go to Gurudwarda Bus Stop by walk.", "23BS, 23GS, 25S, 25S/229"]);
+
+    altRouteSetter(4, ['LOYALA ACADEMY'], getStops(LGRH_KTGD, 'SUSHMA THEATER', 'AUTO NAGAR'), ["SEWD_S", "JBS", "ROUTE NO. 90 STOP", "", "23BS, 23GS, 25S, 25S/229", "Walk to the JBS Bus stop where buses like Route No. 90L,290 Stops.", "290U, 290UF"]);
+
+
+
+
+
+
+
+
+
+    // MEHDIPATNAM SIDE FORMAT
+
+    altRouteSetter(4, getStops(MNBD_SRPT, 'BIBLE HOUSE', 'CLOCK TOWER'), getStops(GWRL_HCLX, 'NEW BRIDGE', 'LALAGUDA'), ["SEWD_S", "SEC'BAD", "MOTHER TERESA ST.", "BLUE SEA", "5K, 8A", "Cross the road & walk to Blue Sea Hotel Bus stop.", "14P, 15H, 16A, 16C, 16CR, 16H"]);
+
+    altRouteSetter(4, ['BOATS CLUB'], getStops(GWRL_HCLX, 'NEW BRIDGE', 'LALAGUDA'), ["SEWD_S", "SEC'BAD", "MOTHER TERESA ST.", "BLUE SEA", "5K, 8A", "Cross the road & walk to Blue Sea Hotel Bus stop.", "14P, 15H, 16A, 16C, 16CR, 16H"]);
+
+    altRouteSetter(4, ['TANK BUND'], getStops(GWRL_HCLX, 'NEW BRIDGE', 'LALAGUDA'), ["SEWD_S", "SEC'BAD", "MOTHER TERESA ST.", "BLUE SEA", "5K, 7Z, 8A, 8C", "Cross the road & walk to Blue Sea Hotel Bus stop.", "14P, 15H, 16A, 16C, 16CR, 16H"]);
+
+    altRouteSetter(4, ['SECRETARIATE'], getStops(GWRL_HCLX, 'NEW BRIDGE', 'LALAGUDA'), ["SEWD_S", "SEC'BAD", "MOTHER TERESA ST.", "BLUE SEA", "5K, 8C", "Cross the road & walk to Blue Sea Hotel Bus stop.", "14P, 15H, 16A, 16C, 16CR, 16H"]);
+
+    altRouteSetter(4, ['BIRLA MANDIR'], getStops(GWRL_HCLX, 'NEW BRIDGE', 'LALAGUDA'), ["SEWD_M", "SEC'BAD", "MOTHER TERESA ST.", "BLUE SEA", "8C", "Cross the road & walk to Blue Sea Hotel Bus stop.", "14P, 15H, 16A, 16C, 16CR, 16H", "SEC'BAD", "RETHIFILE", "BLUE SEA", "20P", "Go to Blue Sea hotel bus stop by walk.", "14P, 15H, 16A, 16C, 16CR, 16H"]);
+
+    altRouteSetter(4, ['LAKDI KA PUL'], getStops(GWRL_HCLX, 'NEW BRIDGE', 'LALAGUDA'), ["SEWD_S", "SEC'BAD", "MOTHER TERESA ST.", "BLUE SEA", "5K, 49, 49A", "Cross the road & walk to Blue Sea Hotel Bus stop.", "14P, 15H, 16A, 16C, 16CR, 16H"]);
+
+    altRouteSetter(4, ['MAHAVIR HOSPITAL'], getStops(GWRL_HCLX, 'NEW BRIDGE', 'LALAGUDA'), ["SEWD_S", "SEC'BAD", "MOTHER TERESA ST.", "BLUE SEA", "5K", "Cross the road & walk to Blue Sea Hotel Bus stop.", "14P, 15H, 16A, 16C, 16CR, 16H"]);
+
+    altRouteSetter(4, getStops(MNBD_SRPT, 'MEHDIPATNAM', 'NMDC'), getStops(GWRL_HCLX, 'NEW BRIDGE', 'LALAGUDA'), ["SEWD_S", "SEC'BAD", "MOTHER TERESA ST.", "BLUE SEA", "5K, 49M, 250/49M", "Cross the road & walk to Blue Sea Hotel Bus stop.", "14P, 15H, 16A, 16C, 16CR, 16H"]);
+</script>
+
+
+
+<script>
+
+
+</script>
