@@ -120,6 +120,9 @@ let alertBox = getId('alertBox');
 let successBox = getId('successBox');
 let contactBox = getId('contactBox');
 
+let errorBox = getId('errorBox');
+let errorMessage = getId('errorMessage');
+
 let headlineAlert = getId('headlineAlert');
 let messageAlert = getId('messageAlert');
 
@@ -18676,6 +18679,7 @@ function displayNote(msg) {
     routeNote.classList.remove('hide');
     noteMSG.innerHTML = msg;
 }
+
 function buildMessage(indication) {
     let msg;
     if (indication == "TNS")
@@ -20182,18 +20186,32 @@ function viewFromToRoute(ref, pos) {
     if (pos == 1) {
         input1.value = ref.innerHTML;
         suggessionsList.innerHTML = "";
-        // clear1.classList.add('hide');
         clear1.style.visibility = "hidden";
         if (input2.value != "") {
-            fromToFetchOutput(input1.value, input2.value);
+            if (SHD.includes(input2.value)) {
+                if (input1.value == input2.value) {
+                    openPopUpBox(4, "SAME");
+                } else {
+                    fromToFetchOutput(input1.value, input2.value);
+                }
+            } else {
+                openPopUpBox(4, "INV_D");
+            }
         }
     } else {
         input2.value = ref.innerHTML;
         suggessionsList.innerHTML = "";
-        // clear2.classList.add('hide');
         clear2.style.visibility = "hidden";
         if (input1.value != "") {
-            fromToFetchOutput(input1.value, input2.value);
+            if (SHD.includes(input1.value)) {
+                if (input1.value == input2.value) {
+                    openPopUpBox(4, "SAME");
+                } else {
+                    fromToFetchOutput(input1.value, input2.value);
+                }
+            } else {
+                openPopUpBox(4, "INV_S");
+            }
         }
     }
 }
@@ -20251,7 +20269,7 @@ function fromToFetchOutput(from, to) {
             let route = altRouteGetter(from, to);
 
             if (route == "REDIRECT") {
-                // ADD ALERT CODE
+                openPopUpBox(4, "ALTworking");
             } else {
                 OutputScreen3.classList.remove('close');
                 FromStopNameHead.innerHTML = from;
@@ -20580,8 +20598,13 @@ function alertRedirect() {
     closePopUpBox(null);
     if (feature == 5) {
         feature = 3;
-        fromToFetchOutput(input1.value, input2.value);
+        let src = input1.value;
+        let dst = input2.value;
         getId('navlink3').click();
+        input1.value = src;
+        input2.value = dst;
+        fromToFetchOutput(input1.value, input2.value);
+
     } else if (feature == 3) {
         feature = 5;
         let src = input1.value;
@@ -20602,15 +20625,34 @@ function fareChart(ref, pos) {
         // clear1.classList.add('hide');
         clear1.style.visibility = "hidden";
         if (input2.value != "") {
-            fareFetch(input1.value, input2.value);
+            if (SHD.includes(input2.value)) {
+                if (input1.value == input2.value) {
+                    openPopUpBox(4, "SAME");
+                } else {
+                    fareFetch(input1.value, input2.value);
+                }
+            } else {
+                openPopUpBox(4, "INV_D");
+            }
+        } else {
+
         }
     } else {
         input2.value = ref.innerHTML;
         suggessionsList.innerHTML = "";
-        // clear2.classList.add('hide');
         clear2.style.visibility = "hidden";
         if (input1.value != "") {
-            fareFetch(input1.value, input2.value);
+            if (SHD.includes(input1.value)) {
+                if (input1.value == input2.value) {
+                    openPopUpBox(4, "SAME");
+                } else {
+                    fareFetch(input1.value, input2.value);
+                }
+            } else {
+                openPopUpBox(4, "INV_S");
+            }
+        } else {
+
         }
     }
 }
@@ -20665,6 +20707,7 @@ function displayList(filteredArray, input) {
         } else if (feature == 4) {
             if (input == "input1") {
                 listItem.setAttribute('onclick', 'fareChart(this,1)');
+                suggessionsList.style.marginTop = "0px";
             } else if (input == "input2") {
                 listItem.setAttribute('onclick', 'fareChart(this,2)');
                 suggessionsList.style.marginTop = "60px";
@@ -20715,9 +20758,33 @@ function swapInputValues() {
     input2.value = temp;
     if (input1.value != "" && input2.value != "") {
         if (feature == 3 || feature == 5) {
-            fromToFetchOutput(input1.value, input2.value);
+            if (input1.value == input2.value) {
+                openPopUpBox(4, "SAME");
+            } else {
+                if (SHD.includes(input1.value) && SHD.includes(input2.value)) {
+                    fromToFetchOutput(input1.value, input2.value);
+                } else {
+                    if (!(SHD.includes(input1))) {
+                        openPopUpBox(4, "INV_S");
+                    } else if (!(SHD.includes(input2))) {
+                        openPopUpBox(4, "INV_D");
+                    }
+                }
+            }
         } else if (feature == 4) {
-            fareFetch(input1.value, input2.value);
+            if (input1.value == input2.value) {
+                openPopUpBox(4, "SAME");
+            } else {
+                if (SHD.includes(input1.value) && SHD.includes(input2.value)) {
+                    fareFetch(input1.value, input2.value);
+                } else {
+                    if (!(SHD.includes(input1))) {
+                        openPopUpBox(4, "INV_S");
+                    } else if (!(SHD.includes(input2))) {
+                        openPopUpBox(4, "INV_D");
+                    }
+                }
+            }
         }
     }
 }
@@ -20809,6 +20876,8 @@ function openPopUpBox(type, message) {
     alertBox.classList.add('hide');
     contactBox.classList.add('hide');
     successBox.classList.add('hide');
+    errorBox.classList.add('hide');
+
     if (type == 1) {
         alertBox.classList.remove('hide');
         if (message == "DA") {
@@ -20820,6 +20889,17 @@ function openPopUpBox(type, message) {
         successBox.classList.remove('hide');
     } else if (type == 3) {
         contactBox.classList.remove('hide');
+    } else if (type == 4) {
+        errorBox.classList.remove('hide');
+        if (message == "SAME") {
+            errorMessage.innerHTML = "Source and Destination cannot be the same.";
+        } else if (message == "ALTworking") {
+            errorMessage.innerHTML = "We’re working on adding this route. Please try again soon.";
+        } else if (message == "INV_S") {
+            errorMessage.innerHTML = "Your are travelling from invalid place, kindly choose it from our list.";
+        } else if (message == "INV_D") {
+            errorMessage.innerHTML = "Your are travelling to invalid place, kindly choose it from our list.";
+        }
     }
 }
 
