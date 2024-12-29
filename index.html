@@ -769,8 +769,21 @@
                 <button class="active">Send</button>
             </div>
         </div>
+
+        <!-- ERROR BOX -->
+        <div class="alertBox centerCol hide" id="errorBox">
+            <div class="content centerCol">
+                <img src="images/icons/oops_Red.png" alt="icon">
+                <h3>OOPS!</h3>
+                <p id="errorMessage"></p>
+            </div>
+            <div class="actionBtns centerRow">
+                <button class="active single" onclick="closePopUpBox(this)" id="successCloseBtn">Dismiss</button>
+            </div>
+        </div>
     </div>
 
+    <!-- OTHER SECTION SCREEN -->
     <div class="OutputScreen otherSectionsScreen close" id="otherSectionsScreen">
         <h2 class="headerOS centerRow">
             <li class="menuIcon centerRow" onclick="closeOutputScreen(this)" id="otherSectionsCloseBtn">
@@ -852,7 +865,8 @@
                 <h3>3. Metro Deluxe Pass</h3>
                 <img src="images/photos/metroDlx.jpg" alt="busPic">
                 <p>The Metro Delue Pass allows unlimited travel in <strong>Metro Deluxe, Metro Express, City ordinary
-                        buses & all Non-AC Electric city bus services</strong>. Metro Deluxe buses offer a more comfortable
+                        buses & all Non-AC Electric city bus services</strong>. Metro Deluxe buses offer a more
+                    comfortable
                     and premium travel experience, often featuring better seating. It is available to the general public
                     at
                     <strong>1450/- per month,</strong>
@@ -868,7 +882,8 @@
                     allows
                     unlimited travel
                     in all the Non
-                    AC buses like City Ordinary, e-City Ordinary, Metro Express and e-Metro Express within the city and its suburban Limits,
+                    AC buses like City Ordinary, e-City Ordinary, Metro Express and e-Metro Express within the city and
+                    its suburban Limits,
                     but It is not valid in Metro Deluxe & AC City Bus Services.<br><strong><span
                             class="bulletPoint">&#8658;</span>
                         The AC T24 Pass</strong> allows unlimited travel in the AC city bus services and also in all the
@@ -908,6 +923,11 @@
         <div class="moreAppsScreen hide" id="moreAppsScreen">
 
         </div>
+    </div>
+
+    <!-- LOADING SCREEN -->
+    <div class="loadingScreen hide">
+
     </div>
 
     <ul class="suggessionsList" id="suggessionsList">
