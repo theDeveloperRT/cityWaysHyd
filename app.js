@@ -20966,3 +20966,58 @@ function changeIcons(ref) {
     }
 }
 
+
+
+let indicators = getId('indicators');
+let adItem = getId('adItem');
+let adDuration = 3000;
+let sliderStatus = 0;
+
+function adSlider() {
+    indicators.children[0].classList.add('active');
+    setTimeout(() => {
+        adItem.children[1].classList.add('active');
+        indicators.children[1].classList.add('active');
+        setTimeout(() => {
+            adItem.children[2].classList.add('active');
+            indicators.children[2].classList.add('active');
+            setTimeout(() => {
+                adItem.children[3].classList.add('active');
+                indicators.children[3].classList.add('active');
+                setTimeout(() => {
+                    adItem.children[4].classList.add('active');
+                    indicators.children[4].classList.add('active');
+                    setTimeout(() => {
+                        sliderStatus = 1;
+                    }, adDuration);
+                }, adDuration);
+            }, adDuration);
+        }, adDuration);
+    }, adDuration);
+
+}
+
+function resetAdSlider() {
+    if (sliderStatus == 1) {
+        sliderStatus = 0;
+
+        adItem.children[4].classList.remove('active');
+        adItem.children[3].classList.remove('active');
+        adItem.children[2].classList.remove('active');
+        adItem.children[1].classList.remove('active');
+        adItem.children[0].classList.add('active');
+
+        indicators.children[0].classList.remove('active');
+        indicators.children[1].classList.remove('active');
+        indicators.children[2].classList.remove('active');
+        indicators.children[4].classList.remove('active');
+        indicators.children[3].classList.remove('active');
+        setTimeout(() => {
+            adSlider();
+        }, 100);
+    } else {
+
+    }
+}
+
+adSlider();
