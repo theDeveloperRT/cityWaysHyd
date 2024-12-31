@@ -20966,6 +20966,10 @@ function changeIcons(ref) {
     }
 }
 
+function expandHelpQues(ref) {
+    ref.parentNode.classList.toggle('expand');
+}
+
 
 
 let indicators = getId('indicators');
@@ -20974,6 +20978,7 @@ let adDuration = 3000;
 let sliderStatus = 0;
 
 function adSlider() {
+
     indicators.children[0].classList.add('active');
     setTimeout(() => {
         adItem.children[1].classList.add('active');
@@ -20989,6 +20994,7 @@ function adSlider() {
                     indicators.children[4].classList.add('active');
                     setTimeout(() => {
                         sliderStatus = 1;
+                        resetAdSlider();
                     }, adDuration);
                 }, adDuration);
             }, adDuration);
