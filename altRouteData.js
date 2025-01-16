@@ -249,10 +249,10 @@ altRouteSetter(3, 'MOULA ALI KAMAN', getStops(TailsUP, 'NACHARAM IDA', 'BEERAPPA
 
 altRouteSetter(2, getStops(TailsUP, 'NACHARAM IDA', 'BEERAPPA GADDA'), 'MOULA ALI KAMAN', ["SEWD_S", "ECIL X ROADS", "BUS STATION", "", "117", "Go to ECIL X Roads Bus Station & Board the buses mentioned below.", "3"]); // 4-POINT OR PENDING
 
-// --> NOMA - NACHARAM VILLAGE (--> <--)
-altRouteSetter(3, 'MOULA ALI KAMAN', getStops(CRPL_LGPL, 'NOMA', 'NACHARAM VILLAGE'), ["SEWD_M", "MOULA ALI", "TOWARDS HB COLONY STOP", "", "3", "Go to Moula Ali Bus Stop towards HB Colony by walk.", "3KN, 3DN", "ECIL X ROADS", "TOWARDS CABLE STOP", "", "3", "Go to ECIL Bus Stop towards HCL(Cable) by Walk.", "117, 250, 250/49M"]); // NOTE REQ. FOR WALK FROM MOULA TO KAMAN
+// --> NOMA - NACHARAM (--> <--)
+altRouteSetter(3, 'MOULA ALI KAMAN', getStops(CRPL_LGPL, 'NOMA', 'NACHARAM'), ["SEWD_M", "MOULA ALI", "TOWARDS HB COLONY STOP", "", "3", "Go to Moula Ali Bus Stop towards HB Colony by walk.", "3KN, 3DN", "ECIL X ROADS", "TOWARDS CABLE STOP", "", "3", "Go to ECIL Bus Stop towards HCL(Cable) by Walk.", "117, 250, 250/49M"]); // NOTE REQ. FOR WALK FROM MOULA TO KAMAN
 
-altRouteSetter(2, getStops(LGPL_CRPL, 'NACHARAM VILLAGE', 'NOMA'), 'MOULA ALI KAMAN', ["SEWD_M", "MOULA ALI", "TOWARDS KAMAN STOP", "", "3KN, 3DN", "Go to Moula Ali Bus Stop, towards Moula ali Kaman By Walk.", "3", "ECIL X ROADS", "BUS STATION", "", "117, 250, 250/49M", "Go to ECIL X Roads Bus Station & Board the buses mentioned below.", "3"]); // NOTE REQ. FOR WALK FROM MOULA TO KAMAN
+altRouteSetter(2, getStops(LGPL_CRPL, 'NACHARAM', 'NOMA'), 'MOULA ALI KAMAN', ["SEWD_M", "MOULA ALI", "TOWARDS KAMAN STOP", "", "3KN, 3DN", "Go to Moula Ali Bus Stop, towards Moula ali Kaman By Walk.", "3", "ECIL X ROADS", "BUS STATION", "", "117, 250, 250/49M", "Go to ECIL X Roads Bus Station & Board the buses mentioned below.", "3"]); // NOTE REQ. FOR WALK FROM MOULA TO KAMAN
 
 // --> TIRUMALA NAGAR - EAST ANANDH BAGH (--> <--)
 altRouteSetter(3, 'MOULA ALI KAMAN', [SHD[633], SHD[593], SHD[264]], ["SEWD_S", "ZTS X ROADS", "TOWARDS ANANDH BAGH STOP", "", "3", "Go to ZTS X Roads Bus Stop, towards Anandh Bagh by Walk.", "16H, 16H/49M"]);
@@ -353,10 +353,10 @@ altRouteSetter(1, 'MOULA ALI KAMAN', 'RAMPALLY X ROADS', ["SEWD_S", "ECIL X ROAD
 
 altRouteSetter(1, 'RAMPALLY X ROADS', 'MOULA ALI KAMAN', ["SEWD_S", "ECIL X ROADS", "BUS STATION", "", "3K/281, 241T, 242, 242A, 242B, 242RG, 281", "In the ECIL X Roads Bus Station, Board the buses mentioned below.", "3"]);
 
-// --> ICOM TELE LIMITED - BANDLAGUDA (NAGARAM) (--> <--) // NOTE SAME AT KG STOP
-altRouteSetter(3, 'MOULA ALI KAMAN', getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NAGARAM)'), ["SEWD_S", "ECIL X ROADS", "BUS STATION", "", "3", "Go to ECIL X Roads Bus Station & Board the buses mentioned below.", "241T, 242, 242A, 242B, 242RG"]);
+// --> ICOM TELE LIMITED - BANDLAGUDA (NGRM) (--> <--) // NOTE SAME AT KG STOP
+altRouteSetter(3, 'MOULA ALI KAMAN', getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NGRM)'), ["SEWD_S", "ECIL X ROADS", "BUS STATION", "", "3", "Go to ECIL X Roads Bus Station & Board the buses mentioned below.", "241T, 242, 242A, 242B, 242RG"]);
 
-altRouteSetter(2, getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NAGARAM)'), 'MOULA ALI KAMAN', ["SEWD_S", "ECIL X ROADS", "BUS STATION", "", "241T, 242, 242A, 242B, 242RG", "In the ECIL X Roads Bus Station, Board the buses mentioned below.", "3"]);
+altRouteSetter(2, getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NGRM)'), 'MOULA ALI KAMAN', ["SEWD_S", "ECIL X ROADS", "BUS STATION", "", "241T, 242, 242A, 242B, 242RG", "In the ECIL X Roads Bus Station, Board the buses mentioned below.", "3"]);
 
 // --> CHERIYAL X ROADS (--> <--)
 altRouteSetter(1, 'MOULA ALI KAMAN', 'CHERIYAL X ROADS', ["SEWD_S", "ECIL X ROADS", "BUS STATION", "", "3", "Go to ECIL X Roads Bus Station & Board the buses mentioned below.", "241T, 242, 242A, 242B, 242G"]);
@@ -526,9 +526,9 @@ altRouteSetter(1, 'PRASHANTH NAGAR', 'RAMPALLY X ROADS', ["SEWD_S", "LALAPET(RAM
 
 altRouteSetter(1, 'RAMPALLY X ROADS', 'PRASHANTH NAGAR', ["SEWD_S", "LALAPET(RAM)", "OPPOSITE BUS STOP", "", "3K/281, 241T, 242, 242A, 242B, 242RG", OPP_D, "14P"]);
 
-altRouteSetter(3, 'PRASHANTH NAGAR', getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NAGARAM)'), ["SEWD_S", "LALAPET(RAM)", "OPPOSITE BUS STOP", "", "14P", OPP_D, "241T, 242, 242A, 242B, 242RG"]);
+altRouteSetter(3, 'PRASHANTH NAGAR', getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NGRM)'), ["SEWD_S", "LALAPET(RAM)", "OPPOSITE BUS STOP", "", "14P", OPP_D, "241T, 242, 242A, 242B, 242RG"]);
 
-altRouteSetter(2, getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NAGARAM)'), 'PRASHANTH NAGAR', ["SEWD_S", "LALAPET(RAM)", "OPPOSITE BUS STOP", "", "241T, 242, 242A, 242B, 242RG", OPP_D, "14P"]);
+altRouteSetter(2, getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NGRM)'), 'PRASHANTH NAGAR', ["SEWD_S", "LALAPET(RAM)", "OPPOSITE BUS STOP", "", "241T, 242, 242A, 242B, 242RG", OPP_D, "14P"]);
 
 altRouteSetter(1, 'PRASHANTH NAGAR', 'CHERIYAL X ROADS', ["SEWD_S", "LALAPET(RAM)", "OPPOSITE BUS STOP", "", "14P", OPP_D, "241T, 242, 242A, 242B, 242G"]);
 
@@ -823,22 +823,22 @@ altRouteSetter(4, getStops(KSR_SHMB, 'ZTS X ROADS', 'WHITE HOUSE'), [SHD[163], S
 
 altRouteSetter(4, [SHD[163], SHD[162], SHD[198], SHD[441], SHD[465], SHD[1140]], getStops(KSR_SHMB, 'ZTS X ROADS', 'WHITE HOUSE'), ["SEWD_S", "TARNAKA", "TOWARDS LALAPET STOP", "", "18V, 18VJ", "Go to Tarnaka Bus Stop towards Lalapet by Walk.", "3, 3K, 17DH, 17H, 17S, 241T, 242"]);
 
-// --> OLD NAGOLE - BANDLAGUDA (NAGOLE) (--> <--)
-altRouteSetter(4, getStops(KSR_SHMB, 'SP NAGAR', 'MOULA ALI'), getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NAGOLE)'), ['3PNW_M', "3, 3K, 17DH, 17H, 17S, 241T, 242", "TARNAKA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "3KN, 3DN", "HABSIGUDA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "S"]);
+// --> OLD NAGOLE - BANDLAGUDA (NGL) (--> <--)
+altRouteSetter(4, getStops(KSR_SHMB, 'SP NAGAR', 'MOULA ALI'), getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NGL)'), ['3PNW_M', "3, 3K, 17DH, 17H, 17S, 241T, 242", "TARNAKA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "3KN, 3DN", "HABSIGUDA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "S"]);
 
-altRouteSetter(4, getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NAGOLE)'), getStops(KSR_SHMB, 'SP NAGAR', 'MOULA ALI'), ['3PNW_M', "3, 3K, 17DH, 17H, 17S, 241T, 242", "TARNAKA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "3KN, 3DN", "HABSIGUDA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "R"]);
+altRouteSetter(4, getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NGL)'), getStops(KSR_SHMB, 'SP NAGAR', 'MOULA ALI'), ['3PNW_M', "3, 3K, 17DH, 17H, 17S, 241T, 242", "TARNAKA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "3KN, 3DN", "HABSIGUDA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "R"]);
 
-altRouteSetter(4, getStops(KSR_SHMB, 'LAXMI NAGAR (MLY)', 'HB COLONY'), getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NAGOLE)'), ['3PNW_M', "3K, 17DH, 17H, 17S, 241T, 242", "TARNAKA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "3KN, 3DN", "HABSIGUDA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "S"]);
+altRouteSetter(4, getStops(KSR_SHMB, 'LAXMI NAGAR (MLY)', 'HB COLONY'), getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NGL)'), ['3PNW_M', "3K, 17DH, 17H, 17S, 241T, 242", "TARNAKA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "3KN, 3DN", "HABSIGUDA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "S"]);
 
-altRouteSetter(4, getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NAGOLE)'), getStops(KSR_SHMB, 'LAXMI NAGAR (MLY)', 'HB COLONY'), ['3PNW_M', "3K, 17DH, 17H, 17S, 241T, 242", "TARNAKA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "3KN, 3DN", "HABSIGUDA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "R"]);
+altRouteSetter(4, getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NGL)'), getStops(KSR_SHMB, 'LAXMI NAGAR (MLY)', 'HB COLONY'), ['3PNW_M', "3K, 17DH, 17H, 17S, 241T, 242", "TARNAKA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "3KN, 3DN", "HABSIGUDA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "R"]);
 
-altRouteSetter(4, ['CARBON'], getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NAGOLE)'), ['3PNW_S', "3K, 17DH, 17H, 17S, 241T, 242", "TARNAKA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "S"]);
+altRouteSetter(4, ['CARBON'], getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NGL)'), ['3PNW_S', "3K, 17DH, 17H, 17S, 241T, 242", "TARNAKA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "S"]);
 
-altRouteSetter(4, getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NAGOLE)'), ['CARBON'], ['3PNW_S', "3K, 17DH, 17H, 17S, 241T, 242", "TARNAKA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "R"]);
+altRouteSetter(4, getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NGL)'), ['CARBON'], ['3PNW_S', "3K, 17DH, 17H, 17S, 241T, 242", "TARNAKA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "R"]);
 
-altRouteSetter(4, getStops(KSR_SHMB, 'ZTS X ROADS', 'WHITE HOUSE'), getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NAGOLE)'), ['3PNW_S', "3, 3K, 17DH, 17H, 17S, 241T, 242", "TARNAKA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "S"]);
+altRouteSetter(4, getStops(KSR_SHMB, 'ZTS X ROADS', 'WHITE HOUSE'), getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NGL)'), ['3PNW_S', "3, 3K, 17DH, 17H, 17S, 241T, 242", "TARNAKA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "S"]);
 
-altRouteSetter(4, getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NAGOLE)'), getStops(KSR_SHMB, 'ZTS X ROADS', 'WHITE HOUSE'), ['3PNW_S', "3, 3K, 17DH, 17H, 17S, 241T, 242", "TARNAKA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "R"]);
+altRouteSetter(4, getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NGL)'), getStops(KSR_SHMB, 'ZTS X ROADS', 'WHITE HOUSE'), ['3PNW_S', "3, 3K, 17DH, 17H, 17S, 241T, 242", "TARNAKA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "R"]);
 
 // --> JAIPURI COLONY (--> <--)
 altRouteSetter(4, getStops(KSR_SHMB, 'SP NAGAR', 'MOULA ALI'), [SHD[424], SHD[237], SHD[858]], ['3PNW_M', "3, 3K, 17DH, 17H, 17S, 241T, 242", "TARNAKA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J", "3KN, 3DN", "HABSIGUDA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J", "S"]);
@@ -1173,12 +1173,12 @@ altRouteSetter(4, getStops(KSR_SHMB, 'CARBON', 'WHITE HOUSE'), getStops(DNGL_IBP
 
 altRouteSetter(4, getStops(DNGL_IBP, 'NGRI', 'UPPAL RING ROAD'), getStops(KSR_SHMB, 'CARBON', 'WHITE HOUSE'), ["SEWD_S", "TARNAKA", "TOWARDS LALAPET STOP", "", "18C, 90L, 279, 280, 290", "Go to Tarnaka Bus Stop towards Lalapet by Walk.", "3K, 17H, 17D, 17DS, 242"]);
 
-// --> UPPAL GANDHI STATUE - CHENGI CHERLA X ROADS
-altRouteSetter(4, getStops(KSR_SHMB, 'CARBON', 'WHITE HOUSE'), getStops(PTCR_GTKS, 'UPPAL GANDHI STATUE', 'CHENGI CHERLA X ROADS'), ["SEWD_S", "TARNAKA", "TOWARDS UPPAL STOP", "", "3K, 17H, 17D, 17DS, 242", "Go to Tarnaka Bus Stop towards Uppal by Walk.", "18C, 280, 280J"]);
+// --> UPPAL GANDHI STATUE - CHENGICHERLA X ROADS
+altRouteSetter(4, getStops(KSR_SHMB, 'CARBON', 'WHITE HOUSE'), getStops(PTCR_GTKS, 'UPPAL GANDHI STATUE', 'CHENGICHERLA X ROADS'), ["SEWD_S", "TARNAKA", "TOWARDS UPPAL STOP", "", "3K, 17H, 17D, 17DS, 242", "Go to Tarnaka Bus Stop towards Uppal by Walk.", "18C, 280, 280J"]);
 
 altRouteSetter(4, getStops(KSR_SHMB, 'CARBON', 'WHITE HOUSE'), getStops(PTCR_GTKS, 'NARAPALLY', 'ANNOJIGUDA'), ["SEWD_S", "TARNAKA", "TOWARDS UPPAL STOP", "", "3K, 17H, 17D, 17DS, 242", "Go to Tarnaka Bus Stop towards Uppal by Walk.", "280, 280J"]);
 
-altRouteSetter(4, getStops(KSR_SHMB, 'CARBON', 'WHITE HOUSE'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_S", "TARNAKA", "TOWARDS UPPAL STOP", "", "3K, 17H, 17D, 17DS, 242", "Go to Tarnaka Bus Stop towards Uppal by Walk.", "18C, 18C/30"]); // OTHER ROUTE ADD - PENDING
+altRouteSetter(4, getStops(KSR_SHMB, 'CARBON', 'WHITE HOUSE'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_S", "TARNAKA", "TOWARDS UPPAL STOP", "", "3K, 17H, 17D, 17DS, 242", "Go to Tarnaka Bus Stop towards Uppal by Walk.", "18C, 18C/30"]); // OTHER ROUTE ADD - PENDING
 
 altRouteSetter(4, [SHD[1104], SHD[172]], getStops(LGPL_CRPL, 'HMT NAGAR', 'NOMA'), ["SEWD_S", "HB COLONY", "TOWARDS MALLAPUR STOP", "", "3K, 17H, 17D, 17DS, 242", "Go to HB Colony Bus Stop towards Mallapur by Walk.", "3KN, 3DN"]);
 
@@ -1236,21 +1236,21 @@ altRouteSetter(4, getStops(KSR_SHMB, 'ZTS X ROADS', 'WHITE HOUSE'), getStops(HCL
 altRouteSetter(4, getStops(HCLX_GWRL, 'SHIVAM ROAD', 'DILSHUKNAGAR'), getStops(KSR_SHMB, 'ZTS X ROADS', 'WHITE HOUSE'), ["SEWD_S", "VIDYA NAGAR", "SAME BUS STOP", "", "107VS, 107JS, 107VR, 107VR", SMB_D, "3, 3D, 3K, 3K/281"]);
 
 // --> HUDA COLONY (SAROOR NAGAR) - SAROOR NAGAR (--> <--)
-altRouteSetter(4, ['SP NAGAR', 'MOULA ALI'], getStops(TailsUP, 'HUDA COLONY (SAROORNAGAR)', 'SAROOR NAGAR'), ["SEWD_S", "VIDYA NAGAR", "SAME BUS STOP", "", "3, 3K, 3KN, 3K/281", SMB_D, "107JS, 107VS"]);
+altRouteSetter(4, ['SP NAGAR', 'MOULA ALI'], getStops(TailsUP, 'HUDA COLONY (SRRNGR)', 'SAROOR NAGAR'), ["SEWD_S", "VIDYA NAGAR", "SAME BUS STOP", "", "3, 3K, 3KN, 3K/281", SMB_D, "107JS, 107VS"]);
 
-altRouteSetter(4, getStops(TailsUP, 'HUDA COLONY (SAROORNAGAR)', 'SAROOR NAGAR'), ['SP NAGAR', 'MOULA ALI'], ["SEWD_S", "VIDYA NAGAR", "SAME BUS STOP", "", "107JS, 107VS", SMB_D, "3, 3K, 3KN, 3K/281"]);
+altRouteSetter(4, getStops(TailsUP, 'HUDA COLONY (SRRNGR)', 'SAROOR NAGAR'), ['SP NAGAR', 'MOULA ALI'], ["SEWD_S", "VIDYA NAGAR", "SAME BUS STOP", "", "107JS, 107VS", SMB_D, "3, 3K, 3KN, 3K/281"]);
 
-altRouteSetter(4, getStops(KSR_SHMB, 'LAXMI NAGAR (MLY)', 'HB COLONY'), getStops(TailsUP, 'HUDA COLONY (SAROORNAGAR)', 'SAROOR NAGAR'), ["SEWD_S", "VIDYA NAGAR", "SAME BUS STOP", "", "3K, 3KN, 3K/281", SMB_D, "107JS, 107VS"]);
+altRouteSetter(4, getStops(KSR_SHMB, 'LAXMI NAGAR (MLY)', 'HB COLONY'), getStops(TailsUP, 'HUDA COLONY (SRRNGR)', 'SAROOR NAGAR'), ["SEWD_S", "VIDYA NAGAR", "SAME BUS STOP", "", "3K, 3KN, 3K/281", SMB_D, "107JS, 107VS"]);
 
-altRouteSetter(4, getStops(TailsUP, 'HUDA COLONY (SAROORNAGAR)', 'SAROOR NAGAR'), getStops(KSR_SHMB, 'LAXMI NAGAR (MLY)', 'HB COLONY'), ["SEWD_S", "VIDYA NAGAR", "SAME BUS STOP", "", "107JS, 107VS", SMB_D, "3K, 3KN, 3K/281"]);
+altRouteSetter(4, getStops(TailsUP, 'HUDA COLONY (SRRNGR)', 'SAROOR NAGAR'), getStops(KSR_SHMB, 'LAXMI NAGAR (MLY)', 'HB COLONY'), ["SEWD_S", "VIDYA NAGAR", "SAME BUS STOP", "", "107JS, 107VS", SMB_D, "3K, 3KN, 3K/281"]);
 
-altRouteSetter(3, 'CARBON', getStops(TailsUP, 'HUDA COLONY (SAROORNAGAR)', 'SAROOR NAGAR'), ["SEWD_S", "VIDYA NAGAR", "SAME BUS STOP", "", "3D, 3K, 3K/281", SMB_D, "107JS, 107VS"]);
+altRouteSetter(3, 'CARBON', getStops(TailsUP, 'HUDA COLONY (SRRNGR)', 'SAROOR NAGAR'), ["SEWD_S", "VIDYA NAGAR", "SAME BUS STOP", "", "3D, 3K, 3K/281", SMB_D, "107JS, 107VS"]);
 
-altRouteSetter(2, getStops(TailsUP, 'HUDA COLONY (SAROORNAGAR)', 'SAROOR NAGAR'), 'CARBON', ["SEWD_S", "VIDYA NAGAR", "SAME BUS STOP", "", "107JS, 107VS", SMB_D, "3D, 3K, 3K/281"]);
+altRouteSetter(2, getStops(TailsUP, 'HUDA COLONY (SRRNGR)', 'SAROOR NAGAR'), 'CARBON', ["SEWD_S", "VIDYA NAGAR", "SAME BUS STOP", "", "107JS, 107VS", SMB_D, "3D, 3K, 3K/281"]);
 
-altRouteSetter(4, getStops(KSR_SHMB, 'ZTS X ROADS', 'WHITE HOUSE'), getStops(TailsUP, 'HUDA COLONY (SAROORNAGAR)', 'SAROOR NAGAR'), ["SEWD_S", "VIDYA NAGAR", "SAME BUS STOP", "", "3, 3D, 3K, 3K/281", SMB_D, "107JS, 107VS"]);
+altRouteSetter(4, getStops(KSR_SHMB, 'ZTS X ROADS', 'WHITE HOUSE'), getStops(TailsUP, 'HUDA COLONY (SRRNGR)', 'SAROOR NAGAR'), ["SEWD_S", "VIDYA NAGAR", "SAME BUS STOP", "", "3, 3D, 3K, 3K/281", SMB_D, "107JS, 107VS"]);
 
-altRouteSetter(4, getStops(TailsUP, 'HUDA COLONY (SAROORNAGAR)', 'SAROOR NAGAR'), getStops(KSR_SHMB, 'ZTS X ROADS', 'WHITE HOUSE'), ["SEWD_S", "VIDYA NAGAR", "SAME BUS STOP", "", "107JS, 107VS", SMB_D, "3, 3D, 3K, 3K/281"]);
+altRouteSetter(4, getStops(TailsUP, 'HUDA COLONY (SRRNGR)', 'SAROOR NAGAR'), getStops(KSR_SHMB, 'ZTS X ROADS', 'WHITE HOUSE'), ["SEWD_S", "VIDYA NAGAR", "SAME BUS STOP", "", "107JS, 107VS", SMB_D, "3, 3D, 3K, 3K/281"]);
 
 // --> PURANI HAVELLI - CHANDRAYANGUTTA X ROADS (--> <--)
 altRouteSetter(4, ['SP NAGAR', 'MOULA ALI'], getStops(MDCL_MHRM, 'PURANI HAVELLI', 'CHANDRAYANGUTTA X ROADS'), ["SEWD_S", "AFZALGUNJ", "AFZALGUNJ BUS STATION", "", "3, 3D, 3K, 3KN, 3K/281", "Go to Afzalgunj Bus Station by Walk.", "2C, 8A, 8C"]);
@@ -1447,17 +1447,17 @@ altRouteSetter(4, getStops(CRPL_LGPL, 'NOMA', 'HMT NAGAR'), getStops(DNGL_IBP, '
 
 altRouteSetter(4, getStops(CRPL_LGPL, 'NOMA', 'HMT NAGAR'), getStops(DNGL_IBP, 'NAGOLE METRO STATION', 'LB NAGAR X ROADS'), ["SEWD_S", "HABSIGUDA", "OPPOSITE BUS STOP", "", "3KN, 250, 250C, 250/49M", OPP_D, "90L, 279, 290, 290U"]);
 
-altRouteSetter(4, getStops(CRPL_LGPL, 'NOMA', 'NACHARAM X ROADS'), getStops(PTCR_GTKS, 'PEERJADI GUDA', 'CHENGI CHERLA X ROADS'), ["SEWD_S", "UPPAL", "SAME BUS STOP", "", "117", SMB_D, "18C, 71A, 280, 280J"]);
+altRouteSetter(4, getStops(CRPL_LGPL, 'NOMA', 'NACHARAM X ROADS'), getStops(PTCR_GTKS, 'PEERJADI GUDA', 'CHENGICHERLA X ROADS'), ["SEWD_S", "UPPAL", "SAME BUS STOP", "", "117", SMB_D, "18C, 71A, 280, 280J"]);
 
 altRouteSetter(4, getStops(CRPL_LGPL, 'NOMA', 'NACHARAM X ROADS'), getStops(PTCR_GTKS, 'NARAPALLY', 'ANNOJIGUDA'), ["SEWD_S", "UPPAL", "SAME BUS STOP", "", "117", SMB_D, "280, 280J"]);
 
-altRouteSetter(4, getStops(CRPL_LGPL, 'NOMA', 'NACHARAM X ROADS'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_S", "UPPAL", "SAME BUS STOP", "", "117", SMB_D, "18C, 71A"]);
+altRouteSetter(4, getStops(CRPL_LGPL, 'NOMA', 'NACHARAM X ROADS'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_S", "UPPAL", "SAME BUS STOP", "", "117", SMB_D, "18C, 71A"]);
 
-altRouteSetter(3, 'HMT NAGAR', getStops(PTCR_GTKS, 'PEERJADI GUDA', 'CHENGI CHERLA X ROADS'), ["SEWD_S", "HABSIGUDA", "OPPOSITE BUS STOP", "", "3KN, 250, 250C, 250/49M", OPP_D, "18C, 280, 280J"]);
+altRouteSetter(3, 'HMT NAGAR', getStops(PTCR_GTKS, 'PEERJADI GUDA', 'CHENGICHERLA X ROADS'), ["SEWD_S", "HABSIGUDA", "OPPOSITE BUS STOP", "", "3KN, 250, 250C, 250/49M", OPP_D, "18C, 280, 280J"]);
 
 altRouteSetter(3, 'HMT NAGAR', getStops(PTCR_GTKS, 'NARAPALLY', 'ANNOJIGUDA'), ["SEWD_S", "HABSIGUDA", "OPPOSITE BUS STOP", "", "3KN, 250, 250C, 250/49M", OPP_D, "280, 280J"]);
 
-altRouteSetter(3, 'HMT NAGAR', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_S", "HABSIGUDA", "OPPOSITE BUS STOP", "", "3KN, 250, 250C, 250/49M", OPP_D, "18C, 18C/30"]);
+altRouteSetter(3, 'HMT NAGAR', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_S", "HABSIGUDA", "OPPOSITE BUS STOP", "", "3KN, 250, 250C, 250/49M", OPP_D, "18C, 18C/30"]);
 
 altRouteSetter(4, getStops(CRPL_LGPL, 'NOMA', 'HMT NAGAR'), getStops(MDCL_ADBT, 'CHADERGHAT', 'IS SADAN'), ["SEWD_S", "KOTI W.CLG", "KOTI W.CLG STOP", "", "3KN, 3DN", "Go to Womens College Bus Stop towards chaderghat by Walk.", "102B, 104A, 104R, 203A"]);
 
@@ -1897,17 +1897,17 @@ altRouteSetter(4, getStops(HCLX_GWRL, 'LALAGUDA', 'NEW BRIDGE'), [SHD[163], SHD[
 altRouteSetter(4, [SHD[163], SHD[162], SHD[198], SHD[441], SHD[465], SHD[1140]], getStops(GWRL_HCLX, 'NEW BRIDGE', 'LALAGUDA'), ["SEWD_S", "METTUGUDA", "TOWARDS LALAGUDA STOP", "", "18V, 18VJ", "Go to Mettuguda Bus Stop towards Lalaguda by Walk.", "14P, 15H, 16A, 16A/5K, 16C, 16CR, 16H"]);
 
 // --> UPPAL GANDHI STATUE - CHENGICHERLA X ROADS (--> <--)
-altRouteSetter(4, getStops(HCLX_GWRL, 'NEREDMET X ROADS', 'THREE TEMPLES'), getStops(PTCR_GTKS, 'UPPAL GANDHI STATUE', 'CHENGI CHERLA X ROADS'), ["SEWD_S", "METTUGUDA", "TOWARDS TARNAKA STOP", "", "16A, 16A/5K, 16D/24B", "Go to Mettuguda Bus Stop towards Tarnaka by Walk.", "18C, 280, 280J"]);
+altRouteSetter(4, getStops(HCLX_GWRL, 'NEREDMET X ROADS', 'THREE TEMPLES'), getStops(PTCR_GTKS, 'UPPAL GANDHI STATUE', 'CHENGICHERLA X ROADS'), ["SEWD_S", "METTUGUDA", "TOWARDS TARNAKA STOP", "", "16A, 16A/5K, 16D/24B", "Go to Mettuguda Bus Stop towards Tarnaka by Walk.", "18C, 280, 280J"]);
 
-altRouteSetter(4, getStops(GTKS_PTCR, 'CHENGI CHERLA X ROADS', 'UPPAL GANDHI STATUE'), getStops(GWRL_HCLX, 'THREE TEMPLES', 'NEREDMET X ROADS'), ["SEWD_S", "METTUGUDA", "TOWARDS LALAGUDA STOP", "", "18C, 280, 280J", "Go to Mettuguda Bus Stop towards Lalaguda by Walk.", "16A, 16A/5K, 16D/24B"]);
+altRouteSetter(4, getStops(GTKS_PTCR, 'CHENGICHERLA X ROADS', 'UPPAL GANDHI STATUE'), getStops(GWRL_HCLX, 'THREE TEMPLES', 'NEREDMET X ROADS'), ["SEWD_S", "METTUGUDA", "TOWARDS LALAGUDA STOP", "", "18C, 280, 280J", "Go to Mettuguda Bus Stop towards Lalaguda by Walk.", "16A, 16A/5K, 16D/24B"]);
 
-altRouteSetter(4, getStops(HCLX_GWRL, 'VINAYAK NAGAR (NEREDMET)', 'SAFILGUDA'), getStops(PTCR_GTKS, 'UPPAL GANDHI STATUE', 'CHENGI CHERLA X ROADS'), ["SEWD_S", "METTUGUDA", "TOWARDS TARNAKA STOP", "", "16A, 16A/5K, 16C", "Go to Mettuguda Bus Stop towards Tarnaka by Walk.", "18C, 280, 280J"]);
+altRouteSetter(4, getStops(HCLX_GWRL, 'VINAYAK NAGAR (NEREDMET)', 'SAFILGUDA'), getStops(PTCR_GTKS, 'UPPAL GANDHI STATUE', 'CHENGICHERLA X ROADS'), ["SEWD_S", "METTUGUDA", "TOWARDS TARNAKA STOP", "", "16A, 16A/5K, 16C", "Go to Mettuguda Bus Stop towards Tarnaka by Walk.", "18C, 280, 280J"]);
 
-altRouteSetter(4, getStops(GTKS_PTCR, 'CHENGI CHERLA X ROADS', 'UPPAL GANDHI STATUE'), getStops(GWRL_HCLX, 'SAFILGUDA', 'VINAYAK NAGAR (NEREDMET)'), ["SEWD_S", "METTUGUDA", "TOWARDS LALAGUDA STOP", "", "18C, 280, 280J", "Go to Mettuguda Bus Stop towards Lalaguda by Walk.", "16A, 16A/5K, 16C"]);
+altRouteSetter(4, getStops(GTKS_PTCR, 'CHENGICHERLA X ROADS', 'UPPAL GANDHI STATUE'), getStops(GWRL_HCLX, 'SAFILGUDA', 'VINAYAK NAGAR (NEREDMET)'), ["SEWD_S", "METTUGUDA", "TOWARDS LALAGUDA STOP", "", "18C, 280, 280J", "Go to Mettuguda Bus Stop towards Lalaguda by Walk.", "16A, 16A/5K, 16C"]);
 
-altRouteSetter(4, getStops(HCLX_GWRL, 'ANANDH BAGH X ROADS', 'NEW BRIDGE'), getStops(PTCR_GTKS, 'UPPAL GANDHI STATUE', 'CHENGI CHERLA X ROADS'), ["SEWD_S", "METTUGUDA", "TOWARDS TARNAKA STOP", "", "16A, 16A/5K, 16C, 16CR, 16H", "Go to Mettuguda Bus Stop towards Tarnaka by Walk.", "18C, 280, 280J"]);
+altRouteSetter(4, getStops(HCLX_GWRL, 'ANANDH BAGH X ROADS', 'NEW BRIDGE'), getStops(PTCR_GTKS, 'UPPAL GANDHI STATUE', 'CHENGICHERLA X ROADS'), ["SEWD_S", "METTUGUDA", "TOWARDS TARNAKA STOP", "", "16A, 16A/5K, 16C, 16CR, 16H", "Go to Mettuguda Bus Stop towards Tarnaka by Walk.", "18C, 280, 280J"]);
 
-altRouteSetter(4, getStops(GTKS_PTCR, 'CHENGI CHERLA X ROADS', 'UPPAL GANDHI STATUE'), getStops(GWRL_HCLX, 'NEW BRIDGE', 'ANANDH BAGH X ROADS'), ["SEWD_S", "METTUGUDA", "TOWARDS LALAGUDA STOP", "", "18C, 280, 280J", "Go to Mettuguda Bus Stop towards Lalaguda by Walk.", "16A, 16A/5K, 16C, 16CR, 16H"]);
+altRouteSetter(4, getStops(GTKS_PTCR, 'CHENGICHERLA X ROADS', 'UPPAL GANDHI STATUE'), getStops(GWRL_HCLX, 'NEW BRIDGE', 'ANANDH BAGH X ROADS'), ["SEWD_S", "METTUGUDA", "TOWARDS LALAGUDA STOP", "", "18C, 280, 280J", "Go to Mettuguda Bus Stop towards Lalaguda by Walk.", "16A, 16A/5K, 16C, 16CR, 16H"]);
 
 // --> NARAPALLY - ANNOJIGUDA (--> <--)
 altRouteSetter(4, getStops(HCLX_GWRL, 'NEREDMET X ROADS', 'THREE TEMPLES'), getStops(PTCR_GTKS, 'NARAPALLY', 'ANNOJIGUDA'), ["SEWD_S", "METTUGUDA", "TOWARDS TARNAKA STOP", "", "16A, 16A/5K, 16D/24B", "Go to Mettuguda Bus Stop towards Tarnaka by Walk.", "280, 280J"]);
@@ -2159,22 +2159,22 @@ altRouteSetter(4, getStops(HCLX_GWRL, 'LALAGUDA', 'NEW BRIDGE'), [SHD[28], SHD[8
 
 altRouteSetter(4, [SHD[28], SHD[88]], getStops(HCLX_GWRL, 'LALAGUDA', 'NEW BRIDGE'), ["SEWD_S", "SEC'BAD", "RETHIFILE", "BLUE SEA", "86J, 86K", "Go to Blue Sea Hotel Bus Stop by Walk.", "14P, 15H, 16A, 16A/5K, 16C, 16CR, 16H"]);
 
-// --> HUDA COLONY (SAROORNAGAR) - SAROOR NAGAR (--> <--)
-altRouteSetter(4, getStops(HCLX_GWRL, 'NEREDMET X ROADS', 'THREE TEMPLES'), getStops(TailsUP, 'HUDA COLONY (SAROORNAGAR)', 'SAROOR NAGAR'), ["SEWD_S", "SEC'BAD", "BLUE SEA", "RETHIFILE", "16A, 16A/5K, 16D/24B", "Go to Rethifile Bus Station by Walk.", "107JS, 107VS"]);
+// --> HUDA COLONY (SRRNGR) - SAROOR NAGAR (--> <--)
+altRouteSetter(4, getStops(HCLX_GWRL, 'NEREDMET X ROADS', 'THREE TEMPLES'), getStops(TailsUP, 'HUDA COLONY (SRRNGR)', 'SAROOR NAGAR'), ["SEWD_S", "SEC'BAD", "BLUE SEA", "RETHIFILE", "16A, 16A/5K, 16D/24B", "Go to Rethifile Bus Station by Walk.", "107JS, 107VS"]);
 
-altRouteSetter(4, getStops(TailsUP, 'HUDA COLONY (SAROORNAGAR)', 'SAROOR NAGAR'), getStops(HCLX_GWRL, 'NEREDMET X ROADS', 'THREE TEMPLES'), ["SEWD_S", "SEC'BAD", "RETHIFILE", "BLUE SEA", "107JS, 107VS", "Go to Blue Sea Hotel Bus Stop by Walk.", "16A, 16A/5K, 16D/24B"]);
+altRouteSetter(4, getStops(TailsUP, 'HUDA COLONY (SRRNGR)', 'SAROOR NAGAR'), getStops(HCLX_GWRL, 'NEREDMET X ROADS', 'THREE TEMPLES'), ["SEWD_S", "SEC'BAD", "RETHIFILE", "BLUE SEA", "107JS, 107VS", "Go to Blue Sea Hotel Bus Stop by Walk.", "16A, 16A/5K, 16D/24B"]);
 
-altRouteSetter(4, getStops(HCLX_GWRL, 'VINAYAK NAGAR (NEREDMET)', 'SAFILGUDA'), getStops(TailsUP, 'HUDA COLONY (SAROORNAGAR)', 'SAROOR NAGAR'), ["SEWD_S", "SEC'BAD", "BLUE SEA", "RETHIFILE", "16A, 16A/5K, 16C", "Go to Rethifile Bus Station by Walk.", "107JS, 107VS"]);
+altRouteSetter(4, getStops(HCLX_GWRL, 'VINAYAK NAGAR (NEREDMET)', 'SAFILGUDA'), getStops(TailsUP, 'HUDA COLONY (SRRNGR)', 'SAROOR NAGAR'), ["SEWD_S", "SEC'BAD", "BLUE SEA", "RETHIFILE", "16A, 16A/5K, 16C", "Go to Rethifile Bus Station by Walk.", "107JS, 107VS"]);
 
-altRouteSetter(4, getStops(TailsUP, 'HUDA COLONY (SAROORNAGAR)', 'SAROOR NAGAR'), getStops(HCLX_GWRL, 'VINAYAK NAGAR (NEREDMET)', 'SAFILGUDA'), ["SEWD_S", "SEC'BAD", "RETHIFILE", "BLUE SEA", "107JS, 107VS", "Go to Blue Sea Hotel Bus Stop by Walk.", "16A, 16A/5K, 16C"]);
+altRouteSetter(4, getStops(TailsUP, 'HUDA COLONY (SRRNGR)', 'SAROOR NAGAR'), getStops(HCLX_GWRL, 'VINAYAK NAGAR (NEREDMET)', 'SAFILGUDA'), ["SEWD_S", "SEC'BAD", "RETHIFILE", "BLUE SEA", "107JS, 107VS", "Go to Blue Sea Hotel Bus Stop by Walk.", "16A, 16A/5K, 16C"]);
 
-altRouteSetter(4, getStops(HCLX_GWRL, 'ANANDH BAGH X ROADS', 'MIRZALGUDA'), getStops(TailsUP, 'HUDA COLONY (SAROORNAGAR)', 'SAROOR NAGAR'), ["SEWD_S", "SEC'BAD", "BLUE SEA", "RETHIFILE", "16A, 16A/5K, 16C, 16CR, 16H", "Go to Rethifile Bus Station by Walk.", "107JS, 107VS"]);
+altRouteSetter(4, getStops(HCLX_GWRL, 'ANANDH BAGH X ROADS', 'MIRZALGUDA'), getStops(TailsUP, 'HUDA COLONY (SRRNGR)', 'SAROOR NAGAR'), ["SEWD_S", "SEC'BAD", "BLUE SEA", "RETHIFILE", "16A, 16A/5K, 16C, 16CR, 16H", "Go to Rethifile Bus Station by Walk.", "107JS, 107VS"]);
 
-altRouteSetter(4, getStops(TailsUP, 'HUDA COLONY (SAROORNAGAR)', 'SAROOR NAGAR'), getStops(HCLX_GWRL, 'ANANDH BAGH X ROADS', 'MIRZALGUDA'), ["SEWD_S", "SEC'BAD", "RETHIFILE", "BLUE SEA", "107JS, 107VS", "Go to Blue Sea Hotel Bus Stop by Walk.", "16A, 16A/5K, 16C, 16CR, 16H"]);
+altRouteSetter(4, getStops(TailsUP, 'HUDA COLONY (SRRNGR)', 'SAROOR NAGAR'), getStops(HCLX_GWRL, 'ANANDH BAGH X ROADS', 'MIRZALGUDA'), ["SEWD_S", "SEC'BAD", "RETHIFILE", "BLUE SEA", "107JS, 107VS", "Go to Blue Sea Hotel Bus Stop by Walk.", "16A, 16A/5K, 16C, 16CR, 16H"]);
 
-altRouteSetter(4, getStops(HCLX_GWRL, 'LALAGUDA', 'NEW BRIDGE'), getStops(TailsUP, 'HUDA COLONY (SAROORNAGAR)', 'SAROOR NAGAR'), ["SEWD_S", "SEC'BAD", "BLUE SEA", "RETHIFILE", "14P, 15H, 16A, 16A/5K, 16C, 16CR, 16H", "Go to Rethifile Bus Station by Walk.", "107JS, 107VS"]);
+altRouteSetter(4, getStops(HCLX_GWRL, 'LALAGUDA', 'NEW BRIDGE'), getStops(TailsUP, 'HUDA COLONY (SRRNGR)', 'SAROOR NAGAR'), ["SEWD_S", "SEC'BAD", "BLUE SEA", "RETHIFILE", "14P, 15H, 16A, 16A/5K, 16C, 16CR, 16H", "Go to Rethifile Bus Station by Walk.", "107JS, 107VS"]);
 
-altRouteSetter(4, getStops(TailsUP, 'HUDA COLONY (SAROORNAGAR)', 'SAROOR NAGAR'), getStops(HCLX_GWRL, 'LALAGUDA', 'NEW BRIDGE'), ["SEWD_S", "SEC'BAD", "RETHIFILE", "BLUE SEA", "107JS, 107VS", "Go to Blue Sea Hotel Bus Stop by Walk.", "14P, 15H, 16A, 16A/5K, 16C, 16CR, 16H"]);
+altRouteSetter(4, getStops(TailsUP, 'HUDA COLONY (SRRNGR)', 'SAROOR NAGAR'), getStops(HCLX_GWRL, 'LALAGUDA', 'NEW BRIDGE'), ["SEWD_S", "SEC'BAD", "RETHIFILE", "BLUE SEA", "107JS, 107VS", "Go to Blue Sea Hotel Bus Stop by Walk.", "14P, 15H, 16A, 16A/5K, 16C, 16CR, 16H"]);
 
 // --> CHILKALGUDA X ROADS (--> <--)
 altRouteSetter(4, getStops(HCLX_GWRL, 'NEREDMET X ROADS', 'THREE TEMPLES'), ['CHILKALGUDA X ROADS'], ["SEWD_S", "ALUGADDA BHAVI", "SAME STOP", "", "16A, 16A/5K, 16D/24B", SMB_D, "18C, 90L, 279, 290, 290U"]);
@@ -2323,22 +2323,22 @@ altRouteSetter(4, getStops(GWRL_HCLX, 'MALKAJGIRI', 'VAJPAYEE NAGAR'), [SHD[134]
 
 altRouteSetter(4, [SHD[134], SHD[169]], getStops(HCLX_GWRL, 'VAJPAYEE NAGAR', 'MALKAJGIRI'), ["3PNW_S", "16A, 16D, 16D/24B", "NEREDMET X ROADS", "24S, 24SS, 24S/273", "ALWAL", "22K", "R"]);
 
-// --> OLD NAGOLE - BANDLAGUDA (NAGOLE) (--> <--)
-altRouteSetter(4, getStops(HCLX_GWRL, 'NEREDMET X ROADS', 'THREE TEMPLES'), getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NAGOLE)'), ["3PNW_S", "16A, 16A/5K, 16D/24B", "METTUGUDA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "S"]);
+// --> OLD NAGOLE - BANDLAGUDA (NGL) (--> <--)
+altRouteSetter(4, getStops(HCLX_GWRL, 'NEREDMET X ROADS', 'THREE TEMPLES'), getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NGL)'), ["3PNW_S", "16A, 16A/5K, 16D/24B", "METTUGUDA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "S"]);
 
-altRouteSetter(4, getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NAGOLE)'), getStops(HCLX_GWRL, 'NEREDMET X ROADS', 'THREE TEMPLES'), ["3PNW_S", "16A, 16A/5K, 16D/24B", "METTUGUDA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "R"]);
+altRouteSetter(4, getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NGL)'), getStops(HCLX_GWRL, 'NEREDMET X ROADS', 'THREE TEMPLES'), ["3PNW_S", "16A, 16A/5K, 16D/24B", "METTUGUDA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "R"]);
 
-altRouteSetter(4, getStops(HCLX_GWRL, 'VINAYAK NAGAR (NEREDMET)', 'SAFILGUDA'), getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NAGOLE)'), ["3PNW_S", "16A, 16A/5K, 16C", "METTUGUDA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "S"]);
+altRouteSetter(4, getStops(HCLX_GWRL, 'VINAYAK NAGAR (NEREDMET)', 'SAFILGUDA'), getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NGL)'), ["3PNW_S", "16A, 16A/5K, 16C", "METTUGUDA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "S"]);
 
-altRouteSetter(4, getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NAGOLE)'), getStops(HCLX_GWRL, 'VINAYAK NAGAR (NEREDMET)', 'SAFILGUDA'), ["3PNW_S", "16A, 16A/5K, 16C", "METTUGUDA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "R"]);
+altRouteSetter(4, getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NGL)'), getStops(HCLX_GWRL, 'VINAYAK NAGAR (NEREDMET)', 'SAFILGUDA'), ["3PNW_S", "16A, 16A/5K, 16C", "METTUGUDA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "R"]);
 
-altRouteSetter(4, getStops(HCLX_GWRL, 'ANANDH BAGH X ROADS', 'MIRZALGUDA'), getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NAGOLE)'), ["3PNW_S", "16A, 16A/5K, 16C, 16CR, 16H", "METTUGUDA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "S"]);
+altRouteSetter(4, getStops(HCLX_GWRL, 'ANANDH BAGH X ROADS', 'MIRZALGUDA'), getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NGL)'), ["3PNW_S", "16A, 16A/5K, 16C, 16CR, 16H", "METTUGUDA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "S"]);
 
-altRouteSetter(4, getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NAGOLE)'), getStops(HCLX_GWRL, 'ANANDH BAGH X ROADS', 'MIRZALGUDA'), ["3PNW_S", "16A, 16A/5K, 16C, 16CR, 16H", "METTUGUDA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "R"]);
+altRouteSetter(4, getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NGL)'), getStops(HCLX_GWRL, 'ANANDH BAGH X ROADS', 'MIRZALGUDA'), ["3PNW_S", "16A, 16A/5K, 16C, 16CR, 16H", "METTUGUDA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "R"]);
 
-altRouteSetter(4, getStops(HCLX_GWRL, 'LALAGUDA', 'NEW BRIDGE'), getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NAGOLE)'), ["3PNW_S", "14P, 15H, 16A, 16A/5K, 16C, 16CR, 16H", "METTUGUDA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "S"]);
+altRouteSetter(4, getStops(HCLX_GWRL, 'LALAGUDA', 'NEW BRIDGE'), getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NGL)'), ["3PNW_S", "14P, 15H, 16A, 16A/5K, 16C, 16CR, 16H", "METTUGUDA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "S"]);
 
-altRouteSetter(4, getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NAGOLE)'), getStops(HCLX_GWRL, 'LALAGUDA', 'NEW BRIDGE'), ["3PNW_S", "14P, 15H, 16A, 16A/5K, 16C, 16CR, 16H", "METTUGUDA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "R"]);
+altRouteSetter(4, getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NGL)'), getStops(HCLX_GWRL, 'LALAGUDA', 'NEW BRIDGE'), ["3PNW_S", "14P, 15H, 16A, 16A/5K, 16C, 16CR, 16H", "METTUGUDA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J, 201G, 201M", "R"]);
 
 // --> JAIPURI COLONY - JAIPURI COLONY DRF (--> <--)
 altRouteSetter(4, getStops(HCLX_GWRL, 'NEREDMET X ROADS', 'THREE TEMPLES'), [SHD[237], SHD[424], SHD[858]], ["3PNW_S", "16A, 16A/5K, 16D/24B", "METTUGUDA", "90L, 279, 290, 290U", "NAGOLE X ROADS", "72J", "S"]);
@@ -2707,9 +2707,9 @@ altRouteSetter(2, ['NFC GATE', 'ECIL COMPANY'].concat(getStops(LGPL_CRPL, 'NFC X
 
 altRouteSetter(3, 'RAMPALLY X ROADS', ['NFC GATE', 'ECIL COMPANY'].concat(getStops(LGPL_CRPL, 'NFC X ROADS', 'HCL X ROADS')), ["SEWD_S", "ECIL X ROADS", "TOWARDS CABLE STOP", "", "3K/281, 241T, 242, 242A, 242B, 242RG, 281", "Go to ECIL Bus Stop towards HCL(Cable) by Walk.", "117, 250, 250/49M"]);
 
-altRouteSetter(4, ['NFC GATE', 'ECIL COMPANY'].concat(getStops(LGPL_CRPL, 'NFC X ROADS', 'HCL X ROADS')), getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NAGARAM)'), ["SEWD_S", "ECIL X ROADS", "BUS STATION", "", "117, 250, 250/49M", "Go to ECIL X Roads Bus Station & board the buses given below.", "241T, 242, 242A, 242B, 242RG"]);
+altRouteSetter(4, ['NFC GATE', 'ECIL COMPANY'].concat(getStops(LGPL_CRPL, 'NFC X ROADS', 'HCL X ROADS')), getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NGRM)'), ["SEWD_S", "ECIL X ROADS", "BUS STATION", "", "117, 250, 250/49M", "Go to ECIL X Roads Bus Station & board the buses given below.", "241T, 242, 242A, 242B, 242RG"]);
 
-altRouteSetter(4, getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NAGARAM)'), ['NFC GATE', 'ECIL COMPANY'].concat(getStops(LGPL_CRPL, 'NFC X ROADS', 'HCL X ROADS')), ["SEWD_S", "ECIL X ROADS", "TOWARDS CABLE STOP", "", "241T, 242, 242A, 242B, 242RG", "Go to ECIL Bus Stop towards HCL(Cable) by Walk.", "117, 250, 250/49M"]);
+altRouteSetter(4, getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NGRM)'), ['NFC GATE', 'ECIL COMPANY'].concat(getStops(LGPL_CRPL, 'NFC X ROADS', 'HCL X ROADS')), ["SEWD_S", "ECIL X ROADS", "TOWARDS CABLE STOP", "", "241T, 242, 242A, 242B, 242RG", "Go to ECIL Bus Stop towards HCL(Cable) by Walk.", "117, 250, 250/49M"]);
 
 altRouteSetter(2, ['NFC GATE', 'ECIL COMPANY'].concat(getStops(LGPL_CRPL, 'NFC X ROADS', 'HCL X ROADS')), 'CHERIYAL X ROADS', ["SEWD_S", "ECIL X ROADS", "BUS STATION", "", "117, 250, 250/49M", "Go to ECIL X Roads Bus Station & board the buses given below.", "241T, 242, 242A, 242B, 242G"]);
 
@@ -2780,10 +2780,10 @@ altRouteSetter(4, getStops(CRPL_LGPL, 'CHERLAPALLY', 'HCL PHASE 1'), ['RAMPALLY 
 
 altRouteSetter(4, ['RAMPALLY X ROADS'], getStops(CRPL_LGPL, 'CHERLAPALLY', 'HCL PHASE 1'), ["3PNW_S", "250C, 250C/49M", "HCL X ROADS", "117, 250, 250/49M", "ECIL X ROADS", "3K/281, 241T, 242, 242A, 242B, 242RG, 281", "R"]);
 
-// --> ICOM TELE LIMITED - BANDLAGUDA (NAGARAM) (--> <--)
-altRouteSetter(4, getStops(CRPL_LGPL, 'CHERLAPALLY', 'HCL PHASE 1'), getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NAGARAM)'), ["3PNW_S", "250C, 250C/49M", "HCL X ROADS", "117, 250, 250/49M", "ECIL X ROADS", "241T, 242, 242A, 242B, 242RG", "S"]);
+// --> ICOM TELE LIMITED - BANDLAGUDA (NGRM) (--> <--)
+altRouteSetter(4, getStops(CRPL_LGPL, 'CHERLAPALLY', 'HCL PHASE 1'), getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NGRM)'), ["3PNW_S", "250C, 250C/49M", "HCL X ROADS", "117, 250, 250/49M", "ECIL X ROADS", "241T, 242, 242A, 242B, 242RG", "S"]);
 
-altRouteSetter(4, getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NAGARAM)'), getStops(CRPL_LGPL, 'CHERLAPALLY', 'HCL PHASE 1'), ["3PNW_S", "250C, 250C/49M", "HCL X ROADS", "117, 250, 250/49M", "ECIL X ROADS", "241T, 242, 242A, 242B, 242RG", "R"]);
+altRouteSetter(4, getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NGRM)'), getStops(CRPL_LGPL, 'CHERLAPALLY', 'HCL PHASE 1'), ["3PNW_S", "250C, 250C/49M", "HCL X ROADS", "117, 250, 250/49M", "ECIL X ROADS", "241T, 242, 242A, 242B, 242RG", "R"]);
 
 // --> CHERIYAL X ROADS (--> <--)
 altRouteSetter(4, getStops(CRPL_LGPL, 'CHERLAPALLY', 'HCL PHASE 1'), ['CHERIYAL X ROADS'], ["3PNW_S", "250C, 250C/49M", "HCL X ROADS", "117, 250, 250/49M", "ECIL X ROADS", "241T, 242, 242A, 242B, 242G", "S"]);
@@ -4350,227 +4350,227 @@ altRouteSetter(4, getStops(MCRL_KOTI, 'LV PRASAD', 'ANDHRA JYOTHI'), getStops(PT
 altRouteSetter(4, getStops(PTCR_GTKS, 'UPPAL GANDHI STATUE', 'BODUPPAL X ROADS'), getStops(MCRL_KOTI, 'LV PRASAD', 'ANDHRA JYOTHI'), ["SEWD_M", "PATNY", "SAME BUS STOP", "", "18C/30, 18C/219, 18C/10KJ", SMB_D, "47L, 16A/47L, 18/47U", "SEC'BAD", "RETHIFILE", "ALPHA", "18C, 18B, 280, 280B", "Go to Alpha Hotel Bus stop by walk or by buses like 90L, 290U.", "47L, 16A/47L, 18/47U"]);
 
 //--> UPPAL DEPOT - CHENGICHERLA X ROADS (--> <--)
-altRouteSetter(4, getStops(MCRL_KOTI, 'LV PRASAD', 'ANDHRA JYOTHI'), getStops(PTCR_GTKS, 'UPPAL DEPOT', 'CHENGI CHERLA X ROADS'), ["SEWD_M", "PATNY", "SAME BUS STOP", "", "47L, 16A/47L, 18/47U", SMB_D, "30/18C, 219/18C, 10KJ/18C", "SEC'BAD", "ALPHA", "RETHIFILE", "47L, 16A/47L, 18/47U", "Go to Rethifile Bus Station or Chilkalguda X Roads bus stop by walk.", "18C, 280, 280B"]);
+altRouteSetter(4, getStops(MCRL_KOTI, 'LV PRASAD', 'ANDHRA JYOTHI'), getStops(PTCR_GTKS, 'UPPAL DEPOT', 'CHENGICHERLA X ROADS'), ["SEWD_M", "PATNY", "SAME BUS STOP", "", "47L, 16A/47L, 18/47U", SMB_D, "30/18C, 219/18C, 10KJ/18C", "SEC'BAD", "ALPHA", "RETHIFILE", "47L, 16A/47L, 18/47U", "Go to Rethifile Bus Station or Chilkalguda X Roads bus stop by walk.", "18C, 280, 280B"]);
 
-altRouteSetter(4, getStops(PTCR_GTKS, 'UPPAL DEPOT', 'CHENGI CHERLA X ROADS'), getStops(MCRL_KOTI, 'LV PRASAD', 'ANDHRA JYOTHI'), ["SEWD_M", "PATNY", "SAME BUS STOP", "", "18C/30, 18C/219, 18C/10KJ", SMB_D, "47L, 16A/47L, 18/47U", "SEC'BAD", "RETHIFILE", "ALPHA", "18C, 280, 280B", "Go to Alpha Hotel Bus stop by walk or by buses like 90L, 290U.", "47L, 16A/47L, 18/47U"]);
+altRouteSetter(4, getStops(PTCR_GTKS, 'UPPAL DEPOT', 'CHENGICHERLA X ROADS'), getStops(MCRL_KOTI, 'LV PRASAD', 'ANDHRA JYOTHI'), ["SEWD_M", "PATNY", "SAME BUS STOP", "", "18C/30, 18C/219, 18C/10KJ", SMB_D, "47L, 16A/47L, 18/47U", "SEC'BAD", "RETHIFILE", "ALPHA", "18C, 280, 280B", "Go to Alpha Hotel Bus stop by walk or by buses like 90L, 290U.", "47L, 16A/47L, 18/47U"]);
 
 //--> AYODHYA COLONY - SAI NAGAR COLONY (CGCL) (--> <--)
 altRouteSetter(4, getStops(MCRL_KOTI, 'LV PRASAD', 'ANDHRA JYOTHI'), getStops(TailsUP, 'AYODHYA COLONY', 'SAI NAGAR COLONY (CGCL)'), ["SEWD_M", "PATNY", "SAME BUS STOP", "", "47L, 16A/47L, 18/47U", SMB_D, "30/18C, 219/18C, 10KJ/18C", "SEC'BAD", "ALPHA", "RETHIFILE", "47L, 16A/47L, 18/47U", "Go to Rethifile Bus Station or Chilkalguda X Roads bus stop by walk.", "18C, 10KJ/18C, 30/18C, 219/18C"]);
 
 altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'SAI NAGAR COLONY (CGCL)'), getStops(MCRL_KOTI, 'LV PRASAD', 'ANDHRA JYOTHI'), ["SEWD_M", "PATNY", "SAME BUS STOP", "", "18C/30, 18C/219, 18C/10KJ", SMB_D, "47L, 16A/47L, 18/47U", "SEC'BAD", "RETHIFILE", "ALPHA", "18C", "Go to Alpha Hotel Bus stop by walk or by buses like 90L, 290U.", "47L, 16A/47L, 18/47U"]);
 
-//--> CHENGI CHERLA (--> <--)
-altRouteSetter(2, getStops(MCRL_KOTI, 'LV PRASAD', 'ANDHRA JYOTHI'), 'CHENGI CHERLA', ["SEWD_M", "PATNY", "SAME BUS STOP", "", "47L, 16A/47L, 18/47U", SMB_D, "30/18C, 219/18C, 10KJ/18C", "SEC'BAD", "ALPHA", "RETHIFILE", "47L, 16A/47L, 18/47U", "Go to Rethifile Bus Station or Chilkalguda X Roads bus stop by walk.", "18C, 50B, 10KJ/18C, 30/18C, 219/18C"]);
+//--> CHENGICHERLA (--> <--)
+altRouteSetter(2, getStops(MCRL_KOTI, 'LV PRASAD', 'ANDHRA JYOTHI'), 'CHENGICHERLA', ["SEWD_M", "PATNY", "SAME BUS STOP", "", "47L, 16A/47L, 18/47U", SMB_D, "30/18C, 219/18C, 10KJ/18C", "SEC'BAD", "ALPHA", "RETHIFILE", "47L, 16A/47L, 18/47U", "Go to Rethifile Bus Station or Chilkalguda X Roads bus stop by walk.", "18C, 50B, 10KJ/18C, 30/18C, 219/18C"]);
 
-altRouteSetter(3, 'CHENGI CHERLA', getStops(MCRL_KOTI, 'LV PRASAD', 'ANDHRA JYOTHI'), ["SEWD_M", "PATNY", "SAME BUS STOP", "", "18C/30, 18C/219, 18C/10KJ", SMB_D, "47L, 16A/47L, 18/47U", "SEC'BAD", "RETHIFILE", "ALPHA", "18C, 50B", "Go to Alpha Hotel Bus stop by walk or by buses like 90L, 290U.", "47L, 16A/47L, 18/47U"]);
+altRouteSetter(3, 'CHENGICHERLA', getStops(MCRL_KOTI, 'LV PRASAD', 'ANDHRA JYOTHI'), ["SEWD_M", "PATNY", "SAME BUS STOP", "", "18C/30, 18C/219, 18C/10KJ", SMB_D, "47L, 16A/47L, 18/47U", "SEC'BAD", "RETHIFILE", "ALPHA", "18C, 50B", "Go to Alpha Hotel Bus stop by walk or by buses like 90L, 290U.", "47L, 16A/47L, 18/47U"]);
 
 
 
 // AYODHYA COLONY - CHENGICHERLA LINE
 // --> NAGOLE METRO STATION - LB NAGAR X ROADS (--> <--)
-altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), getStops(DNGL_IBP, 'NAGOLE METRO STATION', 'LB NAGAR X ROADS'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS NAGOLE STOP", "", "18C, 71A, 18C/30, 18C/219, 18C/10KJ", "Go to Uppal Ring Road Bus Stop towards Nagole by walk.", "90L, 279, 290, 290U, 300"]);
+altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), getStops(DNGL_IBP, 'NAGOLE METRO STATION', 'LB NAGAR X ROADS'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS NAGOLE STOP", "", "18C, 71A, 18C/30, 18C/219, 18C/10KJ", "Go to Uppal Ring Road Bus Stop towards Nagole by walk.", "90L, 279, 290, 290U, 300"]);
 
-altRouteSetter(4, getStops(DNGL_IBP, 'NAGOLE METRO STATION', 'LB NAGAR X ROADS'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS BODUPPAL STOP", "", "90L, 279, 290, 290U, 300", "Go to Uppal Ring Road Bus Stop towards Boduppal by Walk.", "18C, 71A, 18C/30, 18C/219, 18C/10KJ"]);
+altRouteSetter(4, getStops(DNGL_IBP, 'NAGOLE METRO STATION', 'LB NAGAR X ROADS'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS BODUPPAL STOP", "", "90L, 279, 290, 290U, 300", "Go to Uppal Ring Road Bus Stop towards Boduppal by Walk.", "18C, 71A, 18C/30, 18C/219, 18C/10KJ"]);
 
 // --> SAGAR RING ROAD (--> <--)
-altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), 'SAGAR RING ROAD', ["SEWD_S", "UPPAL RING ROAD", "TOWARDS NAGOLE STOP", "", "18C, 71A, 18C/30, 18C/219, 18C/10KJ", "Go to Uppal Ring Road Bus Stop towards Nagole by walk.", "279, 300"]);
+altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), 'SAGAR RING ROAD', ["SEWD_S", "UPPAL RING ROAD", "TOWARDS NAGOLE STOP", "", "18C, 71A, 18C/30, 18C/219, 18C/10KJ", "Go to Uppal Ring Road Bus Stop towards Nagole by walk.", "279, 300"]);
 
-altRouteSetter(3, 'SAGAR RING ROAD', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS BODUPPAL STOP", "", "279, 300", "Go to Uppal Ring Road Bus Stop towards Boduppal by Walk.", "18C, 71A, 18C/30, 18C/219, 18C/10KJ"]);
+altRouteSetter(3, 'SAGAR RING ROAD', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS BODUPPAL STOP", "", "279, 300", "Go to Uppal Ring Road Bus Stop towards Boduppal by Walk.", "18C, 71A, 18C/30, 18C/219, 18C/10KJ"]);
 
 // --> OMKAR NAGAR - IBRAHIMPATNAM (--> <--)
-altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), getStops(DNGL_IBP, 'OMKAR NAGAR', 'IBRAHIMPATNAM'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS NAGOLE STOP", "", "18C, 71A, 18C/30, 18C/219, 18C/10KJ", "Go to Uppal Ring Road Bus Stop towards Nagole by walk.", "279"]);
+altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), getStops(DNGL_IBP, 'OMKAR NAGAR', 'IBRAHIMPATNAM'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS NAGOLE STOP", "", "18C, 71A, 18C/30, 18C/219, 18C/10KJ", "Go to Uppal Ring Road Bus Stop towards Nagole by walk.", "279"]);
 
-altRouteSetter(4, getStops(DNGL_IBP, 'OMKAR NAGAR', 'IBRAHIMPATNAM'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS BODUPPAL STOP", "", "279", "Go to Uppal Ring Road Bus Stop towards Boduppal by Walk.", "18C, 71A, 18C/30, 18C/219, 18C/10KJ"]);
+altRouteSetter(4, getStops(DNGL_IBP, 'OMKAR NAGAR', 'IBRAHIMPATNAM'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS BODUPPAL STOP", "", "279", "Go to Uppal Ring Road Bus Stop towards Boduppal by Walk.", "18C, 71A, 18C/30, 18C/219, 18C/10KJ"]);
 
 // --> CHINTALAKUNTA CHECKPOST - PANAMA (--> <--)
-altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), getStops(LGRH_KTGD, 'CHINTALAKUNTA CHECKPOST', 'PANAMA'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS NAGOLE STOP", "", "18C, 71A, 18C/30, 18C/219, 18C/10KJ", "Go to Uppal Ring Road Bus Stop towards Nagole by walk.", "290, 290U, 290UF"]);
+altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), getStops(LGRH_KTGD, 'CHINTALAKUNTA CHECKPOST', 'PANAMA'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS NAGOLE STOP", "", "18C, 71A, 18C/30, 18C/219, 18C/10KJ", "Go to Uppal Ring Road Bus Stop towards Nagole by walk.", "290, 290U, 290UF"]);
 
-altRouteSetter(4, getStops(LGRH_KTGD, 'CHINTALAKUNTA CHECKPOST', 'PANAMA'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS BODUPPAL STOP", "", "290, 290U, 290UF", "Go to Uppal Ring Road Bus Stop towards Boduppal by Walk.", "18C, 71A, 18C/30, 18C/219, 18C/10KJ"]);
+altRouteSetter(4, getStops(LGRH_KTGD, 'CHINTALAKUNTA CHECKPOST', 'PANAMA'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS BODUPPAL STOP", "", "290, 290U, 290UF", "Go to Uppal Ring Road Bus Stop towards Boduppal by Walk.", "18C, 71A, 18C/30, 18C/219, 18C/10KJ"]);
 
 // --> SUSHMA THEATER - AUTO NAGAR (--> <--)
-altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), getStops(LGRH_KTGD, 'SUSHMA THEATER', 'AUTO NAGAR'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS NAGOLE STOP", "", "18C, 71A, 18C/30, 18C/219, 18C/10KJ", "Go to Uppal Ring Road Bus Stop towards Nagole by walk.", "290U, 290UF"]);
+altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), getStops(LGRH_KTGD, 'SUSHMA THEATER', 'AUTO NAGAR'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS NAGOLE STOP", "", "18C, 71A, 18C/30, 18C/219, 18C/10KJ", "Go to Uppal Ring Road Bus Stop towards Nagole by walk.", "290U, 290UF"]);
 
-altRouteSetter(4, getStops(LGRH_KTGD, 'SUSHMA THEATER', 'AUTO NAGAR'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS BODUPPAL STOP", "", "290U, 290UF", "Go to Uppal Ring Road Bus Stop towards Boduppal by Walk.", "18C, 71A, 18C/30, 18C/219, 18C/10KJ"]);
+altRouteSetter(4, getStops(LGRH_KTGD, 'SUSHMA THEATER', 'AUTO NAGAR'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS BODUPPAL STOP", "", "290U, 290UF", "Go to Uppal Ring Road Bus Stop towards Boduppal by Walk.", "18C, 71A, 18C/30, 18C/219, 18C/10KJ"]);
 
 // --> HIGH COURT COLONY - HAYATHNAGAR (--> <--)
-altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), getStops(LGRH_KTGD, 'HIGH COURT COLONY', 'HAYATHNAGAR'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS NAGOLE STOP", "", "18C, 71A, 18C/30, 18C/219, 18C/10KJ", "Go to Uppal Ring Road Bus Stop towards Nagole by walk.", "290, 290U, 290UF"]);
+altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), getStops(LGRH_KTGD, 'HIGH COURT COLONY', 'HAYATHNAGAR'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS NAGOLE STOP", "", "18C, 71A, 18C/30, 18C/219, 18C/10KJ", "Go to Uppal Ring Road Bus Stop towards Nagole by walk.", "290, 290U, 290UF"]);
 
-altRouteSetter(4, getStops(LGRH_KTGD, 'HIGH COURT COLONY', 'HAYATHNAGAR'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS BODUPPAL STOP", "", "290, 290U, 290UF", "Go to Uppal Ring Road Bus Stop towards Boduppal by Walk.", "18C, 71A, 18C/30, 18C/219, 18C/10KJ"]);
+altRouteSetter(4, getStops(LGRH_KTGD, 'HIGH COURT COLONY', 'HAYATHNAGAR'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS BODUPPAL STOP", "", "290, 290U, 290UF", "Go to Uppal Ring Road Bus Stop towards Boduppal by Walk.", "18C, 71A, 18C/30, 18C/219, 18C/10KJ"]);
 
 // --> VANASTHALIPURAM - SUBHADRA NAGAR 290 LINE UP DOWN (--> <--)
-altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), getStops(TailsUP, 'VANASTHALIPURAM', 'SUBHADRA NAGAR'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS NAGOLE STOP", "", "18C, 71A, 18C/30, 18C/219, 18C/10KJ", "Go to Uppal Ring Road Bus Stop towards Nagole by walk.", "290"]);
+altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), getStops(TailsUP, 'VANASTHALIPURAM', 'SUBHADRA NAGAR'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS NAGOLE STOP", "", "18C, 71A, 18C/30, 18C/219, 18C/10KJ", "Go to Uppal Ring Road Bus Stop towards Nagole by walk.", "290"]);
 
-altRouteSetter(4, getStops(TailsDOWN, 'SHANTHI NAGAR - VANASTHALIPURAM', 'VANASTHALIPURAM'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS BODUPPAL STOP", "", "290", "Go to Uppal Ring Road Bus Stop towards Boduppal by Walk.", "18C, 71A, 18C/30, 18C/219, 18C/10KJ"]);
+altRouteSetter(4, getStops(TailsDOWN, 'SHANTHI NAGAR - VANASTHALIPURAM', 'VANASTHALIPURAM'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS BODUPPAL STOP", "", "290", "Go to Uppal Ring Road Bus Stop towards Boduppal by Walk.", "18C, 71A, 18C/30, 18C/219, 18C/10KJ"]);
 
 // --> NEW NAGOLE - DILSHUKNAGAR (--> <--)
-altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), getStops(GWRL_HCLX, 'NEW NAGOLE', 'DILSHUKNAGAR'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS NAGOLE STOP", "", "18C, 71A, 18C/30, 18C/219, 18C/10KJ", "Go to Uppal Ring Road Bus Stop towards Nagole by walk.", "90NU, 90DU"]);
+altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), getStops(GWRL_HCLX, 'NEW NAGOLE', 'DILSHUKNAGAR'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS NAGOLE STOP", "", "18C, 71A, 18C/30, 18C/219, 18C/10KJ", "Go to Uppal Ring Road Bus Stop towards Nagole by walk.", "90NU, 90DU"]);
 
-altRouteSetter(4, getStops(GWRL_HCLX, 'NEW NAGOLE', 'DILSHUKNAGAR'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS BODUPPAL STOP", "", "90NU, 90DU", "Go to Uppal Ring Road Bus Stop towards Boduppal by Walk.", "18C, 71A, 18C/30, 18C/219, 18C/10KJ"]);
+altRouteSetter(4, getStops(GWRL_HCLX, 'NEW NAGOLE', 'DILSHUKNAGAR'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS BODUPPAL STOP", "", "90NU, 90DU", "Go to Uppal Ring Road Bus Stop towards Boduppal by Walk.", "18C, 71A, 18C/30, 18C/219, 18C/10KJ"]);
 
 // --> TKR KAMAN - MAILARDEVPALLY (--> <--)
-altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), getStops(SECB_SKPL, 'TKR KAMAN', 'MAILARDEVPALLY'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS NAGOLE STOP", "", "18C, 71A, 18C/30, 18C/219, 18C/10KJ", "Go to Uppal Ring Road Bus Stop towards Nagole by walk.", "300, 300/251"]);
+altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), getStops(SECB_SKPL, 'TKR KAMAN', 'MAILARDEVPALLY'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS NAGOLE STOP", "", "18C, 71A, 18C/30, 18C/219, 18C/10KJ", "Go to Uppal Ring Road Bus Stop towards Nagole by walk.", "300, 300/251"]);
 
-altRouteSetter(4, getStops(SECB_SKPL, 'TKR KAMAN', 'MAILARDEVPALLY'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS BODUPPAL STOP", "", "300, 300/251", "Go to Uppal Ring Road Bus Stop towards Boduppal by Walk.", "18C, 71A, 18C/30, 18C/219, 18C/10KJ"]);
+altRouteSetter(4, getStops(SECB_SKPL, 'TKR KAMAN', 'MAILARDEVPALLY'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_S", "UPPAL RING ROAD", "TOWARDS BODUPPAL STOP", "", "300, 300/251", "Go to Uppal Ring Road Bus Stop towards Boduppal by Walk.", "18C, 71A, 18C/30, 18C/219, 18C/10KJ"]);
 
 // --> DURGA NAGAR - BABUL REDDY NAGAR (--> <--)
-altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), getStops(SECB_SKPL, 'DURGA NAGAR', 'BABUL REDDY NAGAR'), ["SEWD_M", "UPPAL RING ROAD", "TOWARDS NAGOLE STOP", "", "18C, 71A, 18C/30, 18C/219, 18C/10KJ", "Go to Uppal Ring Road Bus Stop towards Nagole by walk.", "300, 300/251", "CBS", "SAME BUS STOP", "", "71A", SMB_D, "95K"]);
+altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), getStops(SECB_SKPL, 'DURGA NAGAR', 'BABUL REDDY NAGAR'), ["SEWD_M", "UPPAL RING ROAD", "TOWARDS NAGOLE STOP", "", "18C, 71A, 18C/30, 18C/219, 18C/10KJ", "Go to Uppal Ring Road Bus Stop towards Nagole by walk.", "300, 300/251", "CBS", "SAME BUS STOP", "", "71A", SMB_D, "95K"]);
 
-altRouteSetter(4, getStops(SECB_SKPL, 'DURGA NAGAR', 'BABUL REDDY NAGAR'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_M", "UPPAL RING ROAD", "TOWARDS BODUPPAL STOP", "", "300, 300/251", "Go to Uppal Ring Road Bus Stop towards Boduppal by Walk.", "18C, 71A, 18C/30, 18C/219, 18C/10KJ", "CBS", "SAME BUS STOP", "", "95K", SMB_D, "71A"]);
+altRouteSetter(4, getStops(SECB_SKPL, 'DURGA NAGAR', 'BABUL REDDY NAGAR'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_M", "UPPAL RING ROAD", "TOWARDS BODUPPAL STOP", "", "300, 300/251", "Go to Uppal Ring Road Bus Stop towards Boduppal by Walk.", "18C, 71A, 18C/30, 18C/219, 18C/10KJ", "CBS", "SAME BUS STOP", "", "95K", SMB_D, "71A"]);
 
 // --> ARAMGHAR (--> <--)
-altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), 'ARAMGHAR', ["SEWD_M", "UPPAL RING ROAD", "TOWARDS NAGOLE STOP", "", "18C, 71A, 18C/30, 18C/219, 18C/10KJ", "Go to Uppal Ring Road Bus Stop towards Nagole by walk.", "300, 300/251", "CBS", "SAME BUS STOP", "", "71A", SMB_D, "1Z, 1Z/251, 7Z, 95K"]);
+altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), 'ARAMGHAR', ["SEWD_M", "UPPAL RING ROAD", "TOWARDS NAGOLE STOP", "", "18C, 71A, 18C/30, 18C/219, 18C/10KJ", "Go to Uppal Ring Road Bus Stop towards Nagole by walk.", "300, 300/251", "CBS", "SAME BUS STOP", "", "71A", SMB_D, "1Z, 1Z/251, 7Z, 95K"]);
 
-altRouteSetter(3, 'ARAMGHAR', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_M", "UPPAL RING ROAD", "TOWARDS BODUPPAL STOP", "", "300, 300/251", "Go to Uppal Ring Road Bus Stop towards Boduppal by Walk.", "18C, 71A, 18C/30, 18C/219, 18C/10KJ", "CBS", "SAME BUS STOP", "", "1Z, 1Z/251, 7Z, 95K", SMB_D, "71A"]);
+altRouteSetter(3, 'ARAMGHAR', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_M", "UPPAL RING ROAD", "TOWARDS BODUPPAL STOP", "", "300, 300/251", "Go to Uppal Ring Road Bus Stop towards Boduppal by Walk.", "18C, 71A, 18C/30, 18C/219, 18C/10KJ", "CBS", "SAME BUS STOP", "", "1Z, 1Z/251, 7Z, 95K", SMB_D, "71A"]);
 
 // --> OSMANIA HOSPITAL - JIYAGUDA (--> <--)
-altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), getStops(KTGD_LGRH, 'OSMANIA HOSPITAL', 'JIYAGUDA KHT'), ["SEWD_S", "CBS", "SAME BUS STOP", "", "71A", SMB_D, "1J, 1JL, 2J, 86J"]);
+altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), getStops(KTGD_LGRH, 'OSMANIA HOSPITAL', 'JIYAGUDA KHT'), ["SEWD_S", "CBS", "SAME BUS STOP", "", "71A", SMB_D, "1J, 1JL, 2J, 86J"]);
 
-altRouteSetter(4, getStops(KTGD_LGRH, 'OSMANIA HOSPITAL', 'JIYAGUDA KHT'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_S", "CBS", "SAME BUS STOP", "", "1J, 1JL, 2J, 86J", SMB_D, "71A"]);
+altRouteSetter(4, getStops(KTGD_LGRH, 'OSMANIA HOSPITAL', 'JIYAGUDA KHT'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_S", "CBS", "SAME BUS STOP", "", "1J, 1JL, 2J, 86J", SMB_D, "71A"]);
 
 // --> KISHAN BAGH - CHINTHALMET (--> <--)
-altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), getStops(TailsUP, 'KISHAN BAGH', 'CHINTALMET'), ["SEWD_S", "CBS", "SAME BUS STOP", "", "71A", SMB_D, "94R, 94RM"]);
+altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), getStops(TailsUP, 'KISHAN BAGH', 'CHINTALMET'), ["SEWD_S", "CBS", "SAME BUS STOP", "", "71A", SMB_D, "94R, 94RM"]);
 
-altRouteSetter(4, getStops(TailsUP, 'KISHAN BAGH', 'CHINTALMET'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_S", "CBS", "SAME BUS STOP", "", "94R, 94RM", SMB_D, "71A"]);
+altRouteSetter(4, getStops(TailsUP, 'KISHAN BAGH', 'CHINTALMET'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_S", "CBS", "SAME BUS STOP", "", "94R, 94RM", SMB_D, "71A"]);
 
 // --> NANDIMUSLAY GUDA (--> <--)
-altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), 'NANDIMUSLAY GUDA', ["SEWD_S", "CBS", "SAME BUS STOP", "", "71A", SMB_D, "94RM"]);
+altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), 'NANDIMUSLAY GUDA', ["SEWD_S", "CBS", "SAME BUS STOP", "", "71A", SMB_D, "94RM"]);
 
-altRouteSetter(3, 'NANDIMUSLAY GUDA', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_S", "CBS", "SAME BUS STOP", "", "94RM", SMB_D, "71A"]);
+altRouteSetter(3, 'NANDIMUSLAY GUDA', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_S", "CBS", "SAME BUS STOP", "", "94RM", SMB_D, "71A"]);
 
 // --> NARAPALLY - GHATKESAR (--> <--)
-altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), getStops(PTCR_GTKS, 'NARAPALLY', 'GHATKESAR'), ["SEWD_S", "CHENGICHERLA X ROADS", "SAME BUS STOP", "", "18C, 18C/30, 71A", SMB_D, "280, 280J"]);
+altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), getStops(PTCR_GTKS, 'NARAPALLY', 'GHATKESAR'), ["SEWD_S", "CHENGICHERLA X ROADS", "SAME BUS STOP", "", "18C, 18C/30, 71A", SMB_D, "280, 280J"]);
 
-altRouteSetter(4, getStops(PTCR_GTKS, 'NARAPALLY', 'GHATKESAR'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_S", "CHENGICHERLA X ROADS", "TOWARDS CGCL STOP", "", "280, 280J", "Go to CGCL X Roads bus stop towards Chengicherla by walk.", "18C, 18C/30, 71A"]);
+altRouteSetter(4, getStops(PTCR_GTKS, 'NARAPALLY', 'GHATKESAR'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_S", "CHENGICHERLA X ROADS", "TOWARDS CGCL STOP", "", "280, 280J", "Go to CGCL X Roads bus stop towards Chengicherla by walk.", "18C, 18C/30, 71A"]);
 
 // --> VENKATADRI TOWNSHIP - KORREMULA (--> <--)
-altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), getStops(TailsUP, 'VENKATADRI TOWNSHIP', 'KORREMULA'), ["SEWD_S", "CHENGICHERLA X ROADS", "SAME BUS STOP", "", "18C, 18C/30, 71A", SMB_D, "283K, 18/283S"]);
+altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), getStops(TailsUP, 'VENKATADRI TOWNSHIP', 'KORREMULA'), ["SEWD_S", "CHENGICHERLA X ROADS", "SAME BUS STOP", "", "18C, 18C/30, 71A", SMB_D, "283K, 18/283S"]);
 
-altRouteSetter(4, getStops(TailsUP, 'VENKATADRI TOWNSHIP', 'KORREMULA'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_S", "CHENGICHERLA X ROADS", "TOWARDS CGCL STOP", "", "283K, 18/283S", "Go to CGCL X Roads bus stop towards Chengicherla by walk.", "18C, 18C/30, 71A"]);
+altRouteSetter(4, getStops(TailsUP, 'VENKATADRI TOWNSHIP', 'KORREMULA'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_S", "CHENGICHERLA X ROADS", "TOWARDS CGCL STOP", "", "283K, 18/283S", "Go to CGCL X Roads bus stop towards Chengicherla by walk.", "18C, 18C/30, 71A"]);
 
 // --> GANESH NAGAR - GAJULA RAMARAM X ROADS (--> <--) // NOTE REQUIRED (18CJ)
-altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), getStops(IBP_DNGL, 'GANESH NAGAR', SHD[298]), ["SEWD_M", "SEC'BAD", "RETHIFILE", "GURUDWARA", "18C, 18CJ", "Go to Gurudwara Bus Stop by Walk.", "29B, 29B/272G, 171, 272, 230A", "IDPL", "SAME BUS STOP", "", "18C/30, 18C/30S", SMB_D, "9X, 9X/272G, 29B, 29B/272G, 83J, 171, 272, 230A"]);
+altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), getStops(IBP_DNGL, 'GANESH NAGAR', SHD[298]), ["SEWD_M", "SEC'BAD", "RETHIFILE", "GURUDWARA", "18C, 18CJ", "Go to Gurudwara Bus Stop by Walk.", "29B, 29B/272G, 171, 272, 230A", "IDPL", "SAME BUS STOP", "", "18C/30, 18C/30S", SMB_D, "9X, 9X/272G, 29B, 29B/272G, 83J, 171, 272, 230A"]);
 
-altRouteSetter(4, getStops(IBP_DNGL, 'GANESH NAGAR', SHD[298]), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "29B, 29B/272G, 171, 272, 230A", "Go to Rethifile Bus Station by Walk.", "18C", "IDPL", "SAME BUS STOP", "", "9X, 9X/272G, 29B, 29B/272G, 83J, 171, 272, 230A", SMB_D, "18C/30, 18C/30S"]);
+altRouteSetter(4, getStops(IBP_DNGL, 'GANESH NAGAR', SHD[298]), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "29B, 29B/272G, 171, 272, 230A", "Go to Rethifile Bus Station by Walk.", "18C", "IDPL", "SAME BUS STOP", "", "9X, 9X/272G, 29B, 29B/272G, 83J, 171, 272, 230A", SMB_D, "18C/30, 18C/30S"]);
 
 // --> SHAHPUR NAGAR - JEEDIMETLA (--> <--) // NOTE REQUIRED (18CJ)
-altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), getStops(IBP_DNGL, 'SHAHPUR NAGAR', 'JEEDIMETLA'), ["SEWD_M", "SEC'BAD", "RETHIFILE", "GURUDWARA", "18C, 18CJ", "Go to Gurudwara Bus Stop by Walk.", "29B, 29B/272G, 272, 230A", "IDPL", "SAME BUS STOP", "", "18C/30, 18C/30S", SMB_D, "9X, 9X/272G, 29B, 29B/272G, 83J, 272, 230A"]);
+altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), getStops(IBP_DNGL, 'SHAHPUR NAGAR', 'JEEDIMETLA'), ["SEWD_M", "SEC'BAD", "RETHIFILE", "GURUDWARA", "18C, 18CJ", "Go to Gurudwara Bus Stop by Walk.", "29B, 29B/272G, 272, 230A", "IDPL", "SAME BUS STOP", "", "18C/30, 18C/30S", SMB_D, "9X, 9X/272G, 29B, 29B/272G, 83J, 272, 230A"]);
 
-altRouteSetter(4, getStops(IBP_DNGL, 'SHAHPUR NAGAR', 'JEEDIMETLA'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "29B, 29B/272G, 272, 230A", "Go to Rethifile Bus Station by Walk.", "18C", "IDPL", "SAME BUS STOP", "", "9X, 9X/272G, 29B, 29B/272G, 83J, 272, 230A", SMB_D, "18C/30, 18C/30S"]);
+altRouteSetter(4, getStops(IBP_DNGL, 'SHAHPUR NAGAR', 'JEEDIMETLA'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "29B, 29B/272G, 272, 230A", "Go to Rethifile Bus Station by Walk.", "18C", "IDPL", "SAME BUS STOP", "", "9X, 9X/272G, 29B, 29B/272G, 83J, 272, 230A", SMB_D, "18C/30, 18C/30S"]);
 
 // --> SAIBAD X ROADS - GANDIMAISAMMA - BOWRAMPET (--> <--) // NOTE REQUIRED (18CJ)
-altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), getStops(IBP_DNGL, 'SAIBAD X ROADS', 'GOVT. COLLEGE (BAHUDRPALLY)'), ["SEWD_M", "SEC'BAD", "RETHIFILE", "GURUDWARA", "18C, 18CJ", "Go to Gurudwara Bus Stop by Walk.", "29B/272G, 272, 230A", "IDPL", "SAME BUS STOP", "", "18C/30, 18C/30S", SMB_D, "9X/272G, 29B/272G, 272, 230A"]);
+altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), getStops(IBP_DNGL, 'SAIBAD X ROADS', 'GOVT. COLLEGE (BAHUDRPALLY)'), ["SEWD_M", "SEC'BAD", "RETHIFILE", "GURUDWARA", "18C, 18CJ", "Go to Gurudwara Bus Stop by Walk.", "29B/272G, 272, 230A", "IDPL", "SAME BUS STOP", "", "18C/30, 18C/30S", SMB_D, "9X/272G, 29B/272G, 272, 230A"]);
 
-altRouteSetter(4, getStops(IBP_DNGL, 'SAIBAD X ROADS', 'GOVT. COLLEGE (BAHUDRPALLY)'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "29B/272G, 272, 230A", "Go to Rethifile Bus Station by Walk.", "18C", "IDPL", "SAME BUS STOP", "", "9X/272G, 29B/272G, 272, 230A", SMB_D, "18C/30, 18C/30S"]);
+altRouteSetter(4, getStops(IBP_DNGL, 'SAIBAD X ROADS', 'GOVT. COLLEGE (BAHUDRPALLY)'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "29B/272G, 272, 230A", "Go to Rethifile Bus Station by Walk.", "18C", "IDPL", "SAME BUS STOP", "", "9X/272G, 29B/272G, 272, 230A", SMB_D, "18C/30, 18C/30S"]);
 
-altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), 'BAHUDURPALLY X ROADS', ["SEWD_M", "SEC'BAD", "RETHIFILE", "GURUDWARA", "18C, 18CJ", "Go to Gurudwara Bus Stop by Walk.", "227, 29B/272G, 272, 230A", "IDPL", "SAME BUS STOP", "", "18C/30, 18C/30S", SMB_D, "9X/272G, 29B/272G, 272, 230A"]);
+altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), 'BAHUDURPALLY X ROADS', ["SEWD_M", "SEC'BAD", "RETHIFILE", "GURUDWARA", "18C, 18CJ", "Go to Gurudwara Bus Stop by Walk.", "227, 29B/272G, 272, 230A", "IDPL", "SAME BUS STOP", "", "18C/30, 18C/30S", SMB_D, "9X/272G, 29B/272G, 272, 230A"]);
 
-altRouteSetter(3, 'BAHUDURPALLY X ROADS', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "227, 29B/272G, 272, 230A", "Go to Rethifile Bus Station by Walk.", "18C", "IDPL", "SAME BUS STOP", "", "9X/272G, 29B/272G, 272, 230A", SMB_D, "18C/30, 18C/30S"]);
+altRouteSetter(3, 'BAHUDURPALLY X ROADS', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "227, 29B/272G, 272, 230A", "Go to Rethifile Bus Station by Walk.", "18C", "IDPL", "SAME BUS STOP", "", "9X/272G, 29B/272G, 272, 230A", SMB_D, "18C/30, 18C/30S"]);
 
-altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), 'GANDIMAISAMMA', ["SEWD_M", "SEC'BAD", "RETHIFILE", "GURUDWARA", "18C, 18CJ", "Go to Gurudwara Bus Stop by Walk.", "29B/272G, 230A, 272", "IDPL", "SAME BUS STOP", "", "18C/30, 18C/30S", SMB_D, "9X/272G, 29B/272G, 272, 230A"]);
+altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), 'GANDIMAISAMMA', ["SEWD_M", "SEC'BAD", "RETHIFILE", "GURUDWARA", "18C, 18CJ", "Go to Gurudwara Bus Stop by Walk.", "29B/272G, 230A, 272", "IDPL", "SAME BUS STOP", "", "18C/30, 18C/30S", SMB_D, "9X/272G, 29B/272G, 272, 230A"]);
 
-altRouteSetter(3, 'GANDIMAISAMMA', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "29B/272G, 230A, 272", "Go to Rethifile Bus Station by Walk.", "18C", "IDPL", "SAME BUS STOP", "", "9X/272G, 29B/272G, 272, 230A", SMB_D, "18C/30, 18C/30S"]);
+altRouteSetter(3, 'GANDIMAISAMMA', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "29B/272G, 230A, 272", "Go to Rethifile Bus Station by Walk.", "18C", "IDPL", "SAME BUS STOP", "", "9X/272G, 29B/272G, 272, 230A", SMB_D, "18C/30, 18C/30S"]);
 
-altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), 'BOWRAMPET', ["SEWD_M", "SEC'BAD", "RETHIFILE", "GURUDWARA", "18C, 18CJ", "Go to Gurudwara Bus Stop by Walk.", "272", "IDPL", "SAME BUS STOP", "", "18C/30, 18C/30S", SMB_D, "272"]);
+altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), 'BOWRAMPET', ["SEWD_M", "SEC'BAD", "RETHIFILE", "GURUDWARA", "18C, 18CJ", "Go to Gurudwara Bus Stop by Walk.", "272", "IDPL", "SAME BUS STOP", "", "18C/30, 18C/30S", SMB_D, "272"]);
 
-altRouteSetter(3, 'BOWRAMPET', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "272", "Go to Rethifile Bus Station by Walk.", "18C", "IDPL", "SAME BUS STOP", "", "272", SMB_D, "18C/30, 18C/30S"]);
+altRouteSetter(3, 'BOWRAMPET', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "272", "Go to Rethifile Bus Station by Walk.", "18C", "IDPL", "SAME BUS STOP", "", "272", SMB_D, "18C/30, 18C/30S"]);
 
 // --> WESLEY COLLEGE - GREEN LANDS (--> <--) // NOTE REQUIRED (18CJ)
-altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), getStops(LGPL_CRPL, 'BEGUMPET HPS', 'WESLEY COLLEGE'), ["SEWD_S", "SEC'BAD", "ALPHA HOTEL STOP", "", "18C, 18CJ, 18C/30, 18C/30S", "Go towards Route No. 10 or 49 Busbay & board the buses mentioned below.", "10, 10F, 10KJ, 10YF, 47L, 49, 49M"]);
+altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), getStops(LGPL_CRPL, 'BEGUMPET HPS', 'WESLEY COLLEGE'), ["SEWD_S", "SEC'BAD", "ALPHA HOTEL STOP", "", "18C, 18CJ, 18C/30, 18C/30S", "Go towards Route No. 10 or 49 Busbay & board the buses mentioned below.", "10, 10F, 10KJ, 10YF, 47L, 49, 49M"]);
 
-altRouteSetter(4, getStops(LGPL_CRPL, 'BEGUMPET HPS', 'WESLEY COLLEGE'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_M", "SEC'BAD", "ALPHA", "RETHIFILE", "10, 10F, 10KJ, 10YF, 47L, 49, 49M", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "10, 10F, 10KJ, 10YF, 47L, 49, 49M", SMB_D, "18C/30, 18C/30S"]);
+altRouteSetter(4, getStops(LGPL_CRPL, 'BEGUMPET HPS', 'WESLEY COLLEGE'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_M", "SEC'BAD", "ALPHA", "RETHIFILE", "10, 10F, 10KJ, 10YF, 47L, 49, 49M", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "10, 10F, 10KJ, 10YF, 47L, 49, 49M", SMB_D, "18C/30, 18C/30S"]);
 
 // --> SOMAJIGUDA CIRLCE - PANJAGUTTA (--> <--) // NOTE REQUIRED (18CJ)
-altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), 'SOMAJIGUDA CIRCLE', ["SEWD_S", "SEC'BAD", "ALPHA HOTEL STOP", "", "18C, 18CJ, 18C/30, 18C/30S", "Go towards Route No. 49 Busbay & board the buses mentioned below.", "47L, 49M, 49M/92A"]);
+altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), 'SOMAJIGUDA CIRCLE', ["SEWD_S", "SEC'BAD", "ALPHA HOTEL STOP", "", "18C, 18CJ, 18C/30, 18C/30S", "Go towards Route No. 49 Busbay & board the buses mentioned below.", "47L, 49M, 49M/92A"]);
 
 // --> VIKRAMPURI - HANUMAN TEMPLE (--> <--) // NOTE REQUIRED (18CJ)
-altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), getStops(MNBD_SRPT, 'VIKRAMPURI', 'HANUMAN TEMPLE'), ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "22, 22D, 23B, 23T, 24B, 25A, 25S, 211M, 212, 568"]);
+altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), getStops(MNBD_SRPT, 'VIKRAMPURI', 'HANUMAN TEMPLE'), ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "22, 22D, 23B, 23T, 24B, 25A, 25S, 211M, 212, 568"]);
 
-altRouteSetter(4, getStops(MNBD_SRPT, 'VIKRAMPURI', 'HANUMAN TEMPLE'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "22, 22D, 23B, 23T, 24B, 25A, 25S, 211M, 212, 568", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "22, 22D, 23B, 23T, 24B, 25A, 25S, 211M, 212, 568", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
+altRouteSetter(4, getStops(MNBD_SRPT, 'VIKRAMPURI', 'HANUMAN TEMPLE'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "22, 22D, 23B, 23T, 24B, 25A, 25S, 211M, 212, 568", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "22, 22D, 23B, 23T, 24B, 25A, 25S, 211M, 212, 568", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
 
 // --> TIRUMALAGIRI - LAL BAZAR (--> <--) // NOTE REQUIRED (18CJ)
-altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), getStops(MNBD_SRPT, 'TIRUMALAGIRI', 'LAL BAZAR'), ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "22, 22D, 23T, 24B, 25A, 25S, 211M, 212, 568"]);
+altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), getStops(MNBD_SRPT, 'TIRUMALAGIRI', 'LAL BAZAR'), ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "22, 22D, 23T, 24B, 25A, 25S, 211M, 212, 568"]);
 
-altRouteSetter(4, getStops(MNBD_SRPT, 'TIRUMALAGIRI', 'LAL BAZAR'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "22, 22D, 23T, 24B, 25A, 25S, 211M, 212, 568", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "22, 22D, 23T, 24B, 25A, 25S, 211M, 212, 568", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
+altRouteSetter(4, getStops(MNBD_SRPT, 'TIRUMALAGIRI', 'LAL BAZAR'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "22, 22D, 23T, 24B, 25A, 25S, 211M, 212, 568", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "22, 22D, 23T, 24B, 25A, 25S, 211M, 212, 568", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
 
 // --> LOTHKUNTA (--> <--) // NOTE REQUIRED (18CJ)
-altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), 'LOTHKUNTA', ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "22, 22D, 25A, 25S, 211M, 212, 568"]);
+altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), 'LOTHKUNTA', ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "22, 22D, 25A, 25S, 211M, 212, 568"]);
 
-altRouteSetter(3, 'LOTHKUNTA', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "22, 22D, 25A, 25S, 211M, 212, 568", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "22, 22D, 25A, 25S, 211M, 212, 568", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
+altRouteSetter(3, 'LOTHKUNTA', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "22, 22D, 25A, 25S, 211M, 212, 568", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "22, 22D, 25A, 25S, 211M, 212, 568", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
 
 // --> ALWAL (--> <--) // NOTE REQUIRED (18CJ)
-altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), 'ALWAL', ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "22, 22D, 25A, 25S, 212, 568"]);
+altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), 'ALWAL', ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "22, 22D, 25A, 25S, 212, 568"]);
 
-altRouteSetter(3, 'ALWAL', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "22, 22D, 25A, 25S, 212, 568", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "22, 22D, 25A, 25S, 212, 568", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
+altRouteSetter(3, 'ALWAL', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "22, 22D, 25A, 25S, 212, 568", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "22, 22D, 25A, 25S, 212, 568", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
 
 // --> ALWAL RYTHU BAZAR - LAKADAWALA (--> <--) // NOTE REQUIRED (18CJ)
-altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), getStops(MNBD_SRPT, 'ALWAL RYTHU BAZAR', 'LAKADAWALA'), ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "22, 22D, 211B, 211DY, 212, 568"]);
+altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), getStops(MNBD_SRPT, 'ALWAL RYTHU BAZAR', 'LAKADAWALA'), ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "22, 22D, 211B, 211DY, 212, 568"]);
 
-altRouteSetter(4, getStops(MNBD_SRPT, 'ALWAL RYTHU BAZAR', 'LAKADAWALA'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "22, 22D, 211B, 211DY, 212, 568", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "22, 22D, 211B, 211DY, 212, 568", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
+altRouteSetter(4, getStops(MNBD_SRPT, 'ALWAL RYTHU BAZAR', 'LAKADAWALA'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "22, 22D, 211B, 211DY, 212, 568", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "22, 22D, 211B, 211DY, 212, 568", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
 
 // --> BOLLARUM - RISALA BAZAR (--> <--) // NOTE REQUIRED (18CJ)
-altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), getStops(MNBD_SRPT, 'BOLLARUM', 'RISALA BAZAR'), ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "22, 22D, 211B, 211DY"]);
+altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), getStops(MNBD_SRPT, 'BOLLARUM', 'RISALA BAZAR'), ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "22, 22D, 211B, 211DY"]);
 
-altRouteSetter(4, getStops(MNBD_SRPT, 'BOLLARUM', 'RISALA BAZAR'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "22, 22D, 211B, 211DY", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "8R, 22, 22D, 211B, 211DY", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
+altRouteSetter(4, getStops(MNBD_SRPT, 'BOLLARUM', 'RISALA BAZAR'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "22, 22D, 211B, 211DY", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "8R, 22, 22D, 211B, 211DY", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
 
 // --> KOWKOOR X ROADS (--> <--) // NOTE REQUIRED (18CJ)
-altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), 'KOWKOOR X ROADS', ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "22, 22D, 211B, 211DY, 212, 568"]);
+altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), 'KOWKOOR X ROADS', ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "22, 22D, 211B, 211DY, 212, 568"]);
 
-altRouteSetter(3, 'KOWKOOR X ROADS', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "22, 22D, 211B, 211DY, 212, 568", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "22, 22D, 211B, 211DY, 212, 568", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
+altRouteSetter(3, 'KOWKOOR X ROADS', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "22, 22D, 211B, 211DY, 212, 568", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "22, 22D, 211B, 211DY, 212, 568", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
 
 // --> HAKIMPET (--> <--) // NOTE REQUIRED (18CJ)
-altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), 'HAKIMPET', ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "22, 211, 211DY, 212, 568"]);
+altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), 'HAKIMPET', ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "22, 211, 211DY, 212, 568"]);
 
-altRouteSetter(3, 'HAKIMPET', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "22, 211, 211DY, 212, 568", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "22, 211, 211DY, 212, 568", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
+altRouteSetter(3, 'HAKIMPET', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "22, 211, 211DY, 212, 568", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "22, 211, 211DY, 212, 568", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
 
 // --> THUMKUNTA (--> <--) // NOTE REQUIRED (18CJ)
-altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), 'THUMKUNTA', ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "211, 211DY, 212, 568"]);
+altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), 'THUMKUNTA', ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "211, 211DY, 212, 568"]);
 
-altRouteSetter(3, 'THUMKUNTA', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "211, 211DY, 212, 568", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "211, 211DY, 212, 568", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
+altRouteSetter(3, 'THUMKUNTA', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "211, 211DY, 212, 568", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "211, 211DY, 212, 568", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
 
 // --> THUMKUNTA AUTO STAND (--> <--) // NOTE REQUIRED (18CJ)
-altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), 'THUMKUNTA AUTO STAND', ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "211B, 212, 568"]);
+altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), 'THUMKUNTA AUTO STAND', ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "211B, 212, 568"]);
 
-altRouteSetter(3, 'THUMKUNTA AUTO STAND', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "211B, 212, 568", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "211B, 212, 568", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
+altRouteSetter(3, 'THUMKUNTA AUTO STAND', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "211B, 212, 568", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "211B, 212, 568", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
 
 // --> DONGALAMYSAMMA X ROADS (--> <--) // NOTE REQUIRED (18CJ)
-altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), 'DONGALAMYSAMMA X ROADS', ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "211B, 212, 568"]);
+altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), 'DONGALAMYSAMMA X ROADS', ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "211B, 212, 568"]);
 
-altRouteSetter(3, 'DONGALAMYSAMMA X ROADS', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "211B, 212, 568", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "211B, 212, 568", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
+altRouteSetter(3, 'DONGALAMYSAMMA X ROADS', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "211B, 212, 568", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "211B, 212, 568", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
 
 // --> SHAH MEER DARGAH - SHAMIRPET (--> <--) // NOTE REQUIRED (18CJ)
-altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), getStops(MNBD_SRPT, 'SHAH MEER DARGAH', 'SHAMIRPET'), ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "211B, 568"]);
+altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), getStops(MNBD_SRPT, 'SHAH MEER DARGAH', 'SHAMIRPET'), ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "211B, 568"]);
 
-altRouteSetter(4, getStops(MNBD_SRPT, 'SHAH MEER DARGAH', 'SHAMIRPET'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "211B, 568", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "211B, 568", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
+altRouteSetter(4, getStops(MNBD_SRPT, 'SHAH MEER DARGAH', 'SHAMIRPET'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "211B, 568", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "211B, 568", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
 
 // --> MB DARGAH ROAD (--> <--) // NOTE REQUIRED (18CJ)
-altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), [SHD[10], SHD[14], SHD[612]], ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "22D"]);
+altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), [SHD[10], SHD[14], SHD[612]], ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "22D"]);
 
-altRouteSetter(4, [SHD[10], SHD[14], SHD[612]], getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "22D", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "22D", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
+altRouteSetter(4, [SHD[10], SHD[14], SHD[612]], getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "22D", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "22D", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
 
 // --> KOWKOOR (--> <--) // NOTE REQUIRED (18CJ)
-altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), 'KOWKOOR', ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "22D, 22K"]);
+altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), 'KOWKOOR', ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "22D, 22K"]);
 
-altRouteSetter(3, 'KOWKOOR', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "22D, 22K", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "22D, 22K", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
+altRouteSetter(3, 'KOWKOOR', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "22D, 22K", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "22D, 22K", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
 
 // --> RAJIV GRUHAKALPA - KOWKOOR (--> <--) // NOTE REQUIRED (18CJ)
-altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), [SHD[134], SHD[169]], ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "22K"]);
+altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), [SHD[134], SHD[169]], ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "22K"]);
 
-altRouteSetter(4, [SHD[134], SHD[169]], getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "22K", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "22K", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
+altRouteSetter(4, [SHD[134], SHD[169]], getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "22K", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "22K", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
 
 // --> ALWAL POLICE STATION - IG STATUE (--> <--) // NOTE REQUIRED (18CJ)
-altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), getStops(GTKS_KPHB, 'ALWAL POLICE STATION', 'IG STATUE'), ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "25A, 25M, 25S, 25S/229"]);
+altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), getStops(GTKS_KPHB, 'ALWAL POLICE STATION', 'IG STATUE'), ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "25A, 25M, 25S, 25S/229"]);
 
-altRouteSetter(4, getStops(GTKS_KPHB, 'ALWAL POLICE STATION', 'IG STATUE'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "25A, 25M, 25S, 25S/229", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "25A, 25M, 25S, 25S/229", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
+altRouteSetter(4, getStops(GTKS_KPHB, 'ALWAL POLICE STATION', 'IG STATUE'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "25A, 25M, 25S, 25S/229", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "25A, 25M, 25S, 25S/229", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
 
 // --> FATHER BALAYA NAGAR - DR. NARAYANA COLLEGE (--> <--) // NOTE REQUIRED (18CJ)
-altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), getStops(GTKS_KPHB, 'FATHER BALAYA NAGAR', 'DR. NARAYANA COLLEGE'), ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "1/25S, 1/25S/229, 25S, 25S/229"]);
+altRouteSetter(4, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), getStops(GTKS_KPHB, 'FATHER BALAYA NAGAR', 'DR. NARAYANA COLLEGE'), ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "1/25S, 1/25S/229, 25S, 25S/229"]);
 
-altRouteSetter(4, getStops(GTKS_KPHB, 'FATHER BALAYA NAGAR', 'DR. NARAYANA COLLEGE'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "1/25S, 1/25S/229, 25S, 25S/229", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "1/25S, 1/25S/229, 25S, 25S/229", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
+altRouteSetter(4, getStops(GTKS_KPHB, 'FATHER BALAYA NAGAR', 'DR. NARAYANA COLLEGE'), getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "1/25S, 1/25S/229, 25S, 25S/229", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "1/25S, 1/25S/229, 25S, 25S/229", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
 
 // --> LOYALA ACADEMY (--> <--) // NOTE REQUIRED (18CJ)
-altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), 'LOYALA ACADEMY', ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "23BS, 23GS, 25S, 25S/229"]);
+altRouteSetter(2, getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), 'LOYALA ACADEMY', ["SEWD_S", "SEC'BAD", "ALPHA", "GURUDWARA", "18C, 18CJ, 18C/30, 18C/30S", "Go to Gurudwara Bus Stop by Walk.", "23BS, 23GS, 25S, 25S/229"]);
 
-altRouteSetter(3, 'LOYALA ACADEMY', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGI CHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "23BS, 23GS, 25S, 25S/229", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "23BS, 23GS, 25S, 25S/229", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
+altRouteSetter(3, 'LOYALA ACADEMY', getStops(TailsUP, 'AYODHYA COLONY', 'CHENGICHERLA'), ["SEWD_M", "SEC'BAD", "GURUDWARA", "RETHIFILE", "23BS, 23GS, 25S, 25S/229", "Go to Rethifile Bus Station by Walk.", "18C", "PATNY", "SAME BUS STOP", "", "23BS, 23GS, 25S, 25S/229", SMB_D, "18C/30, 18C/30S"]); // NOTE REQUIRED
 
 // BOIGUDA - SULTHAN BAZAR LINE
 // --> VIVEKNAGAR (JILLELGUDA) - RAJIV GRUHAKALPA (--> <--) // NOTE REQ.
@@ -5024,15 +5024,15 @@ altRouteSetter(3, 'SECUNDERABAD', getStops(GWRL_HCLX, 'NEW NAGOLE', 'SBI COLONY'
 
 altRouteSetter(2, getStops(GWRL_HCLX, 'NEW NAGOLE', 'SBI COLONY'), 'SECUNDERABAD', ["SEWD_S", "NAGOLE X ROADS", "SAME BUS STOP", "", "72J, 90UN, 201G, 201M", SMB_D, "90L, 279, 290, 290U"]);
 
-// BANDLAGUDA (NAGOLE) - OLD NAGOLE (--> <--)
-altRouteSetter(3, 'SECUNDERABAD', getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NAGOLE)'), ["SEWD_S", "NAGOLE X ROADS", "TOWARDS GOWRELLY STOP", "", "90L, 279, 290, 290U", "Go to Nagole X Roads Bus Stop towards Gowrelly by Walk.", "72J, 201M, 201G"]);
+// BANDLAGUDA (NGL) - OLD NAGOLE (--> <--)
+altRouteSetter(3, 'SECUNDERABAD', getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NGL)'), ["SEWD_S", "NAGOLE X ROADS", "TOWARDS GOWRELLY STOP", "", "90L, 279, 290, 290U", "Go to Nagole X Roads Bus Stop towards Gowrelly by Walk.", "72J, 201M, 201G"]);
 
-altRouteSetter(2, getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NAGOLE)'), 'SECUNDERABAD', ["SEWD_S", "NAGOLE X ROADS", "TOWARDS UPPAL STOP", "", "72J, 201M, 201G", "Go to Nagole X Roads Bus Stop towards Uppal by Walk.", "90L, 279, 290, 290U"]);
+altRouteSetter(2, getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NGL)'), 'SECUNDERABAD', ["SEWD_S", "NAGOLE X ROADS", "TOWARDS UPPAL STOP", "", "72J, 201M, 201G", "Go to Nagole X Roads Bus Stop towards Uppal by Walk.", "90L, 279, 290, 290U"]);
 
-// ANANDH NAGAR (NAGOLE) - TATTI ANNARAM X ROADS (--> <--)
-altRouteSetter(3, 'SECUNDERABAD', getStops(HCLX_GWRL, 'ANANDH NAGAR (NAGOLE)', 'TATTI ANNARAM X ROADS'), ["SEWD_S", "NAGOLE X ROADS", "TOWARDS GOWRELLY STOP", "", "90L, 279, 290, 290U", "Go to Nagole X Roads Bus Stop towards Gowrelly by Walk.", "201M, 201G"]);
+// ANANDH NAGAR (NGL) - TATTI ANNARAM X ROADS (--> <--)
+altRouteSetter(3, 'SECUNDERABAD', getStops(HCLX_GWRL, 'ANANDH NAGAR (NGL)', 'TATTI ANNARAM X ROADS'), ["SEWD_S", "NAGOLE X ROADS", "TOWARDS GOWRELLY STOP", "", "90L, 279, 290, 290U", "Go to Nagole X Roads Bus Stop towards Gowrelly by Walk.", "201M, 201G"]);
 
-altRouteSetter(2, getStops(HCLX_GWRL, 'ANANDH NAGAR (NAGOLE)', 'TATTI ANNARAM X ROADS'), 'SECUNDERABAD', ["SEWD_S", "NAGOLE X ROADS", "TOWARDS UPPAL STOP", "", "201M, 201G", "Go to Nagole X Roads Bus Stop towards Uppal by Walk.", "90L, 279, 290, 290U"]);
+altRouteSetter(2, getStops(HCLX_GWRL, 'ANANDH NAGAR (NGL)', 'TATTI ANNARAM X ROADS'), 'SECUNDERABAD', ["SEWD_S", "NAGOLE X ROADS", "TOWARDS UPPAL STOP", "", "201M, 201G", "Go to Nagole X Roads Bus Stop towards Uppal by Walk.", "90L, 279, 290, 290U"]);
 
 // KUNTLOOR X ROAD - GOWRELLY (--> <--)
 altRouteSetter(3, 'SECUNDERABAD', getStops(HCLX_GWRL, 'KUNTLOOR X ROAD', 'GOWRELLY'), ["SEWD_S", "NAGOLE X ROADS", "TOWARDS GOWRELLY STOP", "", "90L, 279, 290, 290U", "Go to Nagole X Roads Bus Stop towards Gowrelly by Walk.", "201G"]);
@@ -6007,10 +6007,10 @@ altRouteSetter(4, getStops(IBP_DNGL, 'LB NAGAR X ROADS', 'NAGOLE METRO STATION')
 
 altRouteSetter(4, ['RAMPALLY X ROADS'], getStops(IBP_DNGL, 'LB NAGAR X ROADS', 'NAGOLE METRO STATION'), ["3P3PNW_M", "TARNAKA", "TOWARDS UPPAL STOP", "", "3K/281, 241T, 242, 242A, 242B, 242RG", "Go to Tarnaka bus stop towards uppal by walk.", "90L, 279, 290, 290U", "3K/281, 241T, 242, 242A, 242B, 242RG, 281", "ECIL X ROADS", "117", "UPPAL RING ROAD", "90L, 279, 290, 290U, 300"]);
 
-// --> ICOM TELE LIMITED - BANDLAGUDA (NAGARAM) (--> <--)
-altRouteSetter(4, getStops(IBP_DNGL, 'LB NAGAR X ROADS', 'NAGOLE METRO STATION'), getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NAGARAM)'), ["3P3PNW_M", "TARNAKA", "TOWARDS LALAPET STOP", "", "90L, 279, 290, 290U", "Go to Tarnaka bus stop towards Lalapet by walk.", "241T, 242, 242A, 242B, 242RG", "90L, 279, 290, 290U, 300", "UPPAL RING ROAD", "117", "ECIL X ROADS", "241T, 242, 242A, 242B, 242RG"]);
+// --> ICOM TELE LIMITED - BANDLAGUDA (NGRM) (--> <--)
+altRouteSetter(4, getStops(IBP_DNGL, 'LB NAGAR X ROADS', 'NAGOLE METRO STATION'), getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NGRM)'), ["3P3PNW_M", "TARNAKA", "TOWARDS LALAPET STOP", "", "90L, 279, 290, 290U", "Go to Tarnaka bus stop towards Lalapet by walk.", "241T, 242, 242A, 242B, 242RG", "90L, 279, 290, 290U, 300", "UPPAL RING ROAD", "117", "ECIL X ROADS", "241T, 242, 242A, 242B, 242RG"]);
 
-altRouteSetter(4, getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NAGARAM)'), getStops(IBP_DNGL, 'LB NAGAR X ROADS', 'NAGOLE METRO STATION'), ["3P3PNW_M", "TARNAKA", "TOWARDS UPPAL STOP", "", "241T, 242, 242A, 242B, 242RG", "Go to Tarnaka bus stop towards uppal by walk.", "90L, 279, 290, 290U", "241T, 242, 242A, 242B, 242RG", "ECIL X ROADS", "117", "UPPAL RING ROAD", "90L, 279, 290, 290U, 300"]);
+altRouteSetter(4, getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NGRM)'), getStops(IBP_DNGL, 'LB NAGAR X ROADS', 'NAGOLE METRO STATION'), ["3P3PNW_M", "TARNAKA", "TOWARDS UPPAL STOP", "", "241T, 242, 242A, 242B, 242RG", "Go to Tarnaka bus stop towards uppal by walk.", "90L, 279, 290, 290U", "241T, 242, 242A, 242B, 242RG", "ECIL X ROADS", "117", "UPPAL RING ROAD", "90L, 279, 290, 290U, 300"]);
 
 // --> CHERIYAL X ROADS (--> <--)
 altRouteSetter(4, getStops(IBP_DNGL, 'LB NAGAR X ROADS', 'NAGOLE METRO STATION'), ['CHERIYAL X ROADS'], ["3P3PNW_M", "TARNAKA", "TOWARDS LALAPET STOP", "", "90L, 279, 290, 290U", "Go to Tarnaka bus stop towards Lalapet by walk.", "241T, 242, 242A, 242B, 242G", "90L, 279, 290, 290U, 300", "UPPAL RING ROAD", "117", "ECIL X ROADS", "241T, 242, 242A, 242B, 242G"]);
@@ -6519,9 +6519,9 @@ altRouteSetter(2, getStops(SHMB_KSR, 'AFZALGUNJ', 'MANIKESHWAR NAGAR'), 'RAMPALL
 
 altRouteSetter(3, 'RAMPALLY X ROADS', getStops(SHMB_KSR, 'AFZALGUNJ', 'MANIKESHWAR NAGAR'), ["SEWD_S", "ECIL X ROADS", "BUS STATION", "", "241T, 242, 242A, 242B, 242RG, 281", "In the ECIL X Roads Bus Station, Board the buses mentioned below.", "3, 3K, 3KN"]);
 
-altRouteSetter(4, getStops(SHMB_KSR, 'AFZALGUNJ', 'MANIKESHWAR NAGAR'), getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NAGARAM)'), ["SEWD_S", "ECIL X ROADS", "BUS STATION", "", "3, 3K, 3KN", "Go to ECIL X Roads Bus Station & board the buses given below.", "241T, 242, 242A, 242B, 242RG"]);
+altRouteSetter(4, getStops(SHMB_KSR, 'AFZALGUNJ', 'MANIKESHWAR NAGAR'), getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NGRM)'), ["SEWD_S", "ECIL X ROADS", "BUS STATION", "", "3, 3K, 3KN", "Go to ECIL X Roads Bus Station & board the buses given below.", "241T, 242, 242A, 242B, 242RG"]);
 
-altRouteSetter(4, getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NAGARAM)'), getStops(SHMB_KSR, 'AFZALGUNJ', 'MANIKESHWAR NAGAR'), ["SEWD_S", "ECIL X ROADS", "BUS STATION", "", "241T, 242, 242A, 242B, 242RG", "In the ECIL X Roads Bus Station, Board the buses mentioned below.", "3, 3K, 3KN"]);
+altRouteSetter(4, getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NGRM)'), getStops(SHMB_KSR, 'AFZALGUNJ', 'MANIKESHWAR NAGAR'), ["SEWD_S", "ECIL X ROADS", "BUS STATION", "", "241T, 242, 242A, 242B, 242RG", "In the ECIL X Roads Bus Station, Board the buses mentioned below.", "3, 3K, 3KN"]);
 
 altRouteSetter(2, getStops(SHMB_KSR, 'AFZALGUNJ', 'MANIKESHWAR NAGAR'), 'CHERIYAL X ROADS', ["SEWD_S", "ECIL X ROADS", "BUS STATION", "", "3, 3K, 3KN", "Go to ECIL X Roads Bus Station & board the buses given below.", "241T, 242, 242A, 242B, 242G"]);
 
@@ -7169,18 +7169,18 @@ altRouteSetter(4, getStops(DNGL_IBP, 'JEEDIMETLA', 'SHAHPUR NAGAR'), ['RAMPALLY 
 
 altRouteSetter(4, ['RAMPALLY X ROADS'], getStops(IBP_DNGL, 'SHAHPUR NAGAR', 'JEEDIMETLA'), ["3PNW_S", "9X, 9X/272G, 9K/272G, 29B, 29B/272G, 230A, 272", "SHAHPUR NAGAR", "24SS", "ECIL X ROADS", "3K/281, 241T, 242, 242A, 242B, 242RG, 281", "R"]);
 
-// --> ICOM TELE LIMITED - BANDLAGUDA (NAGARAM) (--> <--)
-altRouteSetter(4, getStops(DNGL_IBP, 'GANDIMAISAMMA', 'BAHUDURPALLY X ROADS'), getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NAGARAM)'), ["3P3PNW_M", "ECIL X ROADS", "BUS STATION", "", "24S/273", "In ECIL X Roads bus station, board the buses mentioned below.", "241T, 242, 242A, 242B, 242RG", "9X/272G, 9K/272G, 29B/272G, 230A, 272", "SHAHPUR NAGAR", "24SS", "ECIL X ROADS", "241T, 242, 242A, 242B, 242RG"]);
+// --> ICOM TELE LIMITED - BANDLAGUDA (NGRM) (--> <--)
+altRouteSetter(4, getStops(DNGL_IBP, 'GANDIMAISAMMA', 'BAHUDURPALLY X ROADS'), getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NGRM)'), ["3P3PNW_M", "ECIL X ROADS", "BUS STATION", "", "24S/273", "In ECIL X Roads bus station, board the buses mentioned below.", "241T, 242, 242A, 242B, 242RG", "9X/272G, 9K/272G, 29B/272G, 230A, 272", "SHAHPUR NAGAR", "24SS", "ECIL X ROADS", "241T, 242, 242A, 242B, 242RG"]);
 
-altRouteSetter(4, getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NAGARAM)'), getStops(IBP_DNGL, 'BAHUDURPALLY X ROADS', 'GANDIMAISAMMA'), ["3P3PNW_M", "ECIL X ROADS", "BUS STATION", "", "241T, 242, 242A, 242B, 242RG", "In ECIL X Roads bus station, board the buses mentioned below.", "24S/273", "241T, 242, 242A, 242B, 242RG", "ECIL X ROADS", "24SS", "SHAHPUR NAGAR", "9X/272G, 9K/272G, 29B/272G, 230A, 272"]);
+altRouteSetter(4, getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NGRM)'), getStops(IBP_DNGL, 'BAHUDURPALLY X ROADS', 'GANDIMAISAMMA'), ["3P3PNW_M", "ECIL X ROADS", "BUS STATION", "", "241T, 242, 242A, 242B, 242RG", "In ECIL X Roads bus station, board the buses mentioned below.", "24S/273", "241T, 242, 242A, 242B, 242RG", "ECIL X ROADS", "24SS", "SHAHPUR NAGAR", "9X/272G, 9K/272G, 29B/272G, 230A, 272"]);
 
-altRouteSetter(4, getStops(DNGL_IBP, 'GOVT. COLLEGE (BAHUDRPALLY)', 'SAIBAD X ROADS'), getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NAGARAM)'), ["3PNW_S", "9X/272G, 9K/272G, 29B/272G, 230A, 272", "SHAHPUR NAGAR", "24SS", "ECIL X ROADS", "241T, 242, 242A, 242B, 242RG", "S"]);
+altRouteSetter(4, getStops(DNGL_IBP, 'GOVT. COLLEGE (BAHUDRPALLY)', 'SAIBAD X ROADS'), getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NGRM)'), ["3PNW_S", "9X/272G, 9K/272G, 29B/272G, 230A, 272", "SHAHPUR NAGAR", "24SS", "ECIL X ROADS", "241T, 242, 242A, 242B, 242RG", "S"]);
 
-altRouteSetter(4, getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NAGARAM)'), getStops(IBP_DNGL, 'SAIBAD X ROADS', 'GOVT. COLLEGE (BAHUDRPALLY)'), ["3PNW_S", "9X/272G, 9K/272G, 29B/272G, 230A, 272", "SHAHPUR NAGAR", "24SS", "ECIL X ROADS", "241T, 242, 242A, 242B, 242RG", "R"]);
+altRouteSetter(4, getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NGRM)'), getStops(IBP_DNGL, 'SAIBAD X ROADS', 'GOVT. COLLEGE (BAHUDRPALLY)'), ["3PNW_S", "9X/272G, 9K/272G, 29B/272G, 230A, 272", "SHAHPUR NAGAR", "24SS", "ECIL X ROADS", "241T, 242, 242A, 242B, 242RG", "R"]);
 
-altRouteSetter(4, getStops(DNGL_IBP, 'JEEDIMETLA', 'SHAHPUR NAGAR'), getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NAGARAM)'), ["3PNW_S", "9X, 9X/272G, 9K/272G, 29B, 29B/272G, 230A, 272", "SHAHPUR NAGAR", "24SS", "ECIL X ROADS", "241T, 242, 242A, 242B, 242RG", "S"]);
+altRouteSetter(4, getStops(DNGL_IBP, 'JEEDIMETLA', 'SHAHPUR NAGAR'), getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NGRM)'), ["3PNW_S", "9X, 9X/272G, 9K/272G, 29B, 29B/272G, 230A, 272", "SHAHPUR NAGAR", "24SS", "ECIL X ROADS", "241T, 242, 242A, 242B, 242RG", "S"]);
 
-altRouteSetter(4, getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NAGARAM)'), getStops(IBP_DNGL, 'SHAHPUR NAGAR', 'JEEDIMETLA'), ["3PNW_S", "9X, 9X/272G, 9K/272G, 29B, 29B/272G, 230A, 272", "SHAHPUR NAGAR", "24SS", "ECIL X ROADS", "241T, 242, 242A, 242B, 242RG", "R"]);
+altRouteSetter(4, getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NGRM)'), getStops(IBP_DNGL, 'SHAHPUR NAGAR', 'JEEDIMETLA'), ["3PNW_S", "9X, 9X/272G, 9K/272G, 29B, 29B/272G, 230A, 272", "SHAHPUR NAGAR", "24SS", "ECIL X ROADS", "241T, 242, 242A, 242B, 242RG", "R"]);
 
 // --> CHERIYAL X ROADS (--> <--)
 altRouteSetter(4, getStops(DNGL_IBP, 'GANDIMAISAMMA', 'BAHUDURPALLY X ROADS'), ['CHERIYAL X ROADS'], ["3P3PNW_M", "ECIL X ROADS", "BUS STATION", "", "24S/273", "In ECIL X Roads bus station, board the buses mentioned below.", "241T, 242, 242A, 242B, 242G", "9X/272G, 9K/272G, 29B/272G, 230A, 272", "SHAHPUR NAGAR", "24SS", "ECIL X ROADS", "241T, 242, 242A, 242B, 242G"]);
@@ -7693,14 +7693,14 @@ altRouteSetter(4, getStops(KTGD_LGRH, 'PANAMA', 'CHINTALAKUNTA CHECKPOST'), getS
 
 altRouteSetter(4, getStops(SKPL_SECB, 'CHANDRAYANGUTTA X ROADS', 'TKR KAMAN'), getStops(LGRH_KTGD, 'CHINTALAKUNTA CHECKPOST', 'PANAMA'), ["SEWD_S", "LB NAGAR X ROADS", "TOWARDS HYT STOP", "", "90/253T, 90L/251, 300, 300L, 300/251", "Go to LB Nagar X Roads Bus Stop towards Hayathnagar by walk.", "1H, 1V, 72H, 72V, 156V, 205A, 218H, 290U, 299"]);
 
-// --> BANDLAGUDA (CHANDRAYANGUTTA) - ARAMGHAR (--> <--)
-altRouteSetter(4, getStops(KTGD_LGRH, 'HAYATHNAGAR', 'SUSHMA THEATER'), getStops(SECB_SKPL, 'BANDLAGUDA (CHANDRAYANGUTTA)', 'ARAMGHAR'), ["SEWD_S", "LB NAGAR X ROADS", "TOWARDS IBP STOP", "", "1H, 72H, 205A, 218H, 290U, 299", "Go to LB Nagar X Roads bus stop towards Ibrahimpatnam by walk.", "90L/251, 300, 300L, 300/251"]);
+// --> BANDLAGUDA (CDRYGT) - ARAMGHAR (--> <--)
+altRouteSetter(4, getStops(KTGD_LGRH, 'HAYATHNAGAR', 'SUSHMA THEATER'), getStops(SECB_SKPL, 'BANDLAGUDA (CDRYGT)', 'ARAMGHAR'), ["SEWD_S", "LB NAGAR X ROADS", "TOWARDS IBP STOP", "", "1H, 72H, 205A, 218H, 290U, 299", "Go to LB Nagar X Roads bus stop towards Ibrahimpatnam by walk.", "90L/251, 300, 300L, 300/251"]);
 
-altRouteSetter(4, getStops(SKPL_SECB, 'ARAMGHAR', 'BANDLAGUDA (CHANDRAYANGUTTA)'), getStops(LGRH_KTGD, 'SUSHMA THEATER', 'HAYATHNAGAR'), ["SEWD_S", "LB NAGAR X ROADS", "TOWARDS HYT STOP", "", "90L/251, 300, 300L, 300/251", "Go to LB Nagar X Roads Bus Stop towards Hayathnagar by walk.", "1H, 72H, 205A, 218H, 290U, 299"]);
+altRouteSetter(4, getStops(SKPL_SECB, 'ARAMGHAR', 'BANDLAGUDA (CDRYGT)'), getStops(LGRH_KTGD, 'SUSHMA THEATER', 'HAYATHNAGAR'), ["SEWD_S", "LB NAGAR X ROADS", "TOWARDS HYT STOP", "", "90L/251, 300, 300L, 300/251", "Go to LB Nagar X Roads Bus Stop towards Hayathnagar by walk.", "1H, 72H, 205A, 218H, 290U, 299"]);
 
-altRouteSetter(4, getStops(KTGD_LGRH, 'PANAMA', 'CHINTALAKUNTA CHECKPOST'), getStops(SECB_SKPL, 'BANDLAGUDA (CHANDRAYANGUTTA)', 'ARAMGHAR'), ["SEWD_S", "LB NAGAR X ROADS", "TOWARDS IBP STOP", "", "1H, 1V, 72H, 72V, 156V, 205A, 218H, 290U, 299", "Go to LB Nagar X Roads bus stop towards Ibrahimpatnam by walk.", "90L/251, 300, 300L, 300/251"]);
+altRouteSetter(4, getStops(KTGD_LGRH, 'PANAMA', 'CHINTALAKUNTA CHECKPOST'), getStops(SECB_SKPL, 'BANDLAGUDA (CDRYGT)', 'ARAMGHAR'), ["SEWD_S", "LB NAGAR X ROADS", "TOWARDS IBP STOP", "", "1H, 1V, 72H, 72V, 156V, 205A, 218H, 290U, 299", "Go to LB Nagar X Roads bus stop towards Ibrahimpatnam by walk.", "90L/251, 300, 300L, 300/251"]);
 
-altRouteSetter(4, getStops(SKPL_SECB, 'ARAMGHAR', 'BANDLAGUDA (CHANDRAYANGUTTA)'), getStops(LGRH_KTGD, 'CHINTALAKUNTA CHECKPOST', 'PANAMA'), ["SEWD_S", "LB NAGAR X ROADS", "TOWARDS HYT STOP", "", "90L/251, 300, 300L, 300/251", "Go to LB Nagar X Roads Bus Stop towards Hayathnagar by walk.", "1H, 1V, 72H, 72V, 156V, 205A, 218H, 290U, 299"]);
+altRouteSetter(4, getStops(SKPL_SECB, 'ARAMGHAR', 'BANDLAGUDA (CDRYGT)'), getStops(LGRH_KTGD, 'CHINTALAKUNTA CHECKPOST', 'PANAMA'), ["SEWD_S", "LB NAGAR X ROADS", "TOWARDS HYT STOP", "", "90L/251, 300, 300L, 300/251", "Go to LB Nagar X Roads Bus Stop towards Hayathnagar by walk.", "1H, 1V, 72H, 72V, 156V, 205A, 218H, 290U, 299"]);
 
 // --> SHIVARAMPALLY X ROADS - UPPERPALLY (--> <--)
 altRouteSetter(4, getStops(KTGD_LGRH, 'HAYATHNAGAR', 'SUSHMA THEATER'), getStops(SECB_SKPL, 'SHIVARAMPALLY X ROADS', 'UPPERPALLY'), ["SEWD_S", "LB NAGAR X ROADS", "TOWARDS IBP STOP", "", "1H, 72H, 205A, 218H, 290U, 299", "Go to LB Nagar X Roads bus stop towards Ibrahimpatnam by walk.", "300, 300L"]);
@@ -7729,18 +7729,18 @@ altRouteSetter(4, getStops(KTGD_LGRH, 'PANAMA', 'DWARAKA NAGAR'), ['MG BUS STATI
 
 altRouteSetter(4, ['MG BUS STATION'], getStops(LGRH_KTGD, 'DWARAKA NAGAR', 'PANAMA'), ["SEWD_S", "CHADERGHAT", "SAME BUS STOP", "", "72J, 277", SMB_D, "1H, 1V, 156V, 204UA, 205A, 218H, 299"]);
 
-// --> OLD NAGOLE - BANDLAGUDA (NAGOLE) (--> <--)
-altRouteSetter(4, getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NAGOLE)'), getStops(KTGD_LGRH, 'PANAMA', 'CHINTALAKUNTA CHECKPOST'), ["SEWD_S", "NAGOLE X ROADS", "TOWARDS LB NAGAR STOP", "", "72J, 201G, 201M", "Go to Nagole X Roads Bus Stop towards LB Nagar by Walk.", "290, 290U, 290UF"]);
+// --> OLD NAGOLE - BANDLAGUDA (NGL) (--> <--)
+altRouteSetter(4, getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NGL)'), getStops(KTGD_LGRH, 'PANAMA', 'CHINTALAKUNTA CHECKPOST'), ["SEWD_S", "NAGOLE X ROADS", "TOWARDS LB NAGAR STOP", "", "72J, 201G, 201M", "Go to Nagole X Roads Bus Stop towards LB Nagar by Walk.", "290, 290U, 290UF"]);
 
-altRouteSetter(4, getStops(LGRH_KTGD, 'CHINTALAKUNTA CHECKPOST', 'PANAMA'), getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NAGOLE)'), ["SEWD_S", "NAGOLE X ROADS", "TOWARDS GOWRELLY STOP", "", "290, 290U, 290UF", "Go to Nagole X Roads Bus Stop towards Gowrelly by Walk.", "72J, 201G, 201M"]);
+altRouteSetter(4, getStops(LGRH_KTGD, 'CHINTALAKUNTA CHECKPOST', 'PANAMA'), getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NGL)'), ["SEWD_S", "NAGOLE X ROADS", "TOWARDS GOWRELLY STOP", "", "290, 290U, 290UF", "Go to Nagole X Roads Bus Stop towards Gowrelly by Walk.", "72J, 201G, 201M"]);
 
-altRouteSetter(4, getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NAGOLE)'), getStops(KTGD_LGRH, 'AUTO NAGAR', 'SUSHMA THEATER'), ["SEWD_S", "NAGOLE X ROADS", "TOWARDS LB NAGAR STOP", "", "72J, 201G, 201M", "Go to Nagole X Roads Bus Stop towards LB Nagar by Walk.", "290U, 290UF"]);
+altRouteSetter(4, getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NGL)'), getStops(KTGD_LGRH, 'AUTO NAGAR', 'SUSHMA THEATER'), ["SEWD_S", "NAGOLE X ROADS", "TOWARDS LB NAGAR STOP", "", "72J, 201G, 201M", "Go to Nagole X Roads Bus Stop towards LB Nagar by Walk.", "290U, 290UF"]);
 
-altRouteSetter(4, getStops(LGRH_KTGD, 'SUSHMA THEATER', 'AUTO NAGAR'), getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NAGOLE)'), ["SEWD_S", "NAGOLE X ROADS", "TOWARDS GOWRELLY STOP", "", "290U, 290UF", "Go to Nagole X Roads Bus Stop towards Gowrelly by Walk.", "72J, 201G, 201M"]);
+altRouteSetter(4, getStops(LGRH_KTGD, 'SUSHMA THEATER', 'AUTO NAGAR'), getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NGL)'), ["SEWD_S", "NAGOLE X ROADS", "TOWARDS GOWRELLY STOP", "", "290U, 290UF", "Go to Nagole X Roads Bus Stop towards Gowrelly by Walk.", "72J, 201G, 201M"]);
 
-altRouteSetter(4, getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NAGOLE)'), getStops(KTGD_LGRH, 'HAYATHNAGAR', 'BHAGYA LATHA'), ["SEWD_S", "NAGOLE X ROADS", "TOWARDS LB NAGAR STOP", "", "72J, 201G, 201M", "Go to Nagole X Roads Bus Stop towards LB Nagar by Walk.", "290, 290U, 290UF"]);
+altRouteSetter(4, getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NGL)'), getStops(KTGD_LGRH, 'HAYATHNAGAR', 'BHAGYA LATHA'), ["SEWD_S", "NAGOLE X ROADS", "TOWARDS LB NAGAR STOP", "", "72J, 201G, 201M", "Go to Nagole X Roads Bus Stop towards LB Nagar by Walk.", "290, 290U, 290UF"]);
 
-altRouteSetter(4, getStops(LGRH_KTGD, 'HIGH COURT COLONY', 'HAYATHNAGAR'), getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NAGOLE)'), ["SEWD_S", "NAGOLE X ROADS", "TOWARDS GOWRELLY STOP", "", "290, 290U, 290UF", "Go to Nagole X Roads Bus Stop towards Gowrelly by Walk.", "72J, 201G, 201M"]);
+altRouteSetter(4, getStops(LGRH_KTGD, 'HIGH COURT COLONY', 'HAYATHNAGAR'), getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NGL)'), ["SEWD_S", "NAGOLE X ROADS", "TOWARDS GOWRELLY STOP", "", "290, 290U, 290UF", "Go to Nagole X Roads Bus Stop towards Gowrelly by Walk.", "72J, 201G, 201M"]);
 
 // --> JAIPURI COLONY - JAIPURI COLONY DRF (--> <--)
 altRouteSetter(4, [SHD[237], SHD[424], SHD[858]], getStops(KTGD_LGRH, 'PANAMA', 'CHINTALAKUNTA CHECKPOST'), ["SEWD_S", "NAGOLE X ROADS", "TOWARDS LB NAGAR STOP", "", "72J", "Go to Nagole X Roads Bus Stop towards LB Nagar by Walk.", "290, 290U, 290UF"]);
@@ -8364,18 +8364,18 @@ altRouteSetter(4, getStops(KTGD_LGRH, 'PANAMA', 'CHINTALAKUNTA CHECKPOST'), ['RA
 
 altRouteSetter(4, ['RAMPALLY X ROADS'], getStops(LGRH_KTGD, 'CHINTALAKUNTA CHECKPOST', 'PANAMA'), ["3P3PNW_M", "TARNAKA", "TOWARDS UPPAL STOP", "", "3K/281, 241T, 242, 242A, 242B, 242RG", "Go to Tarnaka bus stop towards uppal by walk.", "290, 290U, 290UF", "3K/281, 241T, 242, 242A, 242B, 242RG, 281", "ECIL X ROADS", "117", "UPPAL RING ROAD", "290, 290U, 290UF"]);
 
-// --> ICOM TELE LIMITED - BANDLAGUDA (NAGARAM) (--> <--)
-altRouteSetter(4, getStops(KTGD_LGRH, 'HAYATHNAGAR', 'BHAGYA LATHA'), getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NAGARAM)'), ["3P3PNW_M", "TARNAKA", "TOWARDS LALAPET STOP", "", "290, 290U, 290UF", "Go to Tarnaka bus stop towards Lalapet by walk.", "241T, 242, 242A, 242B, 242RG", "290, 290U, 290UF", "UPPAL RING ROAD", "117", "ECIL X ROADS", "241T, 242, 242A, 242B, 242RG"]);
+// --> ICOM TELE LIMITED - BANDLAGUDA (NGRM) (--> <--)
+altRouteSetter(4, getStops(KTGD_LGRH, 'HAYATHNAGAR', 'BHAGYA LATHA'), getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NGRM)'), ["3P3PNW_M", "TARNAKA", "TOWARDS LALAPET STOP", "", "290, 290U, 290UF", "Go to Tarnaka bus stop towards Lalapet by walk.", "241T, 242, 242A, 242B, 242RG", "290, 290U, 290UF", "UPPAL RING ROAD", "117", "ECIL X ROADS", "241T, 242, 242A, 242B, 242RG"]);
 
-altRouteSetter(4, getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NAGARAM)'), getStops(LGRH_KTGD, 'HIGH COURT COLONY', 'HAYATHNAGAR'), ["3P3PNW_M", "TARNAKA", "TOWARDS UPPAL STOP", "", "241T, 242, 242A, 242B, 242RG", "Go to Tarnaka bus stop towards uppal by walk.", "290, 290U, 290UF", "241T, 242, 242A, 242B, 242RG", "ECIL X ROADS", "117", "UPPAL RING ROAD", "290, 290U, 290UF"]);
+altRouteSetter(4, getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NGRM)'), getStops(LGRH_KTGD, 'HIGH COURT COLONY', 'HAYATHNAGAR'), ["3P3PNW_M", "TARNAKA", "TOWARDS UPPAL STOP", "", "241T, 242, 242A, 242B, 242RG", "Go to Tarnaka bus stop towards uppal by walk.", "290, 290U, 290UF", "241T, 242, 242A, 242B, 242RG", "ECIL X ROADS", "117", "UPPAL RING ROAD", "290, 290U, 290UF"]);
 
-altRouteSetter(4, getStops(KTGD_LGRH, 'AUTO NAGAR', 'SUSHMA THEATER'), getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NAGARAM)'), ["3P3PNW_M", "TARNAKA", "TOWARDS LALAPET STOP", "", "290U, 290UF", "Go to Tarnaka bus stop towards Lalapet by walk.", "241T, 242, 242A, 242B, 242RG", "290U, 290UF", "UPPAL RING ROAD", "117", "ECIL X ROADS", "241T, 242, 242A, 242B, 242RG"]);
+altRouteSetter(4, getStops(KTGD_LGRH, 'AUTO NAGAR', 'SUSHMA THEATER'), getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NGRM)'), ["3P3PNW_M", "TARNAKA", "TOWARDS LALAPET STOP", "", "290U, 290UF", "Go to Tarnaka bus stop towards Lalapet by walk.", "241T, 242, 242A, 242B, 242RG", "290U, 290UF", "UPPAL RING ROAD", "117", "ECIL X ROADS", "241T, 242, 242A, 242B, 242RG"]);
 
-altRouteSetter(4, getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NAGARAM)'), getStops(LGRH_KTGD, 'SUSHMA THEATER', 'AUTO NAGAR'), ["3P3PNW_M", "TARNAKA", "TOWARDS UPPAL STOP", "", "241T, 242, 242A, 242B, 242RG", "Go to Tarnaka bus stop towards uppal by walk.", "290U, 290UF", "241T, 242, 242A, 242B, 242RG", "ECIL X ROADS", "117", "UPPAL RING ROAD", "290U, 290UF"]);
+altRouteSetter(4, getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NGRM)'), getStops(LGRH_KTGD, 'SUSHMA THEATER', 'AUTO NAGAR'), ["3P3PNW_M", "TARNAKA", "TOWARDS UPPAL STOP", "", "241T, 242, 242A, 242B, 242RG", "Go to Tarnaka bus stop towards uppal by walk.", "290U, 290UF", "241T, 242, 242A, 242B, 242RG", "ECIL X ROADS", "117", "UPPAL RING ROAD", "290U, 290UF"]);
 
-altRouteSetter(4, getStops(KTGD_LGRH, 'PANAMA', 'CHINTALAKUNTA CHECKPOST'), getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NAGARAM)'), ["3P3PNW_M", "TARNAKA", "TOWARDS LALAPET STOP", "", "290, 290U, 290UF", "Go to Tarnaka bus stop towards Lalapet by walk.", "241T, 242, 242A, 242B, 242RG", "290, 290U, 290UF", "UPPAL RING ROAD", "117", "ECIL X ROADS", "241T, 242, 242A, 242B, 242RG"]);
+altRouteSetter(4, getStops(KTGD_LGRH, 'PANAMA', 'CHINTALAKUNTA CHECKPOST'), getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NGRM)'), ["3P3PNW_M", "TARNAKA", "TOWARDS LALAPET STOP", "", "290, 290U, 290UF", "Go to Tarnaka bus stop towards Lalapet by walk.", "241T, 242, 242A, 242B, 242RG", "290, 290U, 290UF", "UPPAL RING ROAD", "117", "ECIL X ROADS", "241T, 242, 242A, 242B, 242RG"]);
 
-altRouteSetter(4, getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NAGARAM)'), getStops(LGRH_KTGD, 'CHINTALAKUNTA CHECKPOST', 'PANAMA'), ["3P3PNW_M", "TARNAKA", "TOWARDS UPPAL STOP", "", "241T, 242, 242A, 242B, 242RG", "Go to Tarnaka bus stop towards uppal by walk.", "290, 290U, 290UF", "241T, 242, 242A, 242B, 242RG", "ECIL X ROADS", "117", "UPPAL RING ROAD", "290, 290U, 290UF"]);
+altRouteSetter(4, getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NGRM)'), getStops(LGRH_KTGD, 'CHINTALAKUNTA CHECKPOST', 'PANAMA'), ["3P3PNW_M", "TARNAKA", "TOWARDS UPPAL STOP", "", "241T, 242, 242A, 242B, 242RG", "Go to Tarnaka bus stop towards uppal by walk.", "290, 290U, 290UF", "241T, 242, 242A, 242B, 242RG", "ECIL X ROADS", "117", "UPPAL RING ROAD", "290, 290U, 290UF"]);
 
 // --> CHERIYAL X ROADS (--> <--)
 altRouteSetter(4, getStops(KTGD_LGRH, 'HAYATHNAGAR', 'BHAGYA LATHA'), ['CHERIYAL X ROADS'], ["3P3PNW_M", "TARNAKA", "TOWARDS LALAPET STOP", "", "290, 290U, 290UF", "Go to Tarnaka bus stop towards Lalapet by walk.", "241T, 242, 242A, 242B, 242G", "290, 290U, 290UF", "UPPAL RING ROAD", "117", "ECIL X ROADS", "241T, 242, 242A, 242B, 242G"]);
@@ -8661,10 +8661,10 @@ altRouteSetter(4, getStops(IBP_DNGL, 'IBRAHIMPATNAM', 'SAGAR RING ROAD'), ['RAMP
 
 altRouteSetter(4, ['RAMPALLY X ROADS'], getStops(DNGL_IBP, 'SAGAR RING ROAD', 'IBRAHIMPATNAM'), ["3P3PNW_M", "TARNAKA", "TOWARDS UPPAL STOP", "", "3K/281, 241T, 242, 242A, 242B, 242RG", "Go to Tarnaka bus stop towards uppal by walk.", "279", "3K/281, 241T, 242, 242A, 242B, 242RG, 281", "ECIL X ROADS", "117", "UPPAL RING ROAD", "279"]);
 
-// --> ICOM TELE LIMITED - BANDLAGUDA (NAGARAM) (--> <--)
-altRouteSetter(4, getStops(IBP_DNGL, 'IBRAHIMPATNAM', 'SAGAR RING ROAD'), getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NAGARAM)'), ["3P3PNW_M", "TARNAKA", "TOWARDS LALAPET STOP", "", "279", "Go to Tarnaka bus stop towards Lalapet by walk.", "241T, 242, 242A, 242B, 242RG", "279", "UPPAL RING ROAD", "117", "ECIL X ROADS", "241T, 242, 242A, 242B, 242RG"]);
+// --> ICOM TELE LIMITED - BANDLAGUDA (NGRM) (--> <--)
+altRouteSetter(4, getStops(IBP_DNGL, 'IBRAHIMPATNAM', 'SAGAR RING ROAD'), getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NGRM)'), ["3P3PNW_M", "TARNAKA", "TOWARDS LALAPET STOP", "", "279", "Go to Tarnaka bus stop towards Lalapet by walk.", "241T, 242, 242A, 242B, 242RG", "279", "UPPAL RING ROAD", "117", "ECIL X ROADS", "241T, 242, 242A, 242B, 242RG"]);
 
-altRouteSetter(4, getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NAGARAM)'), getStops(DNGL_IBP, 'SAGAR RING ROAD', 'IBRAHIMPATNAM'), ["3P3PNW_M", "TARNAKA", "TOWARDS UPPAL STOP", "", "241T, 242, 242A, 242B, 242RG", "Go to Tarnaka bus stop towards uppal by walk.", "279", "241T, 242, 242A, 242B, 242RG", "ECIL X ROADS", "117", "UPPAL RING ROAD", "279"]);
+altRouteSetter(4, getStops(SHMB_KSR, 'ICOM TELE LIMITED', 'BANDLAGUDA (NGRM)'), getStops(DNGL_IBP, 'SAGAR RING ROAD', 'IBRAHIMPATNAM'), ["3P3PNW_M", "TARNAKA", "TOWARDS UPPAL STOP", "", "241T, 242, 242A, 242B, 242RG", "Go to Tarnaka bus stop towards uppal by walk.", "279", "241T, 242, 242A, 242B, 242RG", "ECIL X ROADS", "117", "UPPAL RING ROAD", "279"]);
 
 // --> CHERIYAL X ROADS (--> <--)
 altRouteSetter(4, getStops(IBP_DNGL, 'IBRAHIMPATNAM', 'SAGAR RING ROAD'), ['CHERIYAL X ROADS'], ["3P3PNW_M", "TARNAKA", "TOWARDS LALAPET STOP", "", "279", "Go to Tarnaka bus stop towards Lalapet by walk.", "241T, 242, 242A, 242B, 242G", "279", "UPPAL RING ROAD", "117", "ECIL X ROADS", "241T, 242, 242A, 242B, 242G"]);
@@ -8871,10 +8871,10 @@ altRouteSetter(4, getStops(IBP_DNGL, 'IBRAHIMPATNAM', 'SAGAR RING ROAD'), [SHD[4
 
 altRouteSetter(4, [SHD[429], SHD[745], SHD[998]], getStops(DNGL_IBP, 'SAGAR RING ROAD', 'IBRAHIMPATNAM'), ["SEWD_S", "JBS", "ROUTE NO. 90 STOP", "", "23T", "Walk to the JBS Bus stop where buses like Route No. 90L, 279 Stops.", "279"]);
 
-// --> OLD NAGOLE - BANDLAGUDA (NAGOLE) (--> <--)
-altRouteSetter(4, getStops(IBP_DNGL, 'IBRAHIMPATNAM', 'SAGAR RING ROAD'), getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NAGOLE)'), ["SEWD_S", "NAGOLE X ROADS", "TOWARDS GOWRELLY STOP", "", "279", "Go to Nagole X Roads Bus Stop towards Gowrelly by Walk.", "72J, 201G, 201M"]);
+// --> OLD NAGOLE - BANDLAGUDA (NGL) (--> <--)
+altRouteSetter(4, getStops(IBP_DNGL, 'IBRAHIMPATNAM', 'SAGAR RING ROAD'), getStops(HCLX_GWRL, 'OLD NAGOLE', 'BANDLAGUDA (NGL)'), ["SEWD_S", "NAGOLE X ROADS", "TOWARDS GOWRELLY STOP", "", "279", "Go to Nagole X Roads Bus Stop towards Gowrelly by Walk.", "72J, 201G, 201M"]);
 
-altRouteSetter(4, getStops(GWRL_HCLX, 'BANDLAGUDA (NAGOLE)', 'OLD NAGOLE'), getStops(DNGL_IBP, 'SAGAR RING ROAD', 'IBRAHIMPATNAM'), ["SEWD_S", "NAGOLE X ROADS", "TOWARDS LB NAGAR STOP", "", "72J, 201G, 201M", "Go to Nagole X Roads Bus Stop towards LB Nagar by Walk.", "279"]);
+altRouteSetter(4, getStops(GWRL_HCLX, 'BANDLAGUDA (NGL)', 'OLD NAGOLE'), getStops(DNGL_IBP, 'SAGAR RING ROAD', 'IBRAHIMPATNAM'), ["SEWD_S", "NAGOLE X ROADS", "TOWARDS LB NAGAR STOP", "", "72J, 201G, 201M", "Go to Nagole X Roads Bus Stop towards LB Nagar by Walk.", "279"]);
 
 // --> JAIPURI COLONY - JAIPURI COLONY DRF (--> <--)
 altRouteSetter(4, getStops(IBP_DNGL, 'IBRAHIMPATNAM', 'SAGAR RING ROAD'), [SHD[237], SHD[424], SHD[858]], ["SEWD_S", "NAGOLE X ROADS", "TOWARDS GOWRELLY STOP", "", "279", "Go to Nagole X Roads Bus Stop towards Gowrelly by Walk.", "72J"]);
@@ -9095,19 +9095,3 @@ altRouteSetter(4, getStops(TailsUP, 'BOWENPALLY MARKET', 'NIMH HOSPITAL'), getSt
 altRouteSetter(4, getStops(IBP_DNGL, 'IBRAHIMPATNAM', 'SAGAR RING ROAD'), getStops(TailsUP, 'ASHOK GARDENS', 'OLD BOWENPALLY'), ["SEWD_S", "SEC'BAD", "ALPHA HOTEL STOP", "", "279", "Go to route 26 No. Busbay & board buses mentioned below.", "26M, 26N"]);
 
 altRouteSetter(4, getStops(TailsUP, 'ASHOK GARDENS', 'OLD BOWENPALLY'), getStops(DNGL_IBP, 'SAGAR RING ROAD', 'IBRAHIMPATNAM'), ["3P_CEX_S", "PATNY", "PATNY", "YMCA (SEC'BAD)", "26M, 26N", "Go to YMCA (Sec'Bad) bus stop from Patny by walk.", "279"]);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
