@@ -750,7 +750,7 @@ button.redirectFromToInfo {
 
 /* FROM TO SECTION STYLE */
 #OutputScreen3 .backgroundDec h2 {
-    font-size: 30px;
+    font-size: 28px;
     letter-spacing: 3px;
 }
 
@@ -1199,6 +1199,8 @@ td {
     display: none;
 }
 
+
+
 /* NOTE Handles */
 .note {
     width: 95%;
@@ -1361,16 +1363,19 @@ td {
 .questionsType .question.expand .info {
     border-top: 2px dashed gray;
 }
-.questionsType .question .head .iconText{
+
+.questionsType .question .head .iconText {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
     gap: 10px;
 }
-.questionsType .question .head svg{
+
+.questionsType .question .head svg {
     width: 30px;
 }
+
 .questionsType .question .head h3 {
     font-size: 16px;
 }
@@ -1379,6 +1384,70 @@ td {
     margin-top: 5px;
     text-align: justify;
     font-size: 12px;
+}
+
+#ShortformsScreen table {
+    margin-top: 10px;
+    width: 100%;
+}
+
+#ShortformsScreen table tr th,
+#ShortformsScreen table tr td {
+    padding: 5px 0px;
+    font-size: 14px;
+}
+
+#ShortformsScreen table tr:nth-child(odd) {
+    background-color: var(--shadeColor2);
+}
+
+.searchScreen .input {
+    width: 96.5%;
+    background-color: var(--shadeColor2);
+    height: 30px;
+    padding: 5px;
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 15px;
+    justify-content: space-between;
+}
+
+.searchScreen .input input {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    height: 100%;
+    /* flex-grow: 1;     */
+    width: 88%;
+    font-size: 16px;
+    padding-left: 10px;
+    /* background-color: #151A2D; */
+}
+
+.searchScreen .input img {
+    height: 30px;
+    opacity: 0.7;
+    width: 30px;
+    /* background-color: #03CA8F; */
+}
+
+
+.ALT_DetailedRoute ul {
+    font-size: 12px;
+}
+
+.ALT_DetailedRoute ul li {
+    margin-left: 15px;
+    list-style-type: decimal;
+    text-align: justify;
+    margin-top: 3px;
+}
+
+#ALT_DetailedRoute_3P ul p {
+    text-align: justify;
+    margin-top: 5px;
+    font-size: 12px;
+    width: 100%;
 }
 
 /* HANDLING HIDE & SHOW */
@@ -1401,4 +1470,8 @@ td {
 #OutputScreen.hide,
 #OutputScreen2.hide {
     z-index: 0;
+}
+
+#popUpScreen {
+    z-index: 2;
 }
