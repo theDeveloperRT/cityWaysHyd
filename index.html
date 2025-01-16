@@ -110,10 +110,10 @@
         </div>
         <div class="section hide" id="FromToSuggesions">
             <h2>Popular Searches...</h2>
-            <ul class="routesContainer centerCol big5">
+            <ul class="routesContainer centerCol big5" id="pplrSearch_FT_List">
                 <li onclick="viewFromTo(this)">JEEDIMETLA - AMEERPET</li>
                 <li onclick="viewFromTo(this)">CYBER TOWERS - SECUNDERABAD</li>
-                <li onclick="viewFromTo(this)">ECIL X ROADS - AMEERPET</li>
+                <li onclick="viewFromTo(this)">HAYATHNAGAR - SANATH NAGAR</li>
             </ul>
         </div>
 
@@ -133,6 +133,8 @@
                 </tr>
             </table>
         </div>
+
+
     </div>
 
     <nav>
@@ -532,8 +534,6 @@
                 <p class="helpLink centerRow" onclick="needHelpALT('O')">Need Help?</p>
             </div>
         </div>
-
-
     </div>
 
 
@@ -974,9 +974,37 @@
                 </div>
             </div>
 
+            <h3 style="margin-top: 20px; font-size: 16px;">Short Names</h3>
 
+            <p style="margin-top: 0px; font-size: 12px;">Sometimes we will use Short Names to maintain
+                clean user interface. If there are multiple stops in the city with the same names, we
+                will add
+                the short form of the nearest bus stop to their names to avoid confusion for users. For Example, there
+                are many <strong>RTC Colonies</strong> in Hyderabad, So for RTC Colony near Moula Ali, we named it
+                as <strong>RTC Colony (MLY)</strong>, for RTC Colony near Chengicherla, we named it as <strong>RTC
+                    Colony (CGCL)</strong>. Here <strong>MLY & CGCL</strong> are the short forms to represent
+                <strong>Moula Ali & Chengicherla</strong>
+                respectively.
+            </p>
+            <div class="questionsType">
+                <div class="question">
+                    <div class="head" onclick="showShortNames()">
+                        <div class="iconText">
+                            <h3>View All Shortforms</h3>
+                        </div>
+                        <img src="images/icons/down_Arrow.png" alt="arrow" style="transform: rotate(270deg);">
+                    </div>
+                    <div class="info">
+                        <p>This feature provides you the details of a particular bus routes such as, <strong>Its
+                                starting
+                                point,
+                                Destination</strong> and <strong>list of stops</strong> along its route in both up and
+                            down trips.</p>
+                    </div>
+                </div>
+            </div>
 
-            <h3 style="margin-top: 10px; font-size: 16px;">Need More Help?</h3>
+            <h3 style="margin-top: 20px; font-size: 16px;">Need More Help?</h3>
             <p style="margin-top: 0px; font-size: 12px;">For any questions or feedback, reach out to us via the Contact
                 Us option in the app menu. We're here to
                 help!
@@ -986,6 +1014,26 @@
         <!-- MORE APPS SCREEN -->
         <div class="moreAppsScreen hide" id="moreAppsScreen">
 
+        </div>
+
+        <!-- MORE APPS SCREEN -->
+        <div class="moreAppsScreen hide" id="moreAppsScreen">
+
+        </div>
+
+        <!-- SHORT NAMES SCREEN -->
+        <div class="moreAppsScreen hide" id="ShortformsScreen">
+            <div class="searchScreen">
+                <li class="input centerRow">
+                    <img src="images/icons/searchBlack.png" alt="Icon">
+                    <input type="text" name="searchBar" placeholder="Enter Short Name..."
+                        oninput="filterShortNames(this)" autocomplete="off" id="shortNamesInput">
+                </li>
+            </div>
+
+            <table id="shortNamesTable">
+
+            </table>
         </div>
     </div>
 
