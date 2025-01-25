@@ -330,9 +330,8 @@
                         <h3 id="upDestination">ECIL X ROADS</h3>
                     </div>
                     <div class="downArrowContainer centerRow">
-                        <span id="upRouteDownSpan">View Stops</span>
-                        <img src="images/icons/down_Arrow.png" alt="Icon" onclick="expandList(this)"
-                            id="upRouteDownIcon">
+                        <span id="upRouteDownSpan" onclick="expandList(1)">View Stops</span>
+                        <img src="images/icons/down_Arrow.png" alt="Icon" id="upRouteDownIcon" onclick="expandList(1)">
                     </div>
                 </ul>
 
@@ -351,9 +350,9 @@
                         <h3 id="downDestination">ECIL X ROADS</h3>
                     </div>
                     <div class="downArrowContainer centerRow">
-                        <span id="downRouteDownSpan">View Stops</span>
-                        <img src="images/icons/down_Arrow.png" alt="Icon" onclick="expandList(this)"
-                            id="downRouteDownIcon">
+                        <span id="downRouteDownSpan" onclick="expandList(2)">View Stops</span>
+                        <img src="images/icons/down_Arrow.png" alt="Icon" id="downRouteDownIcon"
+                            onclick="expandList(2)">
                     </div>
                 </ul>
 
@@ -1040,6 +1039,78 @@
     <!-- LOADING SCREEN -->
     <div class="loadingScreen hide">
 
+    </div>
+
+    <!-- New UI for Route Output -->
+    <div class="routeOutputNewOutline hide" id="routeOutputNewOutline">
+        <div class="contentRO" id="contentRO">
+            <div class="header">
+                <div class="title">
+                    <h3 id="newUISource">ECIL X ROADS </h3>
+                    <h3 id="newUIDestination">SECUNDERABAD</h3>
+                </div>
+            </div>
+
+            <div class="stopsList" id="stopsList">
+
+                <!-- <div class="stopsContainer ckl">
+                    <div class="graphics first">
+                        <p class="circle"></p>
+                    </div>
+                    <div class="text">
+                        <h4>ecil x roads</h4>
+                    </div>
+                </div>
+
+                <div class="stopsContainer">
+                    <div class="graphics first">
+                        <p class="road"></p>
+                    </div>
+                    <div class="text">
+                        <h4></h4>
+                    </div>
+                </div>
+
+                <div class="stopsContainer ckl">
+                    <div class="graphics">
+                        <p class="circle"></p>
+                    </div>
+                    <div class="text">
+                        <h4>zts x roads</h4>
+                        <p>Ion Digital Zone Moula Ali</p>
+                    </div>
+                </div>
+
+                <div class="stopsContainer">
+                    <div class="graphics">
+                        <p class="road"></p>
+                    </div>
+                    <div class="text">
+                        <h4></h4>
+                    </div>
+                </div>
+
+                <div class="stopsContainer ckl">
+                    <div class="graphics last">
+                        <p class="circle"></p>
+                    </div>
+                    <div class="text">
+                        <h4>secunderabad</h4>
+                        <p>Blue Sea Hotel Bus Stop</p>
+                    </div>
+                </div> -->
+
+                <div class="RouteSummary">
+
+                </div>
+
+            </div>
+
+            <div class="footer">
+                <button style="background-color: #167e2a;" id="switchButton">Down Route</button>
+                <button style="background-color: red;" onclick="closeNewRouteList()">Close</button>
+            </div>
+        </div>
     </div>
 
     <ul class="suggessionsList" id="suggessionsList">
