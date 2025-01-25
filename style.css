@@ -645,14 +645,14 @@ nav li.activeLink {
     /* background-color: #ffde23; */
     background-color: #ddaa33;
     background-color: #ffbe27;
-    /* background-color: #D2A73E ;*/
+    /* background-color: #D2A73E ; */
     /* background-color: var(--primaryColor); */
     /* color: white;     */
 
 
-    /* UNDER TEST
-    background-color: var(--primaryColor);
-    color: white; */
+    /* UNDER TEST */
+    /* background-color: var(--primaryColor);
+    color: white;  */
 }
 
 .routeHolderOutputScreen .routeHeaderOutputScreen .text {
@@ -668,10 +668,12 @@ nav li.activeLink {
 }
 
 .routeHolderOutputScreen .routeHeaderOutputScreen .text p {
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 550;
     /* color: white; */
     opacity: 0.8;
+    letter-spacing: 1px;
+
 }
 
 .routeHolderOutputScreen .routeHeaderOutputScreen .downArrowContainer {
@@ -693,6 +695,8 @@ nav li.activeLink {
     margin-right: 10px;
     transition-duration: 0.2s;
     /* filter: invert(1); */
+    transform: rotate(270deg);
+    /* visibility: hidden;     */
 }
 
 .routeHolderOutputScreen .routeHeaderOutputScreen .downArrowContainer img.click {
@@ -1474,4 +1478,163 @@ td {
 
 #popUpScreen {
     z-index: 2;
+}
+
+#routeOutputNewOutline {
+    z-index: 10;
+}
+
+/* NEW UI FOR ROUTE OUTPUT */
+.routeOutputNewOutline {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.routeOutputNewOutline.hide {
+    display: none;
+}
+
+.routeOutputNewOutline .contentRO {
+    width: 0%;
+    height: 0%;
+    border-radius: 10px;
+    background-color: white;
+    overflow: hidden;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    transition-property: all;
+    transition-duration: 0.2s;
+}
+
+.routeOutputNewOutline .contentRO .header {
+    background-color: var(--primaryColor);
+    height: 50px;
+    width: 100%;
+    overflow: hidden;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 5px 10px;
+}
+
+.routeOutputNewOutline .contentRO .header .title {
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    letter-spacing: 1px;
+    /* background-color: #989fbc; */
+    margin-left: -10px;
+}
+
+.routeOutputNewOutline .contentRO .header .title h3 {
+    /* background-color: #03CA8F; */
+    width: 100%;
+}
+
+.routeOutputNewOutline .contentRO .stopsList {
+    width: 100%;
+    overflow: scroll;
+    overflow-y: scroll;
+    height: 76.7%;
+    padding-top: 15px;
+}
+
+.stopsList .stopsContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.stopsList .stopsContainer.ckl {
+    margin-top: -5px;
+}
+
+.stopsList .stopsContainer .graphics {
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.stopsList .stopsContainer .graphics .road {
+    height: 30px;
+    width: 7px;
+    /* background-color: #ff9257; */
+}
+
+.stopsList .stopsContainer .graphics .circle {
+    height: 30px;
+    width: 30px;
+    background-color: #03CA8F;
+    background-color: #ff9257;
+    /* background-color: tan; */
+    /* border: none;     */
+}
+
+.stopsList .stopsContainer .graphics.first .circle {
+    background-color: var(--orange);
+    background-color: orangered;
+}
+
+.stopsList .stopsContainer .graphics.last .circle {
+    background-color: rgb(15, 213, 15);
+}
+
+.stopsList .stopsContainer .text {
+    width: calc(100% - 85px);
+    margin-left: -15px;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+
+.stopsList .stopsContainer .text p {
+    font-size: 10px;
+    opacity: 0.6;
+    margin-top: -4px;
+    letter-spacing: 0px;
+    font-weight: 600;
+}
+
+.stopsList .RouteSummary {
+    padding: 10px 5px;
+    font-size: 13px;
+}
+
+.stopsList .RouteSummary p {
+    text-align: justify;
+}
+
+.routeOutputNewOutline .contentRO .footer {
+    height: 50px;
+    width: 100%;
+    border-top: 2px dashed gray;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.routeOutputNewOutline .contentRO .footer button {
+    outline: none;
+    background-color: transparent;
+    border: none;
+    font-size: 14px;
+    width: 47%;
+    padding: 10px 0px;
+    border-radius: 10px;
+    font-weight: bold;
+    color: white;
 }
