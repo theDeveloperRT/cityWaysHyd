@@ -12473,7 +12473,11 @@ function showSuggesions(ref) {
     filteredArray = suggessionsArray.filter((item) =>
         item.toUpperCase().startsWith(filterValue)
     );
-    displayList(filteredArray.sort(), ref.id);
+    if (feature == 1) {
+        displayList(filteredArray, ref.id);
+    } else {
+        displayList(filteredArray.sort(), ref.id);
+    }
 }
 
 function displayList(filteredArray, input) {
@@ -12592,7 +12596,7 @@ function expandList(ref) {
         if (ref == 1) {
             for (let i = 0; i < DetailedRoutesUP.length; i++) {
                 if (DetailedRoutesUP[i].includes(route)) {
-                    fillNewUIrouteList(DetailedRoutesUP[i]);
+                    fillNewUIrouteList(DetailedRoutesUP[i], 1);
                     break;
                 }
             }
@@ -12601,10 +12605,11 @@ function expandList(ref) {
 
             newUISource.innerText = routeStartI;
             newUIDestination.innerText = routeEndI;
+
         } else {
             for (let i = 0; i < DetailedRoutesDOWN.length; i++) {
                 if (DetailedRoutesDOWN[i].includes(route)) {
-                    fillNewUIrouteList(DetailedRoutesDOWN[i]);
+                    fillNewUIrouteList(DetailedRoutesDOWN[i], 2);
                     break;
                 }
             }
@@ -13184,7 +13189,7 @@ function resetAdSlider() {
 
 adSlider();
 
-function fillNewUIrouteList(route) {
+function fillNewUIrouteList(route, direction) {
     stopsList.innerHTML = "";
     for (let i = 1; i < route.length; i++) {
         let stopsContainer = document.createElement('div');
@@ -13248,12 +13253,18 @@ function fillNewUIrouteList(route) {
     }
 
     let TotalStops = route.length - 1 + " Stops";
+    let Distance;
+    if (direction == 1) {
+        Distance = UP_Distances[routesArray.indexOf(input1.value)]
+    } else {
+        Distance = DOWN_Distances[routesArray.indexOf(input1.value)]
+    }
 
     let RouteSummary = document.createElement('div');
     RouteSummary.classList.add('RouteSummary');
-    RouteSummary.innerHTML = "<p><strong>" + TotalStops + "</strong></p> <p> <strong>" + "34 Kilometres";
+    // RouteSummary.innerHTML = "<p><strong>" + TotalStops + "</strong></p> <p> <strong>" + Distance + " Kilometres";
 
-    // "<p><strong>" + TotalStops + "</strong></p> <p> <strong>" + "34 Kilometres" + "</strong></ p><p style='color:red   '><strong>Note:</strong></p><p>" + "</p>"
+    RouteSummary.innerHTML = "<p><strong>" + TotalStops + "</strong></p> <p> <strong>" + Distance + " Kilometres" + "</strong></ p><p style='color:red   '><strong>Note:</strong></p><p>" + "</p>"
 
     stopsList.appendChild(RouteSummary);
 }
