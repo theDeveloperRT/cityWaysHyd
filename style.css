@@ -1515,7 +1515,7 @@ td {
 
 .routeOutputNewOutline .contentRO .header {
     background-color: var(--primaryColor);
-    height: 50px;
+    height: 10%;
     width: 100%;
     overflow: hidden;
     color: white;
@@ -1545,8 +1545,8 @@ td {
     width: 100%;
     overflow: scroll;
     overflow-y: scroll;
-    height: 76.7%;
     padding-top: 15px;
+    height: 75%;
 }
 
 .stopsList .stopsContainer {
@@ -1618,7 +1618,7 @@ td {
 }
 
 .routeOutputNewOutline .contentRO .footer {
-    height: 50px;
+    height: 10%;
     width: 100%;
     border-top: 2px dashed gray;
     display: flex;
