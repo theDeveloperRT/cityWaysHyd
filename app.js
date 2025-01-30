@@ -10277,13 +10277,13 @@ function menuItemsClick(ref) {
         case 4:
             // Help
             otherSectionsScreen.classList.remove('close');
-            displayOtherSections(2, "HELP");
+            displayOtherSections(2, "USER GUIDE");
             break;
 
         case 5:
             // More Apps
             otherSectionsScreen.classList.remove('close');
-            displayOtherSections(3, "MORE APPS");
+            displayOtherSections(3, "SHARE APP");
             break;
 
         default:
@@ -11766,6 +11766,24 @@ function viewStop(ref) {
     handleFontSize(main, sub);
 }
 
+function viewStopSender(ref) {
+    let stopName = document.createElement("li");
+    let stopNameContent = ref.innerText.toUpperCase();
+    stopName.innerHTML = stopNameContent;
+    closeNewRouteList();
+    setTimeout(() => {
+        viewStop(stopName);
+    }, 500);
+
+    if (OutputScreen3.classList[1] == undefined) {
+        OutputScreen3.classList.add("close");
+        backState = 11;
+    } else {
+        backState = 10;
+    }
+
+}
+
 function fillJunctionStopsRoutes(main, sub) {
     let mostFreq = []
     let lessFreq = []
@@ -11919,10 +11937,6 @@ function removeDuplicateRoutes(routes) {
     });
 
     return uniqueRoutes;
-}
-
-function viewStopSender(ref) {
-    viewStop(ref.children[0]);
 }
 
 function viewFromToRoute(ref, pos) {
@@ -12600,6 +12614,7 @@ function expandList(ref) {
                     break;
                 }
             }
+
             switchButton.innerText = "Down Route";
             switchButton.setAttribute("onclick", "expandList(2)");
 
@@ -12682,9 +12697,6 @@ function handleFontSize(ref, subref) {
         StopNameHead.style.letterSpacing = "2px";
         StopNameSub.style.marginTop = "-8px";
     }
-
-    // console.log(ref.length);
-
 }
 
 function openMenu() {
@@ -12693,39 +12705,6 @@ function openMenu() {
 }
 
 let subHelpScreen = 0;
-
-function closeOutputScreen(ref) {
-    if (ref.id == "otherSectionsCloseBtn") {
-        if (feature == "5") {
-            navs[0].click();
-        } else {
-            navs[feature - 1].click();
-        }
-        if (subHelpScreen == 0) {
-            ref.parentNode.parentNode.classList.add('close');
-        } else {
-            otherSectionsScreen.classList.add("close");
-            setTimeout(() => {
-                displayOtherSections(2, "Help");
-                getId('shortNamesInput').value = "";
-                otherSectionsScreen.classList.remove("close");
-            }, 200);
-            subHelpScreen = 0;
-        }
-
-    } else {
-        if (backState == 1) {
-            viewStop(JunctionStopState);
-            backState = 0;
-        } else if (backState == 2) {
-            fillRoutesBusStop(junctionStopsStopName);
-            OutputScreen2.classList.add('close');
-            backState = 1;
-        } else {
-            ref.parentNode.parentNode.classList.add('close');
-        }
-    }
-}
 
 function openPopUpBox(type, message) {
     popUpScreen.classList.remove('hide');
@@ -12759,6 +12738,8 @@ function openPopUpBox(type, message) {
             errorMessage.innerHTML = "Your are travelling from invalid place, kindly choose it from our list.";
         } else if (message == "INV_D") {
             errorMessage.innerHTML = "Your are travelling to invalid place, kindly choose it from our list.";
+        }else if (message=="MSG") {
+            errorMessage.innerHTML = "An error occurred while sending Message. Please try again later.";
         }
     } else if (type == 5) {
         ALT_DetailedRoute_3P.classList.remove('hide');
@@ -13030,7 +13011,7 @@ function removeActiveMenus() {
     menuItems.children[1].children[0].src = 'images/icons/idWhite.png';
     menuItems.children[2].children[0].src = 'images/icons/helpWhite.png';
     menuItems.children[3].children[0].src = 'images/icons/contactWhite.png';
-    menuItems.children[4].children[0].src = 'images/icons/moreWhite.png';
+    menuItems.children[4].children[0].src = 'images/icons/shareWhite.png';
 }
 
 function changeIcons(ref) {
@@ -13213,7 +13194,7 @@ function fillNewUIrouteList(route, direction) {
         } else {
             stopName.innerHTML = shdLower[SHD.indexOf(route[i])];
         }
-
+        stopName.setAttribute("onclick", "viewStopSender(this)");
 
         if (i == 1) {
             graphics.classList.add('first');
@@ -13275,4 +13256,113 @@ function closeNewRouteList() {
     setTimeout(() => {
         routeOutputNewOutline.classList.add('hide');
     }, 350);
+}
+
+
+function closeOutputScreen(ref) {
+    if (ref.id == "otherSectionsCloseBtn") {
+        if (feature == "5") {
+            navs[0].click();
+        } else {
+            navs[feature - 1].click();
+        }
+
+        if (subHelpScreen == 0) {
+            ref.parentNode.parentNode.classList.add('close');
+        } else {
+            otherSectionsScreen.classList.add("close");
+            setTimeout(() => {
+                displayOtherSections(2, "USER GUIDE");
+                getId('shortNamesInput').value = "";
+                otherSectionsScreen.classList.remove("close");
+            }, 200);
+            subHelpScreen = 0;
+        }
+
+    } else {
+        if (backState == 1) {
+            viewStop(JunctionStopState);
+            backState = 0;
+        } else if (backState == 2) {
+            fillRoutesBusStop(junctionStopsStopName);
+            OutputScreen2.classList.add('close');
+            backState = 1;
+        } else {
+            ref.parentNode.parentNode.classList.add('close');
+        }
+    }
+}
+
+function closeBusStop() {
+    if (backState == 1) {
+        viewStop(JunctionStopState);
+        backState = 0;
+    } else if (backState == 2) {
+        fillRoutesBusStop(junctionStopsStopName);
+        OutputScreen2.classList.add('close');
+        backState = 1;
+    } else if (backState == 10 || backState == 11) {
+        OutputScreen.classList.add('close');
+        routeOutputNewOutline.classList.remove('hide');
+        setTimeout(() => {
+            contentRO.style.height = "85%";
+            contentRO.style.width = "90%";
+        }, 200);
+        if (backState == 10) {
+            backState = 0;
+        } else {
+            backState = 9;
+        }
+    } else {
+        OutputScreen.classList.add('close');
+    }
+
+    if (!(SHD.includes(input1.value))) {
+        input1.value = "";
+    }
+}
+
+function closeRoute() {
+    OutputScreen2.classList.add('close');
+    if (backState == 2) {
+        backState = 1;
+    }
+    if (backState == 9) {
+        OutputScreen3.classList.remove("close");
+    }
+    if (!(routesArray.includes(input1.value))) {
+        input1.value = "";
+    }
+}
+
+function closeFromTo() {
+    OutputScreen3.classList.add('close');
+
+    if (!(SHD.includes(input1.value))) {
+        input1.value = "";
+    }
+
+    if (!(SHD.includes(input2.value))) {
+        input2.value = "";
+    }
+}
+
+function closeOtherSection() {
+    if (feature == "5") {
+        navs[0].click();
+    } else {
+        navs[feature - 1].click();
+    }
+
+    if (subHelpScreen == 1) {
+        otherSectionsScreen.classList.add("close");
+        setTimeout(() => {
+            displayOtherSections(2, "USER GUIDE");
+            getId('shortNamesInput').value = "";
+            otherSectionsScreen.classList.remove("close");
+        }, 200);
+        subHelpScreen = 0;
+    } else {
+        otherSectionsScreen.classList.add('close');
+    }
 }
