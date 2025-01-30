@@ -228,15 +228,15 @@
                 </li>
                 <li onclick="menuItemsClick(this)" value="4">
                     <img src="images/icons/helpWhite.png" alt="icon">
-                    <span>Help</span>
+                    <span>User Guide</span>
                 </li>
                 <li onclick="menuItemsClick(this)" value="3">
                     <img src="images/icons/contactWhite.png" alt="icon">
                     <span>Contact Us</span>
                 </li>
                 <li onclick="menuItemsClick(this)" value="5">
-                    <img src="images/icons/moreWhite.png" alt="icon">
-                    <span>More Apps</span>
+                    <img src="images/icons/shareWhite.png" alt="icon" style="height: 35px;">
+                    <span>Share App</span>
                 </li>
             </ul>
         </div>
@@ -248,7 +248,7 @@
     <!-- Bus Stop Details Output Screen -->
     <div class="OutputScreen close" id="OutputScreen">
         <div class="header">
-            <li class="menuIcon centerRow" onclick="closeOutputScreen(this)">
+            <li class="menuIcon centerRow" onclick="closeBusStop()">
                 <svg viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#FFF">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -300,7 +300,7 @@
     <!-- Detailed Route Output Screen -->
     <div class="OutputScreen close" id="OutputScreen2">
         <div class="header">
-            <li class="menuIcon centerRow   " onclick="closeOutputScreen(this)">
+            <li class="menuIcon centerRow   " onclick="closeRoute()">
                 <svg viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#FFF">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -375,7 +375,7 @@
     <!-- From - To and Alternate Output Screen -->
     <div class="OutputScreen close" id="OutputScreen3">
         <div class="header">
-            <li class="menuIcon centerRow" onclick="closeOutputScreen(this)">
+            <li class="menuIcon centerRow" onclick="closeFromTo()">
                 <svg viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#FFF">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -535,7 +535,7 @@
         </div>
     </div>
 
-
+    <!-- ALERT BOX POP UP SCREEN -->
     <div class="alertBoxScreen hide" id="popUpScreen">
 
         <!-- ALERT BOX -->
@@ -574,7 +574,7 @@
             </div>
             <div class="actionBtns centerRow">
                 <button class="" onclick="closePopUpBox(this)" id="contactCloseBtn">Close</button>
-                <button class="active">Send</button>
+                <button class="active" id="sendBtn">Send</button>
             </div>
         </div>
 
@@ -610,7 +610,7 @@
     <!-- OTHER SECTION SCREEN -->
     <div class="OutputScreen otherSectionsScreen close" id="otherSectionsScreen">
         <h2 class="headerOS centerRow">
-            <li class="menuIcon centerRow" onclick="closeOutputScreen(this)" id="otherSectionsCloseBtn">
+            <li class="menuIcon centerRow" onclick="closeOtherSection()" id="otherSectionsCloseBtn">
                 <svg viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#FFF">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -620,7 +620,7 @@
                         </path>
                     </g>
                 </svg>
-            </li><span id="otherSectionsScreenHeading">MORE APPS</span>
+            </li><span id="otherSectionsScreenHeading">HEADING</span>
         </h2>
 
         <!-- BUS PASS INFO SCREEN -->
@@ -740,7 +740,8 @@
 
         <!-- HELP SCREEN  -->
         <div class="helpScreen hide" id="helpScreen">
-            <p>Welcome to the City Ways App! Explore the app's features to make your bus travel simpler and
+            <p style="display: none;">Welcome to the City Ways App! Explore the app's features to make your bus travel
+                simpler and
                 more convenient. Here's what you can do:</p>
             <div class="cardContainer hide">
                 <div class="card">
@@ -807,7 +808,7 @@
 
             </div>
 
-            <div class="questionsType">
+            <div class="questionsType hide">
                 <div class="question">
                     <div class="head" onclick="expandHelpQues(this)">
                         <div class="iconText">
@@ -973,9 +974,9 @@
                 </div>
             </div>
 
-            <h3 style="margin-top: 20px; font-size: 16px;">Short Names</h3>
+            <h3 style="margin-top: 20px; font-size: 16px; display: none;">Short Names</h3>
 
-            <p style="margin-top: 0px; font-size: 12px;">Sometimes we will use Short Names to maintain
+            <p style="margin-top: 0px; font-size: 12px; display: none;">Sometimes we will use Short Names to maintain
                 clean user interface. If there are multiple stops in the city with the same names, we
                 will add
                 the short form of the nearest bus stop to their names to avoid confusion for users. For Example, there
@@ -985,7 +986,7 @@
                 <strong>Moula Ali & Chengicherla</strong>
                 respectively.
             </p>
-            <div class="questionsType">
+            <div class="questionsType hide">
                 <div class="question">
                     <div class="head" onclick="showShortNames()">
                         <div class="iconText">
@@ -1003,11 +1004,130 @@
                 </div>
             </div>
 
-            <h3 style="margin-top: 20px; font-size: 16px;">Need More Help?</h3>
-            <p style="margin-top: 0px; font-size: 12px;">For any questions or feedback, reach out to us via the Contact
-                Us option in the app menu. We're here to
-                help!
-            </p>
+
+
+            <!-- NEW UI HELP SCREEN -->
+            <div class="newHelpScreen">
+                <div class="helpSection">
+                    <div class="text">
+                        <h4>Bus Routes</h4>
+                        <p>We have many Bus Routes in our city such as 17H, 14P, 250C etc., but we dont know which bus
+                            goes in which route and what are the stops present in that route. To those details use Route
+                            Details Option. Just enter the bus route number and you will get all the stops on that
+                            particular route.</p>
+                    </div>
+                </div>
+
+                <div class="helpSection">
+                    <div class="text">
+                        <h4>Bus Stops</h4>
+                        <p>If you are in the bus stop and wants to know all the buses which passes from that particular
+                            bus stop, then you can use the bus stop option. Just enter the bus stop name and you will
+                            get the list of all the bus route numbers which passes from that particular bus stop.</p>
+                    </div>
+                </div>
+
+                <div class="helpSection">
+                    <div class="text">
+                        <h4>From - To</h4>
+                        <p>If you wants to go somewhere but don't know which bus you have to board, then you can use
+                            from - to option. Just enter the name of the bus stop which is nearer to you and also the
+                            name of the bus stop of your destination, then you will get the list of Direct bus route
+                            numbers which runs between those two bus stops.</p>
+                    </div>
+                </div>
+
+                <div class="helpSection">
+                    <div class="text">
+                        <h4>Regular and Rare Routes</h4>
+                        <p>In the above two sections you will see the list of regular buses and rare/special buses,
+                            Regular buses are those which runs daily
+                            with high no. of services and Rare/Special Bus Routes are those buses which
+                            has less no. of services and Some buses runs only on special occasions or on working days
+                            only.</p>
+                    </div>
+                </div>
+
+                <div class="helpSection">
+                    <div class="text">
+                        <h4>Fare Search</h4>
+                        <p>Hyderabad is a tourist hub, we have many tourist places to explore in our hyderabad, so if
+                            you are planning a trip by public transport and wants to know your travel budget you can use
+                            fare option. Just enter the starting point bus stop and destination bus stop, then you will
+                            get the ticket price between them.</p>
+                    </div>
+                </div>
+
+                <div class="helpSection">
+                    <div class="text">
+                        <h4>Alternate Routes</h4>
+                        <p>If you wants to go somewhere, but direct buses are not available to you destination, then you
+                            can use this option. Just enter you bus stop name which you board the bus and the bus stop
+                            name of your destination, then you will get the detailed information on how to reach your
+                            destination.</p>
+                    </div>
+                </div>
+
+                <div class="helpSection">
+                    <div class="text">
+                        <h4>Bus Pass Info</h4>
+                        <p>If you are a student or an employee, you have to travel regularly to reach your college or
+                            office. If you are using City buses for that, then buy ticket daily will costs more money.
+                            Instead of buying ticket daily you can take bus pass to reduce your cost. To know the
+                            information about various bus passes, You can use bus pass option.</p>
+                    </div>
+                </div>
+
+                <div class="helpSection">
+                    <div class="text">
+                        <h4>Short Names</h4>
+                        <p>While using this app, you will see some short names such as RTCX, CGCL etc., Those are the
+                            short names for some bus stops. We made them short inorder to maintain clean user interface.
+                            If you are unable to identify those short names, you can <strong onclick="showShortNames()"
+                                style="text-decoration: underline; color: blue;">click
+                                here</strong> to know the bus stop for
+                            that short Name.</p>
+                    </div>
+                </div>
+
+                <div class="helpSection">
+                    <div class="text">
+                        <h4>Contribute</h4>
+                        <p>You are always welcomed to contribute to our Application. Kindly Help us to provide more
+                            information to our users by sharing your ideas and information to us by contact us option.
+                            And you can also help us by sharing your bus ticket, so that we can provide more information
+                            at fare section.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="helpSection">
+                    <div class="text">
+                        <h4>Google Ads</h4>
+                        <p>Dear user, we made this app to make the city bus rides of our user easy and convenient by
+                            choosing right bus and right route to reach their destination. Ad policy is the only way to
+                            fund our Application. So we placed advertisements in our application. But we're sure that we
+                            won't irritate you by showing many ads, Just watching one video per day and enjoy our
+                            application. Thank you.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="helpSection">
+                    <div class="text">
+                        <h3 style="margin-top: 10px; font-size: 16px;">Need More Help?</h3>
+                        <p style="margin-top: 0px; font-size: 12px;">For any questions or feedback, reach out to us
+                            via the Contact
+                            Us option in the app menu. We're here to
+                            help!
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+
+
         </div>
 
         <!-- MORE APPS SCREEN -->
@@ -1123,6 +1243,63 @@
     <script src="altRouteData.js"></script>
     <script src="app.js"></script>
     <script src="format.js"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-analytics.js";
+
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyDL50nVv09WdGDqPygFgcaV_66j4q159ZI",
+            authDomain: "cbwh-ab6d5.firebaseapp.com",
+            projectId: "cbwh-ab6d5",
+            storageBucket: "cbwh-ab6d5.firebasestorage.app",
+            messagingSenderId: "586373767716",
+            appId: "1:586373767716:web:542a4b4754ea628f0ceeb1",
+            measurementId: "G-V3TBG9NQ7R"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore(app);
+
+        document.getElementById("sendBtn").addEventListener("click", async function () {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const subject = document.getElementById("subject").value;
+            const message = document.getElementById("message").value;
+
+            if (!name || !email || !subject || !message) {
+                alert("Please fill in all fields before submitting.");
+                return;
+            }
+
+            try {
+                await addDoc(collection(db, "CBWH_ContactUS"), {
+                    name: name,
+                    email: email,
+                    subject: subject,
+                    message: message,
+                    timestamp: new Date()
+                });
+
+                openPopUpBox(2);
+
+                document.getElementById("name").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("subject").value = "";
+                document.getElementById("message").value = "";
+            } catch (error) {
+                openPopUpBox(4,'MSG');
+            }
+        });
+    </script>
 </body>
 
 </html>
