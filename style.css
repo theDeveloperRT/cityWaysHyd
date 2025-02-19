@@ -24,6 +24,8 @@
     --primaryColor: #242238; */
     --primaryColor: #151A2D;
     --shadeColor2: #E9E9E9;
+
+    --graphicsSize: 30px;
 }
 
 * {
@@ -31,6 +33,21 @@
     padding: 0;
     font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth;
+}
+
+li,
+p,
+strong,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 body {
@@ -980,17 +997,17 @@ td {
 }
 
 .busPassInfoScreen h3 {
-    font-size: 18px;
+    font-size: 17px;
     margin-top: 10px;
 }
 
 .busPassInfoScreen h4 {
-    font-size: 16px;
+    font-size: 15px;
     margin-top: 10px;
 }
 
 .busPassInfoScreen p {
-    font-size: 14px;
+    font-size: 13px;
     text-align: justify;
 }
 
@@ -1024,15 +1041,81 @@ td {
     background-color: #f2f2f2;
 }
 
-.busPassInfoScreen table tr:hover {
-    background-color: #ddd;
-}
-
-.moreAppsScreen {
+.shareAppScreen {
     width: 95%;
     padding-bottom: 10px;
     height: 100%;
     overflow: scroll;
+}
+
+.shareAppScreen .ShareContent {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.shareAppScreen .ShareContent .upText {
+    width: 100%;
+    margin-top: 10px;
+    height: 20%;
+}
+
+.shareAppScreen .ShareContent .upText p {
+    font-size: 12px;
+    text-align: center;
+}
+
+.shareAppScreen .ShareContent .upText h3 {
+    font-size: 24px;
+    text-align: center;
+    margin-top: -5px;
+}
+
+.shareAppScreen .ShareContent .image {
+    height: 60%;
+    width: 100%;
+}
+
+.shareAppScreen .ShareContent .image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.shareAppScreen .ShareContent .actions {
+    width: 100%;
+    gap: 10px;
+    height: 20%;
+}
+
+.shareAppScreen .ShareContent .actions button,
+.shareAppScreen .ShareContent .actions .shareWAbutton {
+    outline: none;
+    background-color: var(--primaryColor);
+    border: 2px solid var(--primaryColor);
+    font-size: 14px;
+    width: 90%;
+    padding: 10px 0px;
+    border-radius: 10px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    gap: 10px;
+}
+
+.shareAppScreen .ShareContent .actions button.active {
+    background-color: #167e2a;
+    border: 2px solid #167e2a;
+}
+
+.shareAppScreen .ShareContent .actions button img {
+    height: 25px;
+}
+
+.shareAppScreen .ShareContent .actions .shareWAbutton {
+    background-color: white;
+    border: 2px solid var(--primaryColor);
+    color: var(--primaryColor);
+    display: none;
 }
 
 /* ALTERNATE ROUTE STYLE */
@@ -1104,17 +1187,6 @@ td {
     align-content: center;
     text-align: center;
 }
-
-/* .circle.orange,.circle.green{
-    background-image: url(images/icons/busIcon.png);
-    background-size: cover;
-}
-
-.circle.blue{
-    background-image: url(images/icons/walk.png);
-    background-size: cover;
-    background-color: white;
-} */
 
 
 .blue {
@@ -1479,165 +1551,6 @@ td {
     z-index: 2;
 }
 
-#routeOutputNewOutline {
-    z-index: 10;
-}
-
-/* NEW UI FOR ROUTE OUTPUT */
-.routeOutputNewOutline {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.routeOutputNewOutline.hide {
-    display: none;
-}
-
-.routeOutputNewOutline .contentRO {
-    width: 0%;
-    height: 0%;
-    border-radius: 10px;
-    background-color: white;
-    overflow: hidden;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
-    transition-property: all;
-    transition-duration: 0.2s;
-}
-
-.routeOutputNewOutline .contentRO .header {
-    background-color: var(--primaryColor);
-    height: 10%;
-    width: 100%;
-    overflow: hidden;
-    color: white;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    padding: 5px 10px;
-}
-
-.routeOutputNewOutline .contentRO .header .title {
-    width: 100%;
-    text-align: center;
-    font-size: 15px;
-    letter-spacing: 1px;
-    /* background-color: #989fbc; */
-    margin-left: -10px;
-}
-
-.routeOutputNewOutline .contentRO .header .title h3 {
-    /* background-color: #03CA8F; */
-    width: 100%;
-}
-
-.routeOutputNewOutline .contentRO .stopsList {
-    width: 100%;
-    overflow: scroll;
-    overflow-y: scroll;
-    padding-top: 15px;
-    height: 75%;
-}
-
-.stopsList .stopsContainer {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.stopsList .stopsContainer.ckl {
-    margin-top: -5px;
-}
-
-.stopsList .stopsContainer .graphics {
-    width: 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-}
-
-.stopsList .stopsContainer .graphics .road {
-    height: 30px;
-    width: 7px;
-    /* background-color: #ff9257; */
-}
-
-.stopsList .stopsContainer .graphics .circle {
-    height: 30px;
-    width: 30px;
-    background-color: #03CA8F;
-    background-color: #ff9257;
-    /* background-color: tan; */
-    /* border: none;     */
-}
-
-.stopsList .stopsContainer .graphics.first .circle {
-    background-color: var(--orange);
-    background-color: orangered;
-}
-
-.stopsList .stopsContainer .graphics.last .circle {
-    background-color: rgb(15, 213, 15);
-}
-
-.stopsList .stopsContainer .text {
-    width: calc(100% - 85px);
-    margin-left: -15px;
-    font-size: 14px;
-    text-transform: capitalize;
-}
-
-.stopsList .stopsContainer .text p {
-    font-size: 10px;
-    opacity: 0.6;
-    margin-top: -4px;
-    letter-spacing: 0px;
-    font-weight: 600;
-}
-
-.stopsList .RouteSummary {
-    padding: 10px 5px;
-    font-size: 13px;
-}
-
-.stopsList .RouteSummary p {
-    text-align: justify;
-}
-
-.routeOutputNewOutline .contentRO .footer {
-    height: 10%;
-    width: 100%;
-    border-top: 2px dashed gray;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.routeOutputNewOutline .contentRO .footer button {
-    outline: none;
-    background-color: transparent;
-    border: none;
-    font-size: 14px;
-    width: 47%;
-    padding: 10px 0px;
-    border-radius: 10px;
-    font-weight: bold;
-    color: white;
-}
-
 .newHelpScreen {
     width: 100%;
 }
@@ -1678,4 +1591,154 @@ td {
 
 .helpScreen .text h4 {
     font-size: 16px;
+}
+
+/* DETAILED ROUTE NEW UI */
+.OutputScreen .titlePlate {
+    width: 91%;
+    height: 100px;
+    margin: auto;
+    margin-top: 20px;
+    color: white;
+    text-align: center;
+    /* border: 2px solid rgba(255, 255, 255, 0.7); */
+    border-radius: 10px;
+}
+
+.titlePlate .number {
+    width: 30%;
+    font-size: 26px;
+    border-right: 3px solid rgba(255, 255, 255, 0.7);
+    padding: 5px;
+}
+
+.titlePlate .number .downRouteNumber {
+    display: none;
+}
+
+.titlePlate .number.doubleNumber {
+    font-size: 24px;
+    padding: 5px;
+}
+
+.titlePlate .number.doubleNumber .downRouteNumber {
+    border-top: 3px solid rgba(255, 255, 255, 0.7);
+    display: block;
+}
+
+.titlePlate .names {
+    width: 70%;
+    font-size: 18px;
+    letter-spacing: 1px;
+    height: 100%;
+    gap: 5px;
+}
+
+.contentOutputScreen .stopsList {
+    width: 100%;
+    overflow: scroll;
+    overflow-y: scroll;
+    padding-top: 10px;
+    height: 96%;
+}
+
+.stopsList .stopsContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.stopsList .stopsContainer.ckl {
+    margin-top: -5px;
+}
+
+.stopsList .stopsContainer .graphics {
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.stopsList .stopsContainer .graphics .road {
+    height: var(--graphicsSize);
+    width: 7px;
+    /* background-color: #ff9257; */
+}
+
+.stopsList .stopsContainer .graphics .circle {
+    height: var(--graphicsSize);
+    width: var(--graphicsSize);
+    background-color: #03CA8F;
+    background-color: #ff9257;
+    font-size: 15px;
+    align-content: center;
+    text-align: center;
+    /* color: white; */
+    /* background-color: #becbfb; */
+}
+
+.stopsList .stopsContainer .graphics.first .circle {
+    background-color: var(--orange);
+    background-color: orangered;
+    /* background-color: var(--primaryColor); */
+}
+
+.stopsList .stopsContainer .graphics.last .circle {
+    background-color: rgb(15, 213, 15);
+}
+
+.stopsList .stopsContainer .text {
+    width: calc(100% - 85px);
+    margin-left: -15px;
+    font-size: 15px;
+    margin-top: -2px;
+    text-transform: capitalize;
+}
+
+.stopsList .stopsContainer .text p {
+    font-size: 10px;
+    opacity: 0.6;
+    margin-top: -4px;
+    letter-spacing: 0px;
+    font-weight: 600;
+}
+
+.stopsList .RouteSummary {
+    padding: 10px 5px;
+    font-size: 13px;
+}
+
+.stopsList .RouteSummary p {
+    text-align: justify;
+}
+
+.reverseButton {
+    width: 100px;
+    height: 100px;
+    background-color: var(--primaryColor);
+    position: fixed;
+    border-radius: 50%;
+    bottom: 10px;
+    right: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    z-index: 100;
+}
+
+.intro {
+    font-size: 13px;
+    text-align: justify;
+    padding-bottom: 15px;
+}
+
+.conclusion{
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: 550;
+    padding-bottom: 5px;
 }
