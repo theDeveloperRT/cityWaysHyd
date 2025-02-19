@@ -135,7 +135,7 @@ let otherSectionsScreen = getId('otherSectionsScreen');
 let otherSectionsScreenHeading = getId('otherSectionsScreenHeading');
 let busPassInfoScreen = getId('busPassInfoScreen');
 let helpScreen = getId('helpScreen');
-let moreAppsScreen = getId('moreAppsScreen');
+let shareAppScreen = getId('shareAppScreen');
 let ShortformsScreen = getId('ShortformsScreen');
 
 // Route List New UI Handles
@@ -147,792 +147,12 @@ let newUISource = getId('newUISource');
 let newUIDestination = getId('newUIDestination');
 
 // Referance Arrays and Variables
+let starting, destination, upRouteArray, downRouteArray, direction, routeNumberRef;
 let JunctionStop, backState, JunctionStopState;
 let junctionStopsStopName;
 let suggessionsArray = routesArray;
 let feature = 1;
-let routeStartI, routeEndI;
 
-// ROUTE DATA
-let SEC_UP = [
-    "1",
-    "1B",
-    "1C",
-    "1D",
-    "1HD",
-    "1J",
-    "1JL",
-    "1K",
-    "1L",
-    "1MD",
-    "1P",
-    "1V",
-    "1VM",
-    "1VS",
-    "1W",
-    "1X",
-    "1Z",
-    "1D/299",
-    "1Z/251",
-    "1Z/539",
-    "2",
-    "2C",
-    "2J",
-    "2K",
-    "2U",
-    "2Z",
-    "2Z/251",
-    "5G",
-    "5K",
-    "5KM",
-    "5M",
-    "5K/92A",
-    "5K/92R",
-    "5K/125",
-    "5K/188",
-    "5K/251",
-    "5W",
-    "7Z",
-    "7Z/251",
-    "8A",
-    "8AK",
-    "8C",
-    "8N",
-    "8UA",
-    "8A/85",
-    "8A/178G",
-    "8A/251",
-    "8A/532",
-    "8C/85P",
-    "10",
-    "10F",
-    "10FV",
-    "10H",
-    "10HA",
-    "10HL",
-    "10HP",
-    "10HW",
-    "10J",
-    "10K",
-    "10KJ",
-    "10KM",
-    "10KL",
-    "10Y",
-    "10YF",
-    "10W",
-    "10KM/224G",
-    "14P",
-    "14PX",
-    "15D",
-    "15H",
-    "15H/242RG",
-    "16A",
-    "16AK",
-    "16C",
-    "16CD",
-    "16CR",
-    "16D",
-    "16H",
-    "16P",
-    "16PX",
-    "16A/281R",
-    "16C/281",
-    "16D/24B",
-    "16NY",
-    "17D",
-    "17DH",
-    "17DS",
-    "17DV",
-    "17H",
-    "17H/242",
-    "17CS",
-    "17HN",
-    "17S",
-    "17V",
-    "18",
-    "18/283S",
-    "18B",
-    "18C",
-    "18V",
-    "20P",
-    "21W",
-    "22",
-    "22D",
-    "22K",
-    "23B",
-    "23BK",
-    "23BS",
-    "23GF",
-    "23GS",
-    "23K",
-    "23T",
-    "24",
-    "24B",
-    "24B/16D",
-    "24B/281",
-    "24BA",
-    "24BJ",
-    "24E",
-    "24J",
-    "24L/281",
-    "25A",
-    "25AJ",
-    "25AJ/M",
-    "25M",
-    "25MS",
-    "25P",
-    "25S",
-    "25S/227",
-    "25S/229",
-    "26M",
-    "26N",
-    "29B",
-    "29B/272G",
-    "29B/272I",
-    "29S",
-    "30",
-    "30S",
-    "31P",
-    "37",
-    "38EX",
-    "38M",
-    "38X",
-    "38T",
-    "38T/16C",
-    "38T/16CR",
-    "40",
-    "44X",
-    "46",
-    "47L",
-    "47Y",
-    "47YM",
-    "49",
-    "49A",
-    "49M",
-    "49M/92A",
-    "49MT",
-    "50B",
-    "86A",
-    "86C",
-    "86J",
-    "86K",
-    "90/300",
-    "90B",
-    "90DL",
-    "90L/251",
-    "102B/203N",
-    "107JD",
-    "107JL",
-    "107JS",
-    "107VR",
-    "107VL",
-    "107VS",
-    "171",
-    "171R",
-    "203AR",
-    "211",
-    "211B",
-    "211CD",
-    "211D",
-    "211DY",
-    "211K",
-    "211M",
-    "212",
-    "212/702",
-    "212T",
-    "219",
-    "219N",
-    "226",
-    "227",
-    "229",
-    "229P",
-    "230A",
-    "230AN",
-    "230P",
-    "231KN",
-    "233",
-    "241T",
-    "242",
-    "242A",
-    "242B",
-    "242G",
-    "242GA",
-    "242RG",
-    "242/211",
-    "245A",
-    "250",
-    "250C",
-    "250D",
-    "250S",
-    "250SS",
-    "250/281",
-    "272",
-    "272B",
-    "280",
-    "280B",
-    "280N",
-    "280/488",
-    "280/492",
-    "283C",
-    "283K",
-    "283T",
-    "283VS",
-    "290KP",
-    "290U/201T",
-    "290U/555",
-    "490S",
-    "495",
-    "498",
-    "498K",
-    "498U",
-    "498VJ",
-    "568",
-    "580",
-    "589"
-]
-
-let SEC_DN = [
-    "14PX",
-    "16C/38T",
-    "16CR/38T",
-    "16D/24B",
-    "16PX",
-    "24B/16D",
-    "38EX",
-    "38X",
-    "85/8A",
-    "85P/8C",
-    "92A/5K",
-    "92A/49M",
-    "125/5K",
-    "178G/8A",
-    "188/5K",
-    "203N/102B",
-    "201T/290U",
-    "211/242",
-    "224G/10KM",
-    "227/25S",
-    "229/25S",
-    "242/17H",
-    "251/1Z",
-    "251/8A",
-    "272G/29B",
-    "281/16C",
-    "281/24B",
-    "281/24L",
-    "281/250",
-    "281R/16A",
-    "283S/18",
-    "300/90",
-    "532/8A",
-    "539/1Z",
-    "555/290U",
-    "242RG/15H", "251/2Z", "251/7Z", "251/90L", "272I/29B", "299/1D", "463/290U", "488/280", "492/280", "702/212"
-]
-
-let ECILX_UP = [
-    "3KJ",
-    "3V",
-    "3K/90L",
-    "3K/95",
-    "3K/102",
-    "3K/102B",
-    "3K/203N",
-    "3K/252",
-    "3KN/95",
-    "16A/5K",
-    "16A/10H",
-    "16A/20",
-    "16A/47L",
-    "16A/49M",
-    "16A/219",
-    "16C/5K",
-    "16C/10H",
-    "16C/38T",
-    "16C/47L",
-    "16C/49M",
-    "16CR/38T",
-    "16H/49M",
-    "16R/20",
-    "17/219",
-    "17H/29B",
-    "17H/47W",
-    "17H/219",
-    "24S",
-    "24SS",
-    "24S/273",
-    "90BE",
-    "147",
-    "250/10K",
-    "250/49",
-    "250/49M",
-    "250/49MT",
-    "250/219",
-    "250E",
-    "281",
-    "578"
-]
-
-let ECILX_DN = [
-    "3C",
-    "5K/16A",
-    "5K/16C",
-    "10H/16A",
-    "10H/16C",
-    "10K/250",
-    "16A",
-    "16AK",
-    "16C",
-    "16CR",
-    "16H",
-    "20/16A",
-    "20/16R",
-    "24E",
-    "24J",
-    "29B/17H",
-    "37",
-    "38T/16C",
-    "38T/16CR",
-    "47L/16A",
-    "47L/16C",
-    "49/250",
-    "49M/16A",
-    "49M/16C",
-    "49M/16H",
-    "49M/250",
-    "49MT/250",
-    "90L/3K",
-    "95/3K",
-    "95/3KN",
-    "102/3K",
-    "102B/3K",
-    "203N/3K",
-    "219/16A",
-    "219/17",
-    "219/17H",
-    "219/250",
-    "250",
-    "252/3K",
-    "273/24S",
-]
-
-let AFZ_UP = [
-    "1/25S",
-    "1/25S/229",
-    "1P/25S",
-    "2/25S",
-    "3",
-    "3C",
-    "3D",
-    "3DN",
-    "3H",
-    "3HN",
-    "3K",
-    "3KN",
-    "3L",
-    "3M",
-    "3N",
-    "3T",
-    "3Y",
-    "3K/242",
-    "3K/281",
-    "8C/229",
-    "9K",
-    "9K/230P",
-    "9K/272G",
-    "20/16A",
-    "65/116GA",
-    "65M/123",
-    "71A",
-    "71AB",
-    "71K",
-    "72/277D",
-    "72H",
-    "72HK",
-    "72J",
-    "72V",
-    "218A",
-    "251M",
-    "458",
-    "530",
-    "532",
-    "537",
-    "539",
-]
-
-let AFZ_DN = [
-    "1",
-    "1B",
-    "1P",
-    "2",
-    "16A/20",
-    "25S/1",
-    "25S/1P",
-    "25S/2",
-    "37/8",
-    "49A",
-    "86A",
-    "116GA/65",
-    "123/65M",
-    "229/8C",
-    "230P/9K",
-    "242/3K",
-    "272G/9K",
-    "277D/72",
-    "281/3K",
-]
-
-let MP_UP = [
-    "5R",
-    "5/5R",
-    "5K/16A",
-    "5K/16AD",
-    "5K/16C",
-    "5K/16CD",
-    "5K/16D",
-    "5K/25S",
-    "5K/229",
-    "19F",
-    "19K",
-    "19KJ",
-    "19KM",
-    "19M",
-    "19MP",
-    "19S",
-    "19YF",
-    "20/15D",
-    "49M/16A",
-    "49M/16C",
-    "49M/16CD",
-    "49M/16D",
-    "49M/16H",
-    "49M/26M",
-    "49M/229",
-    "49M/250",
-    "49M/250C",
-    "49M/250D",
-    "92K",
-    "119M",
-    "120",
-    "123",
-    "126M",
-    "156/205F",
-    "156/299",
-    "156S",
-    "188",
-    "188/251",
-    "189M",
-    "189M/171M",
-    "189M/272G",
-    "216M",
-    "288",
-    "288A",
-    "288C",
-    "288D",
-    "288E",
-    "300",
-    "300/90",
-    "300L",
-    "445",
-    "447R",
-    "505",
-    "593",
-]
-
-let MP_DN = [
-    "5K",
-    "5M",
-    "5R/5",
-    "6R",
-    "15D/20",
-    "16A/5K",
-    "16A/49M",
-    "16AD/5K",
-    "16C/5K",
-    "16C/49M",
-    "16CD/5K",
-    "16CD/49M",
-    "16D/5K",
-    "16D/49M",
-    "16H/49M",
-    "25S/5K",
-    "26M/49M",
-    "49M",
-    "90/300",
-    "92A",
-    "92R",
-    "113IM",
-    "113M",
-    "113MZ", "113IMZ",
-    "156L",
-    "156V",
-    "171M/189M",
-    "251/188",
-    "229/5K",
-    "229/49M",
-    "250/49M",
-    "250C/49M",
-    "250D/49M",
-    "272G/189M",
-    "299/156"
-]
-
-// KG UP Manual
-let KG_DN = [
-    "3",
-    "3H",
-    "3HN",
-    "3K",
-    "3KN",
-    "15H",
-    "17H",
-    "17HN",
-    "17S",
-    "20/15H",
-    "117",
-]
-
-// AMBD_UP Manual
-let AMBD_DN = [
-    "3D",
-    "3DN",
-    "5K/16AD",
-    "5K/16CD",
-    "5K/16D",
-    "15D",
-    "16CD",
-    "16D",
-    "17D",
-    "20/15D",
-    "24BA",
-    "49M/16CD",
-    "49M/16D",
-    "49M/250D",
-    "250D",
-]
-
-let MDCL_UP = [
-    "229B",
-    "229/1D",
-    "229/1Z",
-    "229/5K",
-    "229/8C",
-    "229/25S",
-    "229/18C",
-    "229/49M",
-    "229/90L",
-    "229/219",
-    "229/279",
-    "229/290",
-    "229/290U",
-    "231",
-]
-
-let MDCL_DN = [
-    "1/25S/229",
-    "1D/229",
-    "1Z/229",
-    "5K/229",
-    "8C/229",
-    "18C/229",
-    "25S/229",
-    "49M/229",
-    "90L/229",
-    "219/229",
-    "229",
-    "279/229",
-    "290/229",
-    "290U/229",
-]
-
-let PTCR_UP = [
-    "218/102B",
-    "218/203A",
-    "218/203N",
-    "219/16A",
-    "219/17",
-    "219/17H",
-    "219/18C",
-    "219/171K",
-    "219/224G",
-    "219/229",
-    "219/250",
-    "219/272G",
-    "219/280",
-]
-
-let PTCR_DN = [
-    "10HA",
-    "16A/219",
-    "17/219",
-    "17H/219",
-    "18C/219",
-    "102B/218",
-    "171K/219",
-    "203A/218",
-    "203N/218",
-    "217",
-    "217C",
-    "217D",
-    "218",
-    "218A",
-    "218C",
-    "218CA",
-    "218D",
-    "218H",
-    "219",
-    "222A",
-    "224G/219",
-    "226",
-    "229/219",
-    "250/219",
-    "272G/219",
-    "280/219",
-]
-
-let ARGR_DN = ["1Z", "3K/95", "3KN/95", "5K/92A", "7Z", "49M/92A", "95", "229/1Z"];
-
-let CBS_UP = [
-    "9A",
-    "9F",
-    "9X",
-    "9X/230P",
-    "9X/272G",
-    "9X/283D",
-    "65M/116G",
-    "116/220K",
-    "185G",
-    "217C",
-    "218C",
-]
-// CBS_DN Manual
-
-let CHRM_UP = [
-    "9XM",
-    "9YF",
-    "9XM/230P",
-    "65MG",
-    "66G",
-    "85V",
-    "85/253L",
-    "253",
-]
-// CHRM_DN Manual
-
-let GDMS_UP = ["9K/102", "221G", "224G/10KM", "224G/219", "224G/219I", "272G/9K", "272G/9X", "272G/18", "272G/29B", "272G/83J", "272G/189M", "272G/219", "272G/219I", "273/24S", "227/25S"]
-
-let GDMS_DN = [
-    "9K/272G",
-    "9X/272G",
-    "10KM/224G",
-    "18/272G",
-    "24S/273",
-    "25S/227",
-    "29B/272G",
-    "83J/272G",
-    "102/9K",
-    "189M/272G",
-    "195WP",
-    "219/224G",
-    "219I/224G",
-    "219/272G",
-    "219I/272G",
-    "224G",
-]
-
-// GTKS_UP Manual
-let GTKS_DN = [
-    "3K/281",
-    "16C/281",
-    "20/280",
-    "24B/281",
-    "24L/281",
-    "113M/281",
-    "6L/281",
-    "30/280",
-    "219/280",
-    "250/281",
-    "280",
-    "280J",
-    "280X",
-    "281",
-]
-
-let KOTI_UP = [
-    "45F",
-    "94R",
-    "94RM",
-    "95",
-    "95K",
-    "115",
-    "116N",
-    "116NL",
-    "216",
-    "217",
-    "218",
-    "218L",
-    "218/224MN",
-    "222A",
-    "222L",
-    "288K"
-]
-
-let KOTIWC_UP = [
-    "102",
-    "102/253L",
-    "102B",
-    "102M",
-    "103",
-    "104A",
-    "104R",
-    "201",
-    "201G",
-    "201M",
-    "201Q",
-    "202B",
-    "203A",
-    "203AK",
-    "203N",
-    "204U",
-    "204UA",
-    "205A",
-    "253W",
-    "277D",
-    "277N",
-    "412",
-    "523K"
-]
-
-let UPL_UP = [
-    "18/272G",
-    "18J",
-    "113B",
-    "113IM",
-    "113K",
-    "113KM",
-    "113KL",
-    "113M/288",
-    "113W",
-    "113KLT", "113ILT", "113KT", "113IMZ",
-    "117",
-]
-
-let BRBD_DN = [
-    "9F",
-    "9YF",
-    "10F",
-    "10YF",
-    "19F",
-    "19YF",
-    "45F",
-    "113F",
-    "113FT",
-    "113FZ",
-    "113S",
-    "158FL",
-    "158HF",
-    "158VF",
-]
 
 // DETAILED ROUTE ARRAYS
 let DetailedRoutesUP = [
@@ -995,6 +215,12 @@ let DetailedRoutesUP = [
         getStops(SECB_SKPL, "SECUNDERABAD", "KOTI WOMENS COLLEGE"),
         getStops(KSR_SHMB, "KOTI MEDICAL COLLEGE", "AFZALGUNJ"),
         getStops(KTGD_LGRH, 'OSMANIA HOSPITAL', 'LANGER HOUSE')
+    ),
+    ["1JK"].concat(
+        getStops(SECB_SKPL, "SECUNDERABAD", "KOTI WOMENS COLLEGE"),
+        getStops(KSR_SHMB, "KOTI MEDICAL COLLEGE", "AFZALGUNJ"),
+        getStops(KTGD_LGRH, 'OSMANIA HOSPITAL', 'LANGER HOUSE'),
+        getStops(SRPT_MNBD, 'BAPU GHAT', 'KALI MANDIR')
     ),
     ["1K"].concat(
         getStops(SECB_SKPL, "SECUNDERABAD", "KOTI WOMENS COLLEGE"),
@@ -1339,6 +565,11 @@ let DetailedRoutesUP = [
         getStops(DRFM_RMNG, 'NPPTI', 'RAJENDRA NAGAR VILLAGE'),
         SHD[807]
     ),
+    ["5K/120K"].concat(
+        getStops(SRPT_MNBD, "SECUNDERABAD", "MEHDIPATNAM"),
+        getStops(SECB_SKPL, 'RETHIBOWLI', 'KOKAPET X ROADS'),
+        "KOKAPET"
+    ),
     ["5K/125"].concat(
         getStops(SRPT_MNBD, "SECUNDERABAD", "MEHDIPATNAM"),
         getStops(CRPL_LGPL, 'RETHIBOWLI', 'BIO DIVERSITY'),
@@ -1458,6 +689,12 @@ let DetailedRoutesUP = [
         getStops(KSR_SHMB, 'AFZALGUNJ', 'SHAMSHABAD'),
         getStops(OSK_Stops_DOWN, 'KISHANGUDA', 'KOTHUR')
     ),
+    ["8A/539"].concat(
+        getStops(MDCL_MHRM, "SECUNDERABAD", "OSMANGUNJ"),
+        getStops(KSR_SHMB, 'AFZALGUNJ', 'SHAMSHABAD'),
+        getStops(OSK_Stops_DOWN, 'KISHANGUDA', 'KOTHUR'),
+        getStops(OSK_Stops, 'NANDIGAMA', 'KANHA')
+    ),
     ["8C"].concat(
         getStops(DRFM_RMNG, 'SECUNDERABAD', 'RANIGUNJ'),
         getStops(SRPT_MNBD, 'TANK BUND', 'BIRLA MANDIR'),
@@ -1532,7 +769,9 @@ let DetailedRoutesUP = [
     ["9X/41C"].concat(
         getStops(GTKS_PTCR, 'CITY BUS STATION', 'MOOSAPET'),
         SHD[1087],
-        getStops(IBP_DNGL, 'BALANAGAR', 'IDPL')
+        getStops(IBP_DNGL, 'BALANAGAR', 'IDPL'),
+        getStops(MLPT_BLNR, 'ERRAGODALU', 'RANGA REDDY KAMAN'),
+        "ASBESTOS COLONY"
     ),
     ["9X/230P"].concat(
         getStops(GTKS_PTCR, 'CITY BUS STATION', 'MOOSAPET'),
@@ -2835,6 +2074,8 @@ let DetailedRoutesUP = [
 
     // 41 SERIES
     ["41C/9X"].concat(
+        "ASBESTOS COLONY",
+        getStops(BLNR_MLPT, 'RANGA REDDY KAMAN', 'ERRAGODALU'),
         getStops(DNGL_IBP, 'IDPL', 'BALANAGAR'),
         SHD[1087],
         getStops(PTCR_GTKS, 'MOOSAPET', 'CITY BUS STATION'),
@@ -3471,6 +2712,10 @@ let DetailedRoutesUP = [
     ),
 
     // 113 SERIES
+    ["113B"].concat(
+        getStops(GTKS_PTCR, 'UPPAL', 'AMBERPET'),
+        getStops(TailsUP, 'CHEY NUMBER', 'BARKATPURA')
+    ),
     ["113F"].concat(
         getStops(TailsDOWN, 'CHENGICHERLA', 'AYODHYA COLONY'),
         getStops(GTKS_PTCR, 'CHENGICHERLA X ROADS', 'AMBERPET'),
@@ -3631,6 +2876,11 @@ let DetailedRoutesUP = [
         getStops(SECB_SKPL, 'RETHIBOWLI', 'GANDIPET X ROAD'),
         SHD[306], "OSMAN SAGAR"
     ),
+    ["120K/5K"].concat(
+        "KOKAPET",
+        getStops(SKPL_SECB, "KOKAPET X ROADS", "RETHIBOWLI"),
+        getStops(MNBD_SRPT, "MEHDIPATNAM", "SECUNDERABAD")
+    ),
 
     // 123 SERIES
     ["123"].concat(
@@ -3669,6 +2919,16 @@ let DetailedRoutesUP = [
     ),
 
     // 127 SERIES
+    ["127AL"].concat(
+        getStops(TailsDOWN, 'AOU UNIVERSITY', 'ROAD NO. 45'),
+        getStops(MDCL_ADBT, 'JOURNLIST COLONY', 'KOTI BUS STATION'),
+        getStops(LGRH_KTGD, 'KOTI WOMENS COLLEGE', 'LB NAGAR X ROADS')
+    ),
+    ["127DA"].concat(
+        getStops(TailsDOWN, 'AOU UNIVERSITY', 'ROAD NO. 45'),
+        getStops(MDCL_ADBT, 'JOURNLIST COLONY', 'KOTI BUS STATION'),
+        getStops(LGRH_KTGD, 'KOTI WOMENS COLLEGE', 'DILSHUKNAGAR')
+    ),
     ["127K"].concat(
         getStops(MDCL_ADBT, 'KONDAPUR', 'MADHAPUR PS'),
         getStops(TailsDOWN, 'AOU UNIVERSITY', 'ROAD NO. 45'),
@@ -4395,6 +3655,15 @@ let DetailedRoutesUP = [
     ),
     ["224X"].concat(
         getStops(ADBT_MDCL, 'MIYAPUR X ROADS', 'IDA X ROADS')
+    ),
+
+    // 226 SERIES
+    ["226"].concat(
+        getStops(IBP_DNGL, "SECUNDERABAD", "BALANAGAR"),
+        SHD[1087],
+        getStops(GTKS_PTCR, "KUKATPALLY GOVT COLLEGE", "LINGAMPALLY"),
+        "BHEL MIG", "BHEL", "LIG COLONY", "RC PURAM (ZPHS)",
+        getStops(GTKS_PTCR, 'RAMACHANDRAPURAM', 'PATANCHERUVU')
     ),
 
 
@@ -5314,6 +4583,13 @@ let DetailedRoutesUP = [
         getStops(SECB_SKPL, 'SAGAR RING ROAD', 'ARAMGHAR'),
         getStops(KSR_SHMB, 'BUDVEL STATION', 'SHAMSHABAD')
     ),
+    ["300/539"].concat(
+        getStops(DNGL_IBP, "SECUNDERABAD", "LB NAGAR X ROADS"),
+        getStops(SECB_SKPL, "SAGAR RING ROAD", "ARAMGHAR"),
+        getStops(KSR_SHMB, "BUDVEL STATION", "SHAMSHABAD"),
+        getStops(OSK_Stops_DOWN, 'KISHANGUDA', 'KOTHUR'),
+        getStops(OSK_Stops, 'NANDIGAMA', 'KANHA')
+    ),
     ["300L"].concat(
         SHD[620],
         getStops(SKPL_SECB, "RETHIBOWLI", "SAGAR RING ROAD"),
@@ -5483,6 +4759,19 @@ let DetailedRoutesUP = [
         getStops(SHMB_KSR, "SHAMSHABAD", "CITY BUS STATION"),
         getStops(SKPL_SECB, "KOTI WOMENS COLLEGE", "SECUNDERABAD")
     ),
+    ["539/8A"].concat(
+        getStops(OSK_Stops_DOWN, 'KANHA', 'NANDIGAMA'),
+        getStops(OSK_Stops, 'KOTHUR', 'KISHANGUDA'),
+        getStops(SHMB_KSR, 'SHAMSHABAD', 'AFZALGUNJ'),
+        getStops(MHRM_MDCL, "OSMANGUNJ", "SECUNDERABAD")
+    ),
+    ["539/300"].concat(
+        getStops(OSK_Stops_DOWN, 'KANHA', 'NANDIGAMA'),
+        getStops(OSK_Stops, 'KOTHUR', 'KISHANGUDA'),
+        getStops(SHMB_KSR, "SHAMSHABAD", "BUDVEL STATION"),
+        getStops(SKPL_SECB, "ARAMGHAR", "SAGAR RING ROAD"),
+        getStops(IBP_DNGL, "LB NAGAR X ROADS", "SECUNDERABAD")
+    ),
     ["546"].concat(
         getStops(SHMB_KSR, "ECIL X ROADS", "KEESARAGUTTA KAMAN"),
         getStops(OSK_Stops_DOWN, 'ANKIREDDYPALLY X ROADS', 'ERRAKUNTA'),
@@ -5591,6 +4880,12 @@ let DetailedRoutesDOWN = [
         getStops(SKPL_SECB, "KOTI WOMENS COLLEGE", "SECUNDERABAD")
     ),
     ["1JL"].concat(
+        getStops(LGRH_KTGD, 'LANGER HOUSE', 'AFZALGUNJ'),
+        getStops(SHMB_KSR, "AFZALGUNJ", "CITY BUS STATION"),
+        getStops(SKPL_SECB, "KOTI WOMENS COLLEGE", "SECUNDERABAD")
+    ),
+    ["1JK"].concat(
+        getStops(MNBD_SRPT, 'KALI MANDIR', 'TK BRIDGE'),
         getStops(LGRH_KTGD, 'LANGER HOUSE', 'AFZALGUNJ'),
         getStops(SHMB_KSR, "AFZALGUNJ", "CITY BUS STATION"),
         getStops(SKPL_SECB, "KOTI WOMENS COLLEGE", "SECUNDERABAD")
@@ -5933,6 +5228,11 @@ let DetailedRoutesDOWN = [
         getStops(SECB_SKPL, "DAIRY FARM (CNTLMT)", "RETHIBOWLI"),
         getStops(MNBD_SRPT, "MEHDIPATNAM", "SECUNDERABAD")
     ),
+    ["5K/120K"].concat(
+        "KOKAPET",
+        getStops(SKPL_SECB, "KOKAPET X ROADS", "RETHIBOWLI"),
+        getStops(MNBD_SRPT, "MEHDIPATNAM", "SECUNDERABAD")
+    ),
     ["5K/125"].concat(
         SHD[496],
         getStops(MLPT_BLNR, 'KOTHAGUDA X ROADS', 'HITEX KAMAN'),
@@ -6051,6 +5351,12 @@ let DetailedRoutesDOWN = [
         getStops(SHMB_KSR, 'SHAMSHABAD', 'AFZALGUNJ'),
         getStops(MHRM_MDCL, "OSMANGUNJ", "SECUNDERABAD")
     ),
+    ["8A/539"].concat(
+        getStops(OSK_Stops_DOWN, 'KANHA', 'NANDIGAMA'),
+        getStops(OSK_Stops, 'KOTHUR', 'KISHANGUDA'),
+        getStops(SHMB_KSR, 'SHAMSHABAD', 'AFZALGUNJ'),
+        getStops(MHRM_MDCL, "OSMANGUNJ", "SECUNDERABAD")
+    ),
     ["8C"].concat(
         getStops(MHRM_MDCL, 'CHANDRAYANGUTTA X ROADS', 'AFZALGUNJ'),
         getStops(GTKS_PTCR, 'OSMANGUNJ', 'ASSEMBLY'),
@@ -6123,6 +5429,8 @@ let DetailedRoutesDOWN = [
         getStops(PTCR_GTKS, 'MOOSAPET', 'CITY BUS STATION'),
     ),
     ["9X/41C"].concat(
+        "ASBESTOS COLONY",
+        getStops(BLNR_MLPT, 'RANGA REDDY KAMAN', 'ERRAGODALU'),
         getStops(DNGL_IBP, 'IDPL', 'BALANAGAR'),
         SHD[1087],
         getStops(PTCR_GTKS, 'MOOSAPET', 'CITY BUS STATION'),
@@ -7467,7 +6775,9 @@ let DetailedRoutesDOWN = [
     ["41C/9X"].concat(
         getStops(GTKS_PTCR, 'CITY BUS STATION', 'MOOSAPET'),
         SHD[1087],
-        getStops(IBP_DNGL, 'BALANAGAR', 'IDPL')
+        getStops(IBP_DNGL, 'BALANAGAR', 'IDPL'),
+        getStops(MLPT_BLNR, 'ERRAGODALU', 'RANGA REDDY KAMAN'),
+        "ASBESTOS COLONY"
     ),
 
     // 45 SERIES
@@ -8111,6 +7421,10 @@ let DetailedRoutesDOWN = [
     ),
 
     // 113 SERIES
+    ["113B"].concat(
+        getStops(TailsDOWN, 'BARKATPURA', 'CHEY NUMBER'),
+        getStops(PTCR_GTKS, 'AMBERPET', 'UPPAL')
+    ),
     ["113F"].concat(
         SHD[152],
         getStops(MLPT_BLNR, 'MOTHI NAGAR', 'PANDURANGA NAGAR'),
@@ -8271,6 +7585,11 @@ let DetailedRoutesDOWN = [
         getStops(SKPL_SECB, 'GANDIPET X ROAD', 'RETHIBOWLI'),
         SHD[620]
     ),
+    ["120K/5K"].concat(
+        getStops(SRPT_MNBD, "SECUNDERABAD", "MEHDIPATNAM"),
+        getStops(SECB_SKPL, 'RETHIBOWLI', 'KOKAPET X ROADS'),
+        "KOKAPET"
+    ),
 
     // 123 SERIES
     ["123"].concat(
@@ -8308,6 +7627,16 @@ let DetailedRoutesDOWN = [
     ),
 
     // 127 SERIES
+    ["127AL"].concat(
+        getStops(KTGD_LGRH, 'LB NAGAR X ROADS', 'KOTI WOMENS COLLEGE'),
+        getStops(ADBT_MDCL, 'KOTI BUS STATION', 'JOURNLIST COLONY'),
+        getStops(TailsUP, 'ROAD NO. 45', 'AOU UNIVERSITY'),
+    ),
+    ["127DA"].concat(
+        getStops(KTGD_LGRH, 'DILSHUKNAGAR', 'KOTI WOMENS COLLEGE'),
+        getStops(ADBT_MDCL, 'KOTI BUS STATION', 'JOURNLIST COLONY'),
+        getStops(TailsUP, 'ROAD NO. 45', 'AOU UNIVERSITY'),
+    ),
     ["127K"].concat(
         getStops(ADBT_MDCL, 'KOTI BUS STATION', 'JOURNLIST COLONY'),
         getStops(TailsUP, 'ROAD NO. 45', 'AOU UNIVERSITY'),
@@ -9036,6 +8365,15 @@ let DetailedRoutesDOWN = [
     ),
     ["224X"].concat(
         getStops(MDCL_ADBT, 'IDA X ROADS', 'MIYAPUR X ROADS')
+    ),
+
+    // 226 SERIES
+    ["226"].concat(
+        getStops(PTCR_GTKS, "PATANCHERUVU", "RAMACHANDRAPURAM"),
+        "RC PURAM (ZPHS)", "LIG COLONY", "BHEL", "BHEL MIG",
+        getStops(PTCR_GTKS,'LINGAMPALLY','KUKATPALLY'),
+        SHD[1087],
+        getStops(DNGL_IBP, "BALANAGAR", "SECUNDERABAD")
     ),
 
     // 227 SERIES
@@ -9948,6 +9286,13 @@ let DetailedRoutesDOWN = [
         getStops(SKPL_SECB, "ARAMGHAR", "SAGAR RING ROAD"),
         getStops(IBP_DNGL, "LB NAGAR X ROADS", "UPPAL RING ROAD")
     ),
+    ["300/539"].concat(
+        getStops(OSK_Stops_DOWN, 'KANHA', 'NANDIGAMA'),
+        getStops(OSK_Stops, 'KOTHUR', 'KISHANGUDA'),
+        getStops(SHMB_KSR, "SHAMSHABAD", "BUDVEL STATION"),
+        getStops(SKPL_SECB, "ARAMGHAR", "SAGAR RING ROAD"),
+        getStops(IBP_DNGL, "LB NAGAR X ROADS", "SECUNDERABAD")
+    ),
     ["300L"].concat(
         SHD[552],
         getStops(SECB_SKPL, "SAGAR RING ROAD", "RETHIBOWLI"),
@@ -10121,6 +9466,19 @@ let DetailedRoutesDOWN = [
         getStops(OSK_Stops_DOWN, 'KISHANGUDA', 'KOTHUR'),
         getStops(OSK_Stops, 'NANDIGAMA', 'KANHA')
     ),
+    ["539/8A"].concat(
+        getStops(MDCL_MHRM, "SECUNDERABAD", "OSMANGUNJ"),
+        getStops(KSR_SHMB, 'AFZALGUNJ', 'SHAMSHABAD'),
+        getStops(OSK_Stops_DOWN, 'KISHANGUDA', 'KOTHUR'),
+        getStops(OSK_Stops, 'NANDIGAMA', 'KANHA')
+    ),
+    ["539/300"].concat(
+        getStops(DNGL_IBP, "SECUNDERABAD", "LB NAGAR X ROADS"),
+        getStops(SECB_SKPL, "SAGAR RING ROAD", "ARAMGHAR"),
+        getStops(KSR_SHMB, "BUDVEL STATION", "SHAMSHABAD"),
+        getStops(OSK_Stops_DOWN, 'KISHANGUDA', 'KOTHUR'),
+        getStops(OSK_Stops, 'NANDIGAMA', 'KANHA')
+    ),
     ["546"].concat(
         getStops(OSK_Stops_DOWN, 'BHUVANAGIRI', 'MULKALAPALLY'),
         getStops(OSK_Stops, 'M TURKAPALLY', 'JALALPUR'),
@@ -10284,6 +9642,8 @@ function menuItemsClick(ref) {
             // More Apps
             otherSectionsScreen.classList.remove('close');
             displayOtherSections(3, "SHARE APP");
+            getId('copyLinkBtn').classList.remove("active");
+            getId('copyText').innerText = "Copy Link";
             break;
 
         default:
@@ -10294,7 +9654,7 @@ function menuItemsClick(ref) {
 function displayOtherSections(screen, heading) {
     busPassInfoScreen.classList.add('hide');
     helpScreen.classList.add('hide');
-    moreAppsScreen.classList.add('hide');
+    shareAppScreen.classList.add('hide');
     ShortformsScreen.classList.add('hide');
     otherSectionsScreenHeading.innerHTML = heading;
     if (screen == 1) {
@@ -10302,7 +9662,7 @@ function displayOtherSections(screen, heading) {
     } else if (screen == 2) {
         helpScreen.classList.remove('hide');
     } else if (screen == 3) {
-        moreAppsScreen.classList.remove('hide');
+        shareAppScreen.classList.remove('hide');
     } else if (screen == 4) {
         ShortformsScreen.classList.remove('hide');
     }
@@ -10331,1344 +9691,4992 @@ function viewRoute(ref) {
         backState = 2;
     }
     let routeNoI = ref.innerHTML;
-    // Reset Items
-    upRouteHolder.classList.remove('expand');
-    downRouteHolder.classList.remove('expand');
-    upRouteDownIcon.classList.remove('click');
-    downRouteDownIcon.classList.remove('click');
-    upRouteDownSpan.innerHTML = "View Stops";
-    downRouteDownSpan.innerHTML = "View Stops";
 
     // To Be Hide
     OutputScreen2.classList.remove('close');
     OutputScreen.classList.remove('show');
     OutputScreen2.classList.add('show');
+    getId('reverseButton').classList.remove('hide');
     suggessionsList.innerHTML = "";
     // clear1.classList.add('hide');
     clear1.style.visibility = "hidden";
     input1.value = routeNoI;
     input2.value = '';
 
-    if (ref.innerHTML.includes("/")) {
-        if (ref.innerHTML == "1/25S/229") {
-            ref = ref.innerText.split('/');
-            output2RouteHolder.classList.add('doubleRoute');
-            route1No.innerHTML = ref[0] + "/" + ref[1];
-            route2No.innerHTML = ref[2];
-        } else {
-            ref = ref.innerText.split('/');
-            output2RouteHolder.classList.add('doubleRoute');
-            route1No.innerHTML = ref[0];
-            route2No.innerHTML = ref[1];
-        }
-    } else {
-        output2RouteHolder.classList.remove('doubleRoute');
-        route1No.innerHTML = ref.innerHTML;
-    }
-
-    if (routeNoI == "38EX" || routeNoI == "38X" || routeNoI == "14PX" || routeNoI == "16PX") {
-        downRouteHolder.classList.add('hide');
-    } else {
-        downRouteHolder.classList.remove('hide');
-    }
-    setRouteHeader(routeNoI);
+    setRouteOutputContent(routeNoI);
 }
 
-function setRouteHeader(routeNoI) {
-    if (SEC_UP.includes(routeNoI)) {
-        routeStartI = "SECUNDERABAD";
-    } else if (ECILX_UP.includes(routeNoI)) {
-        routeStartI = "ECIL X ROADS";
-    } else if (AFZ_UP.includes(routeNoI)) {
-        routeStartI = "AFZALGUNJ";
-    } else if (MP_UP.includes(routeNoI)) {
-        routeStartI = "MEHDIPATNAM";
-    } else if (MDCL_UP.includes(routeNoI)) {
-        routeStartI = "MEDCHAL";
-    } else if (PTCR_UP.includes(routeNoI)) {
-        routeStartI = "PATANCHERUVU";
-    } else if (CBS_UP.includes(routeNoI)) {
-        routeStartI = "CBS";
-    } else if (CHRM_UP.includes(routeNoI)) {
-        routeStartI = "CHARMINAR";
-    } else if (KOTI_UP.includes(routeNoI)) {
-        routeStartI = "KOTI";
-    } else if (KOTIWC_UP.includes(routeNoI)) {
-        routeStartI = "KOTI W.COLLEGE";
-    } else if (UPL_UP.includes(routeNoI)) {
-        routeStartI = "UPPAL";
-    } else if (GDMS_UP.includes(routeNoI)) {
-        routeStartI = "GANDIMAISAMMA";
-    } else if (routeNoI == "195W") {
-        routeStartI = "WAVEROCK";
-        routeEndI = "BACHUPALLY";
-    } else if (routeNoI == "29Q") {
-        routeStartI = "BALANAGAR";
-        routeEndI = "QUTHBULLAPUR";
-    }
-
-    // A ORDER SOURCES
-
-    else if (routeNoI == "203A/218" || routeNoI == "203U/90U") {
-        routeStartI = "ADIBATLA";
-    }
-    else if (routeNoI == "253L/85") {
-        routeStartI = "ANOJIGUDA";
-    } else if (routeNoI == "205A/290U") {
-        routeStartI = "ANAJPUR";
-    }
-    else if (
-        routeNoI == "92A" ||
-        routeNoI == "95/3K" || routeNoI == "95/3KN" ||
-        routeNoI == "92A/5K" ||
-        routeNoI == "92A/49M" ||
-        routeNoI == "1Z/229"
-    ) {
-        routeStartI = "ARAMGHAR";
-    }
-    else if (
-        routeNoI == "16AD/5K" ||
-        routeNoI == "16CD/5K" ||
-        routeNoI == "16CD/49M" ||
-        routeNoI == "16D/5K" ||
-        routeNoI == "16D/49M" ||
-        routeNoI == "250D/49M" ||
-        routeNoI == "15D/20"
-    ) {
-        routeStartI = "AMBEDKAR NAGAR";
-    }
-
-    // B ORDER SOURCES
-
-    else if (routeNoI == "102B/3K" || routeNoI == "102B/218") {
-        routeStartI = "BADANGPET";
-    } else if (routeNoI == "3N/203N") {
-        routeStartI = "BEL";
-    } else if (routeNoI == "90L/3K" || routeNoI == "90L/22" || routeNoI == "102/9K" || routeNoI == "102/3K" || routeNoI == "102/185") {
-        routeStartI = "BDL";
-    } else if (routeNoI == "488/280") {
-        routeStartI = "BIBI NAGAR";
-    } else if (routeNoI == "18/47U" || routeNoI == "113M/120") {
-        routeStartI = "BODUPPAL";
-    }
-
-    // C ORDER SOURCES
-    else if (routeNoI == "218CA") {
-        routeStartI = "CHANDRAYANGUTTA";
-    } else if (
-        routeNoI == "6X" ||
-        routeNoI == "18C/10H" ||
-        routeNoI == "18C/30" ||
-        routeNoI == "18C/219" ||
-        routeNoI == "18C/229" ||
-        routeNoI == "113F" ||
-        routeNoI == "113FZ" ||
-        routeNoI == "113FT"
-    ) {
-        routeStartI = "CHENGICHERLA";
-    } else if (routeNoI == "250C/49M" || routeNoI == "6IW/252") {
-        routeStartI = "CHERLAPALLY";
-    } else if (routeNoI == "288D/19K") {
-        routeStartI = "CHILKOOR BALAJI TEMPLE";
-    } else if (routeNoI == "555/290U") {
-        routeStartI = "CHOTUPPAL";
-    }
-
-    // D ORDER SOURCES
-
-    else if (
-        routeNoI == "1D/229" ||
-        routeNoI == "90UN" ||
-        routeNoI == "158" ||
-        routeNoI == "158FL" ||
-        routeNoI == "218D" ||
-        routeNoI == "524" ||
-        routeNoI == "555" ||
-        routeNoI == "204DA" ||
-        routeNoI == "217D" ||
-        routeNoI == "464" ||
-        routeNoI == "463"
-    ) {
-        routeStartI = "DILSHUKNAGAR";
-    } else if (routeNoI == "211/242") {
-        routeStartI = "DONGALA MYSAMMA";
-    } else if (routeNoI == "463/290U") {
-        routeStartI = "DESHMUKHI";
-    } else if (routeNoI == "230P/9K" || routeNoI == "230P/9X" || routeNoI == "230P/9XM") {
-        routeStartI = "DUNDIGAL";
-    }
-
-    // G ORDER SOURCES
-
-    else if (routeNoI == "204/290U") {
-        routeStartI = "GANDICHERUVU";
-    }
-    else if (routeNoI == "171M/189M") {
-        routeStartI = "GAJULARAMARAM";
-    }
-    else if (
-        routeNoI == "280/20" ||
-        routeNoI == "280/30" ||
-        routeNoI == "280/219" ||
-        routeNoI == "281/3K" ||
-        routeNoI == "281/16C" ||
-        routeNoI == "281/24B" ||
-        routeNoI == "281/24L" ||
-        routeNoI == "281/113M" ||
-        routeNoI == "281/6L" ||
-        routeNoI == "281/250" ||
-        routeNoI == "282K"
-    ) {
-        routeStartI = "GHATKESAR";
-    } else if (routeNoI == "195G" || routeNoI == "195GJ" || routeNoI == "195GK") {
-        routeStartI = "GAR (KOKAPET)";
-    } else if (routeNoI == "178G/8A") {
-        routeStartI = "GOUSE NAGAR";
-    } else if (routeNoI == "116GA/65") {
-        routeStartI = "GOWLI DHODDI";
-    }
-
-    // H ORDER SOURCES
-
-    else if (routeNoI == "22/90L") {
-        routeStartI = "HAKIMPET";
-    } else if (
-        routeNoI == "158HF" ||
-        routeNoI == "218H" ||
-        routeNoI == "290/229" ||
-        routeNoI == "290U/229" ||
-        routeNoI == "299" ||
-        routeNoI == "299/100" ||
-        routeNoI == "299/1D" || routeNoI == "299/156" ||
-        routeNoI == "156/505" ||
-        routeNoI == "299D"
-    ) {
-        routeStartI = "HAYATHNAGAR";
-    } else if (routeNoI == "72") {
-        routeStartI = "HIGH COURT";
-    }
-
-    // I ORDER SOURCES
-
-    else if (routeNoI == "279U" || routeNoI == "279/229" || routeNoI == "277D/72") {
-        routeStartI = "IBRAHIMPATNAM";
-    } else if (routeNoI == "219I/224G" || routeNoI == "219I/272G") {
-        routeStartI = "ISNAPUR";
-    } else if (routeNoI == "272I/29B") {
-        routeStartI = "INDIRAMMA COLONY";
-    }
-
-    // J ORDER SOURCES
-
-    else if (
-        routeNoI == "10KJ/18" ||
-        routeNoI == "30/18C" ||
-        routeNoI == "30/280"
-    ) {
-        routeStartI = "JAGATHGIRIGUTTA";
-    } else if (
-        routeNoI == "279" || routeNoI == "280J" || routeNoI == "300/118W" || routeNoI == "290U" || routeNoI == "290UA" || routeNoI == "290UF" || routeNoI == "290U/204" || routeNoI == "290U/205M" || routeNoI == "290" || routeNoI == "90/253T" || routeNoI == "290KJ" || routeNoI == "290U/205A" || routeNoI == "290U/463" || routeNoI == "290U/202K") {
-        routeStartI = "JBS";
-    } else if (routeNoI == "29B/17H" || routeNoI == "183B") {
-        routeStartI = "JEEDIMETLA";
-    } else if (routeNoI == "10JP" || routeNoI == "126/300") {
-        routeStartI = "JNTU COLLEGE";
-    }
-
-    // K ORDER SOURCES
-
-    else if (
-        routeNoI == "83J" ||
-        routeNoI == "83JA" ||
-        routeNoI == "83J/272G"
-    ) {
-        routeStartI = "KACHEGUDA STATION";
-    } else if (routeNoI == "539/1Z") {
-        routeStartI = "KANHA";
-    } else if (routeNoI == "188/5K") {
-        routeStartI = "KALI MANDIR";
-    } else if (routeNoI == "242/3K" || routeNoI == "242/17H") {
-        routeStartI = "KEESARAGUTTA";
-    } else if (
-        routeNoI == "10H/16A" ||
-        routeNoI == "10H/16C" ||
-        routeNoI == "10H/18C" ||
-        routeNoI == "127K" ||
-        routeNoI == "113M/281" || routeNoI == "6L/281" ||
-        routeNoI == "127KL" || routeNoI == "125/5K"
-    ) {
-        routeStartI = "KONDAPUR";
-    } else if (routeNoI == "277K/218" || routeNoI == "254/217") {
-        routeStartI = "KONGARAKALAN";
-    } else if (routeNoI == "283S/18") {
-        routeStartI = "KORREMULA";
-    } else if (routeNoI == "532/8A" || routeNoI == "251/8A") {
-        routeStartI = "KOTHUR";
-    } else if (routeNoI == "10J/171" || routeNoI == "10K/250") {
-        routeStartI = "KPHB 4TH PHASE";
-    } else if (routeNoI == "19K/288D" || routeNoI == "185/102") {
-        routeStartI = "KUKATPALLY";
-    } else if (routeNoI == "15H/20") {
-        routeStartI = "KUSHAIGUDA";
-    }
-
-
-    // L ORDER SOURCES
-
-    else if (
-        routeNoI == "90L" ||
-        routeNoI == "90LK" ||
-        routeNoI == "90L/229" ||
-        routeNoI == "100X" ||
-        routeNoI == "156L" ||
-        routeNoI == "277L" ||
-        routeNoI == "300/126"
-    ) {
-        routeStartI = "LB NAGAR";
-    } else if (routeNoI == "253L/102") {
-        routeStartI = "LEMOOR";
-    } else if (routeNoI == "217/254") {
-        routeStartI = "LINGAMPALLY";
-    }
-
-    // M ORDER SOURCES
-
-    else if (routeNoI == "123/65M") {
-        routeStartI = "MANCHIREVULA";
-    } else if (routeNoI == "47L/16A" || routeNoI == "47L/16C") {
-        routeStartI = "MANIKONDA";
-    } else if (routeNoI == "224MN/218") {
-        routeStartI = "MALLAMPET";
-    } else if (routeNoI == "113M" || routeNoI == "113MZ") {
-        routeStartI = "MEDIPALLY";
-    } else if (routeNoI == "277") {
-        routeStartI = "MGBS";
-    } else if (
-        routeNoI == "218/277K" ||
-        routeNoI == "224B" ||
-        routeNoI == "224G" ||
-        routeNoI == "224X"
-    ) {
-        routeStartI = "MIYAPUR";
-    } else if (routeNoI == "221") {
-        routeStartI = "MIYAPUR METRO STN.";
-    } else if (routeNoI == "288/113M") {
-        routeStartI = "MOINABAD";
-    } else if (routeNoI == "11W") {
-        routeStartI = "MYTHRIVANAM";
-    }
-
-    // N ORDER SOURCES
-
-    else if (
-        routeNoI == "203N/3K" ||
-        routeNoI == "203N/3N" ||
-        routeNoI == "203N/102B" ||
-        routeNoI == "203N/218"
-    ) {
-        routeStartI = "NADERGUL";
-    } else if (routeNoI == "49/250") {
-        routeStartI = "NAMPALLY";
-    } else if (
-        routeNoI == "90LV" ||
-        routeNoI == "156V" ||
-        routeNoI == "158VF" ||
-        routeNoI == "156V/505"
-    ) {
-        routeStartI = "NGO'S COLONY";
-    } else if (routeNoI == "224MN") {
-        routeStartI = "NIZAMPET X ROADS";
-    }
-
-    // O ORDER SOURCES
-    else if (routeNoI == "26M/49M") {
-        routeStartI = "OLD BOWENPALLY";
-    }
-
-    // P ORDER SOURCES
-    else if (routeNoI == "85/8A" || routeNoI == "85P/8C") {
-        routeStartI = "PAHADI SHARIF";
-    } else if (routeNoI == "492/280") {
-        routeStartI = "PILLAIPALLY";
-    }
-
-    // R ORDER SOURCES
-
-    else if (routeNoI == "92R") {
-        routeStartI = "RAJENDRA NAGAR";
-    } else if (routeNoI == "6RK" || routeNoI == "6R") {
-        routeStartI = "RAM NAGAR";
-    } else if (routeNoI == "18R") {
-        routeStartI = "RAMANTHAPUR CHURCH";
-    } else if (routeNoI == "8R" || routeNoI == "5R/5" || routeNoI == "22/49E") {
-        routeStartI = "RISALA BAZAR";
-    } else if (routeNoI == "242RG/15H") {
-        routeStartI = "RG COLONY";
-    } else if (routeNoI == "252/3K") {
-        routeStartI = "RGI AIRPORT";
-    } else if (routeNoI == "281R/16A") {
-        routeStartI = "RTC COLONY";
-    }
-
-    // S ORDER SOURCES
-
-    else if (routeNoI == "105") {
-        routeStartI = "SAIDABAD COLONY";
-    } else if (routeNoI == "19S/505") {
-        routeStartI = "SANATH NAGAR";
-    } else if (routeNoI == "20/15H" || routeNoI == "20/16R" || routeNoI == "20/280" || routeNoI == "113S" || routeNoI == "100/299" || routeNoI == "100M" || routeNoI == "100V") {
-        routeStartI = "SECRETARIATE";
-    } else if (routeNoI == "251/1Z" || routeNoI == "251/188" || routeNoI == "251/2Z" || routeNoI == "251/7Z" || routeNoI == "251/90L" || routeNoI == "251/300") {
-        routeStartI = "SHAMSHABAD";
-    } else if (routeNoI == "505/19S" || routeNoI == "505/156" || routeNoI == "505/156V") {
-        routeStartI = "SHANKARPALLY";
-    } else if (routeNoI == "171K" || routeNoI == "171/10J" || routeNoI == "171K/219") {
-        routeStartI = "SHAHPUR NAGAR";
-    } else if (routeNoI == "183SS" || routeNoI == "25S/1" || routeNoI == "25S/1P" || routeNoI == "25S/2" || routeNoI == "25S/5K") {
-        routeStartI = "SUCHITRA";
-    } else if (routeNoI == "283D/9X") {
-        routeStartI = "SURARAM COLONY";
-    }
-
-    // T ORDER SOURCES
-
-    else if (routeNoI == "49MT/250") {
-        routeStartI = "TALLAGADDA";
-    } else if (routeNoI == "201T/290U") {
-        routeStartI = "TARAMATIPET";
-    } else if (routeNoI == "253T/90") {
-        routeStartI = "TUKKUGUDA FAB CITY";
-    }
-
-    // U ORDER SOURCES
-
-    else if (routeNoI == "203U" || routeNoI == "300/251" || routeNoI == "90U/203U" || routeNoI == "280X") {
-        routeStartI = "UPPAL X ROADS";
-    } else if (routeNoI == "18/10KJ") {
-        routeStartI = "UPPAL DEPOT";
-    }
-
-    // V ORDER SOURCES
-
-    else if (routeNoI == "18VJ") {
-        routeStartI = "VENKATREDDY NAGAR";
-    } else if (routeNoI == "702/212") {
-        routeStartI = "VARGAL TEMPLE";
-    }
-
-    // W ORDER SOURCES
-
-    else if (
-        routeNoI == "118W/300" ||
-        routeNoI == "195W" ||
-        routeNoI == "195WP" || routeNoI == "195WJ" ||
-        routeNoI == "252/6IW"
-    ) {
-        routeStartI = "WAVEROCK";
-    } else {
-        routeStartI = routeStartI;
-    }
-
-    // RT-DESTINATIONS
-
-    if (SEC_DN.includes(routeNoI)) {
-        routeEndI = "SECUNDERABAD";
-    } else if (ECILX_DN.includes(routeNoI)) {
-        routeEndI = "ECIL X ROADS";
-    } else if (AFZ_DN.includes(routeNoI)) {
-        routeEndI = "AFZALGUNJ";
-    } else if (MP_DN.includes(routeNoI)) {
-        routeEndI = "MEHDIPATNAM";
-    } else if (KG_DN.includes(routeNoI)) {
-        routeEndI = "KUSHAIGUDA";
-    } else if (AMBD_DN.includes(routeNoI)) {
-        routeEndI = "AMBEDKAR NAGAR";
-    } else if (MDCL_DN.includes(routeNoI)) {
-        routeEndI = "MEDCHAL";
-    } else if (PTCR_DN.includes(routeNoI)) {
-        routeEndI = "PATANCHERUVU";
-    } else if (ARGR_DN.includes(routeNoI)) {
-        routeEndI = "ARAMGHAR";
-    } else if (GDMS_DN.includes(routeNoI)) {
-        routeEndI = "GANDIMAISAMMA";
-    } else if (GTKS_DN.includes(routeNoI)) {
-        routeEndI = "GHATKESAR";
-    } else if (BRBD_DN.includes(routeNoI)) {
-        routeEndI = "BORABANDA";
-    }
-
-    // A ORDER DESTINATIONS
-
-    else if (
-        routeNoI == "203A" ||
-        routeNoI == "203U" ||
-        routeNoI == "218/203A" || routeNoI == "90U/203U"
-    ) {
-        routeEndI = "ADIBATLA";
-    } else if (routeNoI == "230A" || routeNoI == "230AN") {
-        routeEndI = "ANNARAM";
-    } else if (routeNoI == "288A") {
-        routeEndI = "AMDAPUR";
-    } else if (routeNoI == "204DA" || routeNoI == "204UA" || routeNoI == "205A" || routeNoI == "290UA" || routeNoI == "290U/205A") {
-        routeEndI = "ANAJPUR";
-    } else if (routeNoI == "242A" || routeNoI == "242GA") {
-        routeEndI = "ANKIREDDY PALLY";
-    } else if (routeNoI == "85/253L") {
-        routeEndI = "ANNOJIGUDA";
-    } else if (routeNoI == "18/47U") {
-        routeEndI = "AOU UNIVERSITY";
-    } else if (routeNoI == "83JA" || routeNoI == "189M") {
-        routeEndI = "APUROOPA COLONY";
-    } else if (routeNoI == "288C") {
-        routeEndI = "APPOJIGUDA";
-    } else if (routeNoI == "3M") {
-        routeEndI = "AS RAO NAGAR";
-    } else if (routeNoI == "245A") {
-        routeEndI = "AUSHAPUR";
-    } else if (routeNoI == "9A") {
-        routeEndI = "AG COLONY";
-    }
-
-    // B ORDER DESTINATIONS
-
-    else if (routeNoI == "201") {
-        routeEndI = "BACHARAM";
-    }
-    else if (routeNoI == "195W") {
-        routeEndI = "BACHUPALLY";
-    } else if (
-        routeNoI == "3K/102B" ||
-        routeNoI == "90BE" ||
-        routeNoI == "100X" ||
-        routeNoI == "102B" ||
-        routeNoI == "218/102B"
-    ) {
-        routeEndI = "BADANGPET";
-    } else if (routeNoI == "227") {
-        routeEndI = "BAHUDURPALLY";
-    } else if (routeNoI == "288E") {
-        routeEndI = "BAKARAM";
-    } else if (routeNoI == "24B" || routeNoI == "17DH" || routeNoI == "17DS") {
-        routeEndI = "BALAJI NAGAR";
-    } else if (routeNoI == "183B") {
-        routeEndI = "BALANAGAR";
-    } else if (routeNoI == "102M") {
-        routeEndI = "BALAPUR";
-    } else if (routeNoI == "90B") {
-        routeEndI = "BANDLAGUDA DEPOT";
-    } else if (routeNoI == "2C") {
-        routeEndI = "BARKAS";
-    } else if (routeNoI == "113B") {
-        routeEndI = "BARKATPURA";
-    } else if (
-        routeNoI == "3K/90L" ||
-        routeNoI == "3K/102" ||
-        routeNoI == "9K/102" ||
-        routeNoI == "22/90L" ||
-        routeNoI == "185/102"
-    ) {
-        routeEndI = "BDL";
-    } else if (routeNoI == "203N/3N") {
-        routeEndI = "BEL";
-    } else if (routeNoI == "23B") {
-        routeEndI = "BHUDEVI NAGAR";
-    } else if (routeNoI == "280/488" || routeNoI == "490S") {
-        routeEndI = "BIBI NAGAR";
-    } else if (routeNoI == "212") {
-        routeEndI = "BITS PILANI";
-    } else if (routeNoI == "3Y" || routeNoI == "24BJ") {
-        routeEndI = "BJR NAGAR";
-    } else if (routeNoI == "47U/18" || routeNoI == "115") {
-        routeEndI = "BODUPPAL";
-    } else if (routeNoI == "18B") {
-        routeEndI = "CCMB COLONY";
-    } else if (routeNoI == "242B" || routeNoI == "280B") {
-        routeEndI = "BOGARAM";
-    } else if (routeNoI == "224B") {
-        routeEndI = "BOLLARUM";
-    } else if (routeNoI == "229B") {
-        routeEndI = "BOWENPALLY";
-    } else if (routeNoI == "272" || routeNoI == "272B") {
-        routeEndI = "BOWRAMPET";
-    } else if (routeNoI == "202B") {
-        routeEndI = "BRAHMANAPALLY";
-    }
-
-    // C ORDER DESTINATIONS
-
-    else if (
-        routeNoI == "1C" ||
-        routeNoI == "8R" ||
-        routeNoI == "86C" ||
-        routeNoI == "272G/9X" ||
-        routeNoI == "230P/9X" ||
-        routeNoI == "283D/9X"
-    ) {
-        routeEndI = "CBS";
-    } else if (routeNoI == "8A" || routeNoI == "8AK" || routeNoI == "8C") {
-        routeEndI = "CHANDRAYANGUTTA";
-    } else if (routeNoI == "230P/9XM" || routeNoI == "253L/85") {
-        routeEndI = "CHARMINAR";
-    } else if (
-        routeNoI == "10H/18C" ||
-        routeNoI == "18C" ||
-        routeNoI == "30/18C" ||
-        routeNoI == "50B" ||
-        routeNoI == "71A" ||
-        routeNoI == "71AB" ||
-        routeNoI == "219/18C" ||
-        routeNoI == "229/18C" ||
-        routeNoI == "250S"
-    ) {
-        routeEndI = "CHENGICHERLA";
-    } else if (routeNoI == "250E" || routeNoI == "250SS") {
-        routeEndI = "CHENGICHERLA DEPOT";
-    } else if (
-        routeNoI == "17CS" ||
-        routeNoI == "49M/250C" ||
-        routeNoI == "250C" ||
-        routeNoI == "252/6IW"
-    ) {
-        routeEndI = "CHERLAPALLY";
-    } else if (routeNoI == "593") {
-        routeEndI = "CHEVELLA";
-    } else if (routeNoI == "19K/288D" || routeNoI == "288D") {
-        routeEndI = "CHILKOOR BALAJI TEMPLE";
-    } else if (routeNoI == "555" || routeNoI == "290U/555") {
-        routeEndI = "CHOTUPPAL";
-    } else if (routeNoI == "211M") {
-        routeEndI = "CRPF";
-    }
-
-    // D ORDER DESTINATIONS
-
-    else if (routeNoI == "568") {
-        routeEndI = "DAMARAKUNTA";
-    } else if (routeNoI == "464") {
-        routeEndI = "DANDUMAILARAM";
-    } else if (routeNoI == "290U/463" || routeNoI == "463") {
-        routeEndI = "DESHMUKHI";
-    } else if (routeNoI == "211DY") {
-        routeEndI = "DEVARAYAMJAL";
-    } else if (routeNoI == "241T") {
-        routeEndI = "DHARMAVARAM";
-    } else if (
-        routeNoI == "1D" ||
-        routeNoI == "90DL" ||
-        routeNoI == "107JD" ||
-        routeNoI == "107VR" ||
-        routeNoI == "299D" ||
-        routeNoI == "229/1D"
-    ) {
-        routeEndI = "DILSHUKNAGAR";
-    } else if (routeNoI == "242/211") {
-        routeEndI = "DONGALAMYSAMMA";
-    } else if (routeNoI == "211CD") {
-        routeEndI = "DRDO (YADGARPALLY)";
-    } else if (
-        routeNoI == "9K/230P" ||
-        routeNoI == "9X/230P" ||
-        routeNoI == "9XM/230P" ||
-        routeNoI == "230P"
-    ) {
-        routeEndI = "DUNDIGAL";
-    } else if (routeNoI == "6X" || routeNoI == "22/49E") {
-        routeEndI = "IRRUM MANZIL";
-    } else if (routeNoI == "158") {
-        routeEndI = "ESI HOSPITAL";
-    }
-
-    // G ORDER DESTINATIONS
-
-    else if (routeNoI == "221G") {
-        routeEndI = "GACHIBOWLI";
-    } else if (routeNoI == "290U/204") {
-        routeEndI = "GANDICHERUVU";
-    } else if (routeNoI == "171" || routeNoI == "189M/171M") {
-        routeEndI = "GAJULARAMARAM";
-    } else if (routeNoI == "44X") {
-        routeEndI = "GANGAPUTRA COLONY";
-    } else if (routeNoI == "65MG" || routeNoI == "66G" || routeNoI == "5G" || routeNoI == "119M") {
-        routeEndI = "GOLCONDA";
-    } else if (routeNoI == "25M" || routeNoI == "25AJ/M") {
-        routeEndI = "GOPAL NAGAR";
-    } else if (routeNoI == "8A/178G") {
-        routeEndI = "GOUSE NAGAR";
-    } else if (routeNoI == "65/116GA" || routeNoI == "65M/116G" || routeNoI == "116N") {
-        routeEndI = "GOWLI DHODDI";
-    } else if (routeNoI == "201G") {
-        routeEndI = "GOWRELLY";
-    } else if (routeNoI == "23GF") {
-        routeEndI = "GREEN FIELDS";
-    }
-
-    // H ORDER DESTINATIONS
-
-    else if (routeNoI == "22" || routeNoI == "90L/22") {
-        routeEndI = "HAKIMPET";
-    } else if (
-        routeNoI == "1D/299" ||
-        routeNoI == "72H" ||
-        routeNoI == "156/299" ||
-        routeNoI == "100/299" ||
-        routeNoI == "229/290" ||
-        routeNoI == "229/290U" ||
-        routeNoI == "290" ||
-        routeNoI == "290U" ||
-        routeNoI == "505/156"
-    ) {
-        routeEndI = "HAYATHNAGAR";
-    } else if (routeNoI == "3N") {
-        routeEndI = "HEMA NAGAR";
-    }
-
-    // I ORDER DESTINATIONS
-
-    else if (
-        routeNoI == "72/277D" ||
-        routeNoI == "229/279" ||
-        routeNoI == "277" ||
-        routeNoI == "277D" ||
-        routeNoI == "277L" ||
-        routeNoI == "279"
-    ) {
-        routeEndI = "IBRAHIMPATNAM";
-    } else if (routeNoI == "224X") {
-        routeEndI = "IDA BOLLARUM";
-    } else if (routeNoI == "29B/272I" || routeNoI == "272IG/29B") {
-        routeEndI = "INDIRAMMA COLONY";
-    } else if (routeNoI == "224G/219I" || routeNoI == "272G/219I") {
-        routeEndI = "ISNAPUR";
-    }
-
-    // J ORDER DESTINATIONS
-
-    else if (
-        routeNoI == "10KJ" ||
-        routeNoI == "18/10KJ" ||
-        routeNoI == "18C/30" ||
-        routeNoI == "19KJ" ||
-        routeNoI == "30" ||
-        routeNoI == "185G" ||
-        routeNoI == "280/30"
-    ) {
-        routeEndI = "JAGATHGIRIGUTTA";
-    } else if (routeNoI == "72J") {
-        routeEndI = "JAIPURI COLONY";
-    } else if (
-        routeNoI == "18J" ||
-        routeNoI == "18R" ||
-        routeNoI == "18VJ" ||
-        routeNoI == "90L" ||
-        routeNoI == "90LV" ||
-        routeNoI == "118W/300" ||
-        routeNoI == "204/290U" || routeNoI == "205A/290U" ||
-        routeNoI == "253T/90"
-    ) {
-        routeEndI = "JBS";
-    } else if (
-        routeNoI == "9K" ||
-        routeNoI == "9X" ||
-        routeNoI == "9XM" ||
-        routeNoI == "17H/29B" ||
-        routeNoI == "29B" ||
-        routeNoI == "83J"
-    ) {
-        routeEndI = "JEEDIMETLA";
-    } else if (
-        routeNoI == "1J" ||
-        routeNoI == "2J" ||
-        routeNoI == "3KJ" ||
-        routeNoI == "86J"
-    ) {
-        routeEndI = "JIYAGUDA";
-    } else if (routeNoI == "498VJ") {
-        routeEndI = "JINNARAM";
-    } else if (routeNoI == "10J" || routeNoI == "300/126" || routeNoI == "126M" || routeNoI == "195G" || routeNoI == "195GJ" || routeNoI == "195GK" || routeNoI == "195WJ") {
-        routeEndI = "JNTU COLLEGE";
-    } else if (routeNoI == "25AJ") {
-        routeEndI = "JONNABANDA";
-    } else if (routeNoI == "532") {
-        routeEndI = "JP DARGAH";
-    }
-
-    // K ORDER DESTINATIONS
-
-    else if (
-        routeNoI == "1X" ||
-        routeNoI == "90LK" ||
-        routeNoI == "272G/83J"
-    ) {
-        routeEndI = "KACHEGUDA STATION";
-    } else if (routeNoI == "1K" || routeNoI == "2K" || routeNoI == "71K") {
-        routeEndI = "KACHEGUDA DEPOT";
-    } else if (routeNoI == "5K/188" || routeNoI == "6RK" || routeNoI == "188") {
-        routeEndI = "KALI MANDIR";
-    } else if (routeNoI == "530") {
-        routeEndI = "KANDUKUR";
-    } else if (routeNoI == "1Z/539" || routeNoI == "539") {
-        routeEndI = "KANHA";
-    } else if (routeNoI == "290KP" || routeNoI == "523K") {
-        routeEndI = "KAVADIPALLY";
-    } else if (routeNoI == "231KN") {
-        routeEndI = "KAZIPALLY";
-    } else if (
-        routeNoI == "3K/242" ||
-        routeNoI == "242" ||
-        routeNoI == "242/17H" || routeNoI == '17H/242'
-    ) {
-        routeEndI = "KEESARAGUTTA";
-    } else if (routeNoI == "242G") {
-        routeEndI = "KEESARA";
-    } else if (routeNoI == "498") {
-        routeEndI = "KESHAVAPUR";
-    } else if (routeNoI == "211K") {
-        routeEndI = "KESHAVARAM";
-    } else if (routeNoI == "445") {
-        routeEndI = "KETHIREDDYPALLY";
-    } else if (routeNoI == "23BK" || routeNoI == "23K") {
-        routeEndI = "KISTAMMA ENCLAVE";
-    } else if (routeNoI == "116/220K") {
-        routeEndI = "KOLLURU";
-    } else if (routeNoI == "211D") {
-        routeEndI = "KOLTHUR";
-    } else if (routeNoI == "290U/202K") {
-        routeEndI = "KOHEDA";
-    } else if (
-        routeNoI == "10H" ||
-        routeNoI == "16A/10H" ||
-        routeNoI == "16C/10H" ||
-        routeNoI == "18C/10H" ||
-        routeNoI == "147" ||
-        routeNoI == "282K" ||
-        routeNoI == "281/113M" ||
-        routeNoI == "281/6L" ||
-        routeNoI == "5K/125"
-    ) {
-        routeEndI = "KONDAPUR";
-    } else if (routeNoI == "203AK" || routeNoI == "218/277K" || routeNoI == "217/254") {
-        routeEndI = "KONGARAKALAN";
-    } else if (routeNoI == "18/283S" || routeNoI == "283K") {
-        routeEndI = "KORREMULA";
-    } else if (routeNoI == "8A/532" || routeNoI == "8A/251") {
-        routeEndI = "KOTHUR";
-    } else if (routeNoI == "498K") {
-        routeEndI = "KOTHAPALLY";
-    } else if (routeNoI == "40" || routeNoI == "127K" || routeNoI == "86K" || routeNoI == "224MN/218") {
-        routeEndI = "KOTI";
-    } else if (routeNoI == "299" || routeNoI == "1W" || routeNoI == "253L/102") {
-        routeEndI = "KOTI W.COLLEGE";
-    } else if (
-        routeNoI == "10K" ||
-        routeNoI == "19K" ||
-        routeNoI == "19M" ||
-        routeNoI == "113K" ||
-        routeNoI == "113KT" ||
-        routeNoI == "250/10K" ||
-        routeNoI == "171/10J"
-    ) {
-        routeEndI = "KPHB 4TH PHASE";
-    } else if (routeNoI == "288D/19K" || routeNoI == "102/185") {
-        routeEndI = "KUKATPALLY";
-    } else if (routeNoI == "171K") {
-        routeEndI = "KPHB MAIN ROAD";
-    } else if (routeNoI == "72HK" || routeNoI == "290KJ") {
-        routeEndI = "KUNTLOOR";
-    } else if (routeNoI == "537") {
-        routeEndI = "KODICHERLA";
-    } else if (routeNoI == "495") {
-        routeEndI = "KANUKUNTA";
-    }
-
-    // L ORDER DESTINATIONS
-
-    else if (
-        routeNoI == "1L" ||
-        routeNoI == "107JL" ||
-        routeNoI == "107VL" ||
-        routeNoI == "127KL" ||
-        routeNoI == "229/90L" ||
-        routeNoI == "300L" ||
-        routeNoI == "126/300"
-    ) {
-        routeEndI = "LB NAGAR";
-    } else if (routeNoI == "1JL") {
-        routeEndI = "LANGER HOUSE";
-    } else if (routeNoI == "102/253L") {
-        routeEndI = "LEMOOR";
-    } else if (
-        routeNoI == "10HL" ||
-        routeNoI == "10KL" ||
-        routeNoI == "113KL" ||
-        routeNoI == "113KLT" ||
-        routeNoI == "113ILT" ||
-        routeNoI == "116NL" || routeNoI == "216" ||
-        routeNoI == "216M" ||
-        routeNoI == "254/217" ||
-        routeNoI == "218L" ||
-        routeNoI == "222L"
-    ) {
-        routeEndI = "LINGAMPALLY";
-    }
-
-    // M ORDER DESTINATIONS
-
-    else if (routeNoI == "218/224MN" || routeNoI == "224MN") {
-        routeEndI = "MALLAMPET";
-    } else if (routeNoI == "412") {
-        routeEndI = "MALL";
-    } else if (routeNoI == "290U/205M") {
-        routeEndI = "MAJEEDPUR";
-    } else if (routeNoI == "201M") {
-        routeEndI = "MARRIPALLY";
-    } else if (routeNoI == "38M") {
-        routeEndI = "MAHINDRA HILLS";
-    } else if (routeNoI == "253" || routeNoI == "253W" || routeNoI == "458") {
-        routeEndI = "MAHESHWARAM";
-    } else if (
-        routeNoI == "47YM" ||
-        routeNoI == "65M/123" ||
-        routeNoI == "113M/120" ||
-        routeNoI == "221" ||
-        routeNoI == "123"
-    ) {
-        routeEndI = "MANCHIREVULA";
-    } else if (
-        routeNoI == "5KM" ||
-        routeNoI == "16A/47L" ||
-        routeNoI == "16C/47L" ||
-        routeNoI == "47L" ||
-        routeNoI == "47Y"
-    ) {
-        routeEndI = "MANIKONDA";
-    } else if (routeNoI == "22D") {
-        routeEndI = "MB DARGAH";
-    } else if (
-        routeNoI == "10KM" ||
-        routeNoI == "19KM" ||
-        routeNoI == "113KM" ||
-        routeNoI == "277K/218"
-    ) {
-        routeEndI = "MIYAPUR";
-    } else if (routeNoI == "113M/288" || routeNoI == "288" || routeNoI == "288K") {
-        routeEndI = "MOINABAD";
-    } else if (routeNoI == "251M") {
-        routeEndI = "MUCHINTHAL";
-    } else if (routeNoI == "231") {
-        routeEndI = "MEDICITY";
-    } else if (routeNoI == "102") {
-        routeEndI = "MIDHANI DEPOT";
-    }
-
-    // N ORDER DESTINATIONS
-
-    else if (
-        routeNoI == "3N/203N" || routeNoI == "3K/203N" ||
-        routeNoI == "102B/203N" ||
-        routeNoI == "203N" ||
-        routeNoI == "218/203N" ||
-        routeNoI == "277N"
-    ) {
-        routeEndI = "NADERGUL";
-    } else if (routeNoI == "8N" || routeNoI == "20P" || routeNoI == "49" || routeNoI == "250/49") {
-        routeEndI = "NAMPALLY";
-    } else if (routeNoI == "219N") {
-        routeEndI = "NARENDAR COLONY";
-    } else if (routeNoI == "1MD") {
-        routeEndI = "NEW MARUTHI NAGAR";
-    } else if (routeNoI == "280N") {
-        routeEndI = "NFC NAGAR";
-    } else if (routeNoI == "1V" || routeNoI == "72V" || routeNoI == "100V" || routeNoI == "505/156V") {
-        routeEndI = "NGO'S COLONY";
-    } else if (routeNoI == "233") {
-        routeEndI = "NUTHANAKAL";
-    }
-
-    // O ORDER DESTINATIONS
-
-    else if (routeNoI == "26M" || routeNoI == "26N" || routeNoI == "49M/26M") {
-        routeEndI = "OLD BOWENPALLY";
-    } else if (routeNoI == "120") {
-        routeEndI = "OSMANSAGAR";
-    }
-
-    // P ORDER DESTINATIONS
-
-    else if (routeNoI == "8A/85" || routeNoI == "8C/85P") {
-        routeEndI = "PAHADI SHARIF";
-    } else if (routeNoI == "25P") {
-        routeEndI = "PANCHASHEELA";
-    } else if (routeNoI == "46") {
-        routeEndI = "PATIGADDA";
-    } else if (routeNoI == "524") {
-        routeEndI = "POCHAMPALLY";
-    } else if (routeNoI == "211") {
-        routeEndI = "POTHAIPALLY";
-    } else if (routeNoI == "10JP" || routeNoI == "19MP" || routeNoI == "31P") {
-        routeEndI = "PRAGATHI NAGAR";
-    } else if (routeNoI == "3L" || routeNoI == "14P" || routeNoI == "16P") {
-        routeEndI = "PRASHANTH NAGAR";
-    } else if (routeNoI == "10HP") {
-        routeEndI = "PREM NAGAR";
-    } else if (routeNoI == "229P") {
-        routeEndI = "PUDUR";
-    } else if (routeNoI == "280/492") {
-        routeEndI = "PILLAIPALLY";
-    }
-
-    // Q ORDER DESTINATIONS
-    else if (routeNoI == "201Q") {
-        routeEndI = "QUTHBULLAPUR";
-    }
-
-    // R ORDER DESTINATIONS
-
-    else if (routeNoI == "94R" || routeNoI == "94RM" || routeNoI == "5K/92R") {
-        routeEndI = "RAJENDRA NAGAR";
-    } else if (routeNoI == "22K" || routeNoI == "104A") {
-        routeEndI = "RAJIV GRUHAKALPA";
-    } else if (routeNoI == "589") {
-        routeEndI = "RAMAYAMPET";
-    } else if (routeNoI == "290UF" || routeNoI == "156/205F") {
-        routeEndI = "METTU (RFC)";
-    } else if (routeNoI == "203AR") {
-        routeEndI = "RAVIRYALA";
-    } else if (routeNoI == "447R") {
-        routeEndI = "RAVULAPALLY";
-    } else if (routeNoI == "103") {
-        routeEndI = "RCI";
-    } else if (
-        routeNoI == "15H/242RG" ||
-        routeNoI == "242RG"
-    ) {
-        routeEndI = "RG COLONY";
-    } else if (routeNoI == "3K/252") {
-        routeEndI = "RGI AIRPORT";
-    } else if (routeNoI == "5R" || routeNoI == "5/5R") {
-        routeEndI = "RISALA BAZAR";
-    } else if (routeNoI == "104R") {
-        routeEndI = "RN REDDY";
-    } else if (routeNoI == "16A/281R") {
-        routeEndI = "RTC COLONY";
-    }
-
-    // S ORDER DESTINATIONS
-    else if (routeNoI == "1VS") {
-        routeEndI = "SAHAB NAGAR";
-    }
-    else if (routeNoI == "1VM" || routeNoI == "156S") {
-        routeEndI = "SAI NAGAR";
-    } else if (routeNoI == "10" || routeNoI == "19S" || routeNoI == "505/19S") {
-        routeEndI = "SANATH NAGAR";
-    } else if (routeNoI == "204U") {
-        routeEndI = "SANGHI NAGAR";
-    } else if (
-        routeNoI == "1HD" ||
-        routeNoI == "107JS" ||
-        routeNoI == "107VS"
-    ) {
-        routeEndI = "SAROORNAGAR";
-    } else if (
-        routeNoI == "15H/20" ||
-        routeNoI == "16R/20" ||
-        routeNoI == "105" || routeNoI == "299/100" ||
-        routeNoI == "280/20"
-    ) {
-        routeEndI = "SECRETARIATE";
-    } else if (
-        routeNoI == "10J/171" ||
-        routeNoI == "24SS" ||
-        routeNoI == "183SS" ||
-        routeNoI == "219/171K"
-    ) {
-        routeEndI = "SHAHPUR NAGAR";
-    } else if (
-        routeNoI == "1Z/251" ||
-        routeNoI == "2Z/251" ||
-        routeNoI == "5K/251" ||
-        routeNoI == "7Z/251" ||
-        routeNoI == "90L/251" ||
-        routeNoI == "188/251" ||
-        routeNoI == "300/251"
-    ) {
-        routeEndI = "SHAMSHABAD";
-    } else if (routeNoI == "19S/505" || routeNoI == "505" || routeNoI == "156/505" || routeNoI == "156V/505") {
-        routeEndI = "SHANKARPALLY";
-    } else if (routeNoI == "25MS") {
-        routeEndI = "SHARAN NAGAR";
-    } else if (routeNoI == "30S") {
-        routeEndI = "SRINIVAS COLONY";
-    } else if (routeNoI == "92K" || routeNoI == "95K" || routeNoI == "2Z") {
-        routeEndI = "SRI RAM COLONY";
-    } else if (routeNoI == "171R") {
-        routeEndI = "SRI RAM NAGAR";
-    } else if (routeNoI == "29S") {
-        routeEndI = "SUBHASH NAGAR";
-    } else if (
-        routeNoI == "1/25S" ||
-        routeNoI == "1P/25S" ||
-        routeNoI == "2/25S" ||
-        routeNoI == "5K/25S" ||
-        routeNoI == "23GS" ||
-        routeNoI == "23BS" ||
-        routeNoI == "24S" ||
-        routeNoI == "25S"
-    ) {
-        routeEndI = "SUCHITRA";
-    } else if (routeNoI == "9X/283D" || routeNoI == "283C") {
-        routeEndI = "SURARAM COLONY";
-    } else if (routeNoI == "283VS") {
-        routeEndI = "SURARAM VILLAGE";
-    } else if (routeNoI == "25A") {
-        routeEndI = "SURYA NAGAR";
-    } else if (routeNoI == "72" || routeNoI == "100M") {
-        routeEndI = "SATYA NAGAR";
-    }
-
-    // T ORDER DESTINATIONS
-
-    else if (routeNoI == "49MT" || routeNoI == "250/49MT") {
-        routeEndI = "TALLAGADDA";
-    } else if (routeNoI == "290U/201T") {
-        routeEndI = "TARAMATIPET";
-    } else if (routeNoI == "3T") {
-        routeEndI = "TARNAKA";
-    } else if (routeNoI == "23T") {
-        routeEndI = "TELECOM COLONY";
-    } else if (routeNoI == "283T") {
-        routeEndI = "TENUGUDEM";
-    } else if (routeNoI == "38T") {
-        routeEndI = "TUKARAMGATE";
-    } else if (routeNoI == "90/253T") {
-        routeEndI = "TUKKUGUDA FAB CITY";
-    } else if (routeNoI == "212T") {
-        routeEndI = "TURKAPALLY";
-    } else if (routeNoI == "578") {
-        routeEndI = "M TURKAPALLY";
-    }
-
-    // U ORDER DESTINATIONS
-
-    else if (routeNoI == "211B" || routeNoI == "498U") {
-        routeEndI = "UDDAMARRI";
-    } else if (
-        routeNoI == "18" || routeNoI == "272G/18" ||
-        routeNoI == "279U" ||
-        routeNoI == "288/113M" ||
-        routeNoI == "300"
-    ) {
-        routeEndI = "UPPAL";
-    } else if (routeNoI == "10KJ/18") {
-        routeEndI = "UPPAL DEPOT";
-    } else if (routeNoI == "90UN" || routeNoI == "203U/90U" || routeNoI == "251/300") {
-        routeEndI = "UPPAL X ROADS";
-    } else if (routeNoI == "2U" || routeNoI == "8UA") {
-        routeEndI = "UPPUGUDA";
-    }
-
-    // V ORDER DESTINATIONS
-
-    else if (routeNoI == "212/702") {
-        routeEndI = "VARGAL TEMPLE";
-    } else if (routeNoI == "85V") {
-        routeEndI = "VENKATAPUR";
-    } else if (routeNoI == "18V") {
-        routeEndI = "VENKATREDDY NAGAR";
-    } else if (routeNoI == "17DV" || routeNoI == "17V") {
-        routeEndI = "VIKAS NAGAR";
-    } else if (routeNoI == "3V") {
-        routeEndI = "VST";
-    }
-
-    // W ORDER DESTINATIONS
-
-    else if (
-        routeNoI == "10W" || routeNoI == "10HW" ||
-        routeNoI == "11W" ||
-        routeNoI == "113W" ||
-        routeNoI == "300/118W" ||
-        routeNoI == "6IW/252" ||
-        routeNoI == "5W" ||
-        routeNoI == "17H/47W"
-    ) {
-        routeEndI = "WAVEROCK";
-    } else if (routeNoI == "21W") {
-        routeEndI = "WEST VENKATAPURAM";
-    }
-
-    // V ORDER DESTINATONS
-    else if (routeNoI == "10FV") {
-        routeEndI = "VBIT PARK";
-    }
-
-    // Y ORDER DESTINATIONS
-    else if (routeNoI == "580") {
-        routeEndI = "YADAGIRIGUTTA";
-    } else if (routeNoI == "16NY" || routeNoI == "24") {
-        routeEndI = "YAPRAL";
-    } else if (routeNoI == "10Y") {
-        routeEndI = "YOUSUFGUDA";
-    } else {
-        routeEndI = routeEndI;
-    }
-
-    // SINGLES
-    if (routeNoI == "224/47D") {
-        routeEndI = "DARGAH";
-        routeStartI = "MAYURI NAGAR";
-    } else if (routeNoI == "16/20") {
-        routeStartI = "SAFILGUDA";
-        routeEndI = "IRRUM MANZIL";
-    } else if (routeNoI == "16ES") {
-        routeStartI = "ECIL X ROADS";
-        routeEndI = "IRRUM MANZIL";
-    } else if (routeNoI == "20/16") {
-        routeStartI = "IRRUM MANZIL";
-        routeEndI = "SAFILGUDA";
-    } else if (routeNoI == "47D/224") {
-        routeStartI = "DARGAH";
-        routeEndI = "MAYURI NAGAR";
-    } else if (routeNoI == "41C/9X") {
-        routeStartI = "ASBESTOS COLONY";
-        routeEndI = "CBS";
-    } else if (routeNoI == "9X/41C") {
-        routeStartI = "CBS";
-        routeEndI = "ASBESTOS COLONY";
-    } else if (routeNoI == "16S/10YF") {
-        routeStartI = "SAFILGUDA";
-        routeEndI = "BORABANDA";
-    } else if (routeNoI == "10YF/16S") {
-        routeStartI = "BORABANDA";
-        routeEndI = "SAFILGUDA";
-    } else if (routeNoI == "205M/290U") {
-        routeStartI = "MAJEEDPUR";
-        routeEndI = "JBS";
-    } else if (routeNoI == "8/37") {
-        routeStartI = "GANDHI BHAVAN";
-        routeEndI = "KUSHAIGUDA";
-    } else if (routeNoI == "37/8") {
-        routeStartI = "KUSHAIGUDA";
-        routeEndI = "GANDHI BHAVAN";
-    } else if (routeNoI == "195H") {
-        routeStartI = "HCU DEPOT";
-        routeEndI = "BACHUPALLY";
-    } else if (routeNoI == "195J") {
-        routeStartI = "WAVEROCK";
-        routeEndI = "JAGATHGIRIGUTTA";
-    } else if (routeNoI == "195P") {
-        routeStartI = "GAR";
-        routeEndI = "PRAGATHI NAGAR";
-    } else if (routeNoI == "215") {
-        routeStartI = "ARAMGHAR";
-        routeEndI = "KONDAPUR";
-    } else if (routeNoI == "218/102") {
-        routeStartI = "PATANCHERUVU";
-        routeEndI = "MIDHANI";
-    } else if (routeNoI == "102/218") {
-        routeStartI = "MIDHANI";
-        routeEndI = "PATANCHERUVU";
-    } else if (routeNoI == "252S") {
-        routeStartI = "AFZALGUNJ";
-        routeEndI = "SHANKARAPUR";
-    } else if (routeNoI == "290U/201") {
-        routeStartI = "JBS";
-        routeEndI = "BACHARAM";
-    } else if (routeNoI == "201/290U") {
-        routeStartI = "BACHARAM";
-        routeEndI = "JBS";
-    } else if (routeNoI == "272G/242") {
-        routeStartI = "GANDIMAISAMMA";
-        routeEndI = "KEESARAGUTTA";
-    } else if (routeNoI == "242/272G") {
-        routeStartI = "KEESARAGUTTA";
-        routeEndI = "GANDIMAISAMMA";
-    } else if (routeNoI == "216KL") {
-        routeStartI = "KOTI";
-        routeEndI = "LINGAMPALLY";
-    } else if (routeNoI == "92R/5K") {
-        routeStartI = "RAJENDRA NAGAR";
-        routeEndI = "SECUNDERABAD";
-    } else if (routeNoI == "251/5K") {
-        routeStartI = "SHAMSHABAD";
-        routeEndI = "SECUNDERABAD";
-    } else if (routeNoI == "183S/219") {
-        routeStartI = "SHAHPUR NAGAR";
-        routeEndI = "PATANCHERUVU";
-    } else if (routeNoI == "219/183S") {
-        routeStartI = "PATANCHERUVU";
-        routeEndI = "SHAHPUR NAGAR";
-    } else if (routeNoI == "202K/290U") {
-        routeStartI = "KOHEDA";
-        routeEndI = "JBS";
-    } else if (routeNoI == "202K/290U") {
-        routeStartI = "KOHEDA";
-        routeEndI = "JBS";
-    } else if (routeNoI == "47W/17H") {
-        routeStartI = "WAVEROCK";
-        routeEndI = "ECIL X ROADS";
-    } else if (routeNoI == "280I") {
-        routeStartI = "UPPAL X ROADS";
-        routeEndI = "INFOSYS";
-    } else if (routeNoI == "284P") {
-        routeStartI = "UPPAL X ROADS";
-        routeEndI = "PRATAP SINGARAM";
-    } else if (routeNoI == "127AL") {
-        routeStartI = "AOU UNIVERSITY";
-        routeEndI = "LB NAGAR";
-    } else if (routeNoI == "127DA") {
-        routeStartI = "AOU UNIVERSITY";
-        routeEndI = "DILSHUKNAGAR";
-    } else if (routeNoI == "49E/22") {
-        routeStartI = "IRRUM MANZIL";
-        routeEndI = "RISALA BAZAR";
-    } else if (routeNoI == "201K") {
-        routeStartI = "KOTI W.COLLEGE";
-        routeEndI = "KUNTLOOR RG";
-    } else if (routeNoI == "205") {
-        routeStartI = "KOTI W.COLLEGE";
-        routeEndI = "PILLAIPALLY";
-    } else if (routeNoI == "205F/156") {
-        routeStartI = "METTU (RFC)";
-        routeEndI = "MEHDIPATNAM";
-    } else if (routeNoI == "567") {
-        routeStartI = "SECUNDERABAD";
-        routeEndI = "MARKOOR";
-    } else if (routeNoI == "18VS") {
-        routeStartI = "SECUNDERABAD";
-        routeEndI = "RAMANTHAPUR";
-    } else if (routeNoI == "8A/252S") {
-        routeStartI = "SECUNDERABAD";
-        routeEndI = "SHANKARAPUR";
-    } else if (routeNoI == "252S/8A") {
-        routeStartI = "SHANKARAPUR";
-        routeEndI = "SECUNDERABAD";
-    } else if (routeNoI == "546") {
-        routeStartI = "ECIL X ROADS";
-        routeEndI = "BHUVANAGIRI";
-    } else if (routeNoI == "497") {
-        routeStartI = "ECIL X ROADS";
-        routeEndI = "HAJIPUR";
-    }
-
-    let routeViaI = viaArray[routesArray.indexOf(routeNoI)];
-    upViaList.innerHTML = routeViaI;
-    routeViaI = viaArray[routesArray.indexOf(routeNoI)].split(",");
-    let viaString = "";
-    for (let i = routeViaI.length - 1; i >= 0; i--) {
-        if (i == 0) {
-            viaString += routeViaI[i];
+let introPartUP, introPartDOWN;
+
+function setRouteOutputContent(routeNoI) {
+    let routeNumberUP, routeNumberDown, note = 0;
+    routeNumberRef = routeNoI;
+    upRouteArray = DetailedRoutesUP[ReturnIndex(DetailedRoutesUP, routeNoI)];
+    downRouteArray = DetailedRoutesDOWN[ReturnIndex(DetailedRoutesDOWN, routeNoI)];
+
+    if (routeNoI.includes("/")) {
+        output2RouteHolder.classList.add('doubleNumber');
+        if (routeNoI == "1/25S/229") {
+            routeNumberUP = "1/25S";
+            routeNumberDown = "229";
         } else {
-            viaString += routeViaI[i] + ", ";
+            let routeRef = routeNoI.split("/");
+            routeNumberUP = routeRef[0];
+            routeNumberDown = routeRef[1];
+        }
+    } else {
+        output2RouteHolder.classList.remove('doubleNumber');
+        routeNumberUP = routeNoI;
+        routeNumberDown = "";
+    }
+
+    switch (routeNoI) {
+        // HD1 SERIES
+        case "1":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "AFZALGUNJ";
+            break;
+
+        case "1/25S":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "SUCHITRA";
+            break;
+
+        case "1/25S/229":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "MEDCHAL";
+            break;
+
+        case "1B":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "AFZALGUNJ";
+            break;
+
+        case "1C":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "CBS";
+            break;
+
+        case "1D":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "DILSHUKNAGAR";
+            break;
+
+        case "1D/229":
+            note = 0;
+            starting = "DILSHUKNAGAR";
+            destination = "MEDCHAL";
+            break;
+
+        case "1D/299":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "HAYATHNAGAR";
+            break;
+
+        case "1H":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "HAYATHNAGAR";
+            break;
+
+        case "1HD":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SAROORNAGAR";
+            break;
+
+        case "1J":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "JIYAGUDA";
+            break;
+
+        case "1JL":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "LANGER HOUSE";
+            break;
+
+        case "1JK":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KALI MANDIR";
+            break;
+
+        case "1K":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KACHEGUDA DEPOT";
+            break;
+
+        case "1L":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "LB NAGAR";
+            break;
+
+        case "1MD":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "NEW MARUTHI NAGAR";
+            break;
+
+        case "1P":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "AFZALGUNJ";
+            break;
+
+        case "1P/25S":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "SUCHITRA";
+            break;
+
+        case "1V":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "NGO's COLONY";
+            break;
+
+        case "1VM":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SAI NAGAR";
+            break;
+
+        case "1VS":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SAHAB NAGAR";
+            break;
+
+        case "1W":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KOTI W.COLLEGE";
+            break;
+
+        case "1X":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KACHEGUDA STATION";
+            break;
+
+        case "1Z":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "ARAMGHAR";
+            break;
+
+        case "1Z/229":
+            note = 0;
+            starting = "ARAMGHAR";
+            destination = "MEDCHAL";
+            break;
+
+        case "1Z/251":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SHAMSHABAD";
+            break;
+
+        case "1Z/539":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KANHA";
+            break;
+
+        // HD2 SERIES
+        case "2":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "AFZALGUNJ";
+            break;
+
+        case "2/25S":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "SUCHITRA";
+            break;
+
+        case "2C":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "BARKAS";
+            break;
+
+        case "2J":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "JIYAGUDA";
+            break;
+
+        case "2K":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KACHEGUDA DEPOT";
+            break;
+
+        case "2U":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "UPPUGUDA";
+            break;
+
+        case "2Z":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SRI RAM COLONY";
+            break;
+
+        case "2Z/251":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SHAMSHABAD";
+            break;
+
+        // HD3 SERIES
+        case "3":
+            note = 1;
+            starting = "AFZALGUNJ";
+            destination = "KUSHAIGUDA";
+
+            introPartUP = "Bus Route <strong>" + routeNoI + "</strong> runs Between <strong>" + capitalizeText(starting) + "</strong> and <strong>" + capitalizeText(destination) + ".</strong> Sometimes, it ends at <strong>ECIL X Roads</strong> instead of going all the way to Kushaiguda. Here are all the stops it covers: ";
+
+            introPartDOWN = "Bus Route <strong>" + routeNoI + "</strong> runs Between <strong>" + capitalizeText(destination) + "</strong> and <strong>" + capitalizeText(starting) + "</strong> passing through several stops along the way. Here are all the stops it covers: ";
+
+            break;
+
+        case "3C":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "3D":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "AMBEDKAR NAGAR";
+            break;
+
+        case "3DN":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "AMBEDKAR NAGAR";
+            break;
+
+        case "3H":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "KUSHAIGUDA";
+            break;
+
+        case "3HN":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "KUSHAIGUDA";
+            break;
+
+        case "3K":
+            note = 1;
+            starting = "AFZALGUNJ";
+            destination = "KUSHAIGUDA";
+
+            introPartUP = "Bus Route <strong>" + routeNoI + "</strong> runs Between <strong>" + capitalizeText(starting) + "</strong> and <strong>" + capitalizeText(destination) + ".</strong> Sometimes, it ends at <strong>ECIL X Roads</strong> instead of going all the way to Kushaiguda. Here are all the stops it covers: ";
+
+            introPartDOWN = "Bus Route <strong>" + routeNoI + "</strong> runs Between <strong>" + capitalizeText(destination) + "</strong> and <strong>" + capitalizeText(starting) + "</strong> passing through several stops along the way. Here are all the stops it covers: ";
+
+            break;
+
+        case "3K/90L":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "BDL";
+            break;
+
+        case "3K/95":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "ARAMGHAR";
+            break;
+
+        case "3K/102":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "BDL";
+            break;
+
+        case "3K/102B":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "BADANGPET";
+            break;
+
+        case "3K/203N":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "NADERGUL";
+            break;
+
+        case "3K/242":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "KEESARAGUTTA";
+            break;
+
+        case "3K/252":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "RGI AIRPORT";
+            break;
+
+        case "3K/281":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "GHATKESAR";
+            break;
+
+        case "3KJ":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "JIYAGUDA";
+            break;
+
+        case "3KN":
+            note = 1;
+            starting = "AFZALGUNJ";
+            destination = "KUSHAIGUDA";
+
+            introPartUP = "Bus Route <strong>" + routeNoI + "</strong> runs Between <strong>" + capitalizeText(starting) + "</strong> and <strong>" + capitalizeText(destination) + ".</strong> Sometimes, it ends at <strong>ECIL X Roads</strong> instead of going all the way to Kushaiguda. Here are all the stops it covers: ";
+
+            introPartDOWN = "Bus Route <strong>" + routeNoI + "</strong> runs Between <strong>" + capitalizeText(destination) + "</strong> and <strong>" + capitalizeText(starting) + "</strong> passing through several stops along the way. Here are all the stops it covers: ";
+            break;
+
+        case "3KN/95":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "ARAMGHAR";
+            break;
+
+        case "3L":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "PRASHANTH NAGAR";
+            break;
+
+        case "3M":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "AS RAO NAGAR";
+            break;
+
+        case "3N":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "HEMA NAGAR";
+            break;
+
+        case "3N/203N":
+            note = 0;
+            starting = "BEL";
+            destination = "NADERGUL";
+            break;
+
+        case "3T":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "TARNAKA";
+            break;
+
+        case "3Y":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "BJR NAGAR";
+            break;
+
+        // HD5 SERIES
+        case "5/5R":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "RISALA BAZAR";
+            break;
+
+        case "5G":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "GOLCONDA";
+            break;
+
+        case "5K":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "5KM":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "MANIKONDA";
+            break;
+
+        case "5K/16A":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "5K/16AD":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "AMBEDKAR NAGAR";
+            break;
+
+        case "5K/16C":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "5K/16CD":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "AMBEDKAR NAGAR";
+            break;
+
+        case "5K/16D":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "AMBEDKAR NAGAR";
+            break;
+
+        case "5K/25S":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "SUCHITRA";
+            break;
+
+        case "5K/92A":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "ARAMGHAR";
+            break;
+
+        case "5K/92R":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "RAJENDRA NAGAR";
+            break;
+
+        case "5K/120K":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KOKAPET";
+            break;
+
+        case "5K/125":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KONDAPUR";
+            break;
+
+        case "5K/188":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KALI MANDIR";
+            break;
+
+        case "5K/229":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "MEDCHAL";
+            break;
+
+        case "5K/251":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SHAMSHABAD";
+            break;
+
+        case "5M":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "5R":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "RISALA BAZAR";
+            break;
+
+        case "5R/5":
+            note = 0;
+            starting = "RISALA BAZAR";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "5W":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "WAVEROCK";
+            break;
+
+        // HD6 SERIES
+        case "6IW/252":
+            note = 0;
+            starting = "CHERLAPALLY";
+            destination = "WAVEROCK";
+            break;
+
+        case "6L/281":
+            note = 0;
+            starting = "KONDAPUR";
+            destination = "GHATKESAR";
+            break;
+
+        case "6R":
+            note = 0;
+            starting = "RAM NAGAR";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "6RK":
+            note = 0;
+            starting = "RAM NAGAR";
+            destination = "KALI MANDIR";
+            break;
+
+        case "6X":
+            note = 0;
+            starting = "CHENGICHERLA";
+            destination = "IRRUM MANZIL";
+            break;
+
+        // HD7 SERIES
+        case "7Z":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "ARAMGHAR";
+            break;
+
+        case "7Z/251":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SHAMSHABAD";
+            break;
+
+        // HD8 SERIES
+        case "8/37":
+            note = 0;
+            starting = "GANDHI BHAVAN";
+            destination = "KUSHAIGUDA";
+            break;
+
+        case "8A":
+            note = 1;
+            starting = "SECUNDERABAD";
+            destination = "CHANDRAYANGUTTA";
+
+            introPartUP = "Bus Route <strong>" + routeNoI + "</strong> runs Between <strong>" + capitalizeText(starting) + "</strong> and <strong>" + capitalizeText(destination) + ".</strong> Sometimes, it ends at <strong>Charminar</strong> instead of going all the way to Chandrayangutta. Here are all the stops it covers: ";
+
+            introPartDOWN = "Bus Route <strong>" + routeNoI + "</strong> runs Between <strong>" + capitalizeText(destination) + "</strong> and <strong>" + capitalizeText(starting) + ",</strong> Some times it starts from  <strong>Charminar</strong> itself. Here are all the stops it covers: ";
+            break;
+
+        case "8A/85":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "PAHADI SHARIF";
+            break;
+
+        case "8A/178G":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "GOUSE NAGAR";
+            break;
+
+        case "8A/251":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KOTHUR";
+            break;
+
+        case "8A/252S":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SHANKARAPURAM";
+            break;
+
+        case "8A/253":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SHAMSHABAD";
+            break;
+
+        case "8A/532":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KOTHUR";
+            break;
+
+        case "8A/539":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KANHA";
+            break;
+
+        case "8AK":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "CHANDRAYANGUTTA";
+            break;
+
+        case "8C":
+            note = 1;
+            starting = "SECUNDERABAD";
+            destination = "CHANDRAYANGUTTA";
+
+            introPartUP = "Bus Route <strong>" + routeNoI + "</strong> runs Between <strong>" + capitalizeText(starting) + "</strong> and <strong>" + capitalizeText(destination) + ".</strong> Sometimes, it ends at <strong>Charminar</strong> instead of going all the way to Chandrayangutta. Here are all the stops it covers: ";
+
+            introPartDOWN = "Bus Route <strong>" + routeNoI + "</strong> runs Between <strong>" + capitalizeText(destination) + "</strong> and <strong>" + capitalizeText(starting) + ",</strong> Some times it starts from  <strong>Charminar</strong> itself. Here are all the stops it covers: ";
+            break;
+
+        case "8C/85P":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "PAHADI SHARIF";
+            break;
+
+        case "8C/229":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "MEDCHAL";
+            break;
+
+        case "8N":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "NAMPALLY";
+            break;
+
+        case "8R":
+            note = 0;
+            starting = "RISALA BAZAR";
+            destination = "CBS";
+            break;
+
+        case "8UA":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "UPPUGUDA";
+            break;
+
+        // HD9 SERIES
+        case "9A":
+            note = 0;
+            starting = "CBS";
+            destination = "AG COLONY";
+            break;
+
+        case "9F":
+            note = 1;
+            starting = "CBS";
+            destination = "BORABANDA";
+
+            introPartUP = "Bus Route <strong>" + routeNoI + "</strong> runs Between <strong>" + capitalizeText(starting) + "</strong> and <strong>" + capitalizeText(destination) + ",</strong> Some times it starts from <strong>Charminar</strong> instead of CBS. Here are all the stops it covers: ";
+
+            introPartDOWN = "Bus Route <strong>" + routeNoI + "</strong> runs Between <strong>" + capitalizeText(destination) + "</strong> and <strong>" + capitalizeText(starting) + ".</strong> Sometimes, it goes upto <strong>Charminar</strong> by diverting from Afzalgunj, it won't goes to CBS. Here are all the stops it covers: ";
+
+            break;
+
+        case "9K":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "JEEDIMETLA";
+            break;
+
+        case "9K/102":
+            note = 0;
+            starting = "GANDIMAISAMMA";
+            destination = "BDL";
+            break;
+
+        case "9K/230P":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "DUNDIGAL";
+            break;
+
+        case "9K/272G":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "GANDIMAISAMMA";
+            break;
+
+        case "9X":
+            note = 0;
+            starting = "CBS";
+            destination = "JEEDIMETLA";
+            break;
+
+        case "9X/41C":
+            note = 0;
+            starting = "CBS";
+            destination = "ASBESTOS COLONY";
+            break;
+
+        case "9X/230P":
+            note = 0;
+            starting = "CBS";
+            destination = "DUNDIGAL";
+            break;
+
+        case "9X/272G":
+            note = 0;
+            starting = "CBS";
+            destination = "GANDIMAISAMMA";
+            break;
+
+        case "9X/283D":
+            note = 0;
+            starting = "CBS";
+            destination = "SURARAM COLONY";
+            break;
+
+        case "9XM":
+            note = 0;
+            starting = "CHARMINAR";
+            destination = "JEEDIMETLA";
+            break;
+
+        case "9XM/230P":
+            note = 0;
+            starting = "CHARMINAR";
+            destination = "DUNDIGAL";
+            break;
+
+        case "9YF":
+            note = 0;
+            starting = "CHARMINAR";
+            destination = "BORABANDA";
+            break;
+
+        // HD10 SERIES
+        case "10":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SANATH NAGAR";
+            break;
+
+        case "10F":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "BORABANDA";
+            break;
+
+        case "10FV":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "VBIT PARK";
+            break;
+
+        case "10H":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KONDAPUR";
+            break;
+
+        case "10H/16A":
+            note = 0;
+            starting = "KONDAPUR";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "10H/16C":
+            note = 0;
+            starting = "KONDAPUR";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "10H/18C":
+            note = 0;
+            starting = "KONDAPUR";
+            destination = "CHENGICHERLA";
+            break;
+
+        case "10HA":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "PATANCHERUVU";
+            break;
+
+        case "10HL":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "LINGAMPALLY";
+            break;
+
+        case "10HP":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "PREM NAGAR";
+            break;
+
+        case "10HW":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "WAVEROCK";
+            break;
+
+        case "10J":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "JNTU COLLEGE";
+            break;
+
+        case "10J/171":
+            note = 0;
+            starting = "KPHB 4TH PHASE";
+            destination = "SHAHPUR NAGAR";
+            break;
+
+        case "10JP":
+            note = 0;
+            starting = "JNTU COLLEGE";
+            destination = "PRAGATHI NAGAR";
+            break;
+
+        case "10K":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KPHB 4TH PHASE";
+            break;
+
+        case "10K/250":
+            note = 0;
+            starting = "KPHB 4TH PHASE";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "10KJ":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "JAGATHGIRIGUTTA";
+            break;
+
+        case "10KJ/18":
+            note = 0;
+            starting = "JAGATHGIRIGUTTA";
+            destination = "UPPAL DEPOT";
+            break;
+
+        case "10KL":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "LINGAMPALLY";
+            break;
+
+        case "10KM":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "MIYAPUR";
+            break;
+
+        case "10KM/224G":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "GANDIMAISAMMA";
+            break;
+
+        case "10W":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "WAVEROCK";
+            break;
+
+        case "10Y":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "YOUSUFGUDA";
+            break;
+
+        case "10YF":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "BORABANDA";
+            break;
+
+        case "10YF/16S":
+            note = 0;
+            starting = "BORABANDA";
+            destination = "SAFILGUDA";
+            break;
+
+        // HD11 SERIES
+        case "11W":
+            note = 0;
+            starting = "MYTHRIVANAM";
+            destination = "WAVEROCK";
+            break;
+
+        // HD14 SERIES
+        case "14P":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "PRASHANTH NAGAR";
+            break;
+
+        case "14PX":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SECUNDERABAD";
+            break;
+
+        // HD15 SERIES
+        case "15D":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "AMBEDKAR NAGAR";
+            break;
+
+        case "15H":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KUSHAIGUDA";
+            break;
+
+        case "15H/20":
+            note = 0;
+            starting = "KUSHAIGUDA";
+            destination = "SECRETARIATE";
+            break;
+
+        case "15H/242RG":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "RG COLONY";
+            break;
+
+        case "15D/20":
+            note = 0;
+            starting = "AMBEDKAR NAGAR";
+            destination = "MEHDIPATNAM";
+            break;
+
+        // HD16 SERIES
+        case "16/20":
+            note = 0;
+            starting = "SAFILGUDA";
+            destination = "IRRUM MANZIL";
+            break;
+
+        case "16A":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "16A/5K":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "16A/10H":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "KONDAPUR";
+            break;
+
+        case "16A/20":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "AFZALGUNJ";
+            break;
+
+        case "16A/47L":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "MANIKONDA";
+            break;
+
+        case "16A/47W":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "WAVEROCK";
+            break;
+
+        case "16A/49M":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "16A/219":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "PATANCHERUVU";
+            break;
+
+        case "16A/281R":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "RTC COLONY";
+            break;
+
+        case "16AD/5K":
+            note = 0;
+            starting = "AMBEDKAR NAGAR";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "16AK":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "16C":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "16C/5K":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "16C/10H":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "KONDAPUR";
+            break;
+
+        case "16C/38T":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "16C/47L":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "MANIKONDA";
+            break;
+
+        case "16C/49M":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "16C/281":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "GHATKESAR";
+            break;
+
+        case "16CR":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "16CR/38T":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "16CD":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "AMBEDKAR NAGAR";
+            break;
+
+        case "16CD/5K":
+            note = 0;
+            starting = "AMBEDKAR NAGAR";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "16CD/49M":
+            note = 0;
+            starting = "AMBEDKAR NAGAR";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "16D":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "AMBEDKAR NAGAR";
+            break;
+
+        case "16D/5K":
+            note = 0;
+            starting = "AMBEDKAR NAGAR";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "16D/24B":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "16D/49M":
+            note = 0;
+            starting = "AMBEDKAR NAGAR";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "16ES":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "IRRUM MANZIL";
+            break;
+
+        case "16H":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "16H/49M":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "16NY":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "YAPRAL";
+            break;
+
+        case "16P":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "PRASHANTH NAGAR";
+            break;
+
+        case "16PX":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "16R/20":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "SECRETARIATE";
+            break;
+
+        case "16S/10YF":
+            note = 0;
+            starting = "SAFILGUDA";
+            destination = "BORABANDA";
+            break;
+
+        // HD17 SERIES
+        case "17/219":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "PATANCHERUVU";
+            break;
+
+        case "17CS":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "CHERLAPALLY";
+            break;
+
+        case "17D":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "AMBEDKAR NAGAR";
+            break;
+
+        case "17DH":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "BALAJI NAGAR";
+            break;
+
+        case "17DS":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "BALAJI NAGAR";
+            break;
+
+        case "17DV":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "VIKAS NAGAR";
+            break;
+
+        case "17H":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KUSHAIGUDA";
+            break;
+
+        case "17H/29B":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "JEEDIMETLA";
+            break;
+
+        case "17H/47W":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "WAVEROCK";
+            break;
+
+        case "17H/219":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "PATANCHERUVU";
+            break;
+
+        case "17H/242":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KEESARAGUTTA";
+            break;
+
+        case "17HN":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KUSHAIGUDA";
+            break;
+
+        case "17S":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KUSHAIGUDA";
+            break;
+
+        case "17V":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "VIKAS NAGAR";
+            break;
+
+        // HD18 SERIES
+        case "18":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "UPPAL";
+            break;
+
+        case "18/10KJ":
+            note = 0;
+            starting = "UPPAL DEPOT";
+            destination = "JAGATHGIRIGUTTA";
+            break;
+
+        case "18/47U":
+            note = 0;
+            starting = "BODUPPAL";
+            destination = "AOU UNIVERSITY";
+            break;
+
+        case "18/272G":
+            note = 0;
+            starting = "UPPAL";
+            destination = "GANDIMAISAMMA";
+            break;
+
+        case "18/283S":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KORREMULA";
+            break;
+
+        case "18B":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "CCMB COLONY";
+            break;
+
+        case "18C":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "CHENGICHERLA";
+            break;
+
+        case "18C/10H":
+            note = 0;
+            starting = "CHENGICHERLA";
+            destination = "KONDAPUR";
+            break;
+
+        case "18C/30":
+            note = 0;
+            starting = "CHENGICHERLA";
+            destination = "JAGATHGIRIGUTTA";
+            break;
+
+        case "18C/219":
+            note = 0;
+            starting = "CHENGICHERLA";
+            destination = "PATANCHERUVU";
+            break;
+
+        case "18C/229":
+            note = 0;
+            starting = "CHENGICHERLA";
+            destination = "MEDCHAL";
+            break;
+
+        case "18J":
+            note = 0;
+            starting = "UPPAL";
+            destination = "JBS";
+            break;
+
+        case "18R":
+            note = 0;
+            starting = "RAMANTHAPUR CHURCH CLY";
+            destination = "JBS";
+            break;
+
+        case "18V":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "VENKATREDDY NAGAR";
+            break;
+
+        case "18VJ":
+            note = 0;
+            starting = "VENKATREDDY NAGAR";
+            destination = "JBS";
+            break;
+
+        case "18VS":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "RAMANTHAPUR";
+            break;
+
+        // HD19 SERIES
+        case "19F":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "BORABANDA";
+            break;
+
+        case "19K":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "KPHB 4TH PHASE";
+            break;
+
+        case "19K/288D":
+            note = 0;
+            starting = "KUKATPALLY";
+            destination = "BALAJI TEMPLE";
+            break;
+
+        case "19KJ":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "JAGATHGIRIGUTTA";
+            break;
+
+        case "19KM":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "MIYAPUR";
+            break;
+
+        case "19M":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "KPHB 4TH PHASE";
+            break;
+
+        case "19MP":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "PRAGATHI NAGAR";
+            break;
+
+        case "19S":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "SANATH NAGAR";
+            break;
+
+        case "19S/505":
+            note = 0;
+            starting = "SANATH NAGAR";
+            destination = "SHANKARPALLY";
+            break;
+
+        case "19YF":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "BORABANDA";
+            break;
+
+        // HD20 SERIES
+        case "20/15H":
+            note = 0;
+            starting = "SECRETARIATE";
+            destination = "KUSHAIGUDA";
+            break;
+
+        case "20/15D":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "AMBEDKAR NAGAR";
+            break;
+
+        case "20/16":
+            note = 0;
+            starting = "IRRUM MANZIL";
+            destination = "SAFILGUDA";
+            break;
+
+        case "20/16A":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "20/16R":
+            note = 0;
+            starting = "SECRETARIATE";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "20/280":
+            note = 0;
+            starting = "SECRETARIATE";
+            destination = "GHATKESAR";
+            break;
+
+        case "20P":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "NAMPALLY";
+            break;
+
+        // HD21 SERIES
+        case "21W":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "WEST VENKATAPURAM";
+            break;
+
+        // HD22 SERIES
+        case "22":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "HAKIMPET";
+            break;
+
+        case "22/49E":
+            note = 0;
+            starting = "RISALA BAZAR";
+            destination = "IRRUM MANZIL";
+            break;
+
+        case "22/90L":
+            note = 0;
+            starting = "HAKIMPET";
+            destination = "BDL";
+            break;
+
+        case "22D":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "MB DARGAH";
+            break;
+
+        case "22K":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "RAJIV GRUHAKALPA";
+            break;
+
+        // HD23 SERIES
+        case "23B":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "BHUDEVI NAGAR";
+            break;
+
+        case "23BK":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KISTAMMA ENCLAVE";
+            break;
+
+        case "23BS":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SUCHITRA";
+            break;
+
+        case "23GF":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "GREEN FIELDS";
+            break;
+
+        case "23GS":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SUCHITRA";
+            break;
+
+        case "23K":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KISTAMMA ENCLAVE";
+            break;
+
+        case "23T":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "TELECOM NAGAR";
+            break;
+
+        // HD24 SERIES
+        case "24":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "YAPRAL";
+            break;
+
+        case "24B":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "BALAJI NAGAR";
+            break;
+
+        case "24B/16D":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "24B/281":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "GHATKESAR";
+            break;
+
+        case "24BA":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "AMBEDKAR NAGAR";
+            break;
+
+        case "24BJ":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "BJR NAGAR";
+            break;
+
+        case "24E":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "24J":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "24L/281":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "GHATKESAR";
+            break;
+
+        case "24S":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "SUCHITRA";
+            break;
+
+        case "24S/273":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "GANDIMAISAMMA";
+            break;
+
+        case "24SS":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "SHAHPUR NAGAR";
+            break;
+
+        // HD25 SERIES
+        case "25A":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SURYA NAGAR";
+            break;
+
+        case "25AJ":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "JONNABANDA";
+            break;
+
+        case "25AJ/M":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "GOPAL NAGAR";
+            break;
+
+        case "25M":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "GOPAL NAGAR";
+            break;
+
+        case "25MS":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SHARAN NAGAR";
+            break;
+
+        case "25P":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "PANCHASHEELA";
+            break;
+
+        case "25S":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SUCHITRA";
+            break;
+
+        case "25S/1":
+            note = 0;
+            starting = "SUCHITRA";
+            destination = "AFZALGUNJ";
+            break;
+
+        case "25S/1P":
+            note = 0;
+            starting = "SUCHITRA";
+            destination = "AFZALGUNJ";
+            break;
+
+        case "25S/2":
+            note = 0;
+            starting = "SUCHITRA";
+            destination = "AFZALGUNJ";
+            break;
+
+        case "25S/5K":
+            note = 0;
+            starting = "SUCHITRA";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "25S/227":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "GANDIMAISAMMA";
+            break;
+
+        case "25S/229":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "MEDCHAL";
+            break;
+
+        // HD26 SERIES
+        case "26M":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "OLD BOWENPALLY";
+            break;
+
+        case "26M/49M":
+            note = 0;
+            starting = "OLD BOWENPALLY";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "26N":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "OLD BOWENPALLY";
+            break;
+
+        // HD29 SERIES
+        case "29B":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "JEEDIMETLA";
+            break;
+
+        case "29B/17H":
+            note = 0;
+            starting = "JEEDIMETLA";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "29B/272G":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "GANDIMAISAMMA";
+            break;
+
+        case "29B/272I":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "INDIRAMMA COLONY";
+            break;
+
+        case "29Q":
+            note = 0;
+            starting = "BALA NAGAR";
+            destination = "QUTHBULLAPUR";
+            break;
+
+        case "29S":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SUBHASH NAGAR";
+            break;
+
+        // HD30 SERIES
+        case "30":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "JAGATHGIRIGUTTA";
+            break;
+
+        case "30S":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SRINIVAS COLONY";
+            break;
+
+        case "30/18C":
+            note = 0;
+            starting = "JAGATHGIRIGUTTA";
+            destination = "CHENGICHERLA";
+            break;
+
+        case "30/280":
+            note = 0;
+            starting = "JAGATHGIRIGUTTA";
+            destination = "GHATKESAR";
+            break;
+
+        // HD31 SERIES
+        case "31":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "PRAGATHI NAGAR";
+            break;
+
+        // HD37 SERIES
+        case "37":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "37/8":
+            note = 0;
+            starting = "KUSHAIGUDA";
+            destination = "GANDHI BHAVANf";
+            break;
+
+        // HD38 SERIES
+        case "38EX":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "38M":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "MAHENDRA HILLS";
+            break;
+
+        case "38X":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "38T":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "TUKARAMGATE";
+            break;
+
+        case "38T/16C":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "38T/16CR":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "ECIL X ROADS";
+            break;
+
+        // HD40 SERIES
+        case "40":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KOTI";
+            break;
+
+        // HD41 SERIES
+        case "41C/9X":
+            note = 0;
+            starting = "ASBESTOS COLONY";
+            destination = "CBS";
+            break;
+
+        // HD44 SERIES
+        case "44X":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "GANGAPUTRA COLONY";
+            break;
+
+        // HD45 SERIES
+        case "45F":
+            note = 0;
+            starting = "KOTI";
+            destination = "BORABANDA";
+            break;
+
+        // HD46 SERIES
+        case "46":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "PATIGADDA";
+            break;
+
+        // HD47 SERIES
+        case "47D/224":
+            note = 0;
+            starting = "DARGAH";
+            destination = "MAYURI NAGAR";
+            break;
+
+        case "47L":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "MANIKONDA";
+            break;
+
+        case "47L/16A":
+            note = 0;
+            starting = "MANIKONDA";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "47L/16C":
+            note = 0;
+            starting = "MANIKONDA";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "47U/18":
+            note = 0;
+            starting = "AOU UNIVERSITY";
+            destination = "BODUPPAL";
+            break;
+
+        case "47Y":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "MANIKONDA";
+            break;
+
+        case "47YM":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "MANCHIREVULA";
+            break;
+
+        case "47W/16A":
+            note = 0;
+            starting = "WAVEROCK";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "47W/17H":
+            note = 0;
+            starting = "WAVEROCK";
+            destination = "ECIL X ROADS";
+            break;
+
+        // HD49 SERIES
+        case "49":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "NAMPALLY";
+            break;
+
+        case "49/250":
+            note = 0;
+            starting = "NAMPALLY";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "49A":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "AFZALGUNJ";
+            break;
+
+        case "49E/22":
+            note = 0;
+            starting = "IRRUM MANZIL";
+            destination = "RISALA BAZAR";
+            break;
+
+        case "49M":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "49M/16A":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "49M/16C":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "49M/16CD":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "AMBEDKAR NAGAR";
+            break;
+
+        case "49M/16D":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "AMBEDKAR NAGAR";
+            break;
+
+        case "49M/16H":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "49M/26M":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "OLD BOWENPALLY";
+            break;
+
+        case "49M/92A":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "ARAMGHAR";
+            break;
+
+        case "49M/229":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "MEDCHAL";
+            break;
+
+        case "49M/250":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "49M/250C":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "CHERLAPALLY";
+            break;
+
+        case "49M/250D":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "AMBEDKAR NAGAR";
+            break;
+
+        case "49MT":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "TALLAGADDA";
+            break;
+
+        case "49MT/250":
+            note = 0;
+            starting = "TALLAGADDA";
+            destination = "ECIL X ROADS";
+            break;
+
+        // HD50 SERIES
+        case "50B":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "CHENGICHERLA";
+            break;
+
+        // HD65 SERIES
+        case "65/116GA":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "GOWLI DHODDI";
+            break;
+
+        case "65M/116G":
+            note = 0;
+            starting = "CBS";
+            destination = "GOWLI DHODDI";
+            break;
+
+        case "65M/123":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "MANCHIREVULA";
+            break;
+
+        case "65MG":
+            note = 0;
+            starting = "CHARMINAR";
+            destination = "GOLCONDA";
+            break;
+
+        // HD66 SERIES
+        case "66G":
+            note = 0;
+            starting = "CHARMINAR";
+            destination = "GOLCONDA";
+            break;
+
+        // HD71 SERIES
+        case "71A":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "CHENGICHERLA";
+            break;
+
+        case "71AB":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "CHENGICHERLA";
+            break;
+
+        case "71K":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "KACHEGUDA DEPOT";
+            break;
+
+        // HD72 SERIES
+        case "72":
+            note = 0;
+            starting = "HIGH COURT";
+            destination = "SATYA NAGAR";
+            break;
+
+        case "72/277D":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "IBRAHIMPATNAM";
+            break;
+
+        case "72H":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "HAYATHNAGAR";
+            break;
+
+        case "72HK":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "KUNTLOOR";
+            break;
+
+        case "72J":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "JAIPURI COLONY";
+            break;
+
+        case "72V":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "NGO's COLONY";
+            break;
+
+        // HD83 SERIES
+        case "83J":
+            note = 0;
+            starting = "KACHEGUDA STN.";
+            destination = "JEEDIMETLA";
+            break;
+
+        case "83J/272G":
+            note = 0;
+            starting = "KACHEGUDA STN.";
+            destination = "GANDIMAISAMMA";
+            break;
+
+        case "83JA":
+            note = 0;
+            starting = "KACHEGUDA STN.";
+            destination = "APUROOPA COLONY";
+            break;
+
+        // HD85 SERIES
+        case "85/8A":
+            note = 0;
+            starting = "PAHADI SHARIF";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "85P/8C":
+            note = 0;
+            starting = "PAHADI SHARIF";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "85/253L":
+            note = 0;
+            starting = "CHARMINAR";
+            destination = "ANNOJIGUDA";
+            break;
+
+        case "85V":
+            note = 0;
+            starting = "CHARMINAR";
+            destination = "VENKATAPUR";
+            break;
+
+        // HD86 SERIES
+        case "86A":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "AFZALGUNJ";
+            break;
+
+        case "86C":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "CBS";
+            break;
+
+        case "86J":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "JIYAGUDA";
+            break;
+
+        case "86K":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KOTI";
+            break;
+
+        // HD90 SERIES
+        case "90/253T":
+            note = 0;
+            starting = "JBS";
+            destination = "FAB CITY";
+            break;
+
+        case "90/300":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "90B":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "BANDLAGUDA DEPOT";
+            break;
+
+        case "90BE":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "BADANGPET";
+            break;
+
+        case "90DL":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "DILSHUKNAGAR";
+            break;
+
+        case "90UN":
+            note = 0;
+            starting = "DILSHUKNAGAR";
+            destination = "UPPAL X ROADS";
+            break;
+
+        case "90U/203U":
+            note = 0;
+            starting = "UPPAL X ROADS";
+            destination = "ADIBATLA";
+            break;
+
+        case "90L":
+            note = 0;
+            starting = "LB NAGAR";
+            destination = "JBS";
+            break;
+
+        case "90L/3K":
+            note = 0;
+            starting = "BDL";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "90L/22":
+            note = 0;
+            starting = "BDL";
+            destination = "HAKIMPET";
+            break;
+
+        case "90L/229":
+            note = 0;
+            starting = "LB NAGAR";
+            destination = "MEDCHAL";
+            break;
+
+        case "90L/251":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SHAMSHABAD";
+            break;
+
+        case "90LK":
+            note = 0;
+            starting = "LB NAGAR";
+            destination = "KACHEGUDA STN.";
+            break;
+
+        case "90LV":
+            note = 0;
+            starting = "NGO's COLONY";
+            destination = "JBS";
+            break;
+
+        // HD92 SERIES
+        case "92A":
+            note = 0;
+            starting = "ARAMGHAR";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "92A/5K":
+            note = 0;
+            starting = "ARAMGHAR";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "92A/49M":
+            note = 0;
+            starting = "ARAMGHAR";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "92K":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "SRI RAM COLONY";
+            break;
+
+        case "92R":
+            note = 0;
+            starting = "RAJENDRA NAGAR";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "92R/5K":
+            note = 0;
+            starting = "RAJENDRA NAGAR";
+            destination = "SECUNDERABAD";
+            break;
+
+        // HD94 SERIES
+        case "94R":
+            note = 0;
+            starting = "KOTI";
+            destination = "RAJENDRA NAGAR";
+            break;
+
+        case "94RM":
+            note = 0;
+            starting = "KOTI";
+            destination = "RAJENDRA NAGAR";
+            break;
+
+        // HD95 SERIES
+        case "95":
+            note = 0;
+            starting = "KOTI";
+            destination = "ARAMGHAR";
+            break;
+
+        case "95/3K":
+            note = 0;
+            starting = "ARAMGHAR";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "95/3KN":
+            note = 0;
+            starting = "ARAMGHAR";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "95K":
+            note = 0;
+            starting = "KOTI";
+            destination = "SRI RAM COLONY";
+            break;
+
+        // HD100 SERIES
+        case "100/299":
+            note = 0;
+            starting = "SECRETARIATE";
+            destination = "HAYATHNAGAR";
+            break;
+
+        case "100M":
+            note = 0;
+            starting = "SECRETARIATE";
+            destination = "SATYA NAGAR";
+            break;
+
+        case "100V":
+            note = 0;
+            starting = "SECRETARIATE";
+            destination = "NGO's COLONY";
+            break;
+
+        case "100X":
+            note = 0;
+            starting = "LB NAGAR";
+            destination = "BADANGPET";
+            break;
+
+        // HD102 SERIES
+        case "102":
+            note = 0;
+            starting = "KOTI W.COLLEGE";
+            destination = "MIDHANI DEPOT";
+            break;
+
+        case "102/3K":
+            note = 0;
+            starting = "BDL";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "102/9K":
+            note = 0;
+            starting = "BDL";
+            destination = "GANDIMAISAMMA";
+            break;
+
+        case "102/185":
+            note = 0;
+            starting = "BDL";
+            destination = "KUKATPALLY";
+            break;
+
+        case "102/218":
+            note = 0;
+            starting = "MIDHANI";
+            destination = "PATANCHERUVU";
+            break;
+
+        case "102/253L":
+            note = 0;
+            starting = "KOTI W.COLLEGE";
+            destination = "LEMOOR";
+            break;
+
+        case "102B":
+            note = 0;
+            starting = "KOTI W.COLLEGE";
+            destination = "BADANGPET";
+            break;
+
+        case "102B/3K":
+            note = 0;
+            starting = "BADANGPET";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "102B/203N":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "NADERGUL";
+            break;
+
+        case "102B/218":
+            note = 0;
+            starting = "BADANGPET";
+            destination = "PATANCHERUVU";
+            break;
+
+        case "102M":
+            note = 0;
+            starting = "KOTI W.COLLEGE";
+            destination = "BALAPUR";
+            break;
+
+        // HD103 SERIES
+        case "103":
+            note = 0;
+            starting = "KOTI W.COLLEGE";
+            destination = "RCI";
+            break;
+
+        // HD104 SERIES
+        case "104A":
+            note = 0;
+            starting = "KOTI W.COLLEGE";
+            destination = "RAJIV GRUHAKALPA";
+            break;
+
+        case "104R":
+            note = 0;
+            starting = "KOTI W.COLLEGE";
+            destination = "RN REDDY NAGAR";
+            break;
+
+        // HD105 SERIES
+        case "105":
+            note = 0;
+            starting = "SAIDABAD CLY";
+            destination = "SECRETARIATE";
+            break;
+
+        // HD107 SERIES
+        case "107JD":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "DILSHUKNAGAR";
+            break;
+
+        case "107JL":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "LB NAGAR";
+            break;
+
+        case "107JS":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SAROOR NAGAR";
+            break;
+
+        case "107VL":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "LB NAGAR";
+            break;
+
+        case "107VR":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "DILSHUKNAGAR";
+            break;
+
+        case "107VS":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SAROOR NAGAR";
+            break;
+
+        // HD113 SERIES
+        case "113B":
+            note = 0;
+            starting = "UPPAL";
+            destination = "BARKATPURA";
+            break;
+
+        case "113F":
+            note = 0;
+            starting = "CHENGICHERLA";
+            destination = "BORABANDA";
+            break;
+
+        case "113IM":
+            note = 0;
+            starting = "UPPAL";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "113K":
+            note = 0;
+            starting = "UPPAL";
+            destination = "KPHB 4TH PHASE";
+            break;
+
+        case "113KL":
+            note = 0;
+            starting = "UPPAL";
+            destination = "LINGAMPALLY";
+            break;
+
+        case "113KM":
+            note = 0;
+            starting = "UPPAL";
+            destination = "MIYAPUR";
+            break;
+
+        case "113M":
+            note = 0;
+            starting = "MEDIPALLY";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "113M/120":
+            note = 0;
+            starting = "BODUPPAL";
+            destination = "MANCHIREVULA";
+            break;
+
+        case "113M/281":
+            note = 0;
+            starting = "KONDAPUR";
+            destination = "GHATKESAR";
+            break;
+
+        case "113M/288":
+            note = 0;
+            starting = "UPPAL";
+            destination = "MOINABAD";
+            break;
+
+        case "113MP":
+            note = 0;
+            starting = "UPPAL";
+            destination = "PATEL NAGAR";
+            break;
+
+        case "113S":
+            note = 0;
+            starting = "SECRETARIATE";
+            destination = "KPHB 4TH PHASE";
+            break;
+
+        case "113W":
+            note = 0;
+            starting = "UPPAL";
+            destination = "WAVEROCK";
+            break;
+
+        case "113YH":
+            note = 0;
+            starting = "UPPAL";
+            destination = "HITECH CITY";
+            break;
+
+        // AMBERPET FLYOVER DIVERTED HD113 SERIES
+        case "113FT":
+            note = 0;
+            starting = "CHENGICHERLA";
+            destination = "BORABANDA";
+            break;
+
+        case "113KLT":
+            note = 0;
+            starting = "UPPAL";
+            destination = "LINGAMPALLY";
+            break;
+
+        case "113ILT":
+            note = 0;
+            starting = "UPPAL";
+            destination = "LINGAMPALLY";
+            break;
+
+        case "113KT":
+            note = 0;
+            starting = "UPPAL";
+            destination = "KPHB 4TH PHASE";
+            break;
+
+        case "113FZ":
+            note = 0;
+            starting = "CHENGICHERLA";
+            destination = "BORABANDA";
+            break;
+
+        case "113MZ":
+            note = 0;
+            starting = "MEDIPALLY";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "113IMZ":
+            note = 0;
+            starting = "UPPAL";
+            destination = "MEHDIPATNAM";
+            break;
+
+        // HD115 SERIES
+        case "115":
+            note = 0;
+            starting = "KOTI";
+            destination = "BODUPPAL";
+            break;
+
+        // HD116 SERIES
+        case "116/220K":
+            note = 0;
+            starting = "CBS";
+            destination = "KOLLUR";
+            break;
+
+        case "116G/65M":
+            note = 0;
+            starting = "GOWLI DHODDI";
+            destination = "CBS";
+            break;
+
+        case "116GA/65":
+            note = 0;
+            starting = "GOWLI DHODDI";
+            destination = "AFZALGUNJ";
+            break;
+
+        case "116N":
+            note = 0;
+            starting = "KOTI";
+            destination = "GOWLI DHODDI";
+            break;
+
+        case "116NL":
+            note = 0;
+            starting = "KOTI";
+            destination = "LINGAMPALLY";
+            break;
+
+        // HD117 SERIES
+        case "117":
+            note = 0;
+            starting = "UPPAL";
+            destination = "KUSHAIGUDA";
+            break;
+
+        // HD118 SERIES
+        case "118W/300":
+            note = 0;
+            starting = "WAVEROCK";
+            destination = "JBS";
+            break;
+
+        // HD119 SERIES
+        case "119M":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "GOLCONDA";
+            break;
+
+        // HD120 SERIES
+        case "120":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "OSMAN SAGAR";
+            break;
+
+        case "120/113M":
+            note = 0;
+            starting = "MANCHIREVULA";
+            destination = "BODUPPAL";
+            break;
+
+        case "120K/5K":
+            note = 0;
+            starting = "KOKAPET";
+            destination = "SECUNDERABAD";
+            break;
+
+        // HD123 SERIES
+        case "123":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "NARSINGI";
+            break;
+
+        case "123/65M":
+            note = 0;
+            starting = "MANCHIREVULA";
+            destination = "AFZALGUNJ";
+            break;
+
+        // HD125 SERIES
+        case "125/5K":
+            note = 0;
+            starting = "KONDAPUR";
+            destination = "SECUNDERABAD";
+            break;
+
+        // HD126 SERIES
+        case "126/300":
+            note = 0;
+            starting = "JNTU COLLEGE";
+            destination = "LB NAGAR";
+            break;
+
+        case "126M":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "JNTU COLLEGE";
+            break;
+
+        // HD127 SERIES
+        case "127AL":
+            note = 0;
+            starting = "AOU UNIVERSITY";
+            destination = "LB NAGAR";
+            break;
+
+        case "127DA":
+            note = 0;
+            starting = "AOU UNIVERSITY";
+            destination = "DILSHUKNAGAR";
+            break;
+
+        case "127K":
+            note = 0;
+            starting = "KONDAPUR";
+            destination = "KOTI";
+            break;
+
+        case "127KL":
+            note = 0;
+            starting = "KONDAPUR";
+            destination = "LB NAGAR";
+            break;
+
+        // HD147 SERIES
+        case "147":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "KONDAPUR";
+            break;
+
+        // HD156 SERIES
+        case "156/205F":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "METTU (RFC)";
+            break;
+
+        case "156/299":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "HAYATHNAGAR";
+            break;
+
+        case "156/505":
+            note = 0;
+            starting = "HAYATHNAGAR";
+            destination = "SHANKARPALLY";
+            break;
+
+        case "156L":
+            note = 0;
+            starting = "LB NAGAR";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "156S":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "SAI NAGAR";
+            break;
+
+        case "156V":
+            note = 0;
+            starting = "NGO's COLONY";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "156V/505":
+            note = 0;
+            starting = "NGO's COLONY";
+            destination = "SHANKARPALLY";
+            break;
+
+        // HD158 SERIES
+        case "158":
+            note = 0;
+            starting = "DILSHUKNAGAR";
+            destination = "ESI HOSPITAL";
+            break;
+
+        case "158FL":
+            note = 0;
+            starting = "DILSHUKNAGAR";
+            destination = "BORABANDA";
+            break;
+
+        case "158HF":
+            note = 0;
+            starting = "HAYATHNAGAR";
+            destination = "BORABANDA";
+            break;
+
+        case "158VF":
+            note = 0;
+            starting = "NGO's COLONY";
+            destination = "BORABANDA";
+            break;
+
+        // HD171 SERIES
+        case "171":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "GAJULARAMARAM";
+            break;
+
+        case "171/10J":
+            note = 0;
+            starting = "SHAHPUR NAGAR";
+            destination = "KPHB 4TH PHASE";
+            break;
+
+        case "171K":
+            note = 0;
+            starting = "SHAHPUR NAGAR";
+            destination = "KPHB MAIN ROAD";
+            break;
+
+        case "171K/219":
+            note = 0;
+            starting = "SHAHPUR NAGAR";
+            destination = "PATANCHERUVU";
+            break;
+
+        case "171R":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SRI RAM NAGAR";
+            break;
+
+        case "171M/189M":
+            note = 0;
+            starting = "GAJULARAMARAM";
+            destination = "MEHDIPATNAM";
+            break;
+
+        // HD178 SERIES
+        case "178G/8A":
+            note = 0;
+            starting = "GOUSE NAGAR";
+            destination = "SECUNDERABAD";
+            break;
+
+        // HD183 SERIES
+        case "183B":
+            note = 0;
+            starting = "JEEDIMETLA";
+            destination = "BALANAGAR";
+            break;
+
+        case "183SS":
+            note = 0;
+            starting = "SUCHITRA";
+            destination = "SHAHPUR NAGAR";
+            break;
+
+        case "183S/219":
+            note = 0;
+            starting = "SHAHPUR NAGAR";
+            destination = "PATANCHERUVU";
+            break;
+
+        // HD185 SERIES
+        case "185/102":
+            note = 0;
+            starting = "KUKATPALLY";
+            destination = "BDL";
+            break;
+
+        case "185G":
+            note = 0;
+            starting = "CBS";
+            destination = "JAGATHGIRIGUTTA";
+            break;
+
+        // HD187 SERIES
+        case "187KL":
+            note = 0;
+            starting = "KPHB MAIN ROAD";
+            destination = "LB NAGAR";
+            break;
+
+        case "187KH":
+            note = 0;
+            starting = "KPHB MAIN ROAD";
+            destination = "HAYATHNAGAR";
+            break;
+
+        // HD188 SERIES
+        case "188":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "KALI MANDIR";
+            break;
+
+        case "188/5K":
+            note = 0;
+            starting = "KALI MANDIR";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "188/251":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "SHAMSHABAD";
+            break;
+
+        // HD189 SERIES
+        case "189M":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "APUROOPA CLY";
+            break;
+
+        case "189M/171M":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "GAJULARAMARAM";
+            break;
+
+        case "189M/272G":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "GANDIMAISAMMA";
+            break;
+
+        // HD195 SERIES
+        case "195G":
+            note = 0;
+            starting = "GAR";
+            destination = "JNTU COLLEGE";
+            break;
+
+        case "195GJ":
+            note = 0;
+            starting = "GAR";
+            destination = "JNTU COLLEGE";
+            break;
+
+        case "195GK":
+            note = 0;
+            starting = "GAR";
+            destination = "JNTU COLLEGE";
+            break;
+
+        case "195H":
+            note = 0;
+            starting = "HCU DEPOT";
+            destination = "BACHUPALLY";
+            break;
+
+        case "195J":
+            note = 0;
+            starting = "WAVEROCK";
+            destination = "JAGATHGIRIGUTTA";
+            break;
+
+        case "195P":
+            note = 0;
+            starting = "GAR";
+            destination = "PRAGATHI NAGAR";
+            break;
+
+        case "195W":
+            note = 0;
+            starting = "WAVEROCK";
+            destination = "BACHUPALLY";
+            break;
+
+        case "195WJ":
+            note = 0;
+            starting = "WAVEROCK";
+            destination = "JNTU COLLEGE";
+            break;
+
+        case "195WP":
+            note = 0;
+            starting = "WAVEROCK";
+            destination = "GANDIMAISAMMA";
+            break;
+
+        // HD201 SERIES
+        case "201":
+            note = 0;
+            starting = "KOTI W.COLLEGE";
+            destination = "BACHARAM";
+            break;
+
+        case "201G":
+            note = 0;
+            starting = "KOTI W.COLLEGE";
+            destination = "GOWRELLY";
+            break;
+
+        case "201K":
+            note = 0;
+            starting = "KOTI W.COLLEGE";
+            destination = "KUNTLOOR RG CLY";
+            break;
+
+        case "201M":
+            note = 0;
+            starting = "KOTI W.COLLEGE";
+            destination = "MARRIPALLY";
+            break;
+
+        case "201Q":
+            note = 0;
+            starting = "KOTI W.COLLEGE";
+            destination = "QUTHBULLAPUR";
+            break;
+
+        case "201/290U":
+            note = 0;
+            starting = "BACHARAM";
+            destination = "JBS";
+            break;
+
+        case "201T/290U":
+            note = 0;
+            starting = "TARAMATIPET";
+            destination = "SECUNDERABAD";
+            break;
+
+        // HD202 SERIES
+        case "202B":
+            note = 0;
+            starting = "KOTI W.COLLEGE";
+            destination = "BRAHMANAPALLY";
+            break;
+
+        case "202K/290U":
+            note = 0;
+            starting = "KOHEDA";
+            destination = "JBS";
+            break;
+
+        // HD203 SERIES
+        case "203A":
+            note = 0;
+            starting = "KOTI W.COLLEGE";
+            destination = "ADIBATLA";
+            break;
+
+        case "203A/218":
+            note = 0;
+            starting = "ADIBATLA";
+            destination = "PATANCHERUVU";
+            break;
+
+        case "203AK":
+            note = 0;
+            starting = "KOTI W.COLLEGE";
+            destination = "KONGARAKALAN";
+            break;
+
+        case "203AR":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "RAVIRYALA";
+            break;
+
+        case "203N":
+            note = 0;
+            starting = "KOTI W.COLLEGE";
+            destination = "NADERGUL";
+            break;
+
+        case "203N/3K":
+            note = 0;
+            starting = "NADERGUL";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "203N/3N":
+            note = 0;
+            starting = "NADERGUL";
+            destination = "BEL";
+            break;
+
+        case "203N/102B":
+            note = 0;
+            starting = "NADERGUL";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "203N/218":
+            note = 0;
+            starting = "NADERGUL";
+            destination = "PATANCHERUVU";
+            break;
+
+        case "203U":
+            note = 0;
+            starting = "UPPAL X ROADS";
+            destination = "ADIBATLA";
+            break;
+
+        case "203U/90U":
+            note = 0;
+            starting = "ADIBATLA";
+            destination = "UPPAL X ROADS";
+            break;
+
+        // HD204 SERIES
+        case "204/290U":
+            note = 0;
+            starting = "GANDICHERUVU";
+            destination = "JBS";
+            break;
+
+        case "204DA":
+            note = 0;
+            starting = "DILSHUKNAGAR";
+            destination = "ANAJPUR";
+            break;
+
+        case "204U":
+            note = 0;
+            starting = "KOTI W.COLLEGE";
+            destination = "SANGHI NAGAR";
+            break;
+
+        case "204UA":
+            note = 0;
+            starting = "KOTI W.COLLEGE";
+            destination = "ANAJPUR";
+            break;
+
+        // HD205 SERIES
+        case "205":
+            note = 0;
+            starting = "KOTI W.COLLEGE";
+            destination = "PILLAIPALLY";
+            break;
+
+        case "205A":
+            note = 0;
+            starting = "KOTI W.COLLEGE";
+            destination = "ANAJPUR";
+            break;
+
+        case "205A/290U":
+            note = 0;
+            starting = "ANAJPUR";
+            destination = "JBS";
+            break;
+
+        case "205F/156":
+            note = 0;
+            starting = "METTU (RFC)";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "205M/290U":
+            note = 0;
+            starting = "MAJEEDPUR";
+            destination = "JBS";
+            break;
+
+        // HD211 SERIES
+        case "211":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "POTHAIPALLY";
+            break;
+
+        case "211/242":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "DONGALAMYSAMMA";
+            break;
+
+        case "211B":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "UDDHAMARRI";
+            break;
+
+        case "211CD":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "DRDO (YADGARPALLY)";
+            break;
+
+        case "211D":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KOLTHUR";
+            break;
+
+        case "211DY":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "DEVARAYAMJAL";
+            break;
+
+        case "211K":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KESHAVARAM";
+            break;
+
+        case "211M":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "CRPF";
+            break;
+
+        // HD212 SERIES
+        case "212":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "BITS PILANI";
+            break;
+
+        case "212/702":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "VARGAL TEMPLE";
+            break;
+
+        case "212T":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "TURKAPALLY";
+            break;
+
+        // HD215 SERIES
+        case "215":
+            note = 0;
+            starting = "ARAMGHAR";
+            destination = "KONDAPUR";
+            break;
+
+        // HD216 SERIES
+        case "216":
+            note = 0;
+            starting = "KOTI";
+            destination = "LINGAMPALLY";
+            break;
+
+        case "216KL":
+            note = 0;
+            starting = "KOTI";
+            destination = "LINGAMPALLY";
+            break;
+
+        case "216M":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "LINGAMPALLY";
+            break;
+
+        // HD217 SERIES
+        case "217":
+            note = 0;
+            starting = "KOTI";
+            destination = "PATANCHERUVU";
+            break;
+
+        case "217/254":
+            note = 0;
+            starting = "LINGAMPALLY";
+            destination = "KONGARAKALAN";
+            break;
+
+        case "217C":
+            note = 0;
+            starting = "CBS";
+            destination = "PATANCHERUVU";
+            break;
+
+        case "217D":
+            note = 0;
+            starting = "DILSHUKNAGAR";
+            destination = "PATANCHERUVU";
+            break;
+
+        // HD218 SERIES
+        case "218":
+            note = 0;
+            starting = "KOTI";
+            destination = "PATANCHERUVU";
+            break;
+
+        case "218/102":
+            note = 0;
+            starting = "PATANCHERUVU";
+            destination = "MIDHANI";
+            break;
+
+        case "218/102B":
+            note = 0;
+            starting = "PATANCHERUVU";
+            destination = "BADANGPET";
+            break;
+
+        case "218/203A":
+            note = 0;
+            starting = "PATANCHERUVU";
+            destination = "ADIBATLA";
+            break;
+
+        case "218/203N":
+            note = 0;
+            starting = "PATANCHERUVU";
+            destination = "NADERGUL";
+            break;
+
+        case "218/224MN":
+            note = 0;
+            starting = "KOTI";
+            destination = "MALLAMPET";
+            break;
+
+        case "218/277K":
+            note = 0;
+            starting = "MIYAPUR";
+            destination = "KONGARAKALAN";
+            break;
+
+        case "218A":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "PATANCHERUVU";
+            break;
+
+        case "218C":
+            note = 0;
+            starting = "CBS";
+            destination = "PATANCHERUVU";
+            break;
+
+        case "218CA":
+            note = 0;
+            starting = "CHANDRAYANGUTTA";
+            destination = "PATANCHERUVU";
+            break;
+
+        case "218D":
+            note = 0;
+            starting = "DILSHUKNAGAR";
+            destination = "PATANCHERUVU";
+            break;
+
+        case "218H":
+            note = 0;
+            starting = "HAYATHNAGAR";
+            destination = "PATANCHERUVU";
+            break;
+
+        case "218L":
+            note = 0;
+            starting = "KOTI";
+            destination = "LINGAMPALLY";
+            break;
+
+        // HD219 SERIES
+        case "219":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "PATANCHERUVU";
+            break;
+
+        case "219/16A":
+            note = 0;
+            starting = "PATANCHERUVU";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "219/17":
+            note = 0;
+            starting = "PATANCHERUVU";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "219/17H":
+            note = 0;
+            starting = "PATANCHERUVU";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "219/18C":
+            note = 0;
+            starting = "PATANCHERUVU";
+            destination = "CHENGICHERLA";
+            break;
+
+        case "219/171K":
+            note = 0;
+            starting = "PATANCHERUVU";
+            destination = "SHAHPUR NAGAR";
+            break;
+
+        case "219/183S":
+            note = 0;
+            starting = "PATANCHERUVU";
+            destination = "SHAHPUR NAGAR";
+            break;
+
+        case "219/224G":
+            note = 0;
+            starting = "PATANCHERUVU";
+            destination = "GANDIMAISAMMA";
+            break;
+
+        case "219/229":
+            note = 0;
+            starting = "PATANCHERUVU";
+            destination = "MEDCHAL";
+            break;
+
+        case "219/250":
+            note = 0;
+            starting = "PATANCHERUVU";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "219/272G":
+            note = 0;
+            starting = "PATANCHERUVU";
+            destination = "GANDIMAISAMMA";
+            break;
+
+        case "219/280":
+            note = 0;
+            starting = "PATANCHERUVU";
+            destination = "GHATKESAR";
+            break;
+
+        case "219I/224G":
+            note = 0;
+            starting = "ISNAPUR";
+            destination = "GANDIMAISAMMA";
+            break;
+
+        case "219I/272G":
+            note = 0;
+            starting = "ISNAPUR";
+            destination = "GANDIMAISAMMA";
+            break;
+
+        case "219N":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "NARENDAR COLONY";
+            break;
+
+        // HD220 SERIES
+        case "220K/116":
+            note = 0;
+            starting = "KOLLUR";
+            destination = "CBS";
+            break;
+
+        // HD221 SERIES
+        case "221":
+            note = 0;
+            starting = "MIYAPUR METRO STN.";
+            destination = "MANCHIREVULA";
+            break;
+
+        case "221G":
+            note = 0;
+            starting = "GANDIMAISAMMA";
+            destination = "GACHIBOWLI";
+            break;
+
+        // HD222 SERIES
+        case "222A":
+            note = 0;
+            starting = "KOTI";
+            destination = "PATANCHERUVU";
+            break;
+
+        case "222L":
+            note = 0;
+            starting = "KOTI";
+            destination = "LINGAMPALLY";
+            break;
+
+        // HD224 SERIES
+        case "224/47D":
+            note = 0;
+            starting = "MAYURI NAGAR";
+            destination = "DARGAH";
+            break;
+
+        case "224B":
+            note = 0;
+            starting = "MIYAPUR";
+            destination = "BOLLARUM";
+            break;
+
+        case "224G":
+            note = 0;
+            starting = "MIYAPUR";
+            destination = "GANDIMAISAMMA";
+            break;
+
+        case "224G/10KM":
+            note = 0;
+            starting = "GANDIMAISAMMA";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "224G/219":
+            note = 0;
+            starting = "GANDIMAISAMMA";
+            destination = "PATANCHERUVU";
+            break;
+
+        case "224G/219I":
+            note = 0;
+            starting = "GANDIMAISAMMA";
+            destination = "ISNAPUR";
+            break;
+
+        case "224MN":
+            note = 0;
+            starting = "NIZAMPET X ROADS";
+            destination = "MALLAPET";
+            break;
+
+        case "224MN/218":
+            note = 0;
+            starting = "MALLAPET";
+            destination = "KOTI";
+            break;
+
+        case "224X":
+            note = 0;
+            starting = "MIYAPUR";
+            destination = "IDA BOLLARUM";
+            break;
+
+        // HD226 SERIES
+        case "226":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "PATANCHERUVU";
+            break;
+
+        // HD227 SERIES
+        case "227":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "GANDIMAISAMMA";
+            break;
+
+        case "227/25S":
+            note = 0;
+            starting = "GANDIMAISAMMA";
+            destination = "SECUNDERABAD";
+            break;
+
+        // HD229 SERIES
+        case "229":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "MEDCHAL";
+            break;
+
+        case "229/1D":
+            note = 0;
+            starting = "MEDCHAL";
+            destination = "DILSHUKNAGAR";
+            break;
+
+        case "229/1Z":
+            note = 0;
+            starting = "MEDCHAL";
+            destination = "ARAMGHAR";
+            break;
+
+        case "229/5K":
+            note = 0;
+            starting = "MEDCHAL";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "229/8C":
+            note = 0;
+            starting = "MEDCHAL";
+            destination = "AFZALGUNJ";
+            break;
+
+        case "229/18C":
+            note = 0;
+            starting = "MEDCHAL";
+            destination = "CHENGICHERLA";
+            break;
+
+        case "229/25S":
+            note = 0;
+            starting = "MEDCHAL";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "229/49M":
+            note = 0;
+            starting = "MEDCHAL";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "229/90L":
+            note = 0;
+            starting = "MEDCHAL";
+            destination = "LB NAGAR";
+            break;
+
+        case "229/219":
+            note = 0;
+            starting = "MEDCHAL";
+            destination = "PATANCHERUVU";
+            break;
+
+        case "229/279":
+            note = 0;
+            starting = "MEDCHAL";
+            destination = "IBRAHIMPATNAM";
+            break;
+
+        case "229/290":
+            note = 0;
+            starting = "MEDCHAL";
+            destination = "HAYATHNAGAR";
+            break;
+
+        case "229/290U":
+            note = 0;
+            starting = "MEDCHAL";
+            destination = "HAYATHNAGAR";
+            break;
+
+        case "229B":
+            note = 0;
+            starting = "MEDCHAL";
+            destination = "BOWENPALLY";
+            break;
+
+        case "229P":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "PUDUR";
+            break;
+
+        // HD230 SERIES
+        case "230A":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "ANNARAM";
+            break;
+
+        case "230AN":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "ANNARAM";
+            break;
+
+        case "230P":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "DUNDIGAL";
+            break;
+
+        case "230P/9K":
+            note = 0;
+            starting = "DUNDIGAL";
+            destination = "AFZALGUNJ";
+            break;
+
+        case "230P/9X":
+            note = 0;
+            starting = "DUNDIGAL";
+            destination = "CBS";
+            break;
+
+        case "230P/9XM":
+            note = 0;
+            starting = "DUNDIGAL";
+            destination = "CHARMINAR";
+            break;
+
+        // HD231 SERIES
+        case "231":
+            note = 0;
+            starting = "MEDCHAL";
+            destination = "MEDICITY";
+            break;
+
+        case "231KN":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KAZIPALLY";
+            break;
+
+        // HD233 SERIES
+        case "233":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "NUTHANAKAL";
+            break;
+
+        // HD241 SERIES
+        case "241T":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "DHARMAVARAM";
+            break;
+
+        // HD242 SERIES
+        case "242":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KEESARAGUTTA";
+            break;
+
+        case "242/3K":
+            note = 0;
+            starting = "KEESARAGUTTA";
+            destination = "AFZALGUNJ";
+            break;
+
+        case "242/17H":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KEESARAGUTTA";
+            break;
+
+        case "242/211":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "DONGALAMYSAMMA";
+            break;
+
+        case "242/272G":
+            note = 0;
+            starting = "KEESARAGUTTA";
+            destination = "GANDIMAISAMMA";
+            break;
+
+        case "242A":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "ANKIREDDYPALLY";
+            break;
+
+        case "242B":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "BOGARAM";
+            break;
+
+        case "242G":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KEESARA";
+            break;
+
+        case "242GA":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "ANKIREDDYPALLY";
+            break;
+
+        case "242RG":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "RG COLONY";
+            break;
+
+        case "242RG/15H":
+            note = 0;
+            starting = "RG COLONY";
+            destination = "SECUNDERABAD";
+            break;
+
+        // HD245 SERIES
+        case "245A":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "AUSHAPUR";
+            break;
+
+        // HD250 SERIES
+        case "250":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "250/10K":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "KPHB 4TH PHASE";
+            break;
+
+        case "250/49":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "NAMPALLY";
+            break;
+
+        case "250/49M":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "250/49MT":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "TALLAGADDA";
+            break;
+
+        case "250/219":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "PATANCHERUVU";
+            break;
+
+        case "250/281":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "GHATKESAR";
+            break;
+
+        case "250C":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "CHERLAPALLY";
+            break;
+
+        case "250C/49M":
+            note = 0;
+            starting = "CHERLAPALLY";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "250D":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "AMBEDKAR NAGAR";
+            break;
+
+        case "250D/49M":
+            note = 0;
+            starting = "AMBEDKAR NAGAR";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "250E":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "CHENGICHERLA DEPOT";
+            break;
+
+        case "250S":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "CHENGICHERLA";
+            break;
+
+        case "250SS":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "CHENGICHERLA DEPOT";
+            break;
+
+        // HD251 SERIES
+        case "251/1Z":
+            note = 0;
+            starting = "SHAMSHABAD";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "251/2Z":
+            note = 0;
+            starting = "SHAMSHABAD";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "251/5K":
+            note = 0;
+            starting = "SHAMSHABAD";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "251/7Z":
+            note = 0;
+            starting = "SHAMSHABAD";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "251/8A":
+            note = 0;
+            starting = "KOTHUR";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "251/90L":
+            note = 0;
+            starting = "SHAMSHABAD";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "251/188":
+            note = 0;
+            starting = "SHAMSHABAD";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "251/300":
+            note = 0;
+            starting = "SHAMSHABAD";
+            destination = "UPPAL X ROADS";
+            break;
+
+        case "251M":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "MUCHINTHAL";
+            break;
+
+        // HD252 SERIES
+        case "252/3K":
+            note = 0;
+            starting = "RGI AIRPORT";
+            destination = "ECIL X ROADS";
+            break;
+
+        case "252/6IW":
+            note = 0;
+            starting = "WAVEROCK";
+            destination = "CHERLAPALLY";
+            break;
+
+        case "252S":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "SHANKARAPURAM";
+            break;
+
+        case "252S/8A":
+            note = 0;
+            starting = "SHANKARAPURAM";
+            destination = "SECUNDERABAD";
+            break;
+
+        // HD253 SERIES
+        case "253":
+            note = 0;
+            starting = "CHARMINAR";
+            destination = "MAHESHWARAM";
+            break;
+
+        case "253/8A":
+            note = 0;
+            starting = "SHAMSHABAD";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "253L/85":
+            note = 0;
+            starting = "ANNOJIGUDA";
+            destination = "CHARMINAR";
+            break;
+
+        case "253L/102":
+            note = 0;
+            starting = "LEMOOR";
+            destination = "KOTI W.COLLEGE";
+            break;
+
+        case "253T/90":
+            note = 0;
+            starting = "FAB CITY";
+            destination = "JBS";
+            break;
+
+        case "253W":
+            note = 0;
+            starting = "KOTI W.COLLEGE";
+            destination = "MAHESHWARAM";
+            break;
+
+        // HD254 SERIES
+        case "254/217":
+            note = 0;
+            starting = "KONGARAKALAN";
+            destination = "LINGAMPALLY";
+            break;
+
+        // HD272 SERIES
+        case "272":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "BOWRAMPET";
+            break;
+
+        case "272B":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "BOWRAMPET";
+            break;
+
+        case "272G/9K":
+            note = 0;
+            starting = "GANDIMAISAMMA";
+            destination = "AFZALGUNJ";
+            break;
+
+        case "272G/9X":
+            note = 0;
+            starting = "GANDIMAISAMMA";
+            destination = "CBS";
+            break;
+
+        case "272G/18":
+            note = 0;
+            starting = "GANDIMAISAMMA";
+            destination = "UPPAL";
+            break;
+
+        case "272G/29B":
+            note = 0;
+            starting = "GANDIMAISAMMA";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "272G/83J":
+            note = 0;
+            starting = "GANDIMAISAMMA";
+            destination = "KACHEGUDA STN.";
+            break;
+
+        case "272G/189M":
+            note = 0;
+            starting = "GANDIMAISAMMA";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "272G/219":
+            note = 0;
+            starting = "GANDIMAISAMMA";
+            destination = "PATANCHERUVU";
+            break;
+
+        case "272G/219I":
+            note = 0;
+            starting = "GANDIMAISAMMA";
+            destination = "ISNAPUR";
+            break;
+
+        case "272G/242":
+            note = 0;
+            starting = "GANDIMAISAMMA";
+            destination = "KEESARAGUTTA";
+            break;
+
+        case "272I/29B":
+            note = 0;
+            starting = "INDIRAMMA COLONY";
+            destination = "SECUNDERABAD";
+            break;
+
+        // HD273 SERIES
+        case "273/24S":
+            note = 0;
+            starting = "GANDIMAISAMMA";
+            destination = "ECIL X ROADS";
+            break;
+
+        // HD277 SERIES
+        case "277":
+            note = 0;
+            starting = "MGBS";
+            destination = "IBRAHIMPATNAM";
+            break;
+
+        case "277D":
+            note = 0;
+            starting = "KOTI W.COLLEGE";
+            destination = "IBRAHIMPATNAM";
+            break;
+
+        case "277D/72":
+            note = 0;
+            starting = "IBRAHIMPATNAM";
+            destination = "AFZALGUNJ";
+            break;
+
+        case "277K/218":
+            note = 0;
+            starting = "KONGARAKALAN";
+            destination = "MIYAPUR";
+            break;
+
+        case "277L":
+            note = 0;
+            starting = "LB NAGAR";
+            destination = "IBRAHIMPATNAM";
+            break;
+
+        case "277N":
+            note = 0;
+            starting = "KOTI W.COLLEGE";
+            destination = "NADERGUL";
+            break;
+
+        case "277S":
+            note = 0;
+            starting = "SECRETARIATE";
+            destination = "IBRAHIMPATNAM";
+            break;
+
+        // HD279 SERIES
+        case "279":
+            note = 0;
+            starting = "JBS";
+            destination = "IBRAHIMPATNAM";
+            break;
+
+        case "279/229":
+            note = 0;
+            starting = "IBRAHIMPATNAM";
+            destination = "MEDCHAL";
+            break;
+
+        case "279U":
+            note = 0;
+            starting = "IBRAHIMPATNAM";
+            destination = "UPPAL X ROADS";
+            break;
+
+        // HD280 SERIES
+        case "280":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "GHATKESAR";
+            break;
+
+        case "280/20":
+            note = 0;
+            starting = "GHATKESAR";
+            destination = "SECRETARIATE";
+            break;
+
+        case "280/30":
+            note = 0;
+            starting = "GHATKESAR";
+            destination = "JAGATHGIRIGUTTA";
+            break;
+
+        case "280/219":
+            note = 0;
+            starting = "GHATKESAR";
+            destination = "PATANCHERUVU";
+            break;
+
+        case "280/492":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "PILLAIPALLY";
+            break;
+
+        case "280/488":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "BIBI NAGAR";
+            break;
+
+        case "280B":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "BOGARAM";
+            break;
+
+        case "280I":
+            note = 0;
+            starting = "UPPAL X ROADS";
+            destination = "INFOSYS";
+            break;
+
+        case "280J":
+            note = 0;
+            starting = "JBS";
+            destination = "GHATKESAR";
+            break;
+
+        case "280N":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "NFC NAGAR";
+            break;
+
+        case "280X":
+            note = 0;
+            starting = "UPPAL X ROADS";
+            destination = "GHATKESAR";
+            break;
+
+        // HD281 SERIES
+        case "281":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "GHATKESAR";
+            break;
+
+        case "281/3K":
+            note = 0;
+            starting = "GHATKESAR";
+            destination = "AFZALGUNJ";
+            break;
+
+        case "281/6L":
+            note = 0;
+            starting = "GHATKESAR";
+            destination = "KONDAPUR";
+            break;
+
+        case "281/16C":
+            note = 0;
+            starting = "GHATKESAR";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "281/24B":
+            note = 0;
+            starting = "GHATKESAR";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "281/24L":
+            note = 0;
+            starting = "GHATKESAR";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "281/113M":
+            note = 0;
+            starting = "GHATKESAR";
+            destination = "KONDAPUR";
+            break;
+
+        case "281/250":
+            note = 0;
+            starting = "GHATKESAR";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "281R/16A":
+            note = 0;
+            starting = "RTC COLONY";
+            destination = "SECUNDERABAD";
+            break;
+
+        // HD282 SERIES
+        case "282K":
+            note = 0;
+            starting = "GHATKESAR";
+            destination = "KONDAPUR";
+            break;
+
+        // HD283 SERIES
+        case "283C":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SURARAM COLONY";
+            break;
+
+        case "283D/9X":
+            note = 0;
+            starting = "SURARAM COLONY";
+            destination = "CBS";
+            break;
+
+        case "283K":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KORREMULA";
+            break;
+
+        case "283T":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "TENUGUDEM";
+            break;
+
+        case "283VS":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "SURARAM VILLAGE";
+            break;
+
+        case "283S/18":
+            note = 0;
+            starting = "KORREMULA";
+            destination = "SECUNDERABAD";
+            break;
+
+        // HD284 SERIES
+        case "284P":
+            note = 0;
+            starting = "UPPAL X ROADS";
+            destination = "PRATHAP SINGARAM";
+            break;
+
+        // HD288 SERIES
+        case "288":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "MOINABAD";
+            break;
+
+        case "288/113M":
+            note = 0;
+            starting = "MOINABAD";
+            destination = "UPPAL";
+            break;
+
+        case "288A":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "AMDAPUR";
+            break;
+
+        case "288C":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "APPOJIGUDA";
+            break;
+
+        case "288D":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "BALAJI TEMPLE";
+            break;
+
+        case "288E":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "BAKARAM";
+            break;
+
+        case "288K":
+            note = 0;
+            starting = "KOTI";
+            destination = "MOINABAD";
+            break;
+
+        case "288D/19K":
+            note = 0;
+            starting = "BALAJI TEMPLE";
+            destination = "KUKATPALLY";
+            break;
+
+        // HD290 SERIES
+        case "290":
+            note = 0;
+            starting = "JBS";
+            destination = "HAYATHNAGAR";
+            break;
+
+        case "290/229":
+            note = 0;
+            starting = "HAYATHNAGAR";
+            destination = "MEDCHAL";
+            break;
+
+        case "290KJ":
+            note = 0;
+            starting = "JBS";
+            destination = "KUNTLOOR";
+            break;
+
+        case "290KP":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KAVADIPALLY";
+            break;
+
+        case "290U":
+            note = 0;
+            starting = "JBS";
+            destination = "HAYATHNAGAR";
+            break;
+
+        case "290U/201":
+            note = 0;
+            starting = "JBS";
+            destination = "BACHARAM";
+            break;
+
+        case "290U/201T":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "TARAMATIPET";
+            break;
+
+        case "290U/202K":
+            note = 0;
+            starting = "JBS";
+            destination = "KOHEDA";
+            break;
+
+        case "290U/204":
+            note = 0;
+            starting = "JBS";
+            destination = "GANDICHERUVU";
+            break;
+
+        case "290U/205A":
+            note = 0;
+            starting = "JBS";
+            destination = "ANAJPUR";
+            break;
+
+        case "290U/205M":
+            note = 0;
+            starting = "JBS";
+            destination = "MAJEEDPUR";
+            break;
+
+        case "290U/229":
+            note = 0;
+            starting = "HAYATHNAGAR";
+            destination = "MEDCHAL";
+            break;
+
+        case "290U/463":
+            note = 0;
+            starting = "JBS";
+            destination = "DESHMUKHI";
+            break;
+
+        case "290U/555":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "CHOTUPPAL";
+            break;
+
+        case "290UA":
+            note = 0;
+            starting = "JBS";
+            destination = "ANAJPUR";
+            break;
+
+        case "290UF":
+            note = 0;
+            starting = "JBS";
+            destination = "METTU (RFC)";
+            break;
+
+        // HD299 SERIES
+        case "299":
+            note = 0;
+            starting = "HAYATHNAGAR";
+            destination = "KOTI W.COLLEGE";
+            break;
+
+        case "299/1D":
+            note = 0;
+            starting = "HAYATHNAGAR";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "299/100":
+            note = 0;
+            starting = "HAYATHNAGAR";
+            destination = "SECRETARIATE";
+            break;
+
+        case "299/156":
+            note = 0;
+            starting = "HAYATHNAGAR";
+            destination = "MEHDIPATNAM";
+            break;
+
+        case "299D":
+            note = 0;
+            starting = "HAYATHNAGAR";
+            destination = "DILSHUKNAGAR";
+            break;
+
+        // HD300 SERIES
+        case "300":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "UPPAL X ROADS";
+            break;
+
+        case "300/90":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "300/118W":
+            note = 0;
+            starting = "JBS";
+            destination = "WAVEROCK";
+            break;
+
+        case "300/126":
+            note = 0;
+            starting = "LB NAGAR";
+            destination = "JNTU COLLEGE";
+            break;
+
+        case "300/251":
+            note = 0;
+            starting = "UPPAL X ROADS";
+            destination = "SHAMSHABAD";
+            break;
+
+        case "300/539":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KANHA";
+            break;
+
+        case "300L":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "LB NAGAR";
+            break;
+
+        // HD400 SERIES
+        case "412":
+            note = 0;
+            starting = "KOTI W.COLLEGE";
+            destination = "MALL";
+            break;
+
+        case "445":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "KETIREDDYPALLY";
+            break;
+
+        case "447R":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "RAVULAPALLY";
+            break;
+
+        case "458":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "MAHESHWARAM";
+            break;
+
+        case "463":
+            note = 0;
+            starting = "DILSHUKNAGAR";
+            destination = "DESHMUKHI";
+            break;
+
+        case "463/290U":
+            note = 0;
+            starting = "DESHMUKHI";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "464":
+            note = 0;
+            starting = "DILSHUKNAGAR";
+            destination = "DANDUMAILARAM";
+            break;
+
+        case "488/280":
+            note = 0;
+            starting = "BIBI NAGAR";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "490S":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "BIBI NAGAR";
+            break;
+
+        case "492/280":
+            note = 0;
+            starting = "PILLAIPALLY";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "495":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KANUKUNTA";
+            break;
+
+        case "497":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "HAJIPUR";
+            break;
+
+        case "498":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KESHAVAPUR";
+            break;
+
+        case "498K":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "KOTHAPALLY";
+            break;
+
+        case "498U":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "UDDHAMARRI";
+            break;
+
+        case "498VJ":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "JINNARAM";
+            break;
+
+        // HD500 SERIES
+        case "505":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "SHANKARPALLY";
+            break;
+
+        case "505/19S":
+            note = 0;
+            starting = "SHANKARPALLY";
+            destination = "SANATH NAGAR";
+            break;
+
+        case "505/156":
+            note = 0;
+            starting = "SHANKARPALLY";
+            destination = "HAYATHNAGAR";
+            break;
+
+        case "505/156V":
+            note = 0;
+            starting = "SHANKARPALLY";
+            destination = "NGO's COLONY";
+            break;
+
+        case "523K":
+            note = 0;
+            starting = "KOTI W.COLLEGE";
+            destination = "KAVADIPALLY";
+            break;
+
+        case "524":
+            note = 0;
+            starting = "DILSHUKNAGAR";
+            destination = "POCHAMPALLY";
+            break;
+
+        case "530":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "KANDUKUR";
+            break;
+
+        case "532":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "JP DARGAH";
+            break;
+
+        case "532/8A":
+            note = 0;
+            starting = "KOTHUR";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "537":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "KODICHERLA";
+            break;
+
+        case "539":
+            note = 0;
+            starting = "AFZALGUNJ";
+            destination = "KANHA";
+            break;
+
+        case "539/1Z":
+            note = 0;
+            starting = "KANHA";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "539/8A":
+            note = 0;
+            starting = "KANHA";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "539/300":
+            note = 0;
+            starting = "KANHA";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "546":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "BHUVANAGIRI";
+            break;
+
+        case "555":
+            note = 0;
+            starting = "DILSHUKNAGAR";
+            destination = "CHOTUPPAL";
+            break;
+
+        case "555/290U":
+            note = 0;
+            starting = "CHOTUPPAL";
+            destination = "SECUNDERABAD";
+            break;
+
+        case "567":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "MARKOOR";
+            break;
+
+        case "568":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "DAMARAKUNTA";
+            break;
+
+        case "578":
+            note = 0;
+            starting = "ECIL X ROADS";
+            destination = "M TURKAPALLY";
+            break;
+
+        case "580":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "YADAGIRIGUTTA";
+            break;
+
+        case "589":
+            note = 0;
+            starting = "SECUNDERABAD";
+            destination = "RAMAYAMPET";
+            break;
+
+        case "593":
+            note = 0;
+            starting = "MEHDIPATNAM";
+            destination = "CHEVELLA";
+            break;
+
+        // HD700 SERIES
+        case "702/212":
+            note = 0;
+            starting = "VARGAL TEMPLE";
+            destination = "SECUNDERABAD";
+            break;
+
+
+        default:
+
+            break;
+    }
+
+    getId('route1No').innerHTML = routeNumberUP;
+    getId('route2No').innerHTML = routeNumberDown;
+    getId('starting').innerHTML = starting;
+    getId('destination').innerHTML = destination;
+
+    direction = 1;
+
+    if (note == 0) {
+        introPartUP = "Bus Route <strong>" + routeNoI + "</strong> runs Between <strong>" + capitalizeText(starting) + "</strong> and <strong>" + capitalizeText(destination) + "</strong> passing through several stops along the way. Here are all the stops it covers: ";
+
+        introPartDOWN = "Bus Route <strong>" + routeNoI + "</strong> runs Between <strong>" + capitalizeText(destination) + "</strong> and <strong>" + capitalizeText(starting) + "</strong> passing through several stops along the way. Here are all the stops it covers: ";
+    }
+
+    fillNewUIrouteListNEW(upRouteArray, direction);
+
+}
+
+function ReturnIndex(routeArray, route) {
+    let i;
+    for (i = 0; i < routeArray.length; i++) {
+        if (routeArray[i][0] == route) {
+            break;
         }
     }
 
-    downViaList.innerHTML = viaString;
+    return i;
+}
 
-    upSource.innerHTML = routeStartI;
-    upDestination.innerHTML = routeEndI;
+function fillNewUIrouteListNEW(route, direction) {
+    stopsList.innerHTML = "";
+    let intro = document.createElement("p");
+    intro.classList.add('intro');
+    // intro.textContent = "Bus Route 117 runs from Uppal to Kushaiguda, passing through several important stops. Sometimes, it ends at ECIL instead of going all the way to Kushaiguda. Here are all the stops it covers:";
+    if (direction == 1) {
+        intro.innerHTML = introPartUP;
+    } else {
+        intro.innerHTML = introPartDOWN;
+    }
 
-    downSource.innerHTML = routeEndI;
-    downDestination.innerHTML = routeStartI;
+    stopsList.appendChild(intro);
+
+    for (let i = 1; i < route.length; i++) {
+        let stopsContainer = document.createElement('div');
+        let graphics = document.createElement('div');
+        let text = document.createElement('div');
+
+        let circle = document.createElement('p');
+        let stopName = document.createElement('h4');
+        let substopName = document.createElement('p');
+
+        stopsContainer.classList.add('stopsContainer');
+        stopsContainer.classList.add('ckl');
+        graphics.classList.add('graphics');
+        text.classList.add('text');
+
+        circle.classList.add('circle');
+        // circle.textContent = i;
+
+        if (OSK_Stops.includes(route[i])) {
+            stopName.innerHTML = capitalizeText(route[i]);
+        } else if (SHD.includes(route[i])) {
+            stopName.innerHTML = shdLower[SHD.indexOf(route[i])];
+        } else {
+            stopName.innerHTML = capitalizeText(route[i]);
+        }
+        stopName.setAttribute("onclick", "viewStopSender(this)");
+
+        if (i == 1) {
+            graphics.classList.add('first');
+        }
+
+        graphics.appendChild(circle);
+        text.appendChild(stopName);
+        text.appendChild(substopName);
+        stopsContainer.appendChild(graphics);
+        stopsContainer.appendChild(text);
+
+        stopsList.appendChild(stopsContainer);
+
+        if (i == route.length - 1) {
+            graphics.classList.add('last');
+        } else {
+            let stopsContainer2 = document.createElement('div');
+            let graphics2 = document.createElement('div');
+            let text2 = document.createElement('div');
+
+            let road = document.createElement('p');
+            let empty = document.createElement('h4');
+
+            stopsContainer2.classList.add('stopsContainer');
+            graphics2.classList.add('graphics');
+            text2.classList.add('text');
+
+            road.classList.add('road');
+
+            graphics2.appendChild(road);
+            text2.appendChild(empty);
+            stopsContainer2.appendChild(graphics2);
+            stopsContainer2.appendChild(text2);
+
+            stopsList.appendChild(stopsContainer2);
+        }
+    }
+
+    let TotalStops = route.length - 1 + " Stops";
+    let Distance;
+    if (direction == 1) {
+        Distance = UP_Distances[routesArray.indexOf(input1.value)]
+    } else {
+        Distance = DOWN_Distances[routesArray.indexOf(input1.value)]
+    }
+
+    let conclusion = document.createElement("p");
+    conclusion.classList.add("conclusion");
+    conclusion.innerHTML = "<strong>Total Stops:</strong> " + TotalStops;
+    conclusion.innerHTML += "<br><strong>Distance:</strong> " + Distance + " KMS";
+
+    stopsList.appendChild(conclusion);
+}
+
+function reverseDirectionRoute() {
+    if (direction == 1) {
+        direction = 2;
+        getId('starting').innerHTML = destination;
+        getId('destination').innerHTML = starting;
+        getId('buttonNameRev').innerHTML = "UP ROUTE";
+        fillNewUIrouteListNEW(downRouteArray, direction);
+    } else {
+        direction = 1;
+        getId('starting').innerHTML = starting;
+        getId('destination').innerHTML = destination;
+        getId('buttonNameRev').innerHTML = "DOWN ROUTE";
+        fillNewUIrouteListNEW(upRouteArray, direction);
+    }
+    stopsList.scrollTop = 0;
 }
 
 function viewStop(ref) {
@@ -11770,18 +14778,12 @@ function viewStopSender(ref) {
     let stopName = document.createElement("li");
     let stopNameContent = ref.innerText.toUpperCase();
     stopName.innerHTML = stopNameContent;
-    closeNewRouteList();
-    setTimeout(() => {
-        viewStop(stopName);
-    }, 500);
-
-    if (OutputScreen3.classList[1] == undefined) {
+    viewStop(stopName);
+    if (OutputScreen3.classList[1] != 'close') {
+        backState = 9;
         OutputScreen3.classList.add("close");
-        backState = 11;
-    } else {
-        backState = 10;
     }
-
+    getId('reverseButton').classList.add('hide');
 }
 
 function fillJunctionStopsRoutes(main, sub) {
@@ -12602,51 +15604,6 @@ function swapInputValues() {
     }
 }
 
-function expandList(ref) {
-    let route = input1.value;
-    let switchButton = getId('switchButton');
-
-    if (DetailedRoutesUP.some(subArray => subArray.includes(route))) {
-        if (ref == 1) {
-            for (let i = 0; i < DetailedRoutesUP.length; i++) {
-                if (DetailedRoutesUP[i].includes(route)) {
-                    fillNewUIrouteList(DetailedRoutesUP[i], 1);
-                    break;
-                }
-            }
-
-            switchButton.innerText = "Down Route";
-            switchButton.setAttribute("onclick", "expandList(2)");
-
-            newUISource.innerText = routeStartI;
-            newUIDestination.innerText = routeEndI;
-
-        } else {
-            for (let i = 0; i < DetailedRoutesDOWN.length; i++) {
-                if (DetailedRoutesDOWN[i].includes(route)) {
-                    fillNewUIrouteList(DetailedRoutesDOWN[i], 2);
-                    break;
-                }
-            }
-            switchButton.innerText = "Up Route";
-            switchButton.setAttribute("onclick", "expandList(1)");
-
-            newUISource.innerText = routeEndI;
-            newUIDestination.innerText = routeStartI;
-        }
-
-        routeOutputNewOutline.classList.remove('hide');
-        stopsList.scrollTop = 0;
-        setTimeout(() => {
-            contentRO.style.height = "85%";
-            contentRO.style.width = "90%";
-        }, 200);
-    } else {
-        openPopUpBox(4, "ALTworking");
-    }
-
-}
-
 function handleFontSize(ref, subref) {
     StopNameHead.innerHTML = ref;
     StopNameSub.innerHTML = subref;
@@ -12738,7 +15695,7 @@ function openPopUpBox(type, message) {
             errorMessage.innerHTML = "Your are travelling from invalid place, kindly choose it from our list.";
         } else if (message == "INV_D") {
             errorMessage.innerHTML = "Your are travelling to invalid place, kindly choose it from our list.";
-        }else if (message=="MSG") {
+        } else if (message == "MSG") {
             errorMessage.innerHTML = "An error occurred while sending Message. Please try again later.";
         }
     } else if (type == 5) {
@@ -12951,7 +15908,6 @@ function capitalizeText(text) {
     return string;
 }
 
-
 function getSampleRoutes(text) {
     let routes;
     if (text.split(",").length > 3) {
@@ -13023,13 +15979,13 @@ function changeIcons(ref) {
             ref.children[0].src = 'images/icons/idBlack.png';
             break;
         case 3:
-            ref.children[0].src = 'images/icons/helpBlack.png';
-            break;
-        case 4:
             ref.children[0].src = 'images/icons/contactBlack.png';
             break;
+        case 4:
+            ref.children[0].src = 'images/icons/helpBlack.png';
+            break;
         case 5:
-            ref.children[0].src = 'images/icons/moreBlack.png';
+            ref.children[0].src = 'images/icons/shareBlack.png';
             break;
 
         default:
@@ -13170,95 +16126,6 @@ function resetAdSlider() {
 
 adSlider();
 
-function fillNewUIrouteList(route, direction) {
-    stopsList.innerHTML = "";
-    for (let i = 1; i < route.length; i++) {
-        let stopsContainer = document.createElement('div');
-        let graphics = document.createElement('div');
-        let text = document.createElement('div');
-
-        let circle = document.createElement('p');
-        let stopName = document.createElement('h4');
-        let substopName = document.createElement('p');
-
-        stopsContainer.classList.add('stopsContainer');
-        stopsContainer.classList.add('ckl');
-        graphics.classList.add('graphics');
-        text.classList.add('text');
-
-        circle.classList.add('circle');
-
-
-        if (OSK_Stops.includes(route[i])) {
-            stopName.innerHTML = capitalizeText(route[i]);
-        } else {
-            stopName.innerHTML = shdLower[SHD.indexOf(route[i])];
-        }
-        stopName.setAttribute("onclick", "viewStopSender(this)");
-
-        if (i == 1) {
-            graphics.classList.add('first');
-        }
-
-        graphics.appendChild(circle);
-        text.appendChild(stopName);
-        text.appendChild(substopName);
-        stopsContainer.appendChild(graphics);
-        stopsContainer.appendChild(text);
-
-        stopsList.appendChild(stopsContainer);
-
-        if (i == route.length - 1) {
-            graphics.classList.add('last');
-        } else {
-            let stopsContainer2 = document.createElement('div');
-            let graphics2 = document.createElement('div');
-            let text2 = document.createElement('div');
-
-            let road = document.createElement('p');
-            let empty = document.createElement('h4');
-
-            stopsContainer2.classList.add('stopsContainer');
-            graphics2.classList.add('graphics');
-            text2.classList.add('text');
-
-            road.classList.add('road');
-
-            graphics2.appendChild(road);
-            text2.appendChild(empty);
-            stopsContainer2.appendChild(graphics2);
-            stopsContainer2.appendChild(text2);
-
-            stopsList.appendChild(stopsContainer2);
-        }
-    }
-
-    let TotalStops = route.length - 1 + " Stops";
-    let Distance;
-    if (direction == 1) {
-        Distance = UP_Distances[routesArray.indexOf(input1.value)]
-    } else {
-        Distance = DOWN_Distances[routesArray.indexOf(input1.value)]
-    }
-
-    let RouteSummary = document.createElement('div');
-    RouteSummary.classList.add('RouteSummary');
-    // RouteSummary.innerHTML = "<p><strong>" + TotalStops + "</strong></p> <p> <strong>" + Distance + " Kilometres";
-
-    RouteSummary.innerHTML = "<p><strong>" + TotalStops + "</strong></p> <p> <strong>" + Distance + " Kilometres" + "</strong></ p><p style='color:red   '><strong>Note:</strong></p><p>" + "</p>"
-
-    stopsList.appendChild(RouteSummary);
-}
-
-function closeNewRouteList() {
-    contentRO.style.height = "0px";
-    contentRO.style.width = "0px";
-    setTimeout(() => {
-        routeOutputNewOutline.classList.add('hide');
-    }, 350);
-}
-
-
 function closeOutputScreen(ref) {
     if (ref.id == "otherSectionsCloseBtn") {
         if (feature == "5") {
@@ -13301,18 +16168,6 @@ function closeBusStop() {
         fillRoutesBusStop(junctionStopsStopName);
         OutputScreen2.classList.add('close');
         backState = 1;
-    } else if (backState == 10 || backState == 11) {
-        OutputScreen.classList.add('close');
-        routeOutputNewOutline.classList.remove('hide');
-        setTimeout(() => {
-            contentRO.style.height = "85%";
-            contentRO.style.width = "90%";
-        }, 200);
-        if (backState == 10) {
-            backState = 0;
-        } else {
-            backState = 9;
-        }
     } else {
         OutputScreen.classList.add('close');
     }
@@ -13320,15 +16175,27 @@ function closeBusStop() {
     if (!(SHD.includes(input1.value))) {
         input1.value = "";
     }
+
+    if (OutputScreen2.classList[2] == 'close') {
+        getId('reverseButton').classList.add('hide');
+    } else if (OutputScreen2.classList[1] == 'close') {
+        getId('reverseButton').classList.add('hide');
+    } else {
+        getId('reverseButton').classList.remove('hide');
+    }
+
 }
 
 function closeRoute() {
     OutputScreen2.classList.add('close');
+    getId('reverseButton').classList.add('hide');
+
     if (backState == 2) {
         backState = 1;
     }
     if (backState == 9) {
         OutputScreen3.classList.remove("close");
+        backState = 0;
     }
     if (!(routesArray.includes(input1.value))) {
         input1.value = "";
@@ -13344,6 +16211,14 @@ function closeFromTo() {
 
     if (!(SHD.includes(input2.value))) {
         input2.value = "";
+    }
+
+    if (OutputScreen2.classList[2] == 'close') {
+        getId('reverseButton').classList.add('hide');
+    } else if (OutputScreen2.classList[1] == 'close') {
+        getId('reverseButton').classList.add('hide');
+    } else {
+        getId('reverseButton').classList.remove('hide');
     }
 }
 
@@ -13365,4 +16240,25 @@ function closeOtherSection() {
     } else {
         otherSectionsScreen.classList.add('close');
     }
+}
+
+
+// subHelpScreen = 1;
+// closeOtherSection();
+
+function copyShareLink() {
+    ClipboardCopier("https://thedeveloperrt.github.io/cityWaysHyd/");
+}
+
+function ClipboardCopier(text) {
+    var tempInput = document.createElement("input");
+    tempInput.value = text;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    tempInput.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+
+    getId('copyLinkBtn').classList.add("active");
+    getId('copyText').innerText = "Copied";
 }
