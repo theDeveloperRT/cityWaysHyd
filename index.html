@@ -34,7 +34,6 @@
                 onblur="hidecancelIcon(this)">
             <img src="images/icons/closeBlack.png" alt="Icon" class="" onclick="clearInputs(this)" id="clear2">
         </li>
-
     </div>
 
     <div class="ads">
@@ -216,7 +215,7 @@
                 </svg>
             </li>
 
-            <h2>CITY BUS WAYS</h2>
+            <h2>CITY ROUTES</h2>
             <ul class="menuItems">
                 <li onclick="menuItemsClick(this)" value="1" id="menuItem1">
                     <img src="images/icons/altRouteWhite.png" alt="icon">
@@ -311,63 +310,24 @@
                     </g>
                 </svg>
             </li>
-            <div class="centerCol routesContainerOutput" id="output2RouteHolder">
-                <h2 id="route1No">17H</h2>
-                <hr>
-                <h2 id="route2No">127KL</h2>
+
+            <div class="titlePlate centerRow">
+                <div class="number" id="output2RouteHolder">
+                    <h3 id="route1No">17H</h3>
+                    <h3 class="downRouteNumber" id="route2No">10H</h3>
+                </div>
+                <div class="names centerCol">
+                    <h3 id="starting">ECIL X ROADS</h3>
+                    <h3 id="destination">SECUNDERABAD</h3>
+                </div>
             </div>
         </div>
 
         <div class="contentOutputScreen" id="outputRoutes">
+            <!-- NEW UI ROUTE STRUCTURE -->
+            <div class="stopsList" id="stopsList">
 
-            <!-- UP ROUTE STRUCTURE -->
-            <div class="routeHolderOutputScreen" id="upRouteHolder">
-
-                <ul class="routeHeaderOutputScreen">
-                    <div class="text centerCol">
-                        <h3 id="upSource">SECUNDERABAD</h3>
-                        <p id="upViaList">TNK, LPT, HBCLY, MLY</p>
-                        <h3 id="upDestination">ECIL X ROADS</h3>
-                    </div>
-                    <div class="downArrowContainer centerRow">
-                        <span id="upRouteDownSpan" onclick="expandList(1)">View Stops</span>
-                        <img src="images/icons/down_Arrow.png" alt="Icon" id="upRouteDownIcon" onclick="expandList(1)">
-                    </div>
-                </ul>
-
-                <ul class="routeStopsListOutputScreen" id="upRouteStopsList">
-
-                </ul>
             </div>
-
-            <!-- DOWN ROUTE STRUCTURE -->
-            <div class="routeHolderOutputScreen" id="downRouteHolder">
-
-                <ul class="routeHeaderOutputScreen">
-                    <div class="text centerCol">
-                        <h3 id="downSource">SECUNDERABAD</h3>
-                        <p id="downViaList">TNK, LPT, HBCLY, MLY</p>
-                        <h3 id="downDestination">ECIL X ROADS</h3>
-                    </div>
-                    <div class="downArrowContainer centerRow">
-                        <span id="downRouteDownSpan" onclick="expandList(2)">View Stops</span>
-                        <img src="images/icons/down_Arrow.png" alt="Icon" id="downRouteDownIcon"
-                            onclick="expandList(2)">
-                    </div>
-                </ul>
-
-                <ul class="routeStopsListOutputScreen" id="downRouteStopsList">
-
-                </ul>
-            </div>
-
-            <!-- NOTE -->
-            <div class="note hide" id="routeNote">
-                <h4>Note:</h4>
-                <p id="noteMSG">Sometimes this route runs between ECIL and Keesara only, check and confirm with
-                    conductor or see the route board before boarding.</p>
-            </div>
-
         </div>
 
     </div>
@@ -567,10 +527,10 @@
         <div class="contactBox centerCol hide" id="contactBox">
             <h2>SEND MESSAGE</h2>
             <div class="form centerCol">
-                <input type="text" id="name" placeholder="NAME">
-                <input type="email" id="email" placeholder="E-MAIL ID">
-                <input type="text" id="subject" placeholder="SUBJECT">
-                <textarea name="message" id="message" placeholder="MESSAGE"></textarea>
+                <input type="text" id="name" placeholder="Name" autocomplete="off">
+                <input type="email" id="email" placeholder="E-Mail ID" autocomplete="off">
+                <input type="text" id="subject" placeholder="Subject" autocomplete="off">
+                <textarea name="message" id="message" placeholder="Message"></textarea>
             </div>
             <div class="actionBtns centerRow">
                 <button class="" onclick="closePopUpBox(this)" id="contactCloseBtn">Close</button>
@@ -1009,6 +969,9 @@
             <!-- NEW UI HELP SCREEN -->
             <div class="newHelpScreen">
                 <div class="helpSection">
+                    <div class="image centerRow">
+                        <!-- <img src="images/photos/routeSearch.png" alt="routeSearch"> -->
+                    </div>
                     <div class="text">
                         <h4>Bus Routes</h4>
                         <p>We have many Bus Routes in our city such as 17H, 14P, 250C etc., but we dont know which bus
@@ -1019,6 +982,9 @@
                 </div>
 
                 <div class="helpSection">
+                    <div class="image centerRow">
+                        <!-- <img src="images/photos/BusStop.png" alt="routeSearch"> -->
+                    </div>
                     <div class="text">
                         <h4>Bus Stops</h4>
                         <p>If you are in the bus stop and wants to know all the buses which passes from that particular
@@ -1028,6 +994,9 @@
                 </div>
 
                 <div class="helpSection">
+                    <div class="image centerRow">
+                        <!-- <img src="images/photos/FromTo.png" alt="routeSearch"> -->
+                    </div>
                     <div class="text">
                         <h4>From - To</h4>
                         <p>If you wants to go somewhere but don't know which bus you have to board, then you can use
@@ -1049,6 +1018,9 @@
                 </div>
 
                 <div class="helpSection">
+                    <div class="image centerRow">
+                        <!-- <img src="images/photos/fareChart.png" alt="routeSearch"> -->
+                    </div>
                     <div class="text">
                         <h4>Fare Search</h4>
                         <p>Hyderabad is a tourist hub, we have many tourist places to explore in our hyderabad, so if
@@ -1059,6 +1031,9 @@
                 </div>
 
                 <div class="helpSection">
+                    <div class="image centerRow">
+                        <!-- <img src="images/photos/AlternateRoute.png" alt="routeSearch"> -->
+                    </div>
                     <div class="text">
                         <h4>Alternate Routes</h4>
                         <p>If you wants to go somewhere, but direct buses are not available to you destination, then you
@@ -1130,18 +1105,28 @@
 
         </div>
 
-        <!-- MORE APPS SCREEN -->
-        <div class="moreAppsScreen hide" id="moreAppsScreen">
-
+        <!-- SHARE APP SCREEN -->
+        <div class="shareAppScreen hide" id="shareAppScreen">
+            <div class="ShareContent centerCol">
+                <div class="upText centerCol">
+                    <p>Let’s make Hyderabad commute hassle-free! </p>
+                    <h3>Invite your friends today!</h3>
+                </div>
+                <div class="image centerRow">
+                    <img src="images/photos/shareAppImage2.jpg" alt="Image">
+                </div>
+                <div class="actions centerCol">
+                    <button class="centerRow" onclick="copyShareLink()" id="copyLinkBtn"><img
+                            src="images/icons/linkWhite.png" alt="linkIcon"><span id="copyText">Copy
+                            Link</span></button>
+                    <a href="https://wa.me/?text=your_message" class="shareWAbutton">Share Now</a>
+                </div>
+            </div>
         </div>
 
-        <!-- MORE APPS SCREEN -->
-        <div class="moreAppsScreen hide" id="moreAppsScreen">
-
-        </div>
 
         <!-- SHORT NAMES SCREEN -->
-        <div class="moreAppsScreen hide" id="ShortformsScreen">
+        <div class="shareAppScreen hide" id="ShortformsScreen">
             <div class="searchScreen">
                 <li class="input centerRow">
                     <img src="images/icons/searchBlack.png" alt="Icon">
@@ -1161,76 +1146,8 @@
 
     </div>
 
-    <!-- New UI for Route Output -->
-    <div class="routeOutputNewOutline hide" id="routeOutputNewOutline">
-        <div class="contentRO" id="contentRO">
-            <div class="header">
-                <div class="title">
-                    <h3 id="newUISource">ECIL X ROADS </h3>
-                    <h3 id="newUIDestination">SECUNDERABAD</h3>
-                </div>
-            </div>
-
-            <div class="stopsList" id="stopsList">
-
-                <!-- <div class="stopsContainer ckl">
-                    <div class="graphics first">
-                        <p class="circle"></p>
-                    </div>
-                    <div class="text">
-                        <h4>ecil x roads</h4>
-                    </div>
-                </div>
-
-                <div class="stopsContainer">
-                    <div class="graphics first">
-                        <p class="road"></p>
-                    </div>
-                    <div class="text">
-                        <h4></h4>
-                    </div>
-                </div>
-
-                <div class="stopsContainer ckl">
-                    <div class="graphics">
-                        <p class="circle"></p>
-                    </div>
-                    <div class="text">
-                        <h4>zts x roads</h4>
-                        <p>Ion Digital Zone Moula Ali</p>
-                    </div>
-                </div>
-
-                <div class="stopsContainer">
-                    <div class="graphics">
-                        <p class="road"></p>
-                    </div>
-                    <div class="text">
-                        <h4></h4>
-                    </div>
-                </div>
-
-                <div class="stopsContainer ckl">
-                    <div class="graphics last">
-                        <p class="circle"></p>
-                    </div>
-                    <div class="text">
-                        <h4>secunderabad</h4>
-                        <p>Blue Sea Hotel Bus Stop</p>
-                    </div>
-                </div> -->
-
-                <div class="RouteSummary">
-
-                </div>
-
-            </div>
-
-            <div class="footer">
-                <button style="background-color: #167e2a;" id="switchButton">Down Route</button>
-                <button style="background-color: red;" onclick="closeNewRouteList()">Close</button>
-            </div>
-        </div>
+    <div class="reverseButton centerCol hide" onclick="reverseDirectionRoute()" id="reverseButton">
+        <p id="buttonNameRev">DOWN ROUTE</p>
     </div>
 
     <ul class="suggessionsList" id="suggessionsList">
@@ -1244,16 +1161,12 @@
     <script src="app.js"></script>
     <script src="format.js"></script>
     <script type="module">
-        // Import the functions you need from the SDKs you need
+
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-analytics.js";
 
         import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
 
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
         const firebaseConfig = {
             apiKey: "AIzaSyDL50nVv09WdGDqPygFgcaV_66j4q159ZI",
             authDomain: "cbwh-ab6d5.firebaseapp.com",
@@ -1296,7 +1209,7 @@
                 document.getElementById("subject").value = "";
                 document.getElementById("message").value = "";
             } catch (error) {
-                openPopUpBox(4,'MSG');
+                openPopUpBox(4, 'MSG');
             }
         });
     </script>
